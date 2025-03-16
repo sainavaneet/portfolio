@@ -1,12 +1,8 @@
 ---
-title: 🎉 TelloDrone with KeyBoard and Object detection
+title: TelloDrone with KeyBoard and Object detection
 summary: |
     ➔ Tello drone using your keyboard and perform object detection
-    using a pre-trained model. The drone movements are controlled
-    using the arrow keys and specific keys for takeoff, landing, and
-    flips. The object detection is performed on the live video feed
-    from the drone's camera.
-    ➔ Mobile net SSD technology to perform object detection
+    using a pre-trained model.
 
 date: 2022-08-23
 
