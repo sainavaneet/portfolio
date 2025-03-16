@@ -192,7 +192,7 @@ Awards:
     url: https://1drv.ms/b/s!AjXaFRA-wQA5j6RgVFFvxYgGksm71Q?e=heKHlq
     certificate_url: https://1drv.ms/b/s!AjXaFRA-wQA5j6RgVFFvxYgGksm71Q?e=heKHlq
     date: '2023-07-01'
-    awarder: Udemy
+    awarder: Udemy~
     icon: Udemy
     summary: |
       
