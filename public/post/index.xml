@@ -2,103 +2,204 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog | Hugo Academic CV Theme</title>
-    <link>http://localhost:44471/post/</link>
-      <atom:link href="http://localhost:44471/post/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/post/</link>
+      <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Blog</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 27 Oct 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:44471/media/icon_hu_645fa481986063ef.png</url>
+      <url>http://localhost:1313/media/icon_hu_645fa481986063ef.png</url>
       <title>Blog</title>
-      <link>http://localhost:44471/post/</link>
+      <link>http://localhost:1313/post/</link>
     </image>
     
     <item>
-      <title>🎉 Easily create your own simple yet highly customizable blog</title>
-      <link>http://localhost:44471/post/get-started/</link>
+      <title>🎉 Drone Trajectory Tracking with Python</title>
+      <link>http://localhost:1313/post/drone-trajctory-tracking/</link>
       <pubDate>Fri, 27 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:44471/post/get-started/</guid>
-      <description>&lt;p&gt;Welcome 👋&lt;/p&gt;
+      <guid>http://localhost:1313/post/drone-trajctory-tracking/</guid>
+      <description>&lt;h2 id=&#34;1-dynamics-and-kinematics-of-the-drone&#34;&gt;1. Dynamics and Kinematics of the Drone&lt;/h2&gt;
+&lt;p&gt;The dynamics and kinematics of a drone are crucial in understanding and controlling its flight behavior. The drone&amp;rsquo;s state can be described by its position $ x, y, z $
+, orientation (roll $ \phi $
+, pitch $ \theta $
+, and yaw $ \psi $
+), and their respective velocities and angular velocities.&lt;/p&gt;
+&lt;h3 id=&#34;translational-motion&#34;&gt;Translational Motion&lt;/h3&gt;
+&lt;p&gt;The translational motion of the drone can be described by Newton&amp;rsquo;s second law of motion:&lt;/p&gt;
+
+$$
+m\ddot{\mathbf{r}} = \mathbf{F} - mg\hat{z}
+$$
 
 
-
-&lt;details class=&#34;print:hidden xl:hidden&#34; open&gt;
-  &lt;summary&gt;Table of Contents&lt;/summary&gt;
-  &lt;div class=&#34;text-sm&#34;&gt;
-  &lt;nav id=&#34;TableOfContents&#34;&gt;
-  &lt;ul&gt;
-    &lt;li&gt;&lt;a href=&#34;#overview&#34;&gt;Overview&lt;/a&gt;
-      &lt;ul&gt;
-        &lt;li&gt;&lt;a href=&#34;#get-started&#34;&gt;Get Started&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;#crowd-funded-open-source-software&#34;&gt;Crowd-funded open-source software&lt;/a&gt;
-      &lt;ul&gt;
-        &lt;li&gt;&lt;a href=&#34;#-click-here-to-become-a-sponsor-and-help-support-hugo-blox&#34;&gt;&lt;a href=&#34;https://hugoblox.com/sponsor/&#34;&gt;❤️ Click here to become a sponsor and help support Hugo Blox&amp;rsquo;s future ❤️&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;#ecosystem&#34;&gt;Ecosystem&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;#inspiration&#34;&gt;Inspiration&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;#features&#34;&gt;Features&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;#themes&#34;&gt;Themes&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/nav&gt;
-  &lt;/div&gt;
-&lt;/details&gt;
-
-&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;The Hugo Blox website builder for Hugo, along with its starter templates, is designed for professional creators, educators, and teams/organizations - although it can be used to create any kind of site&lt;/li&gt;
-&lt;li&gt;The template can be modified and customised to suit your needs. It&amp;rsquo;s a good platform for anyone looking to take control of their data and online identity whilst having the convenience to start off with a &lt;strong&gt;no-code solution (write in Markdown and customize with YAML parameters)&lt;/strong&gt; and having &lt;strong&gt;flexibility to later add even deeper personalization with HTML and CSS&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;You can work with all your favourite tools and apps with hundreds of plugins and integrations to speed up your workflows, interact with your readers, and much more&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;get-started&#34;&gt;Get Started&lt;/h3&gt;
+&lt;p&gt;where:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;👉 &lt;a href=&#34;https://hugoblox.com/templates/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Create a new site&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;📚 &lt;a href=&#34;https://docs.hugoblox.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Personalize your site&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;💬 &lt;a href=&#34;https://discord.gg/z8wNYzb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chat with the &lt;strong&gt;Hugo Blox community&lt;/strong&gt;&lt;/a&gt; or &lt;a href=&#34;https://discourse.gohugo.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Hugo community&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;🐦 Twitter: &lt;a href=&#34;https://twitter.com/GetResearchDev&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@GetResearchDev&lt;/a&gt; &lt;a href=&#34;https://twitter.com/GeorgeCushen&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@GeorgeCushen&lt;/a&gt; #MadeWithHugoBlox&lt;/li&gt;
-&lt;li&gt;💡 &lt;a href=&#34;https://github.com/HugoBlox/hugo-blox-builder/issues&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Request a &lt;strong&gt;feature&lt;/strong&gt; or report a &lt;strong&gt;bug&lt;/strong&gt; for &lt;em&gt;Hugo Blox&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;⬆️ &lt;strong&gt;Updating Hugo Blox?&lt;/strong&gt; View the &lt;a href=&#34;https://docs.hugoblox.com/reference/update/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Update Guide&lt;/a&gt; and &lt;a href=&#34;https://github.com/HugoBlox/hugo-blox-builder/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Release Notes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;$ m $
+ is the mass of the drone.&lt;/li&gt;
+&lt;li&gt;$ \ddot{\mathbf{r}} $
+ represents the linear acceleration.&lt;/li&gt;
+&lt;li&gt;$ \mathbf{F} $
+ is the total thrust force generated by the drone&amp;rsquo;s motors.&lt;/li&gt;
+&lt;li&gt;$ g $
+ is the acceleration due to gravity.&lt;/li&gt;
+&lt;li&gt;$ \hat{z} $
+ is the unit vector in the vertical direction.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;crowd-funded-open-source-software&#34;&gt;Crowd-funded open-source software&lt;/h2&gt;
-&lt;p&gt;To help us develop this template and software sustainably under the MIT license, we ask all individuals and businesses that use it to help support its ongoing maintenance and development via sponsorship.&lt;/p&gt;
-&lt;h3 id=&#34;-click-here-to-become-a-sponsor-and-help-support-hugo-blox&#34;&gt;&lt;a href=&#34;https://hugoblox.com/sponsor/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;❤️ Click here to become a sponsor and help support Hugo Blox&amp;rsquo;s future ❤️&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;As a token of appreciation for sponsoring, you can &lt;strong&gt;unlock &lt;a href=&#34;https://hugoblox.com/sponsor/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;these&lt;/a&gt; awesome rewards and extra features 🦄✨&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;ecosystem&#34;&gt;Ecosystem&lt;/h2&gt;
+&lt;h3 id=&#34;rotational-motion&#34;&gt;Rotational Motion&lt;/h3&gt;
+&lt;p&gt;The rotational motion of the drone is described using Euler&amp;rsquo;s equations of motion for a rigid body:&lt;/p&gt;
+
+$$
+I \dot{\boldsymbol{\omega}} + \boldsymbol{\omega} \times (I \boldsymbol{\omega}) = \mathbf{\tau}
+$$
+
+
+&lt;p&gt;where:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/GetRD/academic-file-converter&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bibtex To Markdown&lt;/a&gt;:&lt;/strong&gt; Automatically import publications from BibTeX&lt;/li&gt;
+&lt;li&gt;$ I $
+ represents the moment of inertia matrix.&lt;/li&gt;
+&lt;li&gt;$ \boldsymbol{\omega} $
+ is the angular velocity vector (p, q, r).&lt;/li&gt;
+&lt;li&gt;$ \mathbf{\tau} $
+ is the vector of external torques acting on the drone.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;inspiration&#34;&gt;Inspiration&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://hugoblox.com/creators/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Learn what other &lt;strong&gt;creators&lt;/strong&gt;&lt;/a&gt; are building with this template.&lt;/p&gt;
-&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+&lt;h3 id=&#34;dynamic-system-matrix&#34;&gt;Dynamic System Matrix&lt;/h3&gt;
+&lt;p&gt;The dynamics of the drone can be represented in a state-space format, where the state vector $$ \mathbf{x} $$
+ might include the position, velocity, orientation, and angular velocity. The state-space model is typically written as:&lt;/p&gt;
+
+$$
+\dot{\mathbf{x}} = A\mathbf{x} + B\mathbf{u}
+$$
+
+
+
+$$
+\mathbf{y} = C\mathbf{x} + D\mathbf{u}
+$$
+
+
+&lt;p&gt;Where:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Page builder&lt;/strong&gt; - Create &lt;em&gt;anything&lt;/em&gt; with no-code &lt;a href=&#34;https://hugoblox.com/blocks/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;blocks&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;https://docs.hugoblox.com/reference/markdown/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;elements&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Edit any type of content&lt;/strong&gt; - Blog posts, publications, talks, slides, projects, and more!&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Create content&lt;/strong&gt; in &lt;a href=&#34;https://docs.hugoblox.com/reference/markdown/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Markdown&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&#34;https://docs.hugoblox.com/getting-started/cms/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Jupyter&lt;/strong&gt;&lt;/a&gt;, or &lt;a href=&#34;https://docs.hugoblox.com/getting-started/cms/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;RStudio&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Plugin System&lt;/strong&gt; - Fully customizable &lt;a href=&#34;https://docs.hugoblox.com/getting-started/customize/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;color&lt;/strong&gt; and &lt;strong&gt;font themes&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Display Code and Math&lt;/strong&gt; - Code syntax highlighting and LaTeX math supported&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Integrations&lt;/strong&gt; - &lt;a href=&#34;https://analytics.google.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google Analytics&lt;/a&gt;, &lt;a href=&#34;https://disqus.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Disqus commenting&lt;/a&gt;, Maps, Contact Forms, and more!&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Beautiful Site&lt;/strong&gt; - Simple and refreshing one-page design&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Industry-Leading SEO&lt;/strong&gt; - Help get your website found on search engines and social media&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Media Galleries&lt;/strong&gt; - Display your images and videos with captions in a customizable gallery&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mobile Friendly&lt;/strong&gt; - Look amazing on every screen with a mobile friendly version of your site&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Multi-language&lt;/strong&gt; - 35+ language packs including English, 中文, and Português&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Multi-user&lt;/strong&gt; - Each author gets their own profile page&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Privacy Pack&lt;/strong&gt; - Assists with GDPR&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Stand Out&lt;/strong&gt; - Bring your site to life with animation, parallax backgrounds, and scroll effects&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;One-Click Deployment&lt;/strong&gt; - No servers. No databases. Only files.&lt;/li&gt;
+&lt;li&gt;$ \mathbf{x} $
+ is the state vector.&lt;/li&gt;
+&lt;li&gt;$ \mathbf{u} $
+ is the input vector (like motor thrusts).&lt;/li&gt;
+&lt;li&gt;$ \mathbf{y} $
+ is the output vector (like measured position and orientation).&lt;/li&gt;
+&lt;li&gt;$ A $
+ is the system matrix, representing the dynamics of the drone.&lt;/li&gt;
+&lt;li&gt;$ B $
+ is the input matrix, showing how inputs affect the state.&lt;/li&gt;
+&lt;li&gt;$ C $
+ is the output matrix, linking the state to the outputs.&lt;/li&gt;
+&lt;li&gt;$ D $
+ is the direct transmission matrix, usually a zero matrix in drone dynamics.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;themes&#34;&gt;Themes&lt;/h2&gt;
-&lt;p&gt;Hugo Blox and its templates come with &lt;strong&gt;automatic day (light) and night (dark) mode&lt;/strong&gt; built-in. Visitors can choose their preferred mode by clicking the sun/moon icon in the header.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://docs.hugoblox.com/getting-started/customize/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Choose a stunning &lt;strong&gt;theme&lt;/strong&gt; and &lt;strong&gt;font&lt;/strong&gt;&lt;/a&gt; for your site. Themes are fully customizable.&lt;/p&gt;
+&lt;p&gt;The matrices $$ A, B, C, D $$
+ are determined based on the physical characteristics of the drone and its operational environment. They encapsulate the dynamics and kinematics, converting control inputs into predictions about the drone&amp;rsquo;s future state.&lt;/p&gt;
+&lt;h2 id=&#34;2-control-system&#34;&gt;2. Control System&lt;/h2&gt;
+&lt;h3 id=&#34;control-inputs&#34;&gt;Control Inputs&lt;/h3&gt;
+&lt;p&gt;The control inputs for the drone include thrust $$ U1 $$
+ and torques $$ U2, U3, U4 $$
+. These inputs are calculated as follows:&lt;/p&gt;
+
+$$
+U1 = c_t(\omega_1^2 + \omega_2^2 + \omega_3^2 + \omega_4^2)
+$$
+
+
+
+$$
+U2 = c_t l (\omega_2^2 - \omega_4^2)
+$$
+
+
+
+$$
+U3 = c_t l (\omega_3^2 - \omega_1^2)
+$$
+
+
+
+$$
+U4 = c_q (-\omega_1^2 + \omega_2^2 - \omega_3^2 + \omega_4^2)
+$$
+
+
+&lt;h2 id=&#34;3-trajectory-generation&#34;&gt;3. Trajectory Generation&lt;/h2&gt;
+&lt;p&gt;The desired trajectory is represented as a function of time $ t $
+:&lt;/p&gt;
+
+$$
+X_{ref}(t), Y_{ref}(t), Z_{ref}(t), \psi_{ref}(t)
+$$
+
+
+&lt;h2 id=&#34;4-linear-parameter-varying-lpv-systems&#34;&gt;4. Linear Parameter Varying (LPV) Systems&lt;/h2&gt;
+&lt;p&gt;LPV systems are described by the following equations:&lt;/p&gt;
+
+$$
+\dot{x}(t) = A(t)x(t) + B(t)u(t)
+$$
+
+
+
+$$
+y(t) = C(t)x(t) + D(t)u(t)
+$$
+
+
+&lt;h2 id=&#34;5-model-predictive-control-mpc&#34;&gt;5. Model Predictive Control (MPC)&lt;/h2&gt;
+&lt;p&gt;Model Predictive Control (MPC) is an advanced method of process control that uses a dynamic model to predict and optimize future states of a control system. In the context of drone trajectory tracking, MPC is used to compute the optimal control inputs that will guide the drone along a desired trajectory. The basic formulation of an MPC problem can be given as follows:&lt;/p&gt;
+
+$$
+\min_{u} \sum_{k=0}^{N-1} \left( (x_k - x_{ref})^T Q (x_k - x_{ref}) + (u_k - u_{ref})^T R (u_k - u_{ref}) \right)
+$$
+
+
+&lt;p&gt;Subject to the dynamic constraints of the system:&lt;/p&gt;
+
+$$
+x_{k+1} = A x_k + B u_k
+$$
+
+
+
+$$
+x_{min} \leq x_k \leq x_{max}
+$$
+
+
+
+$$
+u_{min} \leq u_k \leq u_{max}
+$$
+
+
+&lt;p&gt;Where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$ x_k $
+ is the state of the system at step $ k $
+.&lt;/li&gt;
+&lt;li&gt;$ u_k $ is the control input at step $ k $.&lt;/li&gt;
+&lt;li&gt;$ x_{ref} $ and $ u_{ref} $ are the reference state and input, respectively.&lt;/li&gt;
+&lt;li&gt;$ Q $ and $ R $ are weighting matrices.&lt;/li&gt;
+&lt;li&gt;$ N $ is the prediction horizon.&lt;/li&gt;
+&lt;li&gt;$ A $ and $ B $ are the system matrices.&lt;/li&gt;
+&lt;li&gt;$ x_{min}, x_{max}, u_{min}, u_{max} $ are the bounds on states and inputs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;6-model-predictive-control-mpc&#34;&gt;6. Model Predictive Control (MPC)&lt;/h2&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/S4rpkbglb5c?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.google.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;I&amp;rsquo;m an external link&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>🧠 Sharpen your thinking with a second brain</title>
-      <link>http://localhost:44471/post/second-brain/</link>
+      <link>http://localhost:1313/post/second-brain/</link>
       <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:44471/post/second-brain/</guid>
+      <guid>http://localhost:1313/post/second-brain/</guid>
       <description>&lt;p&gt;Create a personal knowledge base and share your knowledge with your peers.&lt;/p&gt;
 &lt;p&gt;Hugo Blox web framework empowers you with one of the most flexible note-taking capabilities out there.&lt;/p&gt;
 &lt;p&gt;Create a powerful knowledge base that works on top of a local folder of plain text Markdown files.&lt;/p&gt;
@@ -208,9 +309,9 @@
     
     <item>
       <title>📈 Communicate your results effectively with the best data visualizations</title>
-      <link>http://localhost:44471/post/data-visualization/</link>
+      <link>http://localhost:1313/post/data-visualization/</link>
       <pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:44471/post/data-visualization/</guid>
+      <guid>http://localhost:1313/post/data-visualization/</guid>
       <description>&lt;p&gt;Hugo Blox is designed to give technical content creators a seamless experience. You can focus on the content and Hugo Blox handles the rest.&lt;/p&gt;
 &lt;p&gt;Use popular tools such as Plotly, Mermaid, and data frames.&lt;/p&gt;
 &lt;h2 id=&#34;charts&#34;&gt;Charts&lt;/h2&gt;
@@ -221,7 +322,7 @@
 
 
 
-&lt;div id=&#34;chart-391485726&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-368419572&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -239,7 +340,7 @@
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-391485726&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-368419572&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -418,9 +519,9 @@ Crash --&gt; [*]
     
     <item>
       <title>👩🏼‍🏫 Teach academic courses</title>
-      <link>http://localhost:44471/post/teach-courses/</link>
+      <link>http://localhost:1313/post/teach-courses/</link>
       <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:44471/post/teach-courses/</guid>
+      <guid>http://localhost:1313/post/teach-courses/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://hugoblox.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hugo Blox Builder&lt;/a&gt; is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Embed videos, podcasts, code, LaTeX math, and even test students!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;On this page, you&amp;rsquo;ll find some examples of the types of technical content that can be rendered with Hugo Blox.&lt;/p&gt;
@@ -469,7 +570,7 @@ Crash --&gt; [*]
 
 
 &lt;audio controls &gt;
-  &lt;source src=&#34;http://localhost:44471/post/teach-courses/ambient-piano.mp3&#34; type=&#34;audio/mpeg&#34;&gt;
+  &lt;source src=&#34;http://localhost:1313/post/teach-courses/ambient-piano.mp3&#34; type=&#34;audio/mpeg&#34;&gt;
 &lt;/audio&gt;
 
 &lt;h2 id=&#34;test-students&#34;&gt;Test students&lt;/h2&gt;
@@ -528,9 +629,9 @@ data.head()
     
     <item>
       <title>✅ Manage your projects</title>
-      <link>http://localhost:44471/post/project-management/</link>
+      <link>http://localhost:1313/post/project-management/</link>
       <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:44471/post/project-management/</guid>
+      <guid>http://localhost:1313/post/project-management/</guid>
       <description>&lt;p&gt;Easily manage your projects - create ideation mind maps, Gantt charts, todo lists, and more!&lt;/p&gt;
 &lt;h2 id=&#34;ideation&#34;&gt;Ideation&lt;/h2&gt;
 &lt;p&gt;Hugo Blox supports a Markdown extension for mindmaps.&lt;/p&gt;
