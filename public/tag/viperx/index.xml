@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Viperx | FLORENCIA GRATTAROLA</title><link>http://localhost:1313/tag/viperx/</link><atom:link href="http://localhost:1313/tag/viperx/index.xml" rel="self" type="application/rss+xml"/><description>Viperx</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 10 Dec 2024 00:00:00 +0000</lastBuildDate><image><url>http://localhost:1313/media/icon_hu_2ac6985030d8f1fc.png</url><title>Viperx</title><link>http://localhost:1313/tag/viperx/</link></image><item><title>🎉 Autonomus harvesting using Object Detecion</title><link>http://localhost:1313/project/autonomus-harvesting/</link><pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/project/autonomus-harvesting/</guid><description>&lt;h1 id="cucumber-harvesting-using-object-detecion">Cucumber harvesting using Object Detecion&lt;/h1>
+&lt;p>The development of a cucumber harvesting
+system that utilizes custom object detection with &lt;code>YOLOv11&lt;/code>. After
+detecting cucumbers, we generate specific actions for two types of
+robots: the &lt;code>ViperX 300s&lt;/code> arm robot and an &lt;code>Automated Guided Vehicle&lt;/code>
+(AGV) robot.&lt;/p>
+&lt;p>The primary aim of this project is to create a comprehensive &lt;code>dataset&lt;/code>
+that captures both the actions performed by the robots and the images
+taken during the harvesting process. This dataset is a crucial resource
+for developing and refining algorithms that will enhance future robotic
+harvesting techniques.&lt;/p>
+&lt;p>By systematically recording a wide array of interactions and scenarios,
+we not only improve the efficiency of current systems but also lay a
+robust foundation for future advancements in agricultural robotics. This
+initiative represents a significant step forward in automating and
+optimizing the harvesting process through the integration of advanced
+machine learning models and robotic technology.&lt;/p>
+&lt;h2 id="-prerequisites">🛠️ Prerequisites&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Ubuntu 20.04&lt;/strong> 🐧&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Interbotix Packages&lt;/strong> 🤖&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Python&lt;/strong> 🐍&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>ROS&lt;/strong> 🤖&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>interbotix_ws : -&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="-installation">🚀 Installation&lt;/h2>
+&lt;p>To get started with this frame work, follow these steps:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git clone https://github.com/sainavaneet/Harvesting.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> Harvesting/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pip install -e .
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-project-structure">🗂 Project Structure&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">├── base_control
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── agv_control.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── examples
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ │ ├── move_6s_back.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ │ ├── move_6s_forward.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ │ ├── move_base.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ │ ├── odom_cal.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ │ └── original.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── gui_control.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └── __pycache__
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └── agv_control.cpython-38.pyc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── config
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └── vx300s.yaml
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── harvest.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── images
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └── obj_detection.png
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── index.md
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── __init__.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── launch
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └── robot.launch
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── object_detection
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── dataset
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ │ └── Cucumber.v2i.yolov11.zip
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── detection_realsenes.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └── weights
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── best.pt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └── last.pt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── __pycache__
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └── var.cpython-38.pyc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── README.md
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── requirements.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── robot_utils.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── rviz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── puppet_left.rviz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └── rviz.rviz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── setup.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── sleep.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── transform_co.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── utilities.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── var.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└── videos
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── 1.mp4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── 2.mp4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── 3.mp4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> └── 4.mp4
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="launch">Launch&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> interbotix_ws/devel.setup.bash
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> ~/Harvesting/launch/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">roslaunch robot.launch use_rviz:&lt;span class="o">=&lt;/span>&lt;span class="nb">false&lt;/span> use_sim:&lt;span class="o">=&lt;/span>False &lt;span class="c1"># if you need in simulation use True&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="object-detection">Object Detection&lt;/h2>
+&lt;p>The object detection files are located in the &lt;code>/object_detection&lt;/code>
+directory.&lt;/p>
+&lt;p>By executing the &lt;code>detection_realsense.py&lt;/code> script, cucumbers can be
+detected. We have designed the algorithm in such a way that it
+determines a stable pose of the cucumber after detecting it, based on a
+predefined threshold.&lt;/p>
+&lt;img src="images/clipboard-945579712.png" width="537" />
+&lt;h2 id="task">🦾TASK&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>Robot Movement&lt;/code>&lt;/strong>: The robot starts at position 1, moves along the
+path, detects cucumbers, and harvests them.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>Detection and Harvesting&lt;/code>&lt;/strong>&lt;code>:&lt;/code> After harvesting cucumbers at
+position 1, the robot moves to position 2, detects the next cucumber,
+and proceeds with harvesting. This pattern continues as the robot
+moves along the track.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>Sequential Harvesting&lt;/code>&lt;/strong>&lt;code>:&lt;/code> The robot moves sequentially from
+positions 1 to 4, harvesting cucumbers at each point along the way.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>Reversal of Process&lt;/code>&lt;/strong>&lt;code>:&lt;/code> Once the robot reaches the end of the
+track, at position 5, it reverses the process and moves back along the
+same path, harvesting cucumbers from position 6 to 3.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>Return to Start&lt;/code>&lt;/strong>&lt;code>:&lt;/code> After completing the harvesting task, the
+robot returns to its starting position at 9.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure >
+&lt;div class="flex justify-center ">
+&lt;div class="w-100" >&lt;img alt="" srcset="
+/project/autonomus-harvesting/images/Task_hu_312e162c670390b3.webp 400w,
+/project/autonomus-harvesting/images/Task_hu_bddfc010ad1bf1a6.webp 760w,
+/project/autonomus-harvesting/images/Task_hu_d1189a2509b08823.webp 1200w"
+src="http://localhost:1313/project/autonomus-harvesting/images/Task_hu_312e162c670390b3.webp"
+width="760"
+height="423"
+loading="lazy" data-zoomable />&lt;/div>
+&lt;/div>&lt;/figure>
+&lt;/p>
+&lt;p>The entire task can be executed using the Python script.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python&lt;/span> &lt;span class="n">harvest&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-dataset">🎁 Dataset&lt;/h2>
+&lt;p>&lt;strong>&lt;code>Dataset can be found in the releases.&lt;/code>&lt;/strong>&lt;/p>
+&lt;h2 id="-results">🏋️ Results&lt;/h2>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/E9Sd3xxTBig?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video">&lt;/iframe>
+&lt;/div></description></item></channel></rss>

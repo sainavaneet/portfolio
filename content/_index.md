@@ -18,18 +18,42 @@ sections:
       button:
         text: Download CV
         url: uploads/resume.pdf
+
+
+    # design:
+    #   css_class: dark
+    #   background:
+    #     color: black
+        # image:
+        #   # Add your image background to `assets/media/`.
+        #   filename: astro.png
+        #   filters:
+        #     brightness: 0.3
+        #   size: cover
+        #   position: center
+        #   parallax: true
+        
+  - block: markdown
+    id: parallax1
     design:
-      css_class: dark
       background:
-        color: black
         image:
-          # Add your image background to `assets/media/`.
-          filename: astro.png
+          # Name of image in `assets/media/`.
+          filename: moon.jpg
+          # Apply image filters?
           filters:
-            brightness: 0.3
+            # Darken the image? Range 0-1 where 1 is transparent and 0 is opaque.
+            brightness: 0.6
+          #  Image fit. Options are `cover` (default), `contain`, or `actual` size.
           size: cover
+          # Image focal point. Options include `left`, `center` (default), or `right`.
           position: center
+          # Use a fun parallax-like fixed background effect on desktop? true/false
           parallax: true
+          # Text color (true=light, false=dark, or remove for the dynamic theme color).
+          text_color_light: true
+
+
   - block: markdown
     content:
       title: '📚 My Research'
@@ -42,67 +66,99 @@ sections:
         Please reach out to collaborate 😃
     design:
       columns: '1'
-  - block: collection
-    id: papers
+
+  - block: resume-experience
     content:
-      title: Featured Publications
-      filters:
-        folders:
-          - publication
-        featured_only: true
+      username: admin
     design:
-      view: article-grid
-      columns: 2
-  - block: collection
+      # Hugo date format
+      date_format: 'January 2006'
+      # Education or Experience section first?
+      is_education_first: false
+  - block: resume-skills
+    content:
+      title: Skills & Hobbies
+      username: admin
+    design:
+      show_skill_percentage: false 
+  - block: resume-awards
+    content:
+      title: Awards
+      username: admin
+  - block: resume-languages
+    content:
+      title: Languages
+      username: admin
 
 
-    content:
-      title: Recent Publications
-      text: ""
-      filters:
-        folders:
-          - publication
-        exclude_featured: false
-    design:
-      view: citation
-  - block: collection
-    id: talks
-    content:
-      title: Recent & Upcoming Talks
-      filters:
-        folders:
-          - event
-    design:
-      view: article-grid
-      columns: 1
-  - block: collection
-    id: news
-    content:
-      title: Recent News
-      subtitle: ''
-      text: ''
-      # Page type to display. E.g. post, talk, publication...
-      page_type: post
-      # Choose how many pages you would like to display (0 = all pages)
-      count: 5
-      # Filter on criteria
-      filters:
-        author: ""
-        category: ""
-        tag: ""
-        exclude_featured: false
-        exclude_future: false
-        exclude_past: false
-        publication_type: ""
-      # Choose how many pages you would like to offset by
-      offset: 0
-      # Page order: descending (desc) or ascending (asc) date.
-      order: desc
-    design:
-      # Choose a layout view
-      view: date-title-summary
-      # Reduce spacing
-      spacing:
-        padding: [0, 0, 0, 0]
+
+
+  # - block: collection
+  #   id: papers
+  #   content:
+  #     title: Featured Publications
+  #     filters:
+  #       folders:
+  #         - publication
+  #       featured_only: true
+  #   design:
+  #     view: article-grid
+  #     columns: 2
+
+  # - block: collection
+  #   content:
+  #     title: Recent Publications
+  #     text: ""
+  #     filters:
+  #       folders:
+  #         - publication
+  #       exclude_featured: false
+  #   design:
+  #     view: citation
+  # - block: collection
+  #   id: talks
+  #   content:
+  #     title: Recent & Upcoming Talks
+  #     filters:
+  #       folders:
+  #         - event
+  #   design:
+  #     view: article-grid
+  #     columns: 1
+
+
+  # - block: collection
+  #   id: news
+  #   content:
+  #     title: Recent News
+  #     subtitle: ''
+  #     text: ''
+  #     # Page type to display. E.g. post, talk, publication...
+  #     page_type: post
+  #     # Choose how many pages you would like to display (0 = all pages)
+  #     count: 5
+  #     # Filter on criteria
+  #     filters:
+  #       author: ""
+  #       category: ""
+  #       tag: ""
+  #       exclude_featured: false
+  #       exclude_future: false
+  #       exclude_past: false
+  #       publication_type: ""
+  #     # Choose how many pages you would like to offset by
+  #     offset: 0
+  #     # Page order: descending (desc) or ascending (asc) date.
+  #     order: desc
+  #   design:
+  #     # Choose a layout view
+  #     view: date-title-summary
+  #     # Reduce spacing
+  #     spacing:
+  #       padding: [0, 0, 0, 0]
+
+
+
+
 
 ---

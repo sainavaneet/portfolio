@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Verilog | Hugo Academic CV Theme</title>
-    <link>http://localhost:1313/tags/verilog/</link>
-      <atom:link href="http://localhost:1313/tags/verilog/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:33461/tags/verilog/</link>
+      <atom:link href="http://localhost:33461/tags/verilog/index.xml" rel="self" type="application/rss+xml" />
     <description>Verilog</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 18 Apr 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:1313/media/icon_hu_645fa481986063ef.png</url>
+      <url>http://localhost:33461/media/icon_hu_645fa481986063ef.png</url>
       <title>Verilog</title>
-      <link>http://localhost:1313/tags/verilog/</link>
+      <link>http://localhost:33461/tags/verilog/</link>
     </image>
     
     <item>
       <title>🎉 Verilog Codes</title>
-      <link>http://localhost:1313/project/verilog/</link>
+      <link>http://localhost:33461/project/verilog/</link>
       <pubDate>Tue, 18 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/project/verilog/</guid>
+      <guid>http://localhost:33461/project/verilog/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/sainavaneet/Verilog/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;👉 Developed Verilog HDL code for a 4-bit adder, 4-to-1 multiplexer, AND gate, BUF gate, and an inverter with delay.&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;system-that-generates-detects-and-corrects-hamming-code&#34;&gt;System that generates, detects, and corrects Hamming Code&lt;/h3&gt;
 &lt;p&gt;➔ Module implements the Hamming code encoder for each of the 16 input parts.&lt;/p&gt;
@@ -64,9 +64,9 @@
     
     <item>
       <title>32 bit CPU based on MIPS architecture</title>
-      <link>http://localhost:1313/project/32-bit-cpu-based-on-mips-architecture/</link>
+      <link>http://localhost:33461/project/32-bit-cpu-based-on-mips-architecture/</link>
       <pubDate>Tue, 18 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/project/32-bit-cpu-based-on-mips-architecture/</guid>
+      <guid>http://localhost:33461/project/32-bit-cpu-based-on-mips-architecture/</guid>
       <description>&lt;p&gt;Implementation of a 32-bit MIPS Processor using Verilog HDL. The processor is capable of executing various MIPS instructions and includes key components such as the Instruction Memory, Register File, ALU, Data Memory, and Control Unit.&lt;/p&gt;
 &lt;h2 id=&#34;instruction-set&#34;&gt;Instruction Set&lt;/h2&gt;
 &lt;p&gt;The MIPS Processor supports the following instructions:&lt;/p&gt;
