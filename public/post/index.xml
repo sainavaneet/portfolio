@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog | Hugo Academic CV Theme</title>
-    <link>http://localhost:33461/post/</link>
-      <atom:link href="http://localhost:33461/post/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:41833/post/</link>
+      <atom:link href="http://localhost:41833/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Blog</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 26 Oct 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:33461/media/icon_hu_645fa481986063ef.png</url>
+      <url>http://localhost:41833/media/icon_hu_645fa481986063ef.png</url>
       <title>Blog</title>
-      <link>http://localhost:33461/post/</link>
+      <link>http://localhost:41833/post/</link>
     </image>
     
     <item>
       <title>🧠 Sharpen your thinking with a second brain</title>
-      <link>http://localhost:33461/post/second-brain/</link>
+      <link>http://localhost:41833/post/second-brain/</link>
       <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:33461/post/second-brain/</guid>
+      <guid>http://localhost:41833/post/second-brain/</guid>
       <description>&lt;p&gt;Create a personal knowledge base and share your knowledge with your peers.&lt;/p&gt;
 &lt;p&gt;Hugo Blox web framework empowers you with one of the most flexible note-taking capabilities out there.&lt;/p&gt;
 &lt;p&gt;Create a powerful knowledge base that works on top of a local folder of plain text Markdown files.&lt;/p&gt;
@@ -126,9 +126,9 @@
     
     <item>
       <title>📈 Communicate your results effectively with the best data visualizations</title>
-      <link>http://localhost:33461/post/data-visualization/</link>
+      <link>http://localhost:41833/post/data-visualization/</link>
       <pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:33461/post/data-visualization/</guid>
+      <guid>http://localhost:41833/post/data-visualization/</guid>
       <description>&lt;p&gt;Hugo Blox is designed to give technical content creators a seamless experience. You can focus on the content and Hugo Blox handles the rest.&lt;/p&gt;
 &lt;p&gt;Use popular tools such as Plotly, Mermaid, and data frames.&lt;/p&gt;
 &lt;h2 id=&#34;charts&#34;&gt;Charts&lt;/h2&gt;
@@ -139,7 +139,7 @@
 
 
 
-&lt;div id=&#34;chart-867312594&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-648372519&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -157,7 +157,7 @@
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-867312594&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-648372519&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -336,9 +336,9 @@ Crash --&gt; [*]
     
     <item>
       <title>👩🏼‍🏫 Teach academic courses</title>
-      <link>http://localhost:33461/post/teach-courses/</link>
+      <link>http://localhost:41833/post/teach-courses/</link>
       <pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:33461/post/teach-courses/</guid>
+      <guid>http://localhost:41833/post/teach-courses/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://hugoblox.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hugo Blox Builder&lt;/a&gt; is designed to give technical content creators a seamless experience. You can focus on the content and the Hugo Blox Builder which this template is built upon handles the rest.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Embed videos, podcasts, code, LaTeX math, and even test students!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;On this page, you&amp;rsquo;ll find some examples of the types of technical content that can be rendered with Hugo Blox.&lt;/p&gt;
@@ -387,7 +387,7 @@ Crash --&gt; [*]
 
 
 &lt;audio controls &gt;
-  &lt;source src=&#34;http://localhost:33461/post/teach-courses/ambient-piano.mp3&#34; type=&#34;audio/mpeg&#34;&gt;
+  &lt;source src=&#34;http://localhost:41833/post/teach-courses/ambient-piano.mp3&#34; type=&#34;audio/mpeg&#34;&gt;
 &lt;/audio&gt;
 
 &lt;h2 id=&#34;test-students&#34;&gt;Test students&lt;/h2&gt;
@@ -446,9 +446,9 @@ data.head()
     
     <item>
       <title>✅ Manage your projects</title>
-      <link>http://localhost:33461/post/project-management/</link>
+      <link>http://localhost:41833/post/project-management/</link>
       <pubDate>Mon, 23 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:33461/post/project-management/</guid>
+      <guid>http://localhost:41833/post/project-management/</guid>
       <description>&lt;p&gt;Easily manage your projects - create ideation mind maps, Gantt charts, todo lists, and more!&lt;/p&gt;
 &lt;h2 id=&#34;ideation&#34;&gt;Ideation&lt;/h2&gt;
 &lt;p&gt;Hugo Blox supports a Markdown extension for mindmaps.&lt;/p&gt;
@@ -521,9 +521,9 @@ Parallel 4   :         des6, after des4, 1d
     
     <item>
       <title>🎉 Drone Trajectory Tracking with Python</title>
-      <link>http://localhost:33461/post/drone-trajctory-tracking/</link>
+      <link>http://localhost:41833/post/drone-trajctory-tracking/</link>
       <pubDate>Tue, 06 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:33461/post/drone-trajctory-tracking/</guid>
+      <guid>http://localhost:41833/post/drone-trajctory-tracking/</guid>
       <description>&lt;h2 id=&#34;1-dynamics-and-kinematics-of-the-drone&#34;&gt;1. Dynamics and Kinematics of the Drone&lt;/h2&gt;
 &lt;p&gt;The dynamics and kinematics of a drone are crucial in understanding and controlling its flight behavior. The drone&amp;rsquo;s state can be described by its position $ x, y, z $
 , orientation (roll $ \phi $
@@ -703,9 +703,9 @@ $$
     
     <item>
       <title>🏠 Smart-Home-Using-IOT</title>
-      <link>http://localhost:33461/post/smart-home/</link>
+      <link>http://localhost:41833/post/smart-home/</link>
       <pubDate>Tue, 06 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:33461/post/smart-home/</guid>
+      <guid>http://localhost:41833/post/smart-home/</guid>
       <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;
 &lt;p&gt;Project Name: Home Automation (Smart Home Using Internet of Things)&lt;/p&gt;
 &lt;p&gt;Participatory Department: Electronics Engineering, Electrical Engineering&lt;/p&gt;
@@ -770,7 +770,7 @@ $$
                /post/smart-home/images/circuit_hu_fe8e23845ccf5a4c.webp 400w,
                /post/smart-home/images/circuit_hu_63c4c723cd46e799.webp 760w,
                /post/smart-home/images/circuit_hu_b62cac56fc4acf82.webp 1200w&#34;
-               src=&#34;http://localhost:33461/post/smart-home/images/circuit_hu_fe8e23845ccf5a4c.webp&#34;
+               src=&#34;http://localhost:41833/post/smart-home/images/circuit_hu_fe8e23845ccf5a4c.webp&#34;
                width=&#34;736&#34;
                height=&#34;402&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -804,7 +804,7 @@ $$
                /post/smart-home/images/appESP32_hu_cd0c3eabc49e6947.webp 400w,
                /post/smart-home/images/appESP32_hu_beaa95f9a3223ab3.webp 760w,
                /post/smart-home/images/appESP32_hu_a62ccc4362a512d6.webp 1200w&#34;
-               src=&#34;http://localhost:33461/post/smart-home/images/appESP32_hu_cd0c3eabc49e6947.webp&#34;
+               src=&#34;http://localhost:41833/post/smart-home/images/appESP32_hu_cd0c3eabc49e6947.webp&#34;
                width=&#34;330&#34;
                height=&#34;722&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -836,7 +836,7 @@ $$
                /post/smart-home/images/blynk_hu_6607d9ec66dd0d00.webp 400w,
                /post/smart-home/images/blynk_hu_85c8c174c0345a81.webp 760w,
                /post/smart-home/images/blynk_hu_c496687e8081e683.webp 1200w&#34;
-               src=&#34;http://localhost:33461/post/smart-home/images/blynk_hu_6607d9ec66dd0d00.webp&#34;
+               src=&#34;http://localhost:41833/post/smart-home/images/blynk_hu_6607d9ec66dd0d00.webp&#34;
                width=&#34;422&#34;
                height=&#34;156&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -868,7 +868,7 @@ $$
                /post/smart-home/images/app2_hu_9772d045fb77c729.webp 400w,
                /post/smart-home/images/app2_hu_fdd9a0832828614b.webp 760w,
                /post/smart-home/images/app2_hu_b0d3b225f87fb83a.webp 1200w&#34;
-               src=&#34;http://localhost:33461/post/smart-home/images/app2_hu_9772d045fb77c729.webp&#34;
+               src=&#34;http://localhost:41833/post/smart-home/images/app2_hu_9772d045fb77c729.webp&#34;
                width=&#34;258&#34;
                height=&#34;324&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -900,7 +900,7 @@ $$
                /post/smart-home/images/model_hu_679de8265b7eda3e.webp 400w,
                /post/smart-home/images/model_hu_a12d1c64ff7e8631.webp 760w,
                /post/smart-home/images/model_hu_4a3b364805ccb0df.webp 1200w&#34;
-               src=&#34;http://localhost:33461/post/smart-home/images/model_hu_679de8265b7eda3e.webp&#34;
+               src=&#34;http://localhost:41833/post/smart-home/images/model_hu_679de8265b7eda3e.webp&#34;
                width=&#34;451&#34;
                height=&#34;449&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
