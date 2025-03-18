@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AGV | Hugo Academic CV Theme</title>
-    <link>http://localhost:41833/tags/agv/</link>
-      <atom:link href="http://localhost:41833/tags/agv/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/tags/agv/</link>
+      <atom:link href="http://localhost:1313/tags/agv/index.xml" rel="self" type="application/rss+xml" />
     <description>AGV</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 10 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:41833/media/icon_hu_645fa481986063ef.png</url>
+      <url>http://localhost:1313/media/icon_hu_645fa481986063ef.png</url>
       <title>AGV</title>
-      <link>http://localhost:41833/tags/agv/</link>
+      <link>http://localhost:1313/tags/agv/</link>
     </image>
     
     <item>
       <title>🎉 Autonomus harvesting using Object Detecion</title>
-      <link>http://localhost:41833/project/autonomus-harvesting/</link>
+      <link>http://localhost:1313/project/autonomus-harvesting/</link>
       <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41833/project/autonomus-harvesting/</guid>
+      <guid>http://localhost:1313/project/autonomus-harvesting/</guid>
       <description>&lt;h1 id=&#34;cucumber-harvesting-using-object-detecion&#34;&gt;Cucumber harvesting using Object Detecion&lt;/h1&gt;
 &lt;p&gt;The development of a cucumber harvesting
 system that utilizes custom object detection with &lt;code&gt;YOLOv11&lt;/code&gt;. After
@@ -167,7 +167,7 @@ robot returns to its starting position at 9.&lt;/p&gt;
                /project/autonomus-harvesting/images/Task_hu_118f99a1893f79c0.webp 400w,
                /project/autonomus-harvesting/images/Task_hu_c73467422c9accd8.webp 760w,
                /project/autonomus-harvesting/images/Task_hu_b260d3fd7ff39f22.webp 1200w&#34;
-               src=&#34;http://localhost:41833/project/autonomus-harvesting/images/Task_hu_118f99a1893f79c0.webp&#34;
+               src=&#34;http://localhost:1313/project/autonomus-harvesting/images/Task_hu_118f99a1893f79c0.webp&#34;
                width=&#34;760&#34;
                height=&#34;423&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;

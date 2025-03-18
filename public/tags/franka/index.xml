@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Franka | Hugo Academic CV Theme</title>
-    <link>http://localhost:41833/tags/franka/</link>
-      <atom:link href="http://localhost:41833/tags/franka/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/tags/franka/</link>
+      <atom:link href="http://localhost:1313/tags/franka/index.xml" rel="self" type="application/rss+xml" />
     <description>Franka</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 10 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:41833/media/icon_hu_645fa481986063ef.png</url>
+      <url>http://localhost:1313/media/icon_hu_645fa481986063ef.png</url>
       <title>Franka</title>
-      <link>http://localhost:41833/tags/franka/</link>
+      <link>http://localhost:1313/tags/franka/</link>
     </image>
     
     <item>
       <title>Actfranka</title>
-      <link>http://localhost:41833/project/actfranka/</link>
+      <link>http://localhost:1313/project/actfranka/</link>
       <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41833/project/actfranka/</guid>
+      <guid>http://localhost:1313/project/actfranka/</guid>
       <description></description>
     </item>
     

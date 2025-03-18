@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects | Hugo Academic CV Theme</title>
-    <link>http://localhost:41833/project/</link>
-      <atom:link href="http://localhost:41833/project/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/project/</link>
+      <atom:link href="http://localhost:1313/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 10 Dec 2024 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:41833/media/icon_hu_645fa481986063ef.png</url>
+      <url>http://localhost:1313/media/icon_hu_645fa481986063ef.png</url>
       <title>Projects</title>
-      <link>http://localhost:41833/project/</link>
+      <link>http://localhost:1313/project/</link>
     </image>
     
     <item>
       <title>🎉 Autonomus harvesting using Object Detecion</title>
-      <link>http://localhost:41833/project/autonomus-harvesting/</link>
+      <link>http://localhost:1313/project/autonomus-harvesting/</link>
       <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41833/project/autonomus-harvesting/</guid>
+      <guid>http://localhost:1313/project/autonomus-harvesting/</guid>
       <description>&lt;h1 id=&#34;cucumber-harvesting-using-object-detecion&#34;&gt;Cucumber harvesting using Object Detecion&lt;/h1&gt;
 &lt;p&gt;The development of a cucumber harvesting
 system that utilizes custom object detection with &lt;code&gt;YOLOv11&lt;/code&gt;. After
@@ -167,7 +167,7 @@ robot returns to its starting position at 9.&lt;/p&gt;
                /project/autonomus-harvesting/images/Task_hu_118f99a1893f79c0.webp 400w,
                /project/autonomus-harvesting/images/Task_hu_c73467422c9accd8.webp 760w,
                /project/autonomus-harvesting/images/Task_hu_b260d3fd7ff39f22.webp 1200w&#34;
-               src=&#34;http://localhost:41833/project/autonomus-harvesting/images/Task_hu_118f99a1893f79c0.webp&#34;
+               src=&#34;http://localhost:1313/project/autonomus-harvesting/images/Task_hu_118f99a1893f79c0.webp&#34;
                width=&#34;760&#34;
                height=&#34;423&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -187,17 +187,17 @@ robot returns to its starting position at 9.&lt;/p&gt;
     
     <item>
       <title>Actfranka</title>
-      <link>http://localhost:41833/project/actfranka/</link>
+      <link>http://localhost:1313/project/actfranka/</link>
       <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41833/project/actfranka/</guid>
+      <guid>http://localhost:1313/project/actfranka/</guid>
       <description></description>
     </item>
     
     <item>
       <title>🎉 Drone Trajectory Tracking with Python</title>
-      <link>http://localhost:41833/project/drone-trajectory-tracking/</link>
+      <link>http://localhost:1313/project/drone-trajectory-tracking/</link>
       <pubDate>Tue, 06 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41833/project/drone-trajectory-tracking/</guid>
+      <guid>http://localhost:1313/project/drone-trajectory-tracking/</guid>
       <description>&lt;h2 id=&#34;1-dynamics-and-kinematics-of-the-drone&#34;&gt;1. Dynamics and Kinematics of the Drone&lt;/h2&gt;
 &lt;p&gt;The dynamics and kinematics of a drone are crucial in understanding and controlling its flight behavior. The drone&amp;rsquo;s state can be described by its position $ x, y, z $
 , orientation (roll $ \phi $
@@ -377,9 +377,9 @@ $$
     
     <item>
       <title>🏠 Smart-Home-Using-IOT</title>
-      <link>http://localhost:41833/project/smart-home-using-iot/</link>
+      <link>http://localhost:1313/project/smart-home-using-iot/</link>
       <pubDate>Tue, 06 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41833/project/smart-home-using-iot/</guid>
+      <guid>http://localhost:1313/project/smart-home-using-iot/</guid>
       <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;
 &lt;p&gt;Project Name: Home Automation (Smart Home Using Internet of Things)&lt;/p&gt;
 &lt;p&gt;Participatory Department: Electronics Engineering, Electrical Engineering&lt;/p&gt;
@@ -444,7 +444,7 @@ $$
                /project/smart-home-using-iot/images/circuit_hu_fe8e23845ccf5a4c.webp 400w,
                /project/smart-home-using-iot/images/circuit_hu_63c4c723cd46e799.webp 760w,
                /project/smart-home-using-iot/images/circuit_hu_b62cac56fc4acf82.webp 1200w&#34;
-               src=&#34;http://localhost:41833/project/smart-home-using-iot/images/circuit_hu_fe8e23845ccf5a4c.webp&#34;
+               src=&#34;http://localhost:1313/project/smart-home-using-iot/images/circuit_hu_fe8e23845ccf5a4c.webp&#34;
                width=&#34;736&#34;
                height=&#34;402&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -478,7 +478,7 @@ $$
                /project/smart-home-using-iot/images/appESP32_hu_cd0c3eabc49e6947.webp 400w,
                /project/smart-home-using-iot/images/appESP32_hu_beaa95f9a3223ab3.webp 760w,
                /project/smart-home-using-iot/images/appESP32_hu_a62ccc4362a512d6.webp 1200w&#34;
-               src=&#34;http://localhost:41833/project/smart-home-using-iot/images/appESP32_hu_cd0c3eabc49e6947.webp&#34;
+               src=&#34;http://localhost:1313/project/smart-home-using-iot/images/appESP32_hu_cd0c3eabc49e6947.webp&#34;
                width=&#34;330&#34;
                height=&#34;722&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -510,7 +510,7 @@ $$
                /project/smart-home-using-iot/images/blynk_hu_6607d9ec66dd0d00.webp 400w,
                /project/smart-home-using-iot/images/blynk_hu_85c8c174c0345a81.webp 760w,
                /project/smart-home-using-iot/images/blynk_hu_c496687e8081e683.webp 1200w&#34;
-               src=&#34;http://localhost:41833/project/smart-home-using-iot/images/blynk_hu_6607d9ec66dd0d00.webp&#34;
+               src=&#34;http://localhost:1313/project/smart-home-using-iot/images/blynk_hu_6607d9ec66dd0d00.webp&#34;
                width=&#34;422&#34;
                height=&#34;156&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -542,7 +542,7 @@ $$
                /project/smart-home-using-iot/images/app2_hu_9772d045fb77c729.webp 400w,
                /project/smart-home-using-iot/images/app2_hu_fdd9a0832828614b.webp 760w,
                /project/smart-home-using-iot/images/app2_hu_b0d3b225f87fb83a.webp 1200w&#34;
-               src=&#34;http://localhost:41833/project/smart-home-using-iot/images/app2_hu_9772d045fb77c729.webp&#34;
+               src=&#34;http://localhost:1313/project/smart-home-using-iot/images/app2_hu_9772d045fb77c729.webp&#34;
                width=&#34;258&#34;
                height=&#34;324&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -574,7 +574,7 @@ $$
                /project/smart-home-using-iot/images/model_hu_679de8265b7eda3e.webp 400w,
                /project/smart-home-using-iot/images/model_hu_a12d1c64ff7e8631.webp 760w,
                /project/smart-home-using-iot/images/model_hu_4a3b364805ccb0df.webp 1200w&#34;
-               src=&#34;http://localhost:41833/project/smart-home-using-iot/images/model_hu_679de8265b7eda3e.webp&#34;
+               src=&#34;http://localhost:1313/project/smart-home-using-iot/images/model_hu_679de8265b7eda3e.webp&#34;
                width=&#34;451&#34;
                height=&#34;449&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -585,9 +585,9 @@ $$
     
     <item>
       <title>🎉 Verilog Codes</title>
-      <link>http://localhost:41833/project/verilog/</link>
+      <link>http://localhost:1313/project/verilog/</link>
       <pubDate>Tue, 18 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41833/project/verilog/</guid>
+      <guid>http://localhost:1313/project/verilog/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/sainavaneet/Verilog/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;👉 Developed Verilog HDL code for a 4-bit adder, 4-to-1 multiplexer, AND gate, BUF gate, and an inverter with delay.&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;system-that-generates-detects-and-corrects-hamming-code&#34;&gt;System that generates, detects, and corrects Hamming Code&lt;/h3&gt;
 &lt;p&gt;➔ Module implements the Hamming code encoder for each of the 16 input parts.&lt;/p&gt;
@@ -635,9 +635,9 @@ $$
     
     <item>
       <title>32 bit CPU based on MIPS architecture</title>
-      <link>http://localhost:41833/project/32-bit-cpu-based-on-mips-architecture/</link>
+      <link>http://localhost:1313/project/32-bit-cpu-based-on-mips-architecture/</link>
       <pubDate>Tue, 18 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41833/project/32-bit-cpu-based-on-mips-architecture/</guid>
+      <guid>http://localhost:1313/project/32-bit-cpu-based-on-mips-architecture/</guid>
       <description>&lt;p&gt;Implementation of a 32-bit MIPS Processor using Verilog HDL. The processor is capable of executing various MIPS instructions and includes key components such as the Instruction Memory, Register File, ALU, Data Memory, and Control Unit.&lt;/p&gt;
 &lt;h2 id=&#34;instruction-set&#34;&gt;Instruction Set&lt;/h2&gt;
 &lt;p&gt;The MIPS Processor supports the following instructions:&lt;/p&gt;
@@ -684,9 +684,9 @@ $$
     
     <item>
       <title>🎉 Drone Control with Keyboard</title>
-      <link>http://localhost:41833/project/drone-control-with-keyboard/</link>
+      <link>http://localhost:1313/project/drone-control-with-keyboard/</link>
       <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41833/project/drone-control-with-keyboard/</guid>
+      <guid>http://localhost:1313/project/drone-control-with-keyboard/</guid>
       <description>&lt;p&gt;Developed a code to control a drone using a keyboard. It can
 perform actions such as takeoff, landing, and controlling the
 drone&amp;rsquo;s movements using the arrow keys and other designated keys.&lt;/p&gt;
@@ -756,9 +756,9 @@ drone&amp;rsquo;s movements using the arrow keys and other designated keys.&lt;/
     
     <item>
       <title>TelloDrone with KeyBoard and Object detection</title>
-      <link>http://localhost:41833/project/tellodrone-with-keyboard/</link>
+      <link>http://localhost:1313/project/tellodrone-with-keyboard/</link>
       <pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:41833/project/tellodrone-with-keyboard/</guid>
+      <guid>http://localhost:1313/project/tellodrone-with-keyboard/</guid>
       <description>&lt;p&gt;This project show how to control a Tello drone using your keyboard and perform object detection using a pre-trained model. The drone movements are controlled using the arrow keys and specific keys for takeoff, landing, and flips. The object detection is performed on the live video feed from the drone&amp;rsquo;s camera.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
