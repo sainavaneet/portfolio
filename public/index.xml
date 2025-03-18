@@ -349,7 +349,7 @@ robot returns to its starting position at 9.&lt;/p&gt;
 
 
 
-&lt;div id=&#34;chart-362814759&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-213896475&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -367,7 +367,7 @@ robot returns to its starting position at 9.&lt;/p&gt;
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-362814759&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-213896475&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
