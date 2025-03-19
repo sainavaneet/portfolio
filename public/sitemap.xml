@@ -146,6 +146,10 @@
     <lastmod>2023-06-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>http://localhost:1313/project/lmpc-ilc/</loc>
+    <lastmod>2023-06-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://localhost:1313/tags/lpv/</loc>
     <lastmod>2023-06-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -155,6 +159,10 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/tags/trajectory/</loc>
+    <lastmod>2023-06-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tags/turtlebot/</loc>
     <lastmod>2023-06-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -219,6 +227,10 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/publication/hybrid-model-predictive-and-iterative-learning-control-for-enhanced-leader-follower-robotic-tracking/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tags/lmpc/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
