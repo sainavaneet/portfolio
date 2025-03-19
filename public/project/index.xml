@@ -194,6 +194,20 @@ robot returns to its starting position at 9.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Basic Reinforcement Learning Algorithms</title>
+      <link>http://localhost:1313/project/basic-reinforcment-learning/</link>
+      <pubDate>Fri, 02 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/basic-reinforcment-learning/</guid>
+      <description>&lt;h2 id=&#34;cartpole&#34;&gt;Cartpole&lt;/h2&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/Ka9Fwk6suv8?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;h2 id=&#34;lunar-lander&#34;&gt;Lunar Lander&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Deep Neural Network Nonlinear Model Predictive Control for CSTR</title>
       <link>http://localhost:1313/project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/</link>
       <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
@@ -583,6 +597,349 @@ $$
     </item>
     
     <item>
+      <title>Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</title>
+      <link>http://localhost:1313/project/lmpc-ilc/</link>
+      <pubDate>Sun, 03 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/lmpc-ilc/</guid>
+      <description>&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;This paper introduces a novel hybrid control strategy combining Model Predictive Control (MPC) and Iterative Learning Control (ILC) to improve leader-follower tracking accuracy and robustness in mobile robots. MPC optimizes control inputs over a predictive horizon by minimizing a cost function, while ILC refines these inputs by learning from past errors.&lt;/p&gt;
+&lt;h2 id=&#34;mathematical-formulation&#34;&gt;Mathematical Formulation&lt;/h2&gt;
+&lt;h3 id=&#34;system-dynamics&#34;&gt;System Dynamics&lt;/h3&gt;
+&lt;p&gt;The state of the follower robot is:
+$$
+x_f = [x_f, y_f, \theta_f]^T
+$$
+&lt;/p&gt;
+&lt;p&gt;Control inputs:
+$$
+u = [v, \omega]^T$$
+&lt;/p&gt;
+&lt;p&gt;Discrete-time kinematic model:
+$$
+x_f(k + 1) = x_f(k) + \begin{bmatrix}
+v(k) \cos(\theta_f(k)) T \\
+v(k) \sin(\theta_f(k)) T \\
+\omega(k) T
+\end{bmatrix}
+$$
+&lt;/p&gt;
+&lt;p&gt;where $T$
+ is the sampling time.&lt;/p&gt;
+&lt;h3 id=&#34;mpc-cost-function&#34;&gt;MPC Cost Function&lt;/h3&gt;
+&lt;p&gt;The MPC minimizes the following cost function over a finite horizon $N$
+:&lt;/p&gt;
+$$
+J = \sum_{k=0}^{N-1}\left[\omega_p\|P_f(k)-P_d(k)\|^2 + \omega_\theta(\theta_f(k)-\theta_d(k))^2 + \omega_u\|u(k)\|^2\right]
+$$
+
+&lt;p&gt;where&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$P_f(k) = [x_f(k), y_f(k)]^T$
+: position of follower.&lt;/li&gt;
+&lt;li&gt;$P_d(k), \theta_d(k)$
+: desired position and orientation.&lt;/li&gt;
+&lt;li&gt;$\omega_p, \omega_\theta, \omega_u$
+: weights for position, orientation errors, and control effort.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;desired-position-calculation&#34;&gt;Desired Position Calculation&lt;/h3&gt;
+&lt;p&gt;The desired position $P_d$
+ is calculated from the leader&amp;rsquo;s state $x_l = [x_l, y_l, \theta_l]^T$
+ and specified distance $d$
+:&lt;/p&gt;
+$$
+P_d = \begin{bmatrix}
+x_l - d\cos(\theta_l) \\
+y_l - d\sin(\theta_l)
+\end{bmatrix}
+$$
+
+&lt;h3 id=&#34;iterative-learning-control-ilc-update&#34;&gt;Iterative Learning Control (ILC) Update&lt;/h3&gt;
+&lt;p&gt;Error vector:
+$$
+e(k) = \begin{bmatrix}
+x_f(k)-x_d(k) \\
+y_f(k)-y_d(k) \\
+\theta_f(k)-\theta_d(k)
+\end{bmatrix}
+$$
+&lt;/p&gt;
+&lt;p&gt;ILC control update:
+$$
+u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]$$
+&lt;/p&gt;
+&lt;p&gt;where&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\nu_{MPC}(k)$
+: optimal MPC control input.&lt;/li&gt;
+&lt;li&gt;$L$
+: learning matrix.&lt;/li&gt;
+&lt;li&gt;$e(k-1)$
+: error from previous iteration.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;hybrid-integration&#34;&gt;Hybrid Integration&lt;/h3&gt;
+&lt;p&gt;The hybrid method combines MPC and ILC:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Solve MPC optimization: $\nu_{MPC}=\arg\min J$
+&lt;/li&gt;
+&lt;li&gt;ILC update: $\nu=\nu_{ILC}$
+&lt;/li&gt;
+&lt;li&gt;Apply $\nu$
+ to follower robot.&lt;/li&gt;
+&lt;li&gt;Update follower and leader states.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;algorithm&#34;&gt;Algorithm&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Algorithm 1: Hybrid MPC-ILC
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Require: Initial states x_f, x_l; past error e_past=0, past input u_past=0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Require: T, N, \omega_p, \omega_\theta, \omega_u, d, L
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;While true:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  1. Obtain current leader state x_l(k)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  2. Compute desired P_d(k), \theta_d(k)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  3. Solve MPC to get u_MPC
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  4. Calculate tracking error e(k)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  5. Update control: u_ILC = u_past + L(e(k)-e_past)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  6. Apply u_ILC to follower
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  7. Update u_past = u_MPC, e_past = e(k)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  8. Update robot states
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;End While
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;experimental-results&#34;&gt;Experimental Results&lt;/h2&gt;
+&lt;p&gt;Experiments with TurtleBot 3 robots validated the hybrid MPC-ILC method, demonstrating significant improvements in position tracking accuracy, orientation accuracy, and balanced control efforts compared to standalone MPC and ILC.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Leader velocity: $v=0.3\,m/s, \omega=0.3\,rad/s$
+&lt;/li&gt;
+&lt;li&gt;MPC parameters: $N=20, T=0.2\,s, \omega_p=7, \omega_\theta=1, \omega_u=1$
+&lt;/li&gt;
+&lt;li&gt;ILC learning matrix: $L=diag([0.1, 0.1])$
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Comparision of Cost&#34; srcset=&#34;
+               /project/lmpc-ilc/cost_comparision_hu_cc29fef1e91ed160.webp 400w,
+               /project/lmpc-ilc/cost_comparision_hu_ad61cc05323d8926.webp 760w,
+               /project/lmpc-ilc/cost_comparision_hu_6f496aea44637029.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/lmpc-ilc/cost_comparision_hu_cc29fef1e91ed160.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;383&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Results&#34; srcset=&#34;
+               /project/lmpc-ilc/graph_hu_b28cc522351f3093.webp 400w,
+               /project/lmpc-ilc/graph_hu_6d842a55e7f75780.webp 760w,
+               /project/lmpc-ilc/graph_hu_3ff6d4a63e846f73.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/lmpc-ilc/graph_hu_b28cc522351f3093.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;585&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;The hybrid MPC-ILC approach offers improved accuracy, robustness, and efficiency for leader-follower robotic tracking. Future work includes integrating with advanced control methods and testing in more complex scenarios.&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sainavaneet/MPC-ILC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Source Code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/CdYn9fnHEcE?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;comparison-between-mpc-and-lmpc-and-obstacle-avoidance&#34;&gt;comparison between MPC and LMPC and Obstacle Avoidance&lt;/h2&gt;
+&lt;p&gt;We included a safe set process to keep the follower robot at a fixed distance from the leader robot, and then we added obstacle avoidance to the follower robot using LMPC.&lt;/p&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/v308ep-aqd0?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;h5 id=&#34;testing-with-mpc&#34;&gt;Testing With MPC&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Testing with MPC&#34; srcset=&#34;
+               /project/lmpc-ilc/mpc_hu_7e99abd61dd302f6.webp 400w,
+               /project/lmpc-ilc/mpc_hu_ef3e1bf245f5fba0.webp 760w,
+               /project/lmpc-ilc/mpc_hu_a524ac5752021547.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/lmpc-ilc/mpc_hu_7e99abd61dd302f6.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;448&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;testing-with-lmpc&#34;&gt;Testing with LMPC&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /project/lmpc-ilc/lmpc_hu_41484c930b625b3.webp 400w,
+               /project/lmpc-ilc/lmpc_hu_30b7ec01f54893af.webp 760w,
+               /project/lmpc-ilc/lmpc_hu_db0b2a78ba999310.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/lmpc-ilc/lmpc_hu_41484c930b625b3.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;448&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /project/lmpc-ilc/lmpc1_hu_42294906efbf00ea.webp 400w,
+               /project/lmpc-ilc/lmpc1_hu_bc31b697cebe38b8.webp 760w,
+               /project/lmpc-ilc/lmpc1_hu_24067942e2203cda.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/lmpc-ilc/lmpc1_hu_42294906efbf00ea.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;448&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /project/lmpc-ilc/lmpc2_hu_a6429b4ba8d2f897.webp 400w,
+               /project/lmpc-ilc/lmpc2_hu_cafa789bee9fc049.webp 760w,
+               /project/lmpc-ilc/lmpc2_hu_1908a943b1dc04c0.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/lmpc-ilc/lmpc2_hu_a6429b4ba8d2f897.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;519&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;tested-for-s-trajectory&#34;&gt;Tested for &amp;ldquo;S&amp;rdquo; Trajectory&lt;/h2&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/6Dyg_3ztMKw?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;h3 id=&#34;results&#34;&gt;Results&lt;/h3&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;comparision combined&#34; srcset=&#34;
+               /project/lmpc-ilc/comparision/comparision_combined_image_hu_1e5e63cdd8faec82.webp 400w,
+               /project/lmpc-ilc/comparision/comparision_combined_image_hu_47b76dc380193d32.webp 760w,
+               /project/lmpc-ilc/comparision/comparision_combined_image_hu_7bc68d2ec2d046f1.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/lmpc-ilc/comparision/comparision_combined_image_hu_1e5e63cdd8faec82.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;73&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>🎉 Drone Trajectory Tracking with Python</title>
       <link>http://localhost:1313/project/drone-trajectory-tracking/</link>
       <pubDate>Tue, 06 Jun 2023 00:00:00 +0000</pubDate>
@@ -966,349 +1323,6 @@ $$
                src=&#34;http://localhost:1313/project/smart-home-using-iot/images/model_hu_679de8265b7eda3e.webp&#34;
                width=&#34;451&#34;
                height=&#34;449&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</title>
-      <link>http://localhost:1313/project/lmpc-ilc/</link>
-      <pubDate>Tue, 06 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/project/lmpc-ilc/</guid>
-      <description>&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
-&lt;p&gt;This paper introduces a novel hybrid control strategy combining Model Predictive Control (MPC) and Iterative Learning Control (ILC) to improve leader-follower tracking accuracy and robustness in mobile robots. MPC optimizes control inputs over a predictive horizon by minimizing a cost function, while ILC refines these inputs by learning from past errors.&lt;/p&gt;
-&lt;h2 id=&#34;mathematical-formulation&#34;&gt;Mathematical Formulation&lt;/h2&gt;
-&lt;h3 id=&#34;system-dynamics&#34;&gt;System Dynamics&lt;/h3&gt;
-&lt;p&gt;The state of the follower robot is:
-$$
-x_f = [x_f, y_f, \theta_f]^T
-$$
-&lt;/p&gt;
-&lt;p&gt;Control inputs:
-$$
-u = [v, \omega]^T$$
-&lt;/p&gt;
-&lt;p&gt;Discrete-time kinematic model:
-$$
-x_f(k + 1) = x_f(k) + \begin{bmatrix}
-v(k) \cos(\theta_f(k)) T \\
-v(k) \sin(\theta_f(k)) T \\
-\omega(k) T
-\end{bmatrix}
-$$
-&lt;/p&gt;
-&lt;p&gt;where $T$
- is the sampling time.&lt;/p&gt;
-&lt;h3 id=&#34;mpc-cost-function&#34;&gt;MPC Cost Function&lt;/h3&gt;
-&lt;p&gt;The MPC minimizes the following cost function over a finite horizon $N$
-:&lt;/p&gt;
-$$
-J = \sum_{k=0}^{N-1}\left[\omega_p\|P_f(k)-P_d(k)\|^2 + \omega_\theta(\theta_f(k)-\theta_d(k))^2 + \omega_u\|u(k)\|^2\right]
-$$
-
-&lt;p&gt;where&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;$P_f(k) = [x_f(k), y_f(k)]^T$
-: position of follower.&lt;/li&gt;
-&lt;li&gt;$P_d(k), \theta_d(k)$
-: desired position and orientation.&lt;/li&gt;
-&lt;li&gt;$\omega_p, \omega_\theta, \omega_u$
-: weights for position, orientation errors, and control effort.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;desired-position-calculation&#34;&gt;Desired Position Calculation&lt;/h3&gt;
-&lt;p&gt;The desired position $P_d$
- is calculated from the leader&amp;rsquo;s state $x_l = [x_l, y_l, \theta_l]^T$
- and specified distance $d$
-:&lt;/p&gt;
-$$
-P_d = \begin{bmatrix}
-x_l - d\cos(\theta_l) \\
-y_l - d\sin(\theta_l)
-\end{bmatrix}
-$$
-
-&lt;h3 id=&#34;iterative-learning-control-ilc-update&#34;&gt;Iterative Learning Control (ILC) Update&lt;/h3&gt;
-&lt;p&gt;Error vector:
-$$
-e(k) = \begin{bmatrix}
-x_f(k)-x_d(k) \\
-y_f(k)-y_d(k) \\
-\theta_f(k)-\theta_d(k)
-\end{bmatrix}
-$$
-&lt;/p&gt;
-&lt;p&gt;ILC control update:
-$$
-u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]$$
-&lt;/p&gt;
-&lt;p&gt;where&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;$\nu_{MPC}(k)$
-: optimal MPC control input.&lt;/li&gt;
-&lt;li&gt;$L$
-: learning matrix.&lt;/li&gt;
-&lt;li&gt;$e(k-1)$
-: error from previous iteration.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;hybrid-integration&#34;&gt;Hybrid Integration&lt;/h3&gt;
-&lt;p&gt;The hybrid method combines MPC and ILC:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Solve MPC optimization: $\nu_{MPC}=\arg\min J$
-&lt;/li&gt;
-&lt;li&gt;ILC update: $\nu=\nu_{ILC}$
-&lt;/li&gt;
-&lt;li&gt;Apply $\nu$
- to follower robot.&lt;/li&gt;
-&lt;li&gt;Update follower and leader states.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;algorithm&#34;&gt;Algorithm&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Algorithm 1: Hybrid MPC-ILC
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Require: Initial states x_f, x_l; past error e_past=0, past input u_past=0
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Require: T, N, \omega_p, \omega_\theta, \omega_u, d, L
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;While true:
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  1. Obtain current leader state x_l(k)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  2. Compute desired P_d(k), \theta_d(k)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  3. Solve MPC to get u_MPC
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  4. Calculate tracking error e(k)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  5. Update control: u_ILC = u_past + L(e(k)-e_past)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  6. Apply u_ILC to follower
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  7. Update u_past = u_MPC, e_past = e(k)
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  8. Update robot states
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;End While
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;experimental-results&#34;&gt;Experimental Results&lt;/h2&gt;
-&lt;p&gt;Experiments with TurtleBot 3 robots validated the hybrid MPC-ILC method, demonstrating significant improvements in position tracking accuracy, orientation accuracy, and balanced control efforts compared to standalone MPC and ILC.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Leader velocity: $v=0.3\,m/s, \omega=0.3\,rad/s$
-&lt;/li&gt;
-&lt;li&gt;MPC parameters: $N=20, T=0.2\,s, \omega_p=7, \omega_\theta=1, \omega_u=1$
-&lt;/li&gt;
-&lt;li&gt;ILC learning matrix: $L=diag([0.1, 0.1])$
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Comparision of Cost&#34; srcset=&#34;
-               /project/lmpc-ilc/cost_comparision_hu_cc29fef1e91ed160.webp 400w,
-               /project/lmpc-ilc/cost_comparision_hu_ad61cc05323d8926.webp 760w,
-               /project/lmpc-ilc/cost_comparision_hu_6f496aea44637029.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/lmpc-ilc/cost_comparision_hu_cc29fef1e91ed160.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;383&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Results&#34; srcset=&#34;
-               /project/lmpc-ilc/graph_hu_b28cc522351f3093.webp 400w,
-               /project/lmpc-ilc/graph_hu_6d842a55e7f75780.webp 760w,
-               /project/lmpc-ilc/graph_hu_3ff6d4a63e846f73.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/lmpc-ilc/graph_hu_b28cc522351f3093.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;585&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;The hybrid MPC-ILC approach offers improved accuracy, robustness, and efficiency for leader-follower robotic tracking. Future work includes integrating with advanced control methods and testing in more complex scenarios.&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/sainavaneet/MPC-ILC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Source Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/CdYn9fnHEcE?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
-
-&lt;hr&gt;
-&lt;h2 id=&#34;comparison-between-mpc-and-lmpc-and-obstacle-avoidance&#34;&gt;comparison between MPC and LMPC and Obstacle Avoidance&lt;/h2&gt;
-&lt;p&gt;We included a safe set process to keep the follower robot at a fixed distance from the leader robot, and then we added obstacle avoidance to the follower robot using LMPC.&lt;/p&gt;
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/v308ep-aqd0?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
-
-&lt;h5 id=&#34;testing-with-mpc&#34;&gt;Testing With MPC&lt;/h5&gt;
-&lt;ul&gt;
-&lt;li&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Testing with MPC&#34; srcset=&#34;
-               /project/lmpc-ilc/mpc_hu_7e99abd61dd302f6.webp 400w,
-               /project/lmpc-ilc/mpc_hu_ef3e1bf245f5fba0.webp 760w,
-               /project/lmpc-ilc/mpc_hu_a524ac5752021547.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/lmpc-ilc/mpc_hu_7e99abd61dd302f6.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;448&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&#34;testing-with-lmpc&#34;&gt;Testing with LMPC&lt;/h5&gt;
-&lt;ul&gt;
-&lt;li&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /project/lmpc-ilc/lmpc_hu_41484c930b625b3.webp 400w,
-               /project/lmpc-ilc/lmpc_hu_30b7ec01f54893af.webp 760w,
-               /project/lmpc-ilc/lmpc_hu_db0b2a78ba999310.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/lmpc-ilc/lmpc_hu_41484c930b625b3.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;448&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /project/lmpc-ilc/lmpc1_hu_42294906efbf00ea.webp 400w,
-               /project/lmpc-ilc/lmpc1_hu_bc31b697cebe38b8.webp 760w,
-               /project/lmpc-ilc/lmpc1_hu_24067942e2203cda.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/lmpc-ilc/lmpc1_hu_42294906efbf00ea.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;448&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /project/lmpc-ilc/lmpc2_hu_a6429b4ba8d2f897.webp 400w,
-               /project/lmpc-ilc/lmpc2_hu_cafa789bee9fc049.webp 760w,
-               /project/lmpc-ilc/lmpc2_hu_1908a943b1dc04c0.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/lmpc-ilc/lmpc2_hu_a6429b4ba8d2f897.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;519&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;tested-for-s-trajectory&#34;&gt;Tested for &amp;ldquo;S&amp;rdquo; Trajectory&lt;/h2&gt;
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/6Dyg_3ztMKw?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
-
-&lt;h3 id=&#34;results&#34;&gt;Results&lt;/h3&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;comparision combined&#34; srcset=&#34;
-               /project/lmpc-ilc/comparision_combined_image_hu_1e5e63cdd8faec82.webp 400w,
-               /project/lmpc-ilc/comparision_combined_image_hu_47b76dc380193d32.webp 760w,
-               /project/lmpc-ilc/comparision_combined_image_hu_7bc68d2ec2d046f1.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/lmpc-ilc/comparision_combined_image_hu_1e5e63cdd8faec82.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;73&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;

@@ -46,6 +46,14 @@
     <lastmod>2024-05-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>http://localhost:1313/project/basic-reinforcment-learning/</loc>
+    <lastmod>2024-02-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tags/rl/</loc>
+    <lastmod>2024-02-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://localhost:1313/tags/cstr/</loc>
     <lastmod>2024-01-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -56,6 +64,26 @@
   </url><url>
     <loc>http://localhost:1313/project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/</loc>
     <lastmod>2024-01-09T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/project/lmpc-ilc/</loc>
+    <lastmod>2023-12-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tags/lpv/</loc>
+    <lastmod>2023-12-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tags/mpc/</loc>
+    <lastmod>2023-12-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tags/trajectory/</loc>
+    <lastmod>2023-12-03T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tags/turtlebot/</loc>
+    <lastmod>2023-12-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/post/</loc>
@@ -143,26 +171,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/tags/dynamics/</loc>
-    <lastmod>2023-06-06T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:1313/project/lmpc-ilc/</loc>
-    <lastmod>2023-06-06T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:1313/tags/lpv/</loc>
-    <lastmod>2023-06-06T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:1313/tags/mpc/</loc>
-    <lastmod>2023-06-06T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:1313/tags/trajectory/</loc>
-    <lastmod>2023-06-06T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:1313/tags/turtlebot/</loc>
     <lastmod>2023-06-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>

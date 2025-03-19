@@ -5,7 +5,7 @@
     <link>http://localhost:1313/tags/turtlebot/</link>
       <atom:link href="http://localhost:1313/tags/turtlebot/index.xml" rel="self" type="application/rss+xml" />
     <description>Turtlebot</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 06 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 03 Dec 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu_645fa481986063ef.png</url>
       <title>Turtlebot</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</title>
       <link>http://localhost:1313/project/lmpc-ilc/</link>
-      <pubDate>Tue, 06 Jun 2023 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 03 Dec 2023 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/project/lmpc-ilc/</guid>
       <description>&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;This paper introduces a novel hybrid control strategy combining Model Predictive Control (MPC) and Iterative Learning Control (ILC) to improve leader-follower tracking accuracy and robustness in mobile robots. MPC optimizes control inputs over a predictive horizon by minimizing a cost function, while ILC refines these inputs by learning from past errors.&lt;/p&gt;
@@ -343,10 +343,10 @@ u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]$$
 &lt;figure  &gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;comparision combined&#34; srcset=&#34;
-               /project/lmpc-ilc/comparision_combined_image_hu_1e5e63cdd8faec82.webp 400w,
-               /project/lmpc-ilc/comparision_combined_image_hu_47b76dc380193d32.webp 760w,
-               /project/lmpc-ilc/comparision_combined_image_hu_7bc68d2ec2d046f1.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/lmpc-ilc/comparision_combined_image_hu_1e5e63cdd8faec82.webp&#34;
+               /project/lmpc-ilc/comparision/comparision_combined_image_hu_1e5e63cdd8faec82.webp 400w,
+               /project/lmpc-ilc/comparision/comparision_combined_image_hu_47b76dc380193d32.webp 760w,
+               /project/lmpc-ilc/comparision/comparision_combined_image_hu_7bc68d2ec2d046f1.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/lmpc-ilc/comparision/comparision_combined_image_hu_1e5e63cdd8faec82.webp&#34;
                width=&#34;760&#34;
                height=&#34;73&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
