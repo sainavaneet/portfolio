@@ -194,6 +194,395 @@ robot returns to its starting position at 9.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Deep Neural Network Nonlinear Model Predictive Control for CSTR</title>
+      <link>http://localhost:1313/project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/</link>
+      <pubDate>Tue, 09 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;The Continuous Stirred Tank Reactor (CSTR) is a fundamental model in chemical engineering, representing a reactor where the contents are well-mixed, ensuring uniform composition and temperature throughout. This report delves into the mathematical modeling of a CSTR, its simulation, and control using a Nonlinear Model Predictive Control (NMPC) strategy integrated with a neural network for predictive behavior.&lt;/p&gt;
+&lt;h2 id=&#34;cstr-model&#34;&gt;CSTR Model&lt;/h2&gt;
+&lt;p&gt;The CSTR dynamics are governed by the mass and energy balance equations, capturing the reaction kinetics, heat transfer, and fluid mixing. The model is described by the following differential equations:&lt;/p&gt;
+$$
+\frac{dC}{dt} = \frac{F}{V}(C_{in} - C) - k(T)C
+$$
+
+$$
+\frac{dT}{dt} = \frac{F}{V}(T_{in} - T) + \frac{-\Delta H}{\rho C_p}k(T)C + \frac{Q}{\rho C_p V}
+$$
+
+&lt;p&gt;where $C$
+ and $T$
+ denote the concentration and temperature in the reactor, $F$
+ the flow rate, $V$
+ the volume, $C_{in}$
+ and $T_{in}$
+ the inlet concentration and temperature, $k(T)$
+ the temperature-dependent reaction rate, $\Delta H$
+ the heat of reaction, $\rho$
+ the density, $C_p$
+ the heat capacity, and $Q$
+ the heat input or removal.&lt;/p&gt;
+&lt;p&gt;The rate of reaction for species A is described as:&lt;/p&gt;
+$$
+-r_A = k(T)C_A = k_0 e^{\left( \frac{-E}{RT} \right)}C_A
+$$
+
+&lt;p&gt;where $C_A$
+ is the concentration of species A, $k(T)$
+ is the temperature-dependent reaction rate constant, $k_0$
+ is the pre-exponential factor or frequency factor, $E$
+ is the activation energy, $R$
+ is the universal gas constant, $T$
+ is the temperature, and $r_A$
+ is the reaction rate for species A.&lt;/p&gt;
+&lt;h2 id=&#34;parameters&#34;&gt;Parameters&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Parameter&lt;/th&gt;
+          &lt;th&gt;Value&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Initial Flow Rate&lt;/td&gt;
+          &lt;td&gt;$F_0 = 0.1 \text{ m}^3/\text{min}$
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Initial Temperature&lt;/td&gt;
+          &lt;td&gt;$T_0 = 350.0 \text{ K}$
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Initial Concentration&lt;/td&gt;
+          &lt;td&gt;$c_0 = 1.0 \text{ kmol/m}^3$
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Reactor Radius&lt;/td&gt;
+          &lt;td&gt;$r = 0.219 \text{ m}$
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Reaction Rate Constant&lt;/td&gt;
+          &lt;td&gt;$k_0 = 7.2 \times 10^{10} \text{ 1/min}$
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Activation Energy/Gas Constant&lt;/td&gt;
+          &lt;td&gt;$E_b/R = 8750 \text{ K}$
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Overall Heat Transfer Coefficient&lt;/td&gt;
+          &lt;td&gt;$U = 54.94 \text{ kJ}/(\text{min} \cdot \text{m}^2 \cdot \text{K})$
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Density&lt;/td&gt;
+          &lt;td&gt;$\rho = 1000 \text{ kg/m}^3$
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Specific Heat Capacity&lt;/td&gt;
+          &lt;td&gt;$C_p = 0.239 \text{ kJ}/(\text{kg} \cdot \text{K})$
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Heat of Reaction&lt;/td&gt;
+          &lt;td&gt;$\Delta H = -5 \times 10^4 \text{ kJ/kmol}$
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Small Value (Avoid Division by Zero)&lt;/td&gt;
+          &lt;td&gt;$\varepsilon = 1 \times 10^{-5} \text{ m}$
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Mass Fractions&lt;/td&gt;
+          &lt;td&gt;$x_s = [0.878, 324.5, 0.659]$
+&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Input Parameters&lt;/td&gt;
+          &lt;td&gt;$u_s = [300, 0.1]$
+&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;nonlinear-model-predictive-control-implementation&#34;&gt;Nonlinear Model Predictive Control Implementation&lt;/h2&gt;
+&lt;p&gt;Nonlinear Model Predictive Control (NMPC) is a sophisticated control strategy used to manage complex dynamical systems. It involves optimizing control inputs over a defined prediction horizon, aiming to minimize deviations from desired setpoints while adhering to operational constraints. NMPC is particularly effective for systems with nonlinear dynamics, as it can account for these nonlinearities in both the system model and the control strategy.&lt;/p&gt;
+&lt;p&gt;In our implementation, NMPC is integrated with a neural network that predicts future system states. This integration enhances the controller&amp;rsquo;s ability to handle complex, nonlinear system behaviors. The core of NMPC involves solving an optimization problem at each control step, formulated as follows:&lt;/p&gt;
+&lt;h3 id=&#34;nmpc-parameters&#34;&gt;NMPC Parameters&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Prediction Horizon and Time Step&lt;/strong&gt;:&lt;/p&gt;
+$$ N = 15, \quad dt = 0.25\;\text{seconds}, \quad Tf = 3.75\;\text{seconds} $$
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cost Function&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;The overall objective of NMPC is defined by the cost function $ J $
+, a sum of the stage costs over the prediction horizon and a terminal cost at the end of the horizon. The cost function is given by:&lt;/p&gt;
+$$
+  J = \sum_{k=t}^{t+N-1} L(x_k, u_k) + M(x_{t+N})
+  $$
+
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$ L(x_k, u_k) $
+ is the stage cost function at each time step $ k $
+.&lt;/li&gt;
+&lt;li&gt;$ M(x_{t+N}) $
+ is the terminal cost function at the end of the horizon.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The stage cost $ L $
+ and terminal cost $ M $
+ are defined as:&lt;/p&gt;
+$$
+  L(x_k, u_k) = (x_k - x_{\text{ref},k})^\top Q (x_k - x_{\text{ref},k}) + (u_k - u_{\text{ref},k})^\top R (u_k - u_{\text{ref},k})
+  $$
+
+$$
+  M(x_{t+N}) = (x_{t+N} - x_{\text{ref},t+N})^\top P (x_{t+N} - x_{\text{ref},t+N})
+  $$
+
+&lt;p&gt;The weight matrices $ Q, R, P $
+ are given by:&lt;/p&gt;
+$$
+  Q = \text{diag}(1.0 / \textbf{xs}^2)
+  $$
+
+$$
+  R = \text{diag}(1.0 / \textbf{us}^2)
+  $$
+
+$$
+  P = \begin{bmatrix}
+  5.92981953e-01 &amp; -8.40033347e-04 &amp; -1.54536980e-02 \\
+  -8.40033347e-04 &amp; 7.75225208e-06 &amp; 2.30677411e-05 \\
+  -1.54536980e-02 &amp; 2.30677411e-05 &amp; 2.59450075e00
+  \end{bmatrix}
+  $$
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Control Constraints&lt;/strong&gt;:&lt;/p&gt;
+$$
+  \textbf{umin} = \begin{bmatrix} 0.95 \\ 0.85 \end{bmatrix} \times \textbf{us}
+  $$
+
+$$
+  \textbf{umax} = \begin{bmatrix} 1.05 \\ 1.15 \end{bmatrix} \times \textbf{us}
+  $$
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;acados-ocp-solver-configuration&#34;&gt;ACADOS OCP Solver Configuration&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Solver Type&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SQP (Sequential Quadratic Programming) or SQP-RTI (Real-Time Iteration).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Integrator Type&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;IRK&amp;rdquo; (Implicit Runge-Kutta) for nonlinear MPC.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;QP Solver and Condensing&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;PARTIAL_CONDENSING_HPIPM&amp;rdquo;, with condensing intervals equal to $ N $
+.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Regularization&lt;/strong&gt;:&lt;/p&gt;
+$$
+  \text{Levenberg-Marquardt} = 1e-5
+  $$
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;acados-integrator-configuration&#34;&gt;ACADOS Integrator Configuration&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Integrator Options&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Type: &amp;ldquo;ERK&amp;rdquo; (Explicit Runge-Kutta).&lt;/li&gt;
+&lt;li&gt;Stages and Steps: 4 stages, 100 steps.&lt;/li&gt;
+&lt;li&gt;Sensitivity Propagation: Configurable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This NMPC setup optimizes control actions over the specified prediction horizon, minimizing a quadratic cost function subject to dynamic constraints and control bounds. The ACADOS framework provides efficient solving capabilities for the nonlinear optimal control problem.&lt;/p&gt;
+&lt;h2 id=&#34;neural-network-integration-in-nmpc-for-cstr&#34;&gt;Neural Network Integration in NMPC for CSTR&lt;/h2&gt;
+&lt;h3 id=&#34;data-preparation&#34;&gt;Data Preparation&lt;/h3&gt;
+&lt;p&gt;The foundation of a robust neural network model lies in the quality and quantity of the data used for training. In the case of a Continuous Stirred Tank Reactor (CSTR), data can be sourced from historical operational records, simulations, or experimental setups. Key variables such as reactant concentrations, temperature, inflow rates, and heat inputs are recorded. This dataset is then divided into features (inputs) and targets (outputs), which the neural network will learn to map. The input and output datasets obtained from the NMPC controller are used as the historical dataset for neural network training.&lt;/p&gt;
+&lt;h3 id=&#34;neural-network-architecture&#34;&gt;Neural Network Architecture&lt;/h3&gt;
+&lt;p&gt;The architecture of the neural network is designed to effectively capture the complex dynamics of the CSTR. A typical architecture includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Input Layer&lt;/strong&gt;: Accepts the current state of the CSTR, such as temperature, concentration, and control inputs. Mathematically, if the input vector is $ \mathbf{x} $
+, then the input layer can be represented as $ \mathbf{a}_0 = \mathbf{x} $
+.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Hidden Layers&lt;/strong&gt;: Multiple layers with a sufficient number of neurons to enable the network to learn complex patterns. If $ \mathbf{a}_{i-1} $
+ is the output of the previous layer, the output of the $ i $
+-th layer can be represented as:&lt;/p&gt;
+$$
+  \mathbf{a}_i = \text{ReLU}(\mathbf{W}_i \mathbf{a}_{i-1} + \mathbf{b}_i)
+  $$
+
+&lt;p&gt;where $ \mathbf{W}_i $
+ and $ \mathbf{b}_i $
+ are the weights and biases of the $ i $
+-th layer, and ReLU (Rectified Linear Unit) introduces non-linearity.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Output Layer&lt;/strong&gt;: Predicts the future states of the CSTR, crucial for the NMPC controller. The output $ \mathbf{y} $
+ is expressed as:&lt;/p&gt;
+$$
+  \mathbf{y} = \mathbf{W}_{\text{output}} \mathbf{a}_{\text{last}} + \mathbf{b}_{\text{output}}
+  $$
+
+&lt;p&gt;where $ \mathbf{a}_{\text{last}} $
+ is the output of the last hidden layer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;training-process&#34;&gt;Training Process&lt;/h3&gt;
+&lt;p&gt;The training process involves several steps:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Block diagram of DNN-NMPC&#34; srcset=&#34;
+               /project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/images/clipboard-image-1704789215_hu_17bcf561c38b8ffc.webp 400w,
+               /project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/images/clipboard-image-1704789215_hu_81f41841928594c9.webp 760w,
+               /project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/images/clipboard-image-1704789215_hu_18a7300f81148f1.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/images/clipboard-image-1704789215_hu_17bcf561c38b8ffc.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;410&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Data Scaling&lt;/strong&gt;: Input ($ \mathbf{X} $
+) and output ($ \mathbf{Y} $
+) data are scaled to improve training efficiency and stability. Standardization is expressed as:&lt;/li&gt;
+&lt;/ol&gt;
+$$
+  \mathbf{X}_{\text{scaled}} = \frac{\mathbf{X} - \mu_{\mathbf{X}}}{\sigma_{\mathbf{X}}}
+  $$
+
+&lt;p&gt;where $ \mu_{\mathbf{X}} $
+ and $ \sigma_{\mathbf{X}} $
+ are the mean and standard deviation of the input data, respectively.&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Loss Function&lt;/strong&gt;: Mean Squared Error (MSE) quantifies the difference between network predictions ($ \mathbf{\hat{Y}} $
+) and actual data ($ \mathbf{Y} $
+):&lt;/li&gt;
+&lt;/ol&gt;
+$$
+  \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (\mathbf{\hat{Y}}_i - \mathbf{Y}_i)^2
+  $$
+
+&lt;p&gt;where $ n $
+ is the number of data points.&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Optimizer&lt;/strong&gt;: Algorithms like Adam or SGD (Stochastic Gradient Descent) adjust the network weights to minimize the loss function. The weight update can be expressed as:&lt;/li&gt;
+&lt;/ol&gt;
+$$
+  \mathbf{W}_{\text{new}} = \mathbf{W}_{\text{old}} - \alpha \nabla \text{MSE}
+  $$
+
+&lt;p&gt;where $ \alpha $
+ is the learning rate, and $ \nabla \text{MSE} $
+ is the gradient of the MSE.&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Validation&lt;/strong&gt;: A portion of the dataset not used in training validates the model’s performance and prevents overfitting.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Loss&#34; srcset=&#34;
+               /project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/images/loss_hu_2c7da6127e7abe88.webp 400w,
+               /project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/images/loss_hu_21a14ef2201f75d2.webp 760w,
+               /project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/images/loss_hu_3695e198de09358b.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/images/loss_hu_2c7da6127e7abe88.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;414&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;CSTR simulation result&#34; srcset=&#34;
+               /project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/images/dnn_hu_ef42bb46f3f0c59d.webp 400w,
+               /project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/images/dnn_hu_ffbf93ccec41dd2.webp 760w,
+               /project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/images/dnn_hu_4f1c478c834eb7aa.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/deep-neural-network-nonlinear-model-predictive-control-for-cstr/images/dnn_hu_ef42bb46f3f0c59d.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;414&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;The CSTR model, integrated with a neural network and controlled via NMPC, represents a sophisticated approach to managing complex chemical reactions. This integration allows for efficient, real-time adjustments to reactor operating conditions, ensuring optimal performance under varying conditions.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>🎉 Drone Trajectory Tracking with Python</title>
       <link>http://localhost:1313/project/drone-trajectory-tracking/</link>
       <pubDate>Tue, 06 Jun 2023 00:00:00 +0000</pubDate>

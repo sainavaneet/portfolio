@@ -178,6 +178,8 @@ languages:
 Awards:
   - title: Applied Control Systems UAV Drone (3D Dynamics & Control)
     url: https://1drv.ms/b/s!AjXaFRA-wQA5j6Rf8XuOrELFyNUpoA?e=YIf1xu
+    certificate_url: https://1drv.ms/b/s!AjXaFRA-wQA5j6Rf8XuOrELFyNUpoA?e=YIf1xu
+
     date: '2023-11-25'
     awarder: Udemy
     icon: Udemy
