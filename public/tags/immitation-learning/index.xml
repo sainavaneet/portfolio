@@ -13,11 +13,117 @@
     </image>
     
     <item>
-      <title>Imitation Learning on Franka Robot</title>
+      <title>Combining Imitation Learning with Diffusion Processes on Robot Manipulator</title>
       <link>http://localhost:1313/project/imitation-learning-franka/</link>
       <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/project/imitation-learning-franka/</guid>
-      <description></description>
+      <description>&lt;h2 id=&#34;diffusion-processes&#34;&gt;Diffusion Processes&lt;/h2&gt;
+&lt;p&gt;Diffusion processes can be modeled by Stochastic Differential Equations (SDEs) as follows:&lt;/p&gt;
+
+$$
+dX_t = \mu(X_t, t)dt + \sigma(X_t, t)dW_t
+$$
+
+
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\( X_t \) is the state of the process at time \( t \).&lt;/li&gt;
+&lt;li&gt;\( \mu(X_t, t) \) represents the drift term.&lt;/li&gt;
+&lt;li&gt;\( \sigma(X_t, t) \) represents the diffusion term.&lt;/li&gt;
+&lt;li&gt;\( W_t \) represents a Wiener process (or Brownian motion).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;imitation-learning&#34;&gt;Imitation Learning&lt;/h2&gt;
+&lt;p&gt;The objective function in imitation learning can be expressed as:&lt;/p&gt;
+
+$$
+\min_{\pi} \mathbb{E}_{(s,a^*)\sim D}[-\log \pi(a^* | s)]
+$$
+
+
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\( D \) is a dataset of state-action pairs \( (s, a^*) \).&lt;/li&gt;
+&lt;li&gt;\( a^* \) is the action taken by the expert in state \( s \).&lt;/li&gt;
+&lt;li&gt;The expertise dataset was created using an Inverse Kinematics Solver (IK-Solver).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;combining-diffusion-processes-with-imitation-learning&#34;&gt;Combining Diffusion Processes with Imitation Learning&lt;/h2&gt;
+
+$$
+\min_{\pi} \mathbb{E}_{(s,a^*)\sim D, X_t\sim SDE}[-\log \pi(a^* | s) + \lambda \cdot L(X_t, \pi(s))]
+$$
+
+
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\( L(X_t, \pi(s)) \) represents a loss term under the dynamics \( X_t \).&lt;/li&gt;
+&lt;li&gt;\( \lambda \) is a regularization parameter.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;neural-network-model&#34;&gt;Neural Network Model&lt;/h2&gt;
+&lt;p&gt;Given a desired end-effector position \( x \in \mathbb{R}^3 \), the network computes the joint angles \( y \in \mathbb{R}^7 \) through a series of transformations.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Layer 1: \( h_1 = \text{ReLU}(W_1x + b_1) \)&lt;/li&gt;
+&lt;li&gt;Layer 2: \( h_2 = \text{ReLU}(W_2h_1 + b_2) \)&lt;/li&gt;
+&lt;li&gt;Layer 3: \( h_3 = \text{ReLU}(W_3h_2 + b_3) \)&lt;/li&gt;
+&lt;li&gt;Output Layer: \( y = W_4h_3 + b_4 \)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\( W_i \) and \( b_i \) are the weights and biases of the \( i \)-th layer.&lt;/li&gt;
+&lt;li&gt;\( \text{ReLU}(z) = \max(0, z) \) is the Rectified Linear Unit activation function.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;loss-function&#34;&gt;Loss Function&lt;/h2&gt;
+&lt;p&gt;Minimizing the difference between the predicted joint angles and the true joint angles. The loss function used is the Mean Squared Error (MSE), given by:&lt;/p&gt;
+
+$$
+L(\theta) = \frac{1}{N} \sum_{i=1}^{N} \| f(x^{(i)}; \theta) - y^{(i)} \|^2
+$$
+
+
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\( N \) is the number of samples in the dataset.&lt;/li&gt;
+&lt;li&gt;\( x^{(i)} \) is the \( i \)-th desired end-effector position.&lt;/li&gt;
+&lt;li&gt;\( y^{(i)} \) is the true joint angles for the \( i \)-th sample.&lt;/li&gt;
+&lt;li&gt;\( \| \cdot \| \) denotes the Euclidean norm.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;optimization&#34;&gt;Optimization&lt;/h2&gt;
+&lt;p&gt;The training process seeks to find the optimal parameters \( \theta^* \) that minimize the loss function \( L(\theta) \). This is typically done using gradient-based optimization methods, such as Adam. The update rule for Adam at each iteration \( t \) for each parameter \( \theta \) is as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Compute gradients: \( g_t = \nabla_{\theta} L(\theta) \)&lt;/li&gt;
+&lt;li&gt;Update biased first moment estimate: \( m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t \)&lt;/li&gt;
+&lt;li&gt;Update biased second raw moment estimate: \( v_t = \beta_2 v_{t-1} + (1 - \beta_2) g_t^2 \)&lt;/li&gt;
+&lt;li&gt;Compute bias-corrected first moment estimate: \( \hat{m}_t = m_t / (1 - \beta_1^t) \)&lt;/li&gt;
+&lt;li&gt;Compute bias-corrected second raw moment estimate: \( \hat{v}_t = v_t / (1 - \beta_2^t) \)&lt;/li&gt;
+&lt;li&gt;Update parameters:&lt;/li&gt;
+&lt;/ol&gt;
+
+$$
+\theta = \theta - \eta \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}
+$$
+
+
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\( \beta_1 \) and \( \beta_2 \) are hyperparameters that control the exponential decay rates of the moment estimates.&lt;/li&gt;
+&lt;li&gt;In PyTorch, the default values are \( \beta_1 = 0.9 \) and \( \beta_2 = 0.999 \).&lt;/li&gt;
+&lt;li&gt;\( \eta \) is the learning rate, and we used \( \eta = 0.001 \).&lt;/li&gt;
+&lt;li&gt;\( \epsilon \) is a small scalar added to improve numerical stability, with a default value of \( \epsilon = 10^{-8} \).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;training-process&#34;&gt;Training Process&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Epochs:&lt;/strong&gt; 10,000&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Learning Rate ( \( \eta \) ):&lt;/strong&gt; 0.001&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Total Time Taken:&lt;/strong&gt; 11.92 seconds&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;demonstration&#34;&gt;Demonstration&lt;/h2&gt;
+&lt;p&gt;We used the &lt;code&gt;matplotlib&lt;/code&gt; Python library to draw some trajectories to imitate.&lt;/p&gt;
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+&lt;p&gt;Here is a demonstration video:&lt;br&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/CYL4t0xv4y4?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+&lt;/p&gt;
+</description>
     </item>
     
   </channel>
