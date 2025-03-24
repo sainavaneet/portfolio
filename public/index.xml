@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo Academic CV Theme</title>
+    <title>Navaneet Portfolio</title>
     <link>http://localhost:1313/</link>
       <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <description>Hugo Academic CV Theme</description>
+    <description>Navaneet Portfolio</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 24 Oct 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu_645fa481986063ef.png</url>
-      <title>Hugo Academic CV Theme</title>
+      <title>Navaneet Portfolio</title>
       <link>http://localhost:1313/</link>
     </image>
     
@@ -1455,7 +1455,7 @@ u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]$$
 
 
 
-&lt;div id=&#34;chart-658392147&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-459273816&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -1473,7 +1473,7 @@ u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]$$
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-658392147&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-459273816&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
