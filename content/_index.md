@@ -34,43 +34,43 @@ sections:
         #   parallax: true
         
         
-  - block: markdown
-    id: parallax1
-    design:
-      background:
-        image:
-          # Name of image in `assets/media/`.
-          filename: background.jpg
-          # Apply image filters?
-          filters:
-            # Darken the image? Range 0-1 where 1 is transparent and 0 is opaque.
-            brightness: 0.6
-          #  Image fit. Options are `cover` (default), `contain`, or `actual` size.
-          size: cover
-          # Image focal point. Options include `left`, `center` (default), or `right`.
-          position: center
-          # Use a fun parallax-like fixed background effect on desktop? true/false
-          parallax: true
-          # Text color (true=light, false=dark, or remove for the dynamic theme color).
-          text_color_light: true
+  # - block: markdown
+  #   id: parallax1
+  #   design:
+  #     background:
+  #       image:
+  #         # Name of image in `assets/media/`.
+  #         filename: background.jpg
+  #         # Apply image filters?
+  #         filters:
+  #           # Darken the image? Range 0-1 where 1 is transparent and 0 is opaque.
+  #           brightness: 0.6
+  #         #  Image fit. Options are `cover` (default), `contain`, or `actual` size.
+  #         size: cover
+  #         # Image focal point. Options include `left`, `center` (default), or `right`.
+  #         position: center
+  #         # Use a fun parallax-like fixed background effect on desktop? true/false
+  #         parallax: true
+  #         # Text color (true=light, false=dark, or remove for the dynamic theme color).
+  #         text_color_light: true
 
 
-  - block: markdown
-    content:
-      title: '📚 My Research'
-      subtitle: ''
-      text: |-
-        Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
+  # - block: markdown
+  #   content:
+  #     title: '📚 My Research'
+  #     subtitle: ''
+  #     text: |-
+  #       Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
 
-        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
+  #       I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
         
-        Please reach out to collaborate 😃
-    design:
-      columns: '1'
+  #       Please reach out to collaborate 😃
+  #   design:
+  #     columns: '1'
 
 
 
-  - block: resume-experience
+  - block: resume-education
     content:
       username: admin
     design:
@@ -78,32 +78,8 @@ sections:
       date_format: 'January 2006'
       # Education or Experience section first?
       is_education_first: false
-  - block: resume-skills
-    content:
-      title: Skills & Hobbies
-      username: admin
-    design:
-      show_skill_percentage: false 
+
       
-  - block: markdown
-    id: parallax1
-    design:
-      background:
-        image:
-          # Name of image in `assets/media/`.
-          filename: background.jpg
-          # Apply image filters?
-          filters:
-            # Darken the image? Range 0-1 where 1 is transparent and 0 is opaque.
-            brightness: 0.6
-          #  Image fit. Options are `cover` (default), `contain`, or `actual` size.
-          size: cover
-          # Image focal point. Options include `left`, `center` (default), or `right`.
-          position: center
-          # Use a fun parallax-like fixed background effect on desktop? true/false
-          parallax: true
-          # Text color (true=light, false=dark, or remove for the dynamic theme color).
-          text_color_light: true
 
 
 

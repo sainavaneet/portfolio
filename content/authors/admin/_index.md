@@ -61,14 +61,14 @@ education:
     institution: Kyungpook National University, South Korea
     date_start: 2016-01-01
     date_end: 2020-12-31
-    summary: |
-      GPA: 3.8/4.0
+    # summary: |
+    #   GPA: 3.8/4.0
   - area: BEng Electronics and Communication Engineering
     institution: Christ University, India
     date_start: 2016-01-01
     date_end: 2020-12-31
-    summary: |
-      GPA: 3.4/4.0
+    # summary: |
+    #   GPA: 3.4/4.0
 
 work:
   - position: Full Time Researcher

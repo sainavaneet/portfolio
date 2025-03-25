@@ -5,7 +5,7 @@
 
 # Appearance
 appearance:
-  mode: dark
+  mode: light
   color: emerald
 
 # SEO
@@ -67,3 +67,9 @@ params:
     - scss/wowchemy/wowchemy.scss
   custom_js:
     - js/custom-cursor.js
+
+
+sidebar:
+  enabled: true
+toc:
+  enabled: true

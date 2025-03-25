@@ -10,8 +10,12 @@
 {{ end }}
 
 <div class="mx-auto flex max-w-screen-xl">
-  {{ partial "components/sidebar.html" (dict "context" . "no_sidebar" true) }}
-  {{ partial "components/toc.html" . }}
+  {{ if site.Params.sidebar.enabled }}
+    {{ partial "components/sidebar.html" (dict "context" . "no_sidebar" false) }}
+  {{ end }}
+  {{ if site.Params.toc.enabled }}
+    {{ partial "components/toc.html" . }}
+  {{ end }}
   <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
     <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
 
@@ -89,12 +93,12 @@
       {{end}}
       {{ if ne $image.MediaType.SubType "gif" }}{{ $image = $image.Process "webp" }}{{ end }}
       {{/* Featured image */}}
-      <div class="article-header {{$image_container}} featured-image-wrapper mt-4 mb-16" style="max-width: {{$image.Width}}px; max-height: {{$image.Height}}px;">
+      <!-- <div class="article-header {{$image_container}} featured-image-wrapper mt-4 mb-16" style="max-width: {{$image.Width}}px; max-height: {{$image.Height}}px; margin: 0 auto;">
         <div style="position: relative">
           <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ with $.Params.image.alt_text }}{{.}}{{ end }}" class="featured-image">
           {{ with $.Params.image.caption }}<span class="article-header-caption">{{ . | markdownify | emojify }}</span>{{ end }}
         </div>
-      </div>
+      </div> -->
       {{end}}
 
       {{/* EVENT / PUBLICATION METADATA */}}
