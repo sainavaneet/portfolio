@@ -19,6 +19,8 @@ links:
 
 ---
 
+![task](task.PNG)
+
 Cucumber harvesting using Object Detecion
 ================
 

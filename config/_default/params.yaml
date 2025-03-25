@@ -62,3 +62,8 @@ features:
   privacy_pack:
     enable: false
 
+params:
+  custom_css:
+    - scss/custom-cursor.scss
+  custom_js:
+    - js/custom-cursor.js
