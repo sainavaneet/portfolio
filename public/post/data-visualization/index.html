@@ -66,7 +66,7 @@
 
   
     
-    <link href="/css/custom.min.7c64a433b0d6a98284fa162f28060ef696ad64b7e8890b48801af03e6810809d.css" rel="stylesheet" />
+    <link href="/css/custom.min.798c533bfb12175f3ba0f8437cf450b7adbc150cada0dbdcecbda1151e57c9fd.css" rel="stylesheet" />
   
 
   <script>
@@ -793,6 +793,12 @@
       
       <div class="px-3 text-black hover:text-primary-700 dark:text-white dark:hover:text-primary-300
             [&.active]:font-bold [&.active]:text-black/90 dark:[&.active]:text-white">
+        <button class="theme-toggle mt-1" accesskey="t" title="appearance">
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class="dark:hidden">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
           <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                stroke-linejoin="round" class=" dark:block [&:not(dark)]:hidden">
@@ -1334,7 +1340,7 @@
 
 
 
-<div id="chart-371592864" class="chart"></div>
+<div id="chart-495267813" class="chart"></div>
 <script>
   async function fetchChartJSON() {
     console.debug('Hugo Blox fetching chart JSON...')
@@ -1352,7 +1358,7 @@
 
       fetchChartJSON().then(chart => {
         console.debug('Plotting chart...')
-        window.Plotly.newPlot('chart-371592864', chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot('chart-495267813', chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
