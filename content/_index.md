@@ -15,9 +15,9 @@ sections:
       username: admin
       text: ""
       # Show a call-to-action button under your biography? (optional)
-      button:
-        text: Download CV
-        url: uploads/resume.pdf
+      # button:
+      #   text: Download CV
+      #   url: uploads/resume.pdf
 
 
     # design:
@@ -34,25 +34,25 @@ sections:
         #   parallax: true
         
         
-  # - block: markdown
-  #   id: parallax1
-  #   design:
-  #     background:
-  #       image:
-  #         # Name of image in `assets/media/`.
-  #         filename: background.jpg
-  #         # Apply image filters?
-  #         filters:
-  #           # Darken the image? Range 0-1 where 1 is transparent and 0 is opaque.
-  #           brightness: 0.6
-  #         #  Image fit. Options are `cover` (default), `contain`, or `actual` size.
-  #         size: cover
-  #         # Image focal point. Options include `left`, `center` (default), or `right`.
-  #         position: center
-  #         # Use a fun parallax-like fixed background effect on desktop? true/false
-  #         parallax: true
-  #         # Text color (true=light, false=dark, or remove for the dynamic theme color).
-  #         text_color_light: true
+  - block: markdown
+    id: parallax1
+    design:
+      background:
+        image:
+          # Name of image in `assets/media/`.
+          filename: mountains.jpg
+          # Apply image filters?
+          filters:
+            # Darken the image? Range 0-1 where 1 is transparent and 0 is opaque.
+            brightness: 1
+          #  Image fit. Options are `cover` (default), `contain`, or `actual` size.
+          size: conver
+          # Image focal point. Options include `left`, `center` (default), or `right`.
+          position: right
+          # Use a fun parallax-like fixed background effect on desktop? true/false
+          parallax: false
+          # Text color (true=light, false=dark, or remove for the dynamic theme color).
+          text_color_light: true
 
 
   # - block: markdown
@@ -132,10 +132,18 @@ sections:
   #     # Filter on criteria
   #     filters:
   #       author: ""
-  #       category: ""
-  #       tag: ""
-  #       exclude_featured: false
-  #       exclude_future: false
+  #       category: ""    # design:
+    #   css_class: dark
+    #   background:
+    #     color: black
+        # image:
+        #   # Add your image background to `assets/media/`.
+        #   filename: astro.png
+        #   filters:
+        #     brightness: 0.3
+        #   size: cover
+        #   position: center
+        #   parallax: true
   #       exclude_past: false
   #       publication_type: ""
   #     # Choose how many pages you would like to offset by

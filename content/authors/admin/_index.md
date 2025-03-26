@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Sai Navaneet
+# title: Sai Navaneet
 
 # # Name pronunciation (optional)
 # name_pronunciation: Chien Shiung Wu
@@ -20,12 +20,12 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Master's in Electronics
+# role: Master's in Electronics
 
 # Organizations/Affiliations to display in Biography blox
-organizations:
-  - name: PI-LAB
-    url: https://control.knu.ac.kr/
+# organizations:
+#   - name: PI-LAB
+#     url: https://control.knu.ac.kr/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
@@ -114,6 +114,8 @@ work:
     button:
       text: 'Certificate'
       url: 'https://1drv.ms/b/s!AjXaFRA-wQA5j6ReG7Rmv5l4XnJBEQ?e=8lVosL'
+
+
   - position: Cyber Security | Intern
     company_name: Prinston
     company_url: ''

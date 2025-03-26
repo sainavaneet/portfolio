@@ -1483,7 +1483,7 @@ u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]$$
 
 
 
-&lt;div id=&#34;chart-913287456&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-689347152&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -1501,7 +1501,7 @@ u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]$$
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-913287456&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-689347152&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

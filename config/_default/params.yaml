@@ -30,15 +30,15 @@ marketing:
 header:
   navbar:
     enable: true
-    align: center
+    align: right
     blox: "navbar"
     fixed_to_top: true
     show_search: false
-    show_theme_chooser: true
+    show_theme_chooser: false
     
     highlight_active_link: true
     logo:
-      text: "Navaneet"
+      text: "Sai Navaneet"
 
 # Site footer
 # footer:
