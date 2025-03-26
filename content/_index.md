@@ -20,18 +20,6 @@ sections:
       #   url: uploads/resume.pdf
 
 
-    # design:
-    #   css_class: dark
-    #   background:
-    #     color: black
-        # image:
-        #   # Add your image background to `assets/media/`.
-        #   filename: astro.png
-        #   filters:
-        #     brightness: 0.3
-        #   size: cover
-        #   position: center
-        #   parallax: true
         
         
   - block: markdown
@@ -46,7 +34,7 @@ sections:
             # Darken the image? Range 0-1 where 1 is transparent and 0 is opaque.
             brightness: 1
           #  Image fit. Options are `cover` (default), `contain`, or `actual` size.
-          size: conver
+          size: cover
           # Image focal point. Options include `left`, `center` (default), or `right`.
           position: right
           # Use a fun parallax-like fixed background effect on desktop? true/false
