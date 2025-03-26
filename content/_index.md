@@ -70,7 +70,7 @@ sections:
 
 
 
-  - block: resume-education
+  - block: resume-experience
     content:
       username: admin
     design:

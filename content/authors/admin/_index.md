@@ -249,8 +249,8 @@ Awards:
     summary: |
       Successfully completed a 5 weeks online certified training on Advanced C Program.  
 ---
+# Hi there 👋
 
-## About Me
 
 From the moment I discovered the excitement of engineering, I’ve been drawn to the transformative potential of automation and robotics. My journey began in 2022 as an Electrical Engineering student in Korea, where I delved into the intricate realms of electronic and control systems. Building on this foundation, I am currently pursuing a Master’s degree in Electronics, centering my research on advanced robotics systems.
 
