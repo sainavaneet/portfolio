@@ -16,3 +16,9 @@ main:
   - name: Papers
     url: publication/
     weight: 14
+  - name: Blog
+    url: post/
+    weight: 15  
+  - name: Contact
+    url: contact/
+    weight: 16
