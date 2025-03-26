@@ -40,7 +40,7 @@
 
     <div id="profile" class="flex justify-center items-center flex-col">
       {{ if $avatar }}
-        <div class="avatar-wrapper" style="width: 300px; height: 300px; padding-left: 40px; padding-top: 55px;">
+        <div class="avatar-wrapper" style="width: 300px; height: 300px; padding-left: 40px; padding-top: 75px;">
           {{ $avatar_image := $avatar.Fill "500x500 Center" }}
           <img class="avatar rounded-full bg-white dark:bg-gray-800 p-1"
                src="{{ $avatar_image.RelPermalink }}"
@@ -80,7 +80,7 @@
         {{ end }}
       </div>
 
-      <ul class="network-icon dark:text-zinc-100" style="padding-bottom: 15px;">
+      <ul class="network-icon dark:text-zinc-100" >
         {{ range $person.profiles }}
           {{ $pack := or .icon_pack "fas" }}
           {{ $pack_prefix := $pack }}
@@ -101,12 +101,12 @@
           <li>
             <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} aria-label="{{ .icon }}"
                {{ with .label }} data-toggle="tooltip" data-placement="top" title="{{ . }}"{{ end }}>
-              {{ partial "functions/get_icon" (dict "name" .icon "attributes" "style=\"height: 1.5rem;\"") }}
+              {{ partial "functions/get_icon" (dict "name" .icon "attributes" "style=\"height: 2.2rem;\"") }}
             </a>
           </li>
         {{ end }}
 
-        
+    
       </ul>
 
       {{ with $block.content.button }}
