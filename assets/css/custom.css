@@ -1,4 +1,7 @@
-
+body {
+    font-family: '';
+    /* cursor: none; */
+}
 
 .navbar-brand {
     display: inline-block;
@@ -13,7 +16,5 @@
     font-weight: 350;
 ;
 }
-
-
 
 

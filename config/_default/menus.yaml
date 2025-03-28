@@ -16,3 +16,7 @@ main:
   - name: Papers
     url: publication/
     weight: 14
+
+  - name: Contact
+    url: "/contact" # Use an anchor link
+    weight: 15

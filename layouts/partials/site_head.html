@@ -12,6 +12,13 @@
     <meta name="robots" content="noindex" />
   {{- end -}}
 
+
+  {{ if .Site.Params.features.custom_cursor_enabled }}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  {{ end }}
+
+
+
   {{/* Attempt to load superuser. */}}
   {{ $superuser_name := "" }}
   {{ $superuser_username := "" }}

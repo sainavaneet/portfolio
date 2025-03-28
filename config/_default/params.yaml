@@ -66,10 +66,17 @@ params:
   custom_css:
     - scss/wowchemy/wowchemy.scss
   custom_js:
-    - js/custom-cursor.js
+    - js/custom.js
 
 
 sidebar:
-  enabled: true
+  enabled: false
 toc:
   enabled: true
+
+assets:
+  custom_js:
+    - js/custom-cursor.js
+
+features:
+  custom_cursor_enabled: true

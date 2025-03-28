@@ -1483,7 +1483,7 @@ u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]$$
 
 
 
-&lt;div id=&#34;chart-456327891&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-356417892&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -1501,7 +1501,7 @@ u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]$$
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-456327891&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-356417892&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -3255,6 +3255,129 @@ drone&amp;rsquo;s movements using the arrow keys and other designated keys.&lt;/
   &lt;span class=&#34;dark:text-neutral-300&#34;&gt;Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.&lt;/span&gt;
 &lt;/div&gt; --&gt;
 &lt;!-- Add the publication&#39;s **full text** or **supplementary notes** here. You can use rich formatting such as including [code, math, and images](https://docs.hugoblox.com/content/writing-markdown-latex/). --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/contact/</guid>
+      <description>&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+  &lt;meta charset=&#34;UTF-8&#34;&gt;
+  &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+  &lt;title&gt;Advanced Contact Form&lt;/title&gt;
+  &lt;link href=&#34;https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap&#34; rel=&#34;stylesheet&#34;&gt;
+  &lt;style&gt;
+    body {
+      font-family: &#39;Roboto&#39;, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow-y: auto;
+    }
+    .contact-form {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 600px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden;
+    }
+    .contact-form:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+    .contact-form h2 {
+      margin-top: 0;
+      color: #333;
+      text-align: center;
+      position: relative;
+    }
+    .contact-form h2::after {
+      content: &#39;&#39;;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #007bff, #0056b3);
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+      font-weight: bold;
+    }
+    .contact-form .input-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+    .contact-form button {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(90deg, #007bff, #0056b3);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .contact-form button:hover {
+      background: linear-gradient(90deg, #0056b3, #004085);
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;form
+    action=&#34;https://formspree.io/f/xanedwyo&#34;
+    method=&#34;post&#34;
+    class=&#34;contact-form&#34;
+  &gt;
+    &lt;h2&gt;Get in Touch&lt;/h2&gt;
+    &lt;div class=&#34;input-group&#34;&gt;
+      &lt;label for=&#34;name&#34;&gt;Your Name:&lt;/label&gt;
+      &lt;input type=&#34;text&#34; id=&#34;name&#34; name=&#34;name&#34; required&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;input-group&#34;&gt;
+      &lt;label for=&#34;email&#34;&gt;Your Email:&lt;/label&gt;
+      &lt;input type=&#34;email&#34; id=&#34;email&#34; name=&#34;email&#34; required&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;input-group&#34;&gt;
+      &lt;label for=&#34;message&#34;&gt;Message:&lt;/label&gt;
+      &lt;textarea id=&#34;message&#34; name=&#34;message&#34; rows=&#34;5&#34; required&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;button type=&#34;submit&#34;&gt;Send Message&lt;/button&gt;
+  &lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
 </description>
     </item>
     

@@ -29,5 +29,12 @@
 
     {{/* EXTENSIBILITY HOOK: BODY-END */}}
     {{ partial "functions/get_hook" (dict "hook" "body-end" "context" .) }}
+
+    {{ if .Site.Params.features.custom_cursor_enabled }}
+    <script>
+      document.body.classList.add('custom-cursor-enabled');
+    </script>
+    {{ end }}
+    
   </body>
 </html>

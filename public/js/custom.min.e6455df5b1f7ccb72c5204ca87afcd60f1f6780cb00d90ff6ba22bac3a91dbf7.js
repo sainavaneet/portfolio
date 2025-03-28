@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){const t=document.querySelector('a[href="#contact"]'),e=document.getElementById("contact-form");t&&e&&t.addEventListener("click",function(t){t.preventDefault(),e.style.display==="none"||e.style.display===""?e.style.display="block":e.style.display="none"})})
