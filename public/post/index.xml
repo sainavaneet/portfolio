@@ -5,13 +5,14 @@
     <link>http://localhost:1313/post/</link>
       <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Blog</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 26 Oct 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
     <image>
       <url>http://localhost:1313/media/icon_hu_645fa481986063ef.png</url>
       <title>Blog</title>
       <link>http://localhost:1313/post/</link>
     </image>
     
+<<<<<<< HEAD
     <item>
       <title>🧠 Sharpen your thinking with a second brain</title>
       <link>http://localhost:1313/post/second-brain/</link>
@@ -909,5 +910,7 @@ $$
 </description>
     </item>
     
+=======
+>>>>>>> 3d106e10c396a30fef9b4a91d67c286776c0f91e
   </channel>
 </rss>

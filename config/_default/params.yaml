@@ -7,8 +7,7 @@
 appearance:
   mode: light
   color: emerald
-
-# SEO
+  accent_color: emerald
 marketing:
   seo:
     site_type: Person
@@ -39,6 +38,8 @@ header:
     highlight_active_link: true
     logo:
       text: "Sai Navaneet"
+      # Logo filename in `assets/media/` folder
+
 
 # Site footer
 # footer:

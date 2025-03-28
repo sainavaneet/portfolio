@@ -16,7 +16,16 @@ main:
   - name: Papers
     url: publication/
     weight: 14
+<<<<<<< HEAD
 
   - name: Contact
     url: "/contact" # Use an anchor link
     weight: 15
+=======
+  - name: Blog
+    url: post/
+    weight: 15  
+  - name: Contact
+    url: contact/
+    weight: 16
+>>>>>>> 3d106e10c396a30fef9b4a91d67c286776c0f91e
