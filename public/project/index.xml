@@ -329,9 +329,9 @@ $$
     
     <item>
       <title>Applied Action chunk Transformer on franka Emika</title>
-      <link>http://localhost:1313/project/actpanda/</link>
+      <link>http://localhost:1313/project/actfranka/</link>
       <pubDate>Mon, 05 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/project/actpanda/</guid>
+      <guid>http://localhost:1313/project/actfranka/</guid>
       <description>&lt;h3 id=&#34;what-are-action-chunk-transformers&#34;&gt;What are Action Chunk Transformers?​&lt;/h3&gt;
 &lt;p&gt;Action Chunk Transformers are a sophisticated integration of transformer-based models in robotics. Transformers, originally designed for natural language processing, have shown remarkable success in handling sequential data and making contextual decisions. By adapting this technology, we can teach robots to break down complex tasks into manageable &amp;ldquo;chunks&amp;rdquo; or segments of actions, allowing for more nuanced and adaptable behaviors.&lt;/p&gt;
 &lt;h3 id=&#34;environment&#34;&gt;Environment&lt;/h3&gt;
@@ -354,10 +354,10 @@ $$
 &lt;figure  &gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Environment&#34; srcset=&#34;
-               /project/actpanda/env_hu_60807d9f01772ecc.webp 400w,
-               /project/actpanda/env_hu_b6b7d22907c17bba.webp 760w,
-               /project/actpanda/env_hu_602d44608885e736.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/actpanda/env_hu_60807d9f01772ecc.webp&#34;
+               /project/actfranka/env_hu_60807d9f01772ecc.webp 400w,
+               /project/actfranka/env_hu_b6b7d22907c17bba.webp 760w,
+               /project/actfranka/env_hu_602d44608885e736.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/actfranka/env_hu_60807d9f01772ecc.webp&#34;
                width=&#34;760&#34;
                height=&#34;423&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
