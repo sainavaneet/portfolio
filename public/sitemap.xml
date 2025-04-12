@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tags/quadrapedal/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/post/quadrapedal-robot/robot/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tags/vla/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>http://localhost:1313/tags/vqvae/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>http://localhost:1313/project/autonomus-harvesting/</loc>
     <lastmod>2024-12-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -11,10 +35,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/project/</loc>
-    <lastmod>2024-12-10T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-12-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -154,9 +174,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>http://localhost:1313/post/bluetooth/navaneet/</loc>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>http://localhost:1313/post/</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
