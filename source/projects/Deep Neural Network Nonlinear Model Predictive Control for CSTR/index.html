@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Deep Neural Network Nonlinear Model Predictive Control for CSTR &#8212; Portfolio  documentation</title>
   
@@ -29,19 +28,19 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=d9d6623f" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/Deep Neural Network Nonlinear Model Predictive Control for CSTR/index';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="../../../_static/custom.js"></script>
@@ -213,7 +212,11 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../../publications/index.html">Publications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Blog/Bluetooth/index.html">Blog</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Blog/Bluetooth/index.html">Blog</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/isaacsim/index.html">Isaac Sim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/go2_robot_isaacsim/index.html">Go2 robot in isaac-sim</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../Contact/index.html">Contact Me</a></li>
 </ul>
 
@@ -392,13 +395,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="deep-neural-network-nonlinear-model-predictive-control-for-cstr">
-<h1>Deep Neural Network Nonlinear Model Predictive Control for CSTR<a class="headerlink" href="#deep-neural-network-nonlinear-model-predictive-control-for-cstr" title="Permalink to this heading">#</a></h1>
+<h1>Deep Neural Network Nonlinear Model Predictive Control for CSTR<a class="headerlink" href="#deep-neural-network-nonlinear-model-predictive-control-for-cstr" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>The Continuous Stirred Tank Reactor (CSTR) is a fundamental model in chemical engineering, representing a reactor where the contents are well-mixed, ensuring uniform composition and temperature throughout. This report delves into the mathematical modeling of a CSTR, its simulation, and control using a Nonlinear Model Predictive Control (NMPC) strategy integrated with a neural network for predictive behavior.</p>
 </section>
 <section id="cstr-model">
-<h2>CSTR Model<a class="headerlink" href="#cstr-model" title="Permalink to this heading">#</a></h2>
+<h2>CSTR Model<a class="headerlink" href="#cstr-model" title="Link to this heading">#</a></h2>
 <p>The CSTR dynamics are governed by the mass and energy balance equations, capturing the reaction kinetics, heat transfer, and fluid mixing. The model is described by the following differential equations:</p>
 <p>{{&lt; math &gt;}}$$
 \frac{dC}{dt} = \frac{F}{V}(C_{in} - C) - k(T)C
@@ -414,7 +417,7 @@ $${{&lt; /math &gt;}}</p>
 <p>where {{&lt; math &gt;}}$C_A${{&lt; /math &gt;}} is the concentration of species A, {{&lt; math &gt;}}$k(T)${{&lt; /math &gt;}} is the temperature-dependent reaction rate constant, {{&lt; math &gt;}}$k_0${{&lt; /math &gt;}} is the pre-exponential factor or frequency factor, {{&lt; math &gt;}}$E${{&lt; /math &gt;}} is the activation energy, {{&lt; math &gt;}}$R${{&lt; /math &gt;}} is the universal gas constant, {{&lt; math &gt;}}$T${{&lt; /math &gt;}} is the temperature, and {{&lt; math &gt;}}$r_A${{&lt; /math &gt;}} is the reaction rate for species A.</p>
 </section>
 <section id="parameters">
-<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h2>
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
@@ -466,11 +469,11 @@ $${{&lt; /math &gt;}}</p>
 </div>
 </section>
 <section id="nonlinear-model-predictive-control-implementation">
-<h2>Nonlinear Model Predictive Control Implementation<a class="headerlink" href="#nonlinear-model-predictive-control-implementation" title="Permalink to this heading">#</a></h2>
+<h2>Nonlinear Model Predictive Control Implementation<a class="headerlink" href="#nonlinear-model-predictive-control-implementation" title="Link to this heading">#</a></h2>
 <p>Nonlinear Model Predictive Control (NMPC) is a sophisticated control strategy used to manage complex dynamical systems. It involves optimizing control inputs over a defined prediction horizon, aiming to minimize deviations from desired setpoints while adhering to operational constraints. NMPC is particularly effective for systems with nonlinear dynamics, as it can account for these nonlinearities in both the system model and the control strategy.</p>
 <p>In our implementation, NMPC is integrated with a neural network that predicts future system states. This integration enhances the controller’s ability to handle complex, nonlinear system behaviors. The core of NMPC involves solving an optimization problem at each control step, formulated as follows:</p>
 <section id="nmpc-parameters">
-<h3>NMPC Parameters<a class="headerlink" href="#nmpc-parameters" title="Permalink to this heading">#</a></h3>
+<h3>NMPC Parameters<a class="headerlink" href="#nmpc-parameters" title="Link to this heading">#</a></h3>
 <ul>
 <li><p><strong>Prediction Horizon and Time Step</strong>:</p>
 <p>{{&lt; math &gt;}}$$ N = 15, \quad dt = 0.25;\text{seconds}, \quad Tf = 3.75;\text{seconds} $${{&lt; /math &gt;}}</p>
@@ -518,7 +521,7 @@ $${{&lt; /math &gt;}}</p>
 </ul>
 </section>
 <section id="acados-ocp-solver-configuration">
-<h3>ACADOS OCP Solver Configuration<a class="headerlink" href="#acados-ocp-solver-configuration" title="Permalink to this heading">#</a></h3>
+<h3>ACADOS OCP Solver Configuration<a class="headerlink" href="#acados-ocp-solver-configuration" title="Link to this heading">#</a></h3>
 <ul>
 <li><p><strong>Solver Type</strong>:</p>
 <ul class="simple">
@@ -543,7 +546,7 @@ $${{&lt; /math &gt;}}</p>
 </ul>
 </section>
 <section id="acados-integrator-configuration">
-<h3>ACADOS Integrator Configuration<a class="headerlink" href="#acados-integrator-configuration" title="Permalink to this heading">#</a></h3>
+<h3>ACADOS Integrator Configuration<a class="headerlink" href="#acados-integrator-configuration" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Integrator Options</strong>:</p>
 <ul>
@@ -557,13 +560,13 @@ $${{&lt; /math &gt;}}</p>
 </section>
 </section>
 <section id="neural-network-integration-in-nmpc-for-cstr">
-<h2>Neural Network Integration in NMPC for CSTR<a class="headerlink" href="#neural-network-integration-in-nmpc-for-cstr" title="Permalink to this heading">#</a></h2>
+<h2>Neural Network Integration in NMPC for CSTR<a class="headerlink" href="#neural-network-integration-in-nmpc-for-cstr" title="Link to this heading">#</a></h2>
 <section id="data-preparation">
-<h3>Data Preparation<a class="headerlink" href="#data-preparation" title="Permalink to this heading">#</a></h3>
+<h3>Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading">#</a></h3>
 <p>The foundation of a robust neural network model lies in the quality and quantity of the data used for training. In the case of a Continuous Stirred Tank Reactor (CSTR), data can be sourced from historical operational records, simulations, or experimental setups. Key variables such as reactant concentrations, temperature, inflow rates, and heat inputs are recorded. This dataset is then divided into features (inputs) and targets (outputs), which the neural network will learn to map. The input and output datasets obtained from the NMPC controller are used as the historical dataset for neural network training.</p>
 </section>
 <section id="neural-network-architecture">
-<h3>Neural Network Architecture<a class="headerlink" href="#neural-network-architecture" title="Permalink to this heading">#</a></h3>
+<h3>Neural Network Architecture<a class="headerlink" href="#neural-network-architecture" title="Link to this heading">#</a></h3>
 <p>The architecture of the neural network is designed to effectively capture the complex dynamics of the CSTR. A typical architecture includes:</p>
 <ul>
 <li><p><strong>Input Layer</strong>: Accepts the current state of the CSTR, such as temperature, concentration, and control inputs. Mathematically, if the input vector is {{&lt; math &gt;}}$ \mathbf{x} ${{&lt; /math &gt;}}, then the input layer can be represented as {{&lt; math &gt;}}$ \mathbf{a}_0 = \mathbf{x} ${{&lt; /math &gt;}}.</p></li>
@@ -582,7 +585,7 @@ $${{&lt; /math &gt;}}</p>
 </ul>
 </section>
 <section id="training-process">
-<h3>Training Process<a class="headerlink" href="#training-process" title="Permalink to this heading">#</a></h3>
+<h3>Training Process<a class="headerlink" href="#training-process" title="Link to this heading">#</a></h3>
 <p>The training process involves several steps:</p>
 <p><img alt="Block diagram of DNN-NMPC" src="../../../_images/clipboard-image-1704789215.png" /></p>
 <ol class="arabic simple">
@@ -612,12 +615,12 @@ $${{&lt; /math &gt;}}</p>
 </section>
 </section>
 <section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h2>
+<h2>Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h2>
 <p><img alt="Loss" src="../../../_images/loss.png" /></p>
 <p><img alt="CSTR simulation result" src="../../../_images/dnn.png" /></p>
 </section>
 <section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <p>The CSTR model, integrated with a neural network and controlled via NMPC, represents a sophisticated approach to managing complex chemical reactions. This integration allows for efficient, real-time adjustments to reactor operating conditions, ensuring optimal performance under varying conditions.</p>
 </section>
 </section>

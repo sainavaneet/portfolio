@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Drone Trajectory Tracking with Python &#8212; Portfolio  documentation</title>
   
@@ -29,19 +28,19 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=d9d6623f" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/Drone Trajectory Tracking/index';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="../../../_static/custom.js"></script>
@@ -213,7 +212,11 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../../publications/index.html">Publications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Blog/Bluetooth/index.html">Blog</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Blog/Bluetooth/index.html">Blog</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/isaacsim/index.html">Isaac Sim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/go2_robot_isaacsim/index.html">Go2 robot in isaac-sim</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../Contact/index.html">Contact Me</a></li>
 </ul>
 
@@ -389,13 +392,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="drone-trajectory-tracking-with-python">
-<h1>Drone Trajectory Tracking with Python<a class="headerlink" href="#drone-trajectory-tracking-with-python" title="Permalink to this heading">#</a></h1>
+<h1>Drone Trajectory Tracking with Python<a class="headerlink" href="#drone-trajectory-tracking-with-python" title="Link to this heading">#</a></h1>
 <p>The dynamics and kinematics of a drone are crucial in understanding and controlling its flight behavior</p>
 <section id="dynamics-and-kinematics-of-the-drone">
-<h2>1. Dynamics and Kinematics of the Drone<a class="headerlink" href="#dynamics-and-kinematics-of-the-drone" title="Permalink to this heading">#</a></h2>
+<h2>1. Dynamics and Kinematics of the Drone<a class="headerlink" href="#dynamics-and-kinematics-of-the-drone" title="Link to this heading">#</a></h2>
 <p>The dynamics and kinematics of a drone are crucial in understanding and controlling its flight behavior. The drone’s state can be described by its position {{&lt; math &gt;}}$ x, y, z ${{&lt; /math &gt;}}, orientation (roll {{&lt; math &gt;}}$ \phi ${{&lt; /math &gt;}}, pitch {{&lt; math &gt;}}$ \theta ${{&lt; /math &gt;}}, and yaw {{&lt; math &gt;}}$ \psi ${{&lt; /math &gt;}}), and their respective velocities and angular velocities.</p>
 <section id="translational-motion">
-<h3>Translational Motion<a class="headerlink" href="#translational-motion" title="Permalink to this heading">#</a></h3>
+<h3>Translational Motion<a class="headerlink" href="#translational-motion" title="Link to this heading">#</a></h3>
 <p>The translational motion of the drone can be described by Newton’s second law of motion:</p>
 <p>{{&lt; math &gt;}}
 $$
@@ -412,7 +415,7 @@ $$
 </ul>
 </section>
 <section id="rotational-motion">
-<h3>Rotational Motion<a class="headerlink" href="#rotational-motion" title="Permalink to this heading">#</a></h3>
+<h3>Rotational Motion<a class="headerlink" href="#rotational-motion" title="Link to this heading">#</a></h3>
 <p>The rotational motion of the drone is described using Euler’s equations of motion for a rigid body:</p>
 <p>{{&lt; math &gt;}}
 $$
@@ -427,7 +430,7 @@ $$
 </ul>
 </section>
 <section id="dynamic-system-matrix">
-<h3>Dynamic System Matrix<a class="headerlink" href="#dynamic-system-matrix" title="Permalink to this heading">#</a></h3>
+<h3>Dynamic System Matrix<a class="headerlink" href="#dynamic-system-matrix" title="Link to this heading">#</a></h3>
 <p>The dynamics of the drone can be represented in a state-space format, where the state vector {{&lt; math &gt;}}$ \mathbf{x} ${{&lt; /math &gt;}} might include the position, velocity, orientation, and angular velocity. The state-space model is typically written as:</p>
 <p>{{&lt; math &gt;}}
 $$
@@ -453,9 +456,9 @@ $$
 </section>
 </section>
 <section id="control-system">
-<h2>2. Control System<a class="headerlink" href="#control-system" title="Permalink to this heading">#</a></h2>
+<h2>2. Control System<a class="headerlink" href="#control-system" title="Link to this heading">#</a></h2>
 <section id="control-inputs">
-<h3>Control Inputs<a class="headerlink" href="#control-inputs" title="Permalink to this heading">#</a></h3>
+<h3>Control Inputs<a class="headerlink" href="#control-inputs" title="Link to this heading">#</a></h3>
 <p>The control inputs for the drone include thrust {{&lt; math &gt;}}$$ U1 $${{&lt; /math &gt;}} and torques {{&lt; math &gt;}}$$ U2, U3, U4 $${{&lt; /math &gt;}}. These inputs are calculated as follows:</p>
 <p>{{&lt; math &gt;}}
 $$
@@ -480,7 +483,7 @@ $$
 </section>
 </section>
 <section id="trajectory-generation">
-<h2>3. Trajectory Generation<a class="headerlink" href="#trajectory-generation" title="Permalink to this heading">#</a></h2>
+<h2>3. Trajectory Generation<a class="headerlink" href="#trajectory-generation" title="Link to this heading">#</a></h2>
 <p>The desired trajectory is represented as a function of time {{&lt; math &gt;}}$ t ${{&lt; /math &gt;}}:</p>
 <p>{{&lt; math &gt;}}
 $$
@@ -489,7 +492,7 @@ $$
 {{&lt; /math &gt;}}</p>
 </section>
 <section id="linear-parameter-varying-lpv-systems">
-<h2>4. Linear Parameter Varying (LPV) Systems<a class="headerlink" href="#linear-parameter-varying-lpv-systems" title="Permalink to this heading">#</a></h2>
+<h2>4. Linear Parameter Varying (LPV) Systems<a class="headerlink" href="#linear-parameter-varying-lpv-systems" title="Link to this heading">#</a></h2>
 <p>LPV systems are described by the following equations:</p>
 <p>{{&lt; math &gt;}}
 $$
@@ -503,7 +506,7 @@ $$
 {{&lt; /math &gt;}}</p>
 </section>
 <section id="model-predictive-control-mpc">
-<h2>5. Model Predictive Control (MPC)<a class="headerlink" href="#model-predictive-control-mpc" title="Permalink to this heading">#</a></h2>
+<h2>5. Model Predictive Control (MPC)<a class="headerlink" href="#model-predictive-control-mpc" title="Link to this heading">#</a></h2>
 <p>Model Predictive Control (MPC) is an advanced method of process control that uses a dynamic model to predict and optimize future states of a control system. In the context of drone trajectory tracking, MPC is used to compute the optimal control inputs that will guide the drone along a desired trajectory. The basic formulation of an MPC problem can be given as follows:</p>
 <p>{{&lt; math &gt;}}
 $$
@@ -538,7 +541,7 @@ $$
 </ul>
 </section>
 <section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h2>
+<h2>Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h2>
 <p>{{&lt; youtube S4rpkbglb5c &gt;}}</p>
 </section>
 </section>
