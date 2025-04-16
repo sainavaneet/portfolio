@@ -1,0 +1,741 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Deep Neural Network Nonlinear Model Predictive Control for CSTR &#8212; Portfolio  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/Deep Neural Network Nonlinear Model Predictive Control for CSTR/index';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Drone Control with Keyboard" href="../Drone%20Control%20with%20Keyboard/index.html" />
+    <link rel="prev" title="Basic Reinforcement Learning Algorithms" href="../Basic-reinforcment-Learning/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Navaneet</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sainavaneet" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/sainavaneet76/" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">LinkedIn</span></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    Bio
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Resume/index.html">Resume</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Projects</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Actfranka/index.html">Applied Action chunk Transformer on franka Emika</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Autonomus%20Harvesting/index.html">🎉 Autonomus harvesting using Object Detecion</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Basic-reinforcment-Learning/index.html">Basic Reinforcement Learning Algorithms</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Deep Neural Network Nonlinear Model Predictive Control for CSTR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Drone%20Control%20with%20Keyboard/index.html">Drone Control with Keyboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Drone%20Trajectory%20Tracking/index.html">Drone Trajectory Tracking with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Imitation-Learning-Franka/index.html">Combining Imitation Learning with Diffusion Processes on Robot Manipulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LMPC-ILC/index.html">Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html">32 bit CPU based on MIPS architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Smart%20Home%20Using%20Iot/index.html">Smart-Home-Using-IOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TelloDrone%20with%20KeyBoard/index.html">TelloDrone with KeyBoard and Object detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Verilog/index.html">Verilog Projects</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../experience/index.html">👨‍💻 Experience</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../publications/index.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Blog/Bluetooth/index.html">Blog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Contact/index.html">Contact Me</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/source/projects/Deep Neural Network Nonlinear Model Predictive Control for CSTR/index.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Deep Neural Network Nonlinear Model Predictive Control for CSTR</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cstr-model">CSTR Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-model-predictive-control-implementation">Nonlinear Model Predictive Control Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nmpc-parameters">NMPC Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acados-ocp-solver-configuration">ACADOS OCP Solver Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acados-integrator-configuration">ACADOS Integrator Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-integration-in-nmpc-for-cstr">Neural Network Integration in NMPC for CSTR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-architecture">Neural Network Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-process">Training Process</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="deep-neural-network-nonlinear-model-predictive-control-for-cstr">
+<h1>Deep Neural Network Nonlinear Model Predictive Control for CSTR<a class="headerlink" href="#deep-neural-network-nonlinear-model-predictive-control-for-cstr" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>The Continuous Stirred Tank Reactor (CSTR) is a fundamental model in chemical engineering, representing a reactor where the contents are well-mixed, ensuring uniform composition and temperature throughout. This report delves into the mathematical modeling of a CSTR, its simulation, and control using a Nonlinear Model Predictive Control (NMPC) strategy integrated with a neural network for predictive behavior.</p>
+</section>
+<section id="cstr-model">
+<h2>CSTR Model<a class="headerlink" href="#cstr-model" title="Permalink to this heading">#</a></h2>
+<p>The CSTR dynamics are governed by the mass and energy balance equations, capturing the reaction kinetics, heat transfer, and fluid mixing. The model is described by the following differential equations:</p>
+<p>{{&lt; math &gt;}}$$
+\frac{dC}{dt} = \frac{F}{V}(C_{in} - C) - k(T)C
+$${{&lt; /math &gt;}}</p>
+<p>{{&lt; math &gt;}}$$
+\frac{dT}{dt} = \frac{F}{V}(T_{in} - T) + \frac{-\Delta H}{\rho C_p}k(T)C + \frac{Q}{\rho C_p V}
+$${{&lt; /math &gt;}}</p>
+<p>where {{&lt; math &gt;}}$C${{&lt; /math &gt;}} and {{&lt; math &gt;}}$T${{&lt; /math &gt;}} denote the concentration and temperature in the reactor, {{&lt; math &gt;}}$F${{&lt; /math &gt;}} the flow rate, {{&lt; math &gt;}}$V${{&lt; /math &gt;}} the volume, {{&lt; math &gt;}}$C_{in}${{&lt; /math &gt;}} and {{&lt; math &gt;}}$T_{in}${{&lt; /math &gt;}} the inlet concentration and temperature, {{&lt; math &gt;}}$k(T)${{&lt; /math &gt;}} the temperature-dependent reaction rate, {{&lt; math &gt;}}$\Delta H${{&lt; /math &gt;}} the heat of reaction, {{&lt; math &gt;}}$\rho${{&lt; /math &gt;}} the density, {{&lt; math &gt;}}$C_p${{&lt; /math &gt;}} the heat capacity, and {{&lt; math &gt;}}$Q${{&lt; /math &gt;}} the heat input or removal.</p>
+<p>The rate of reaction for species A is described as:</p>
+<p>{{&lt; math &gt;}}$$
+-r_A = k(T)C_A = k_0 e^{\left( \frac{-E}{RT} \right)}C_A
+$${{&lt; /math &gt;}}</p>
+<p>where {{&lt; math &gt;}}$C_A${{&lt; /math &gt;}} is the concentration of species A, {{&lt; math &gt;}}$k(T)${{&lt; /math &gt;}} is the temperature-dependent reaction rate constant, {{&lt; math &gt;}}$k_0${{&lt; /math &gt;}} is the pre-exponential factor or frequency factor, {{&lt; math &gt;}}$E${{&lt; /math &gt;}} is the activation energy, {{&lt; math &gt;}}$R${{&lt; /math &gt;}} is the universal gas constant, {{&lt; math &gt;}}$T${{&lt; /math &gt;}} is the temperature, and {{&lt; math &gt;}}$r_A${{&lt; /math &gt;}} is the reaction rate for species A.</p>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Initial Flow Rate</p></td>
+<td><p>{{&lt; math &gt;}}$F_0 = 0.1 \text{ m}^3/\text{min}${{&lt; /math &gt;}}</p></td>
+</tr>
+<tr class="row-odd"><td><p>Initial Temperature</p></td>
+<td><p>{{&lt; math &gt;}}$T_0 = 350.0 \text{ K}${{&lt; /math &gt;}}</p></td>
+</tr>
+<tr class="row-even"><td><p>Initial Concentration</p></td>
+<td><p>{{&lt; math &gt;}}$c_0 = 1.0 \text{ kmol/m}^3${{&lt; /math &gt;}}</p></td>
+</tr>
+<tr class="row-odd"><td><p>Reactor Radius</p></td>
+<td><p>{{&lt; math &gt;}}$r = 0.219 \text{ m}${{&lt; /math &gt;}}</p></td>
+</tr>
+<tr class="row-even"><td><p>Reaction Rate Constant</p></td>
+<td><p>{{&lt; math &gt;}}$k_0 = 7.2 \times 10^{10} \text{ 1/min}${{&lt; /math &gt;}}</p></td>
+</tr>
+<tr class="row-odd"><td><p>Activation Energy/Gas Constant</p></td>
+<td><p>{{&lt; math &gt;}}$E_b/R = 8750 \text{ K}${{&lt; /math &gt;}}</p></td>
+</tr>
+<tr class="row-even"><td><p>Overall Heat Transfer Coefficient</p></td>
+<td><p>{{&lt; math &gt;}}$U = 54.94 \text{ kJ}/(\text{min} \cdot \text{m}^2 \cdot \text{K})${{&lt; /math &gt;}}</p></td>
+</tr>
+<tr class="row-odd"><td><p>Density</p></td>
+<td><p>{{&lt; math &gt;}}$\rho = 1000 \text{ kg/m}^3${{&lt; /math &gt;}}</p></td>
+</tr>
+<tr class="row-even"><td><p>Specific Heat Capacity</p></td>
+<td><p>{{&lt; math &gt;}}$C_p = 0.239 \text{ kJ}/(\text{kg} \cdot \text{K})${{&lt; /math &gt;}}</p></td>
+</tr>
+<tr class="row-odd"><td><p>Heat of Reaction</p></td>
+<td><p>{{&lt; math &gt;}}$\Delta H = -5 \times 10^4 \text{ kJ/kmol}${{&lt; /math &gt;}}</p></td>
+</tr>
+<tr class="row-even"><td><p>Small Value (Avoid Division by Zero)</p></td>
+<td><p>{{&lt; math &gt;}}$\varepsilon = 1 \times 10^{-5} \text{ m}${{&lt; /math &gt;}}</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mass Fractions</p></td>
+<td><p>{{&lt; math &gt;}}$x_s = [0.878, 324.5, 0.659]${{&lt; /math &gt;}}</p></td>
+</tr>
+<tr class="row-even"><td><p>Input Parameters</p></td>
+<td><p>{{&lt; math &gt;}}$u_s = [300, 0.1]${{&lt; /math &gt;}}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="nonlinear-model-predictive-control-implementation">
+<h2>Nonlinear Model Predictive Control Implementation<a class="headerlink" href="#nonlinear-model-predictive-control-implementation" title="Permalink to this heading">#</a></h2>
+<p>Nonlinear Model Predictive Control (NMPC) is a sophisticated control strategy used to manage complex dynamical systems. It involves optimizing control inputs over a defined prediction horizon, aiming to minimize deviations from desired setpoints while adhering to operational constraints. NMPC is particularly effective for systems with nonlinear dynamics, as it can account for these nonlinearities in both the system model and the control strategy.</p>
+<p>In our implementation, NMPC is integrated with a neural network that predicts future system states. This integration enhances the controller’s ability to handle complex, nonlinear system behaviors. The core of NMPC involves solving an optimization problem at each control step, formulated as follows:</p>
+<section id="nmpc-parameters">
+<h3>NMPC Parameters<a class="headerlink" href="#nmpc-parameters" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p><strong>Prediction Horizon and Time Step</strong>:</p>
+<p>{{&lt; math &gt;}}$$ N = 15, \quad dt = 0.25;\text{seconds}, \quad Tf = 3.75;\text{seconds} $${{&lt; /math &gt;}}</p>
+</li>
+<li><p><strong>Cost Function</strong>:</p>
+<p>The overall objective of NMPC is defined by the cost function {{&lt; math &gt;}}$ J ${{&lt; /math &gt;}}, a sum of the stage costs over the prediction horizon and a terminal cost at the end of the horizon. The cost function is given by:</p>
+<p>{{&lt; math &gt;}}$$
+J = \sum_{k=t}^{t+N-1} L(x_k, u_k) + M(x_{t+N})
+$${{&lt; /math &gt;}}</p>
+<p>where:</p>
+<ul class="simple">
+<li><p>{{&lt; math &gt;}}$ L(x_k, u_k) ${{&lt; /math &gt;}} is the stage cost function at each time step {{&lt; math &gt;}}$ k ${{&lt; /math &gt;}}.</p></li>
+<li><p>{{&lt; math &gt;}}$ M(x_{t+N}) ${{&lt; /math &gt;}} is the terminal cost function at the end of the horizon.</p></li>
+</ul>
+<p>The stage cost {{&lt; math &gt;}}$ L ${{&lt; /math &gt;}} and terminal cost {{&lt; math &gt;}}$ M ${{&lt; /math &gt;}} are defined as:</p>
+<p>{{&lt; math &gt;}}$$
+L(x_k, u_k) = (x_k - x_{\text{ref},k})^\top Q (x_k - x_{\text{ref},k}) + (u_k - u_{\text{ref},k})^\top R (u_k - u_{\text{ref},k})
+$${{&lt; /math &gt;}}</p>
+<p>{{&lt; math &gt;}}$$
+M(x_{t+N}) = (x_{t+N} - x_{\text{ref},t+N})^\top P (x_{t+N} - x_{\text{ref},t+N})
+$${{&lt; /math &gt;}}</p>
+<p>The weight matrices {{&lt; math &gt;}}$ Q, R, P ${{&lt; /math &gt;}} are given by:</p>
+<p>{{&lt; math &gt;}}$$
+Q = \text{diag}(1.0 / \textbf{xs}^2)
+$${{&lt; /math &gt;}}</p>
+<p>{{&lt; math &gt;}}$$
+R = \text{diag}(1.0 / \textbf{us}^2)
+$${{&lt; /math &gt;}}</p>
+<p>{{&lt; math &gt;}}$$
+P = \begin{bmatrix}
+5.92981953e-01 &amp; -8.40033347e-04 &amp; -1.54536980e-02 \
+-8.40033347e-04 &amp; 7.75225208e-06 &amp; 2.30677411e-05 \
+-1.54536980e-02 &amp; 2.30677411e-05 &amp; 2.59450075e00
+\end{bmatrix}
+$${{&lt; /math &gt;}}</p>
+</li>
+<li><p><strong>Control Constraints</strong>:</p>
+<p>{{&lt; math &gt;}}$$
+\textbf{umin} = \begin{bmatrix} 0.95 \ 0.85 \end{bmatrix} \times \textbf{us}
+$${{&lt; /math &gt;}}</p>
+<p>{{&lt; math &gt;}}$$
+\textbf{umax} = \begin{bmatrix} 1.05 \ 1.15 \end{bmatrix} \times \textbf{us}
+$${{&lt; /math &gt;}}</p>
+</li>
+</ul>
+</section>
+<section id="acados-ocp-solver-configuration">
+<h3>ACADOS OCP Solver Configuration<a class="headerlink" href="#acados-ocp-solver-configuration" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p><strong>Solver Type</strong>:</p>
+<ul class="simple">
+<li><p>SQP (Sequential Quadratic Programming) or SQP-RTI (Real-Time Iteration).</p></li>
+</ul>
+</li>
+<li><p><strong>Integrator Type</strong>:</p>
+<ul class="simple">
+<li><p>“IRK” (Implicit Runge-Kutta) for nonlinear MPC.</p></li>
+</ul>
+</li>
+<li><p><strong>QP Solver and Condensing</strong>:</p>
+<ul class="simple">
+<li><p>“PARTIAL_CONDENSING_HPIPM”, with condensing intervals equal to {{&lt; math &gt;}}$ N ${{&lt; /math &gt;}}.</p></li>
+</ul>
+</li>
+<li><p><strong>Regularization</strong>:</p>
+<p>{{&lt; math &gt;}}$$
+\text{Levenberg-Marquardt} = 1e-5
+$${{&lt; /math &gt;}}</p>
+</li>
+</ul>
+</section>
+<section id="acados-integrator-configuration">
+<h3>ACADOS Integrator Configuration<a class="headerlink" href="#acados-integrator-configuration" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Integrator Options</strong>:</p>
+<ul>
+<li><p>Type: “ERK” (Explicit Runge-Kutta).</p></li>
+<li><p>Stages and Steps: 4 stages, 100 steps.</p></li>
+<li><p>Sensitivity Propagation: Configurable.</p></li>
+</ul>
+</li>
+</ul>
+<p>This NMPC setup optimizes control actions over the specified prediction horizon, minimizing a quadratic cost function subject to dynamic constraints and control bounds. The ACADOS framework provides efficient solving capabilities for the nonlinear optimal control problem.</p>
+</section>
+</section>
+<section id="neural-network-integration-in-nmpc-for-cstr">
+<h2>Neural Network Integration in NMPC for CSTR<a class="headerlink" href="#neural-network-integration-in-nmpc-for-cstr" title="Permalink to this heading">#</a></h2>
+<section id="data-preparation">
+<h3>Data Preparation<a class="headerlink" href="#data-preparation" title="Permalink to this heading">#</a></h3>
+<p>The foundation of a robust neural network model lies in the quality and quantity of the data used for training. In the case of a Continuous Stirred Tank Reactor (CSTR), data can be sourced from historical operational records, simulations, or experimental setups. Key variables such as reactant concentrations, temperature, inflow rates, and heat inputs are recorded. This dataset is then divided into features (inputs) and targets (outputs), which the neural network will learn to map. The input and output datasets obtained from the NMPC controller are used as the historical dataset for neural network training.</p>
+</section>
+<section id="neural-network-architecture">
+<h3>Neural Network Architecture<a class="headerlink" href="#neural-network-architecture" title="Permalink to this heading">#</a></h3>
+<p>The architecture of the neural network is designed to effectively capture the complex dynamics of the CSTR. A typical architecture includes:</p>
+<ul>
+<li><p><strong>Input Layer</strong>: Accepts the current state of the CSTR, such as temperature, concentration, and control inputs. Mathematically, if the input vector is {{&lt; math &gt;}}$ \mathbf{x} ${{&lt; /math &gt;}}, then the input layer can be represented as {{&lt; math &gt;}}$ \mathbf{a}_0 = \mathbf{x} ${{&lt; /math &gt;}}.</p></li>
+<li><p><strong>Hidden Layers</strong>: Multiple layers with a sufficient number of neurons to enable the network to learn complex patterns. If {{&lt; math &gt;}}$ \mathbf{a}_{i-1} ${{&lt; /math &gt;}} is the output of the previous layer, the output of the {{&lt; math &gt;}}$ i ${{&lt; /math &gt;}}-th layer can be represented as:</p>
+<p>{{&lt; math &gt;}}$$
+\mathbf{a}_i = \text{ReLU}(\mathbf{W}<em>i \mathbf{a}</em>{i-1} + \mathbf{b}_i)
+$${{&lt; /math &gt;}}</p>
+<p>where {{&lt; math &gt;}}$ \mathbf{W}_i ${{&lt; /math &gt;}} and {{&lt; math &gt;}}$ \mathbf{b}_i ${{&lt; /math &gt;}} are the weights and biases of the {{&lt; math &gt;}}$ i ${{&lt; /math &gt;}}-th layer, and ReLU (Rectified Linear Unit) introduces non-linearity.</p>
+</li>
+<li><p><strong>Output Layer</strong>: Predicts the future states of the CSTR, crucial for the NMPC controller. The output {{&lt; math &gt;}}$ \mathbf{y} ${{&lt; /math &gt;}} is expressed as:</p>
+<p>{{&lt; math &gt;}}$$
+\mathbf{y} = \mathbf{W}<em>{\text{output}} \mathbf{a}</em>{\text{last}} + \mathbf{b}_{\text{output}}
+$${{&lt; /math &gt;}}</p>
+<p>where {{&lt; math &gt;}}$ \mathbf{a}_{\text{last}} ${{&lt; /math &gt;}} is the output of the last hidden layer.</p>
+</li>
+</ul>
+</section>
+<section id="training-process">
+<h3>Training Process<a class="headerlink" href="#training-process" title="Permalink to this heading">#</a></h3>
+<p>The training process involves several steps:</p>
+<p><img alt="Block diagram of DNN-NMPC" src="../../../_images/clipboard-image-1704789215.png" /></p>
+<ol class="arabic simple">
+<li><p><strong>Data Scaling</strong>: Input ({{&lt; math &gt;}}$ \mathbf{X} ${{&lt; /math &gt;}}) and output ({{&lt; math &gt;}}$ \mathbf{Y} ${{&lt; /math &gt;}}) data are scaled to improve training efficiency and stability. Standardization is expressed as:</p></li>
+</ol>
+<p>{{&lt; math &gt;}}$$
+\mathbf{X}<em>{\text{scaled}} = \frac{\mathbf{X} - \mu</em>{\mathbf{X}}}{\sigma_{\mathbf{X}}}
+$${{&lt; /math &gt;}}</p>
+<p>where {{&lt; math &gt;}}$ \mu_{\mathbf{X}} ${{&lt; /math &gt;}} and {{&lt; math &gt;}}$ \sigma_{\mathbf{X}} ${{&lt; /math &gt;}} are the mean and standard deviation of the input data, respectively.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Loss Function</strong>: Mean Squared Error (MSE) quantifies the difference between network predictions ({{&lt; math &gt;}}$ \mathbf{\hat{Y}} ${{&lt; /math &gt;}}) and actual data ({{&lt; math &gt;}}$ \mathbf{Y} ${{&lt; /math &gt;}}):</p></li>
+</ol>
+<p>{{&lt; math &gt;}}$$
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (\mathbf{\hat{Y}}_i - \mathbf{Y}_i)^2
+$${{&lt; /math &gt;}}</p>
+<p>where {{&lt; math &gt;}}$ n ${{&lt; /math &gt;}} is the number of data points.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Optimizer</strong>: Algorithms like Adam or SGD (Stochastic Gradient Descent) adjust the network weights to minimize the loss function. The weight update can be expressed as:</p></li>
+</ol>
+<p>{{&lt; math &gt;}}$$
+\mathbf{W}<em>{\text{new}} = \mathbf{W}</em>{\text{old}} - \alpha \nabla \text{MSE}
+$${{&lt; /math &gt;}}</p>
+<p>where {{&lt; math &gt;}}$ \alpha ${{&lt; /math &gt;}} is the learning rate, and {{&lt; math &gt;}}$ \nabla \text{MSE} ${{&lt; /math &gt;}} is the gradient of the MSE.</p>
+<ol class="arabic simple" start="4">
+<li><p><strong>Validation</strong>: A portion of the dataset not used in training validates the model’s performance and prevents overfitting.</p></li>
+</ol>
+</section>
+</section>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h2>
+<p><img alt="Loss" src="../../../_images/loss.png" /></p>
+<p><img alt="CSTR simulation result" src="../../../_images/dnn.png" /></p>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<p>The CSTR model, integrated with a neural network and controlled via NMPC, represents a sophisticated approach to managing complex chemical reactions. This integration allows for efficient, real-time adjustments to reactor operating conditions, ensuring optimal performance under varying conditions.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Basic-reinforcment-Learning/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Basic Reinforcement Learning Algorithms</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Drone%20Control%20with%20Keyboard/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Drone Control with Keyboard</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cstr-model">CSTR Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-model-predictive-control-implementation">Nonlinear Model Predictive Control Implementation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nmpc-parameters">NMPC Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acados-ocp-solver-configuration">ACADOS OCP Solver Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acados-integrator-configuration">ACADOS Integrator Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-integration-in-nmpc-for-cstr">Neural Network Integration in NMPC for CSTR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-architecture">Neural Network Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-process">Training Process</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Navaneet
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Navaneet.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

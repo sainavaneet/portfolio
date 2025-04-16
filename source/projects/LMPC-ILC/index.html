@@ -1,0 +1,668 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking &#8212; Portfolio  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/LMPC-ILC/index';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="32 bit CPU based on MIPS architecture" href="../32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html" />
+    <link rel="prev" title="Combining Imitation Learning with Diffusion Processes on Robot Manipulator" href="../Imitation-Learning-Franka/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Navaneet</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sainavaneet" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/sainavaneet76/" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">LinkedIn</span></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    Bio
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Resume/index.html">Resume</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Projects</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Actfranka/index.html">Applied Action chunk Transformer on franka Emika</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Autonomus%20Harvesting/index.html">🎉 Autonomus harvesting using Object Detecion</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Basic-reinforcment-Learning/index.html">Basic Reinforcement Learning Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Deep%20Neural%20Network%20Nonlinear%20Model%20Predictive%20Control%20for%20CSTR/index.html">Deep Neural Network Nonlinear Model Predictive Control for CSTR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Drone%20Control%20with%20Keyboard/index.html">Drone Control with Keyboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Drone%20Trajectory%20Tracking/index.html">Drone Trajectory Tracking with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Imitation-Learning-Franka/index.html">Combining Imitation Learning with Diffusion Processes on Robot Manipulator</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html">32 bit CPU based on MIPS architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Smart%20Home%20Using%20Iot/index.html">Smart-Home-Using-IOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TelloDrone%20with%20KeyBoard/index.html">TelloDrone with KeyBoard and Object detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Verilog/index.html">Verilog Projects</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../experience/index.html">👨‍💻 Experience</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../publications/index.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Blog/Bluetooth/index.html">Blog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Contact/index.html">Contact Me</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/source/projects/LMPC-ILC/index.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-formulation">Mathematical Formulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-dynamics">System Dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mpc-cost-function">MPC Cost Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desired-position-calculation">Desired Position Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-learning-control-ilc-update">Iterative Learning Control (ILC) Update</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hybrid-integration">Hybrid Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-results">Experimental Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-mpc-and-lmpc-and-obstacle-avoidance">comparison between MPC and LMPC and Obstacle Avoidance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-with-mpc">Testing With MPC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-with-lmpc">Testing with LMPC</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tested-for-s-trajectory">Tested for “S” Trajectory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="hybrid-model-predictive-and-iterative-learning-control-for-enhanced-leader-follower-robotic-tracking">
+<h1>Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking<a class="headerlink" href="#hybrid-model-predictive-and-iterative-learning-control-for-enhanced-leader-follower-robotic-tracking" title="Permalink to this heading">#</a></h1>
+<p>EERC paper</p>
+<section id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this heading">#</a></h2>
+<p>This paper introduces a novel hybrid control strategy combining Model Predictive Control (MPC) and Iterative Learning Control (ILC) to improve leader-follower tracking accuracy and robustness in mobile robots. MPC optimizes control inputs over a predictive horizon by minimizing a cost function, while ILC refines these inputs by learning from past errors.</p>
+</section>
+<section id="mathematical-formulation">
+<h2>Mathematical Formulation<a class="headerlink" href="#mathematical-formulation" title="Permalink to this heading">#</a></h2>
+<section id="system-dynamics">
+<h3>System Dynamics<a class="headerlink" href="#system-dynamics" title="Permalink to this heading">#</a></h3>
+<p>The state of the follower robot is:
+{{&lt; math &gt;}}$$
+x_f = [x_f, y_f, \theta_f]^T
+$${{&lt; /math &gt;}}</p>
+<p>Control inputs:
+{{&lt; math &gt;}}$$
+u = [v, \omega]^T$${{&lt; /math &gt;}}</p>
+<p>Discrete-time kinematic model:
+{{&lt; math &gt;}}$$
+x_f(k + 1) = x_f(k) + \begin{bmatrix}
+v(k) \cos(\theta_f(k)) T \
+v(k) \sin(\theta_f(k)) T \
+\omega(k) T
+\end{bmatrix}
+$${{&lt; /math &gt;}}</p>
+<p>where {{&lt; math &gt;}}$T${{&lt; /math &gt;}} is the sampling time.</p>
+</section>
+<section id="mpc-cost-function">
+<h3>MPC Cost Function<a class="headerlink" href="#mpc-cost-function" title="Permalink to this heading">#</a></h3>
+<p>The MPC minimizes the following cost function over a finite horizon {{&lt; math &gt;}}$N${{&lt; /math &gt;}}:</p>
+<p>{{&lt; math &gt;}}$$
+J = \sum_{k=0}^{N-1}\left[\omega_p|P_f(k)-P_d(k)|^2 + \omega_\theta(\theta_f(k)-\theta_d(k))^2 + \omega_u|u(k)|^2\right]
+$${{&lt; /math &gt;}}</p>
+<p>where</p>
+<ul class="simple">
+<li><p>{{&lt; math &gt;}}$P_f(k) = [x_f(k), y_f(k)]^T${{&lt; /math &gt;}}: position of follower.</p></li>
+<li><p>{{&lt; math &gt;}}$P_d(k), \theta_d(k)${{&lt; /math &gt;}}: desired position and orientation.</p></li>
+<li><p>{{&lt; math &gt;}}$\omega_p, \omega_\theta, \omega_u${{&lt; /math &gt;}}: weights for position, orientation errors, and control effort.</p></li>
+</ul>
+</section>
+<section id="desired-position-calculation">
+<h3>Desired Position Calculation<a class="headerlink" href="#desired-position-calculation" title="Permalink to this heading">#</a></h3>
+<p>The desired position {{&lt; math &gt;}}$P_d${{&lt; /math &gt;}} is calculated from the leader’s state {{&lt; math &gt;}}$x_l = [x_l, y_l, \theta_l]^T${{&lt; /math &gt;}} and specified distance {{&lt; math &gt;}}$d${{&lt; /math &gt;}}:</p>
+<p>{{&lt; math &gt;}}$$
+P_d = \begin{bmatrix}
+x_l - d\cos(\theta_l) \
+y_l - d\sin(\theta_l)
+\end{bmatrix}
+$${{&lt; /math &gt;}}</p>
+</section>
+<section id="iterative-learning-control-ilc-update">
+<h3>Iterative Learning Control (ILC) Update<a class="headerlink" href="#iterative-learning-control-ilc-update" title="Permalink to this heading">#</a></h3>
+<p>Error vector:
+{{&lt; math &gt;}}$$
+e(k) = \begin{bmatrix}
+x_f(k)-x_d(k) \
+y_f(k)-y_d(k) \
+\theta_f(k)-\theta_d(k)
+\end{bmatrix}
+$${{&lt; /math &gt;}}</p>
+<p>ILC control update:
+{{&lt; math &gt;}}$$
+u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]$${{&lt; /math &gt;}}</p>
+<p>where</p>
+<ul class="simple">
+<li><p>{{&lt; math &gt;}}$\nu_{MPC}(k)${{&lt; /math &gt;}}: optimal MPC control input.</p></li>
+<li><p>{{&lt; math &gt;}}$L${{&lt; /math &gt;}}: learning matrix.</p></li>
+<li><p>{{&lt; math &gt;}}$e(k-1)${{&lt; /math &gt;}}: error from previous iteration.</p></li>
+</ul>
+</section>
+<section id="hybrid-integration">
+<h3>Hybrid Integration<a class="headerlink" href="#hybrid-integration" title="Permalink to this heading">#</a></h3>
+<p>The hybrid method combines MPC and ILC:</p>
+<ol class="arabic simple">
+<li><p>Solve MPC optimization: {{&lt; math &gt;}}$\nu_{MPC}=\arg\min J${{&lt; /math &gt;}}</p></li>
+<li><p>ILC update: {{&lt; math &gt;}}$\nu=\nu_{ILC}${{&lt; /math &gt;}}</p></li>
+<li><p>Apply {{&lt; math &gt;}}$\nu${{&lt; /math &gt;}} to follower robot.</p></li>
+<li><p>Update follower and leader states.</p></li>
+</ol>
+</section>
+</section>
+<section id="algorithm">
+<h2>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Algorithm</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Hybrid</span> <span class="n">MPC</span><span class="o">-</span><span class="n">ILC</span>
+<span class="n">Require</span><span class="p">:</span> <span class="n">Initial</span> <span class="n">states</span> <span class="n">x_f</span><span class="p">,</span> <span class="n">x_l</span><span class="p">;</span> <span class="n">past</span> <span class="n">error</span> <span class="n">e_past</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">past</span> <span class="nb">input</span> <span class="n">u_past</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Require</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> \<span class="n">omega_p</span><span class="p">,</span> \<span class="n">omega_</span>\<span class="n">theta</span><span class="p">,</span> \<span class="n">omega_u</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">L</span>
+<span class="n">While</span> <span class="n">true</span><span class="p">:</span>
+  <span class="mf">1.</span> <span class="n">Obtain</span> <span class="n">current</span> <span class="n">leader</span> <span class="n">state</span> <span class="n">x_l</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+  <span class="mf">2.</span> <span class="n">Compute</span> <span class="n">desired</span> <span class="n">P_d</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> \<span class="n">theta_d</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+  <span class="mf">3.</span> <span class="n">Solve</span> <span class="n">MPC</span> <span class="n">to</span> <span class="n">get</span> <span class="n">u_MPC</span>
+  <span class="mf">4.</span> <span class="n">Calculate</span> <span class="n">tracking</span> <span class="n">error</span> <span class="n">e</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+  <span class="mf">5.</span> <span class="n">Update</span> <span class="n">control</span><span class="p">:</span> <span class="n">u_ILC</span> <span class="o">=</span> <span class="n">u_past</span> <span class="o">+</span> <span class="n">L</span><span class="p">(</span><span class="n">e</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">e_past</span><span class="p">)</span>
+  <span class="mf">6.</span> <span class="n">Apply</span> <span class="n">u_ILC</span> <span class="n">to</span> <span class="n">follower</span>
+  <span class="mf">7.</span> <span class="n">Update</span> <span class="n">u_past</span> <span class="o">=</span> <span class="n">u_MPC</span><span class="p">,</span> <span class="n">e_past</span> <span class="o">=</span> <span class="n">e</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+  <span class="mf">8.</span> <span class="n">Update</span> <span class="n">robot</span> <span class="n">states</span>
+<span class="n">End</span> <span class="n">While</span>
+</pre></div>
+</div>
+</section>
+<section id="experimental-results">
+<h2>Experimental Results<a class="headerlink" href="#experimental-results" title="Permalink to this heading">#</a></h2>
+<p>Experiments with TurtleBot 3 robots validated the hybrid MPC-ILC method, demonstrating significant improvements in position tracking accuracy, orientation accuracy, and balanced control efforts compared to standalone MPC and ILC.</p>
+<ul class="simple">
+<li><p>Leader velocity: {{&lt; math &gt;}}$v=0.3,m/s, \omega=0.3,rad/s${{&lt; /math &gt;}}</p></li>
+<li><p>MPC parameters: {{&lt; math &gt;}}$N=20, T=0.2,s, \omega_p=7, \omega_\theta=1, \omega_u=1${{&lt; /math &gt;}}</p></li>
+<li><p>ILC learning matrix: {{&lt; math &gt;}}$L=diag([0.1, 0.1])${{&lt; /math &gt;}}</p></li>
+</ul>
+<p><img alt="Comparision of Cost" src="../../../_images/cost_comparision.png" /></p>
+<p><img alt="Results" src="../../../_images/graph.png" /></p>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<p>The hybrid MPC-ILC approach offers improved accuracy, robustness, and efficiency for leader-follower robotic tracking. Future work includes integrating with advanced control methods and testing in more complex scenarios.</p>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/sainavaneet/MPC-ILC">Source Code</a></p></li>
+</ul>
+<p>{{<youtube CdYn9fnHEcE>}}</p>
+</section>
+<hr class="docutils" />
+<section id="comparison-between-mpc-and-lmpc-and-obstacle-avoidance">
+<h2>comparison between MPC and LMPC and Obstacle Avoidance<a class="headerlink" href="#comparison-between-mpc-and-lmpc-and-obstacle-avoidance" title="Permalink to this heading">#</a></h2>
+<p>We included a safe set process to keep the follower robot at a fixed distance from the leader robot, and then we added obstacle avoidance to the follower robot using LMPC.</p>
+<p>{{<youtube v308ep-aqd0>}}</p>
+<section id="testing-with-mpc">
+<h3>Testing With MPC<a class="headerlink" href="#testing-with-mpc" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><img alt="Testing with MPC" src="../../../_images/mpc.png" /></p></li>
+</ul>
+</section>
+<section id="testing-with-lmpc">
+<h3>Testing with LMPC<a class="headerlink" href="#testing-with-lmpc" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><img alt="" src="../../../_images/lmpc.png" /></p></li>
+<li><p><img alt="" src="../../../_images/lmpc1.png" /></p></li>
+<li><p><img alt="" src="../../../_images/lmpc2.png" /></p></li>
+</ul>
+</section>
+</section>
+<section id="tested-for-s-trajectory">
+<h2>Tested for “S” Trajectory<a class="headerlink" href="#tested-for-s-trajectory" title="Permalink to this heading">#</a></h2>
+<p>{{&lt;youtube 6Dyg_3ztMKw&gt;}}</p>
+<section id="results">
+<h3>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h3>
+<p><img alt="comparision combined" src="../../../_images/comparision_combined_image.png" /></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Imitation-Learning-Franka/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Combining Imitation Learning with Diffusion Processes on Robot Manipulator</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">32 bit CPU based on MIPS architecture</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-formulation">Mathematical Formulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-dynamics">System Dynamics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mpc-cost-function">MPC Cost Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desired-position-calculation">Desired Position Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-learning-control-ilc-update">Iterative Learning Control (ILC) Update</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hybrid-integration">Hybrid Integration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-results">Experimental Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-mpc-and-lmpc-and-obstacle-avoidance">comparison between MPC and LMPC and Obstacle Avoidance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-with-mpc">Testing With MPC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-with-lmpc">Testing with LMPC</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tested-for-s-trajectory">Tested for “S” Trajectory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Navaneet
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Navaneet.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
