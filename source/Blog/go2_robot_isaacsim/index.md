@@ -46,6 +46,13 @@ Intall Ros2 humble from ROS website. if its already install skip this step.
 
 ```
 
+```{admonition} Isaac sim installation
+
+Install all required form ROS setup from Isaac Doc 
+
+```
+
+
 Execute this
 
 ```bash 
@@ -130,10 +137,20 @@ cd ~
 mkdir -p IsaacLab-0.3.1/source/data/sensors/lidar && cp go2_omniverse/Isaac_sim/Unitree/Unitree_L1.json IsaacLab-0.3.1/source/data/sensors/lidar/Unitree_L1.json
 
 ```
+copy materials
 
 ```bash 
 
 mkdir -p IsaacLab-0.3.1/source/data/material_files && cp -r ~/.local/share/ov/pkg/isaac-sim-2023.1.1/data/material_files/* IsaacLab-0.3.1/source/data/material_files/
 
+
+```
+Now run the './run_sim.sh' in repo
+
+```bash 
+
+cd /go2_omniverse
+
+./run_sim.sh
 
 ```
