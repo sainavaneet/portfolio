@@ -414,6 +414,10 @@ git<span class="w"> </span>checkout<span class="w"> </span>tags/v0.3.1<span clas
 <p>:class: important</p>
 <p>Intall Ros2 humble from ROS website. if its already install skip this step.</p>
 </div>
+<div class="admonition-isaac-sim-installation admonition">
+<p class="admonition-title">Isaac sim installation</p>
+<p>Install all required form ROS setup from Isaac Doc</p>
+</div>
 <p>Execute this</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add to ~/.bashrc</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export ISAACSIM_PATH=&quot;${HOME}/.local/share/ov/pkg/isaac-sim-2023.1.1&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
@@ -468,7 +472,14 @@ moviepy==1.0.3</p>
 mkdir<span class="w"> </span>-p<span class="w"> </span>IsaacLab-0.3.1/source/data/sensors/lidar<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cp<span class="w"> </span>go2_omniverse/Isaac_sim/Unitree/Unitree_L1.json<span class="w"> </span>IsaacLab-0.3.1/source/data/sensors/lidar/Unitree_L1.json
 </pre></div>
 </div>
+<p>copy materials</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>IsaacLab-0.3.1/source/data/material_files<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>~/.local/share/ov/pkg/isaac-sim-2023.1.1/data/material_files/*<span class="w"> </span>IsaacLab-0.3.1/source/data/material_files/
+</pre></div>
+</div>
+<p>Now run the ‘./run_sim.sh’ in repo</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/go2_omniverse
+
+./run_sim.sh
 </pre></div>
 </div>
 </section>
