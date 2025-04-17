@@ -20,7 +20,7 @@ You can bring the **Go2 robot** into **Isaac Sim** using the [`go2_omniverse`](h
 ### Isaac Sim Installation
 
 ```{admonition} Isaac Sim Installation
-To install `isaacsim 2023.1.1` on Ubuntu, refer to the [previous setup page](../isaacsim_installation.md).
+To install `isaacsim 2023.1.1` on Ubuntu, refer to the [previous setup page](../isaacsim/index.md).
 ```
 
 ---
@@ -106,7 +106,6 @@ sudo apt install cmake build-essential
 ```bash
 ./orbit.sh --install
 python -m pip install "rsl-rl-lib@git+https://github.com/leggedrobotics/rsl_rl.git"
-conda deactivate
 ```
 
 ---
@@ -114,7 +113,7 @@ conda deactivate
 ## ✅ Verify Isaac Sim Installation
 
 ```{note}
-It may take **10–15 minutes** to load Isaac Sim. Run the command **outside of the Conda environment**.
+It may take **10–15 minutes** to load Isaac Sim. Run the command **inside  Conda environment**.
 
 Ensure you see `Isaac Sim Python 2023.1.1 - New Stage*` in the title bar.
 ```

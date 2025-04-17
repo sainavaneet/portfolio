@@ -53,20 +53,20 @@
 ```{admonition} B.Eng. in Electronics & Electrical Engineering (Double Degree)
 :class: note
 **Institution:** Kyungpook National University, South Korea  
-**Period:** January 2016 – December 2020
+**Period:** January 2022 – December 2024
 ```
 
 ```{admonition} B.Eng. in Electronics & Communication Engineering
 :class: note
 **Institution:** Christ University, India  
-**Period:** January 2016 – December 2020
+**Period:** June 2019 – December 2024
 ```
 
 ---
 
 # 💼 Technical Skills
 
-- **Programming:** Python, C  
+- **Programming:** Python, C  , MATLAB
 - **Robotics & Control:** ROS, Model Predictive Control, Reinforcement Learning  
 - **Web Technologies:** HTML, CSS, JavaScript (React, jQuery)  
 
