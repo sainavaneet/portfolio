@@ -16,6 +16,7 @@ author = 'Navaneet'
 extensions = [
     "myst_parser",
     "sphinx_external_toc",
+    'sphinxcontrib.youtube',
 
 
 ]
