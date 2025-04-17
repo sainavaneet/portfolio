@@ -9,7 +9,7 @@ parts:
   
       - file: source/projects/index
         sections:
-            - file: source/projects/Actfranka/index
+            - file: source/projects/Actfranka/index       
             - file: source/projects/Autonomus Harvesting/index
             - file: source/projects/Basic-reinforcment-Learning/index
             - file: source/projects/Deep Neural Network Nonlinear Model Predictive Control for CSTR/index
