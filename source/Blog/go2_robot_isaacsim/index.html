@@ -436,7 +436,7 @@ document.write(`
 <h3>Isaac Sim Installation<a class="headerlink" href="#isaac-sim-installation" title="Link to this heading">#</a></h3>
 <div class="admonition-isaac-sim-installation admonition">
 <p class="admonition-title">Isaac Sim Installation</p>
-<p>To install <code class="docutils literal notranslate"><span class="pre">isaacsim</span> <span class="pre">2023.1.1</span></code> on Ubuntu, refer to the <a class="reference internal" href="#../isaacsim_installation.md"><span class="xref myst">previous setup page</span></a>.</p>
+<p>To install <code class="docutils literal notranslate"><span class="pre">isaacsim</span> <span class="pre">2023.1.1</span></code> on Ubuntu, refer to the <a class="reference internal" href="../isaacsim/index.html"><span class="std std-doc">previous setup page</span></a>.</p>
 </div>
 </section>
 </section>
@@ -520,7 +520,6 @@ conda<span class="w"> </span>activate<span class="w"> </span>orbit
 <h3>9. Install Python Dependencies<a class="headerlink" href="#install-python-dependencies" title="Link to this heading">#</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./orbit.sh<span class="w"> </span>--install
 python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;rsl-rl-lib@git+https://github.com/leggedrobotics/rsl_rl.git&quot;</span>
-conda<span class="w"> </span>deactivate
 </pre></div>
 </div>
 </section>
@@ -530,7 +529,7 @@ conda<span class="w"> </span>deactivate
 <h2>✅ Verify Isaac Sim Installation<a class="headerlink" href="#verify-isaac-sim-installation" title="Link to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It may take <strong>10–15 minutes</strong> to load Isaac Sim. Run the command <strong>outside of the Conda environment</strong>.</p>
+<p>It may take <strong>10–15 minutes</strong> to load Isaac Sim. Run the command <strong>inside  Conda environment</strong>.</p>
 <p>Ensure you see <code class="docutils literal notranslate"><span class="pre">Isaac</span> <span class="pre">Sim</span> <span class="pre">Python</span> <span class="pre">2023.1.1</span> <span class="pre">-</span> <span class="pre">New</span> <span class="pre">Stage*</span></code> in the title bar.</p>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>source/standalone/tutorials/00_sim/create_empty.py
