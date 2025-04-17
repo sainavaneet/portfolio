@@ -2,6 +2,9 @@
 
 Implementation of a 32-bit MIPS Processor using Verilog HDL. The processor is capable of executing various MIPS instructions and includes key components such as the Instruction Memory, Register File, ALU, Data Memory, and Control Unit.
 
+
+- [Source Code](https://github.com/sainavaneet/32-bit-CPU-based-on-MIPS-architecture)
+
 ## Instruction Set
 
 The MIPS Processor supports the following instructions:

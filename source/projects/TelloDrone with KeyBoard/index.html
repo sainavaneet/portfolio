@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>TelloDrone with KeyBoard and Object detection &#8212; Portfolio  documentation</title>
+    <title>TelloDrone with Keyboard and Object Detection &#8212; Portfolio  documentation</title>
   
   
   
@@ -201,7 +201,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../LMPC-ILC/index.html">Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html">32 bit CPU based on MIPS architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Smart%20Home%20Using%20Iot/index.html">Smart-Home-Using-IOT</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">TelloDrone with KeyBoard and Object detection</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">TelloDrone with Keyboard and Object Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Verilog/index.html">Verilog Projects</a></li>
 </ul>
 </details></li>
@@ -356,7 +356,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>TelloDrone with KeyBoard and Object detection</h1>
+    <h1>TelloDrone with Keyboard and Object Detection</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -368,10 +368,16 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-and-initialize-the-drone">1. Connect and Initialize the Drone</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-keyboard-input-function">2. Define Keyboard Input Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-control-loop">3. Main Control Loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detection-from-drone-feed">4. Object Detection from Drone Feed</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detectioin">OBJECT DETECTIOIN</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-control">KEYBOARD CONTROL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detection-demo">🎯 Object Detection Demo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-control-demo">🕹️ Keyboard Control Demo</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>
@@ -386,39 +392,36 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="tellodrone-with-keyboard-and-object-detection">
-<h1>TelloDrone with KeyBoard and Object detection<a class="headerlink" href="#tellodrone-with-keyboard-and-object-detection" title="Link to this heading">#</a></h1>
-<p>This project show how to control a Tello drone using your keyboard and perform object detection using a pre-trained model. The drone movements are controlled using the arrow keys and specific keys for takeoff, landing, and flips. The object detection is performed on the live video feed from the drone’s camera.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="tellodrone-with-keyboard-and-object-detection">
+<h1>TelloDrone with Keyboard and Object Detection<a class="headerlink" href="#tellodrone-with-keyboard-and-object-detection" title="Link to this heading">#</a></h1>
+<p>This project demonstrates how to control a Tello drone using your keyboard and perform real-time object detection using a pre-trained model. The drone’s movements are controlled via arrow keys and specific hotkeys for takeoff, landing, and flips. Object detection is performed on the live video stream from the drone’s camera.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/sainavaneet/TelloDrone-with-KeyBoard-and-Objectdetection.git">Source code</a></p></li>
+</ul>
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Python 3.x</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">getter</span></code> module</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">djitellopy</span></code> library</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pygame</span></code> library</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cv2</span></code> (OpenCV) library</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cvzone</span></code> library</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">djitellopy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pygame</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opencv-python</span></code> (<code class="docutils literal notranslate"><span class="pre">cv2</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cvzone</span></code></p></li>
 </ul>
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
-<ol class="arabic">
-<li><p>Clone the repository to your local machine:</p>
+<p>Clone the repository and install dependencies:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/sainavaneet/TelloDrone-with-KeyBoard-and-Objectdetection.git
+<span class="nb">cd</span><span class="w"> </span>TelloDrone-with-KeyBoard-and-Objectdetection
+pip<span class="w"> </span>install<span class="w"> </span>getter<span class="w"> </span>djitellopy<span class="w"> </span>pygame<span class="w"> </span>opencv-python<span class="w"> </span>cvzone
 </pre></div>
 </div>
-</li>
-<li><p>Install the required dependencies:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>getter<span class="w"> </span>djitellopy<span class="w"> </span>pygame<span class="w"> </span>opencv-python<span class="w"> </span>cvzone
-</pre></div>
-</div>
-</li>
-</ol>
 </section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
-<ol class="arabic">
-<li><p>Import the necessary modules and initialize the required components:</p>
+<section id="connect-and-initialize-the-drone">
+<h3>1. Connect and Initialize the Drone<a class="headerlink" href="#connect-and-initialize-the-drone" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">getter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">kg</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">djitellopy</span><span class="w"> </span><span class="kn">import</span> <span class="n">tello</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">time</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span>
@@ -429,15 +432,17 @@ document.write(`
 <span class="n">drone</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 </pre></div>
 </div>
-</li>
-<li><p>Define the function to get keyboard input for drone control:</p>
+</section>
+<section id="define-keyboard-input-function">
+<h3>2. Define Keyboard Input Function<a class="headerlink" href="#define-keyboard-input-function" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">getKeyboardInput</span><span class="p">(</span><span class="n">isFlying</span><span class="p">):</span>
-    <span class="c1"># ... implementation ...</span>
+    <span class="c1"># Custom key-to-movement logic</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">lr</span><span class="p">,</span> <span class="n">fb</span><span class="p">,</span> <span class="n">ud</span><span class="p">,</span> <span class="n">yw</span><span class="p">,</span> <span class="n">isFlying</span><span class="p">]</span>
 </pre></div>
 </div>
-</li>
-<li><p>Implement the drone control loop:</p>
+</section>
+<section id="main-control-loop">
+<h3>3. Main Control Loop<a class="headerlink" href="#main-control-loop" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="n">inputs</span> <span class="o">=</span> <span class="n">getKeyboardInput</span><span class="p">(</span><span class="n">isFlying</span><span class="p">)</span>
     <span class="n">isFlying</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
@@ -445,48 +450,48 @@ document.write(`
     <span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
 </pre></div>
 </div>
-</li>
-<li><p>Implement object detection using the Tello drone’s camera:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ... import necessary modules ...</span>
-
-<span class="n">thres</span> <span class="o">=</span> <span class="mf">0.50</span>
+</section>
+<section id="object-detection-from-drone-feed">
+<h3>4. Object Detection from Drone Feed<a class="headerlink" href="#object-detection-from-drone-feed" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">thres</span> <span class="o">=</span> <span class="mf">0.50</span>
 <span class="n">nmsThres</span> <span class="o">=</span> <span class="mf">0.2</span>
 
-<span class="c1"># ... load class names and pre-trained model ...</span>
+<span class="c1"># Load model and class names</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="c1"># ... get frame from drone&#39;s camera ...</span>
-
-    <span class="c1"># ... perform object detection ...</span>
-
-    <span class="c1"># ... display the detected objects ...</span>
-
-    <span class="c1"># ... get keyboard input and control the drone ...</span>
-
-    <span class="c1"># ... display the frame ...</span>
-
+    <span class="c1"># Capture frame</span>
+    <span class="c1"># Run detection</span>
+    <span class="c1"># Annotate and display frame</span>
+    <span class="c1"># Accept keyboard input for control</span>
 </pre></div>
 </div>
-</li>
-</ol>
+</section>
 </section>
 <section id="videos">
 <h2>Videos<a class="headerlink" href="#videos" title="Link to this heading">#</a></h2>
-<section id="object-detectioin">
-<h3>OBJECT DETECTIOIN<a class="headerlink" href="#object-detectioin" title="Link to this heading">#</a></h3>
-<p>{{&lt; youtube FL7ku3DEp7o &gt;}}</p>
-</section>
-<section id="keyboard-control">
-<h3>KEYBOARD CONTROL<a class="headerlink" href="#keyboard-control" title="Link to this heading">#</a></h3>
-<p>{{&lt; youtube IpdcT8TlTOE &gt;}}</p>
-</section>
+<section id="object-detection-demo">
+<h3>🎯 Object Detection Demo<a class="headerlink" href="#object-detection-demo" title="Link to this heading">#</a></h3>
+<iframe width="746" height="420"
+    src="https://www.youtube.com/embed/FL7ku3DEp7o"
+    title="Tello Drone Object Detection"
+    frameborder="0"
+    allowfullscreen>
+</iframe></section>
+<section id="keyboard-control-demo">
+<h3>🕹️ Keyboard Control Demo<a class="headerlink" href="#keyboard-control-demo" title="Link to this heading">#</a></h3>
+<iframe width="746" height="420"
+    src="https://www.youtube.com/embed/IpdcT8TlTOE"
+    title="Tello Drone Keyboard Control"
+    frameborder="0"
+    allowfullscreen>
+</iframe></section>
 </section>
 <section id="contributing">
 <h2>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">#</a></h2>
-<p>Contributions are welcome! If you find any issues or have suggestions for improvements, please create a GitHub issue or submit a pull request.</p>
+<p>Contributions are welcome! If you find issues or want to enhance this project, feel free to open an issue or submit a pull request.</p>
 <ul class="simple">
-<li><p>The Tello SDK provided by DJI Ryze Robotics: <a class="reference external" href="https://github.com/damiafuentes/DJITelloPy">DJITelloPy</a></p></li>
-<li><p>Pre-trained object detection model: <a class="reference external" href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md">TensorFlow Object Detection Model Zoo</a></p></li>
+<li><p><strong>Tello SDK:</strong> <a class="reference external" href="https://github.com/damiafuentes/DJITelloPy">DJITelloPy</a></p></li>
+<li><p><strong>Object Detection Model:</strong> <a class="reference external" href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md">TensorFlow Model Zoo</a></p></li>
 </ul>
 </section>
 </section>
@@ -538,10 +543,16 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-and-initialize-the-drone">1. Connect and Initialize the Drone</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-keyboard-input-function">2. Define Keyboard Input Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-control-loop">3. Main Control Loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detection-from-drone-feed">4. Object Detection from Drone Feed</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detectioin">OBJECT DETECTIOIN</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-control">KEYBOARD CONTROL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#object-detection-demo">🎯 Object Detection Demo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-control-demo">🕹️ Keyboard Control Demo</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>

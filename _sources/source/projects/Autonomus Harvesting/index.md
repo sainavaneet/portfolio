@@ -176,4 +176,13 @@ python harvest.py
 
 ## 🏋️ Results
 
-{{< youtube E9Sd3xxTBig >}}
+<iframe
+  width="746"
+  height="420"
+  src="https://www.youtube.com/embed/E9Sd3xxTBig?autoplay=1"
+  title="Go2 Robot in Isaac Sim"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allow="autoplay; encrypted-media; fullscreen"
+  allowfullscreen
+></iframe>
