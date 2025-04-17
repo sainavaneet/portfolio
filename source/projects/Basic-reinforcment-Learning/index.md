@@ -27,7 +27,16 @@ Implemented some basic Rl examples
 
 ## Cartpole 
 
-{{<youtube Ka9Fwk6suv8>}}
+<iframe
+  width="746"
+  height="420"
+  src="https://www.youtube.com/embed/Ka9Fwk6suv8?autoplay=1"
+  title="Go2 Robot in Isaac Sim"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allow="autoplay; encrypted-media; fullscreen"
+  allowfullscreen
+></iframe>
 
 ## Lunar Lander 
 

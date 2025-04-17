@@ -17,6 +17,7 @@ extensions = [
     "myst_parser",
     "sphinx_external_toc",
     'sphinxcontrib.youtube',
+    'sphinx.ext.mathjax',
 
 
 ]
@@ -24,6 +25,10 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+myst_enable_extensions = [
+    "amsmath",
+    "dollarmath"
+]
 
 
 

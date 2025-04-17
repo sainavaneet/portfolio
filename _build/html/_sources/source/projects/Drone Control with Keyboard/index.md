@@ -26,7 +26,16 @@ Developed a code to control a drone using a keyboard. It can
 perform actions such as takeoff, landing, and controlling the
 drone's movements using the arrow keys and other designated keys.
 
-{{< youtube -XZIpyt2KPE >}}
+<iframe
+  width="746"
+  height="420"
+  src="https://www.youtube.com/embed/-XZIpyt2KPE?autoplay=1"
+  title="Go2 Robot in Isaac Sim"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allow="autoplay; encrypted-media; fullscreen"
+  allowfullscreen
+></iframe>
 
 ## Prerequisites
 

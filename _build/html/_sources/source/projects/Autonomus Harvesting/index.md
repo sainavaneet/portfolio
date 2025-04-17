@@ -140,7 +140,7 @@ detected. We have designed the algorithm in such a way that it
 determines a stable pose of the cucumber after detecting it, based on a
 predefined threshold.
 
-<img src="images/clipboard-945579712.png" width="537" />
+![objdetection](images/obj_detection.png)
 
 ## 🦾TASK
 
@@ -176,4 +176,13 @@ python harvest.py
 
 ## 🏋️ Results
 
-{{< youtube E9Sd3xxTBig >}}
+<iframe
+  width="746"
+  height="420"
+  src="https://www.youtube.com/embed/E9Sd3xxTBig?autoplay=1"
+  title="Go2 Robot in Isaac Sim"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allow="autoplay; encrypted-media; fullscreen"
+  allowfullscreen
+></iframe>

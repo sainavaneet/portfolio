@@ -41,6 +41,8 @@
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/Drone Trajectory Tracking/index';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="../../../_static/custom.js"></script>
@@ -214,7 +216,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../publications/index.html">Publications</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../Blog/Bluetooth/index.html">Blog</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../Blog/isaacsim/index.html">Isaac Sim</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Blog/go2_robot_isaacsim/index.html">Go2 robot in isaac-sim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/go2_robot_isaacsim/index.html">🐾 Go2 Robot in Isaac Sim (Omniverse)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../Contact/index.html">Contact Me</a></li>
@@ -379,7 +381,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trajectory-generation">3. Trajectory Generation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-parameter-varying-lpv-systems">4. Linear Parameter Varying (LPV) Systems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-predictive-control-mpc">5. Model Predictive Control (MPC)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
 </ul>
             </nav>
         </div>
@@ -391,158 +392,146 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="drone-trajectory-tracking-with-python">
+  <section class="tex2jax_ignore mathjax_ignore" id="drone-trajectory-tracking-with-python">
 <h1>Drone Trajectory Tracking with Python<a class="headerlink" href="#drone-trajectory-tracking-with-python" title="Link to this heading">#</a></h1>
-<p>The dynamics and kinematics of a drone are crucial in understanding and controlling its flight behavior</p>
-<section id="dynamics-and-kinematics-of-the-drone">
+<p>The dynamics and kinematics of a drone are crucial in understanding and controlling its flight behavior.</p>
+<iframe
+  width="746"
+  height="420"
+  src="https://www.youtube.com/embed/S4rpkbglb5c?autoplay=1"
+  title="Go2 Robot in Isaac Sim"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allow="autoplay; encrypted-media; fullscreen"
+  allowfullscreen
+></iframe><section id="dynamics-and-kinematics-of-the-drone">
 <h2>1. Dynamics and Kinematics of the Drone<a class="headerlink" href="#dynamics-and-kinematics-of-the-drone" title="Link to this heading">#</a></h2>
-<p>The dynamics and kinematics of a drone are crucial in understanding and controlling its flight behavior. The drone’s state can be described by its position {{&lt; math &gt;}}$ x, y, z ${{&lt; /math &gt;}}, orientation (roll {{&lt; math &gt;}}$ \phi ${{&lt; /math &gt;}}, pitch {{&lt; math &gt;}}$ \theta ${{&lt; /math &gt;}}, and yaw {{&lt; math &gt;}}$ \psi ${{&lt; /math &gt;}}), and their respective velocities and angular velocities.</p>
+<p>The drone’s state can be described by its position <span class="math notranslate nohighlight">\(x, y, z\)</span>, orientation (roll <span class="math notranslate nohighlight">\(\phi\)</span>, pitch <span class="math notranslate nohighlight">\(\theta\)</span>, and yaw <span class="math notranslate nohighlight">\(\psi\)</span>), and their respective velocities and angular velocities.</p>
 <section id="translational-motion">
 <h3>Translational Motion<a class="headerlink" href="#translational-motion" title="Link to this heading">#</a></h3>
 <p>The translational motion of the drone can be described by Newton’s second law of motion:</p>
-<p>{{&lt; math &gt;}}
-$$
+<div class="math notranslate nohighlight">
+\[
 m\ddot{\mathbf{r}} = \mathbf{F} - mg\hat{z}
-$$
-{{&lt; /math &gt;}}</p>
+\]</div>
 <p>where:</p>
 <ul class="simple">
-<li><p>{{&lt; math &gt;}}$ m ${{&lt; /math &gt;}} is the mass of the drone.</p></li>
-<li><p>{{&lt; math &gt;}}$ \ddot{\mathbf{r}} ${{&lt; /math &gt;}} represents the linear acceleration.</p></li>
-<li><p>{{&lt; math &gt;}}$ \mathbf{F} ${{&lt; /math &gt;}} is the total thrust force generated by the drone’s motors.</p></li>
-<li><p>{{&lt; math &gt;}}$ g ${{&lt; /math &gt;}} is the acceleration due to gravity.</p></li>
-<li><p>{{&lt; math &gt;}}$ \hat{z} ${{&lt; /math &gt;}} is the unit vector in the vertical direction.</p></li>
+<li><p><span class="math notranslate nohighlight">\(m\)</span> is the mass of the drone.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\ddot{\mathbf{r}}\)</span> represents the linear acceleration.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{F}\)</span> is the total thrust force generated by the drone’s motors.</p></li>
+<li><p><span class="math notranslate nohighlight">\(g\)</span> is the acceleration due to gravity.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{z}\)</span> is the unit vector in the vertical direction.</p></li>
 </ul>
 </section>
 <section id="rotational-motion">
 <h3>Rotational Motion<a class="headerlink" href="#rotational-motion" title="Link to this heading">#</a></h3>
 <p>The rotational motion of the drone is described using Euler’s equations of motion for a rigid body:</p>
-<p>{{&lt; math &gt;}}
-$$
-I \dot{\boldsymbol{\omega}} + \boldsymbol{\omega} \times (I \boldsymbol{\omega}) = \mathbf{\tau}
-$$
-{{&lt; /math &gt;}}</p>
+<div class="math notranslate nohighlight">
+\[
+I \dot{\boldsymbol{\omega}} + \boldsymbol{\omega} \times (I \boldsymbol{\omega}) = \boldsymbol{\tau}
+\]</div>
 <p>where:</p>
 <ul class="simple">
-<li><p>{{&lt; math &gt;}}$ I ${{&lt; /math &gt;}} represents the moment of inertia matrix.</p></li>
-<li><p>{{&lt; math &gt;}}$ \boldsymbol{\omega} ${{&lt; /math &gt;}} is the angular velocity vector (p, q, r).</p></li>
-<li><p>{{&lt; math &gt;}}$ \mathbf{\tau} ${{&lt; /math &gt;}} is the vector of external torques acting on the drone.</p></li>
+<li><p><span class="math notranslate nohighlight">\(I\)</span> represents the moment of inertia matrix.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\omega}\)</span> is the angular velocity vector (p, q, r).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\tau}\)</span> is the vector of external torques acting on the drone.</p></li>
 </ul>
 </section>
 <section id="dynamic-system-matrix">
 <h3>Dynamic System Matrix<a class="headerlink" href="#dynamic-system-matrix" title="Link to this heading">#</a></h3>
-<p>The dynamics of the drone can be represented in a state-space format, where the state vector {{&lt; math &gt;}}$ \mathbf{x} ${{&lt; /math &gt;}} might include the position, velocity, orientation, and angular velocity. The state-space model is typically written as:</p>
-<p>{{&lt; math &gt;}}
-$$
+<p>The dynamics of the drone can be represented in a state-space format:</p>
+<div class="math notranslate nohighlight">
+\[
 \dot{\mathbf{x}} = A\mathbf{x} + B\mathbf{u}
-$$
-{{&lt; /math &gt;}}</p>
-<p>{{&lt; math &gt;}}
-$$
+\]</div>
+<div class="math notranslate nohighlight">
+\[
 \mathbf{y} = C\mathbf{x} + D\mathbf{u}
-$$
-{{&lt; /math &gt;}}</p>
+\]</div>
 <p>Where:</p>
 <ul class="simple">
-<li><p>{{&lt; math &gt;}}$ \mathbf{x} ${{&lt; /math &gt;}} is the state vector.</p></li>
-<li><p>{{&lt; math &gt;}}$ \mathbf{u} ${{&lt; /math &gt;}} is the input vector (like motor thrusts).</p></li>
-<li><p>{{&lt; math &gt;}}$ \mathbf{y} ${{&lt; /math &gt;}} is the output vector (like measured position and orientation).</p></li>
-<li><p>{{&lt; math &gt;}}$ A ${{&lt; /math &gt;}} is the system matrix, representing the dynamics of the drone.</p></li>
-<li><p>{{&lt; math &gt;}}$ B ${{&lt; /math &gt;}} is the input matrix, showing how inputs affect the state.</p></li>
-<li><p>{{&lt; math &gt;}}$ C ${{&lt; /math &gt;}} is the output matrix, linking the state to the outputs.</p></li>
-<li><p>{{&lt; math &gt;}}$ D ${{&lt; /math &gt;}} is the direct transmission matrix, usually a zero matrix in drone dynamics.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is the state vector.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is the input vector (like motor thrusts).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is the output vector (like measured position and orientation).</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> is the system matrix.</p></li>
+<li><p><span class="math notranslate nohighlight">\(B\)</span> is the input matrix.</p></li>
+<li><p><span class="math notranslate nohighlight">\(C\)</span> is the output matrix.</p></li>
+<li><p><span class="math notranslate nohighlight">\(D\)</span> is the direct transmission matrix.</p></li>
 </ul>
-<p>The matrices {{&lt; math &gt;}}$$ A, B, C, D $${{&lt; /math &gt;}} are determined based on the physical characteristics of the drone and its operational environment. They encapsulate the dynamics and kinematics, converting control inputs into predictions about the drone’s future state.</p>
 </section>
 </section>
 <section id="control-system">
 <h2>2. Control System<a class="headerlink" href="#control-system" title="Link to this heading">#</a></h2>
 <section id="control-inputs">
 <h3>Control Inputs<a class="headerlink" href="#control-inputs" title="Link to this heading">#</a></h3>
-<p>The control inputs for the drone include thrust {{&lt; math &gt;}}$$ U1 $${{&lt; /math &gt;}} and torques {{&lt; math &gt;}}$$ U2, U3, U4 $${{&lt; /math &gt;}}. These inputs are calculated as follows:</p>
-<p>{{&lt; math &gt;}}
-$$
-U1 = c_t(\omega_1^2 + \omega_2^2 + \omega_3^2 + \omega_4^2)
-$$
-{{&lt; /math &gt;}}</p>
-<p>{{&lt; math &gt;}}
-$$
-U2 = c_t l (\omega_2^2 - \omega_4^2)
-$$
-{{&lt; /math &gt;}}</p>
-<p>{{&lt; math &gt;}}
-$$
-U3 = c_t l (\omega_3^2 - \omega_1^2)
-$$
-{{&lt; /math &gt;}}</p>
-<p>{{&lt; math &gt;}}
-$$
-U4 = c_q (-\omega_1^2 + \omega_2^2 - \omega_3^2 + \omega_4^2)
-$$
-{{&lt; /math &gt;}}</p>
+<p>The control inputs for the drone include thrust <span class="math notranslate nohighlight">\(U_1\)</span> and torques <span class="math notranslate nohighlight">\(U_2, U_3, U_4\)</span>. These are calculated as:</p>
+<div class="math notranslate nohighlight">
+\[
+U_1 = c_t(\omega_1^2 + \omega_2^2 + \omega_3^2 + \omega_4^2)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+U_2 = c_t l (\omega_2^2 - \omega_4^2)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+U_3 = c_t l (\omega_3^2 - \omega_1^2)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+U_4 = c_q (-\omega_1^2 + \omega_2^2 - \omega_3^2 + \omega_4^2)
+\]</div>
 </section>
 </section>
 <section id="trajectory-generation">
 <h2>3. Trajectory Generation<a class="headerlink" href="#trajectory-generation" title="Link to this heading">#</a></h2>
-<p>The desired trajectory is represented as a function of time {{&lt; math &gt;}}$ t ${{&lt; /math &gt;}}:</p>
-<p>{{&lt; math &gt;}}
-$$
-X_{ref}(t), Y_{ref}(t), Z_{ref}(t), \psi_{ref}(t)
-$$
-{{&lt; /math &gt;}}</p>
+<p>The desired trajectory as a function of time <span class="math notranslate nohighlight">\(t\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+X_{\text{ref}}(t),\quad Y_{\text{ref}}(t),\quad Z_{\text{ref}}(t),\quad \psi_{\text{ref}}(t)
+\]</div>
 </section>
 <section id="linear-parameter-varying-lpv-systems">
 <h2>4. Linear Parameter Varying (LPV) Systems<a class="headerlink" href="#linear-parameter-varying-lpv-systems" title="Link to this heading">#</a></h2>
-<p>LPV systems are described by the following equations:</p>
-<p>{{&lt; math &gt;}}
-$$
+<p>LPV systems are described by:</p>
+<div class="math notranslate nohighlight">
+\[
 \dot{x}(t) = A(t)x(t) + B(t)u(t)
-$$
-{{&lt; /math &gt;}}</p>
-<p>{{&lt; math &gt;}}
-$$
+\]</div>
+<div class="math notranslate nohighlight">
+\[
 y(t) = C(t)x(t) + D(t)u(t)
-$$
-{{&lt; /math &gt;}}</p>
+\]</div>
 </section>
 <section id="model-predictive-control-mpc">
 <h2>5. Model Predictive Control (MPC)<a class="headerlink" href="#model-predictive-control-mpc" title="Link to this heading">#</a></h2>
-<p>Model Predictive Control (MPC) is an advanced method of process control that uses a dynamic model to predict and optimize future states of a control system. In the context of drone trajectory tracking, MPC is used to compute the optimal control inputs that will guide the drone along a desired trajectory. The basic formulation of an MPC problem can be given as follows:</p>
-<p>{{&lt; math &gt;}}
-$$
-\min_{u} \sum_{k=0}^{N-1} \left( (x_k - x_{ref})^T Q (x_k - x_{ref}) + (u_k - u_{ref})^T R (u_k - u_{ref}) \right)
-$$
-{{&lt; /math &gt;}}</p>
-<p>Subject to the dynamic constraints of the system:</p>
-<p>{{&lt; math &gt;}}
-$$
+<p>MPC uses a dynamic model to optimize future control actions. The objective function is:</p>
+<div class="math notranslate nohighlight">
+\[
+\min_{u} \sum_{k=0}^{N-1} \left( (x_k - x_{\text{ref}})^T Q (x_k - x_{\text{ref}}) + (u_k - u_{\text{ref}})^T R (u_k - u_{\text{ref}}) \right)
+\]</div>
+<p>Subject to:</p>
+<div class="math notranslate nohighlight">
+\[
 x_{k+1} = A x_k + B u_k
-$$
-{{&lt; /math &gt;}}</p>
-<p>{{&lt; math &gt;}}
-$$
-x_{min} \leq x_k \leq x_{max}
-$$
-{{&lt; /math &gt;}}</p>
-<p>{{&lt; math &gt;}}
-$$
-u_{min} \leq u_k \leq u_{max}
-$$
-{{&lt; /math &gt;}}</p>
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+x_{\min} \leq x_k \leq x_{\max}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+u_{\min} \leq u_k \leq u_{\max}
+\]</div>
 <p>Where:</p>
 <ul class="simple">
-<li><p>{{&lt; math &gt;}}$ x_k ${{&lt; /math &gt;}} is the state of the system at step {{&lt; math &gt;}}$ k ${{&lt; /math &gt;}}.</p></li>
-<li><p>$ u_k $ is the control input at step $ k $.</p></li>
-<li><p>$ x_{ref} $ and $ u_{ref} $ are the reference state and input, respectively.</p></li>
-<li><p>$ Q $ and $ R $ are weighting matrices.</p></li>
-<li><p>$ N $ is the prediction horizon.</p></li>
-<li><p>$ A $ and $ B $ are the system matrices.</p></li>
-<li><p>$ x_{min}, x_{max}, u_{min}, u_{max} $ are the bounds on states and inputs.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_k\)</span>: system state at step <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(u_k\)</span>: control input at step <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_{\text{ref}}, u_{\text{ref}}\)</span>: reference state and input.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q, R\)</span>: weighting matrices.</p></li>
+<li><p><span class="math notranslate nohighlight">\(N\)</span>: prediction horizon.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_{\min}, x_{\max}, u_{\min}, u_{\max}\)</span>: state/input bounds.</p></li>
 </ul>
-</section>
-<section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h2>
-<p>{{&lt; youtube S4rpkbglb5c &gt;}}</p>
 </section>
 </section>
 
@@ -604,7 +593,6 @@ $$
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trajectory-generation">3. Trajectory Generation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-parameter-varying-lpv-systems">4. Linear Parameter Varying (LPV) Systems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-predictive-control-mpc">5. Model Predictive Control (MPC)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
 </ul>
   </nav></div>
 
