@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Go2 robot in isaac-sim &#8212; Portfolio  documentation</title>
+    <title>Setting Up the Go2 Robot in Isaac Sim &#8212; Portfolio  documentation</title>
   
   
   
@@ -214,7 +214,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../publications/index.html">Publications</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Bluetooth/index.html">Blog</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../isaacsim/index.html">Isaac Sim</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Go2 robot in isaac-sim</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Setting Up the Go2 Robot in Isaac Sim</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../../Contact/index.html">Contact Me</a></li>
@@ -356,7 +356,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Go2 robot in isaac-sim</h1>
+    <h1>Setting Up the Go2 Robot in Isaac Sim</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -366,9 +366,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-of-isaacsim">Installation of isaacsim</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isaacsim-setup">Isaacsim setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-isaaclab-0-3-1">clone Isaaclab-0.3.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isaac-sim-installation">Isaac Sim Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isaac-sim-setup">Isaac Sim Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-isaaclab-0-3-1">Clone IsaacLab-0.3.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ros-and-isaac-sim-configuration">ROS and Isaac Sim Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-isaac-sim-installation">Verify Isaac Sim Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-go2-omniverse-repository">Clone <code class="docutils literal notranslate"><span class="pre">go2_omniverse</span></code> Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-go2-robot">Setup Go2 Robot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-simulation">Run the Simulation</a></li>
 </ul>
             </nav>
         </div>
@@ -380,108 +386,135 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="go2-robot-in-isaac-sim">
-<h1>Go2 robot in isaac-sim<a class="headerlink" href="#go2-robot-in-isaac-sim" title="Link to this heading">#</a></h1>
-<p>i used <code class="docutils literal notranslate"><span class="pre">go2_omniverse</span></code> repo to bring the robot</p>
-<section id="installation-of-isaacsim">
-<h2>Installation of isaacsim<a class="headerlink" href="#installation-of-isaacsim" title="Link to this heading">#</a></h2>
-<div class="admonition-isaac-sim-installation admonition">
-<p class="admonition-title">Isaac sim installation</p>
-<p>See previous page to install the <code class="docutils literal notranslate"><span class="pre">isaacsim2023.1.1</span></code> in your ubuntu</p>
-</div>
+  <section id="setting-up-the-go2-robot-in-isaac-sim">
+<h1>Setting Up the Go2 Robot in Isaac Sim<a class="headerlink" href="#setting-up-the-go2-robot-in-isaac-sim" title="Link to this heading">#</a></h1>
+<p>This guide will walk you through the process of setting up the Go2 robot in Isaac Sim using the <code class="docutils literal notranslate"><span class="pre">go2_omniverse</span></code> repository.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Ubuntu System</strong>: Ensure you are using an Ubuntu system.</p></li>
+<li><p><strong>ROS 2 Humble</strong>: Install ROS 2 Humble from the <a class="reference external" href="https://docs.ros.org/en/humble/Installation.html">ROS website</a>. If it’s already installed, you can skip this step.</p></li>
+</ol>
 </section>
-<section id="isaacsim-setup">
-<h2>Isaacsim setup<a class="headerlink" href="#isaacsim-setup" title="Link to this heading">#</a></h2>
-<p>Give permission to isaacsim</p>
+<section id="isaac-sim-installation">
+<h2>Isaac Sim Installation<a class="headerlink" href="#isaac-sim-installation" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Install Isaac Sim 2023.1.1</strong>: Follow the instructions on the previous page to install Isaac Sim 2023.1.1 on your Ubuntu system.</p></li>
+</ol>
+</section>
+<section id="isaac-sim-setup">
+<h2>Isaac Sim Setup<a class="headerlink" href="#isaac-sim-setup" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Grant Permissions</strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span><span class="nv">$USER</span>:<span class="nv">$USER</span><span class="w"> </span>~/isaac-sim-2023.1.1
 </pre></div>
 </div>
-<p>Move the isaacsim to this path <code class="docutils literal notranslate"><span class="pre">.local/share/ov/pkg/</span></code></p>
+</li>
+<li><p><strong>Move Isaac Sim</strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.local/share/ov/pkg/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span>~/isaac-sim-2023.1.1<span class="w"> </span>~/.local/share/ov/pkg/
 </pre></div>
 </div>
+</li>
+</ol>
 </section>
 <section id="clone-isaaclab-0-3-1">
-<h2>clone Isaaclab-0.3.1<a class="headerlink" href="#clone-isaaclab-0-3-1" title="Link to this heading">#</a></h2>
+<h2>Clone IsaacLab-0.3.1<a class="headerlink" href="#clone-isaaclab-0-3-1" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Clone the Repository</strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/isaac-sim/IsaacLab.git<span class="w"> </span>IsaacLab-0.3.1
 <span class="nb">cd</span><span class="w"> </span>IsaacLab-0.3.1
 git<span class="w"> </span>checkout<span class="w"> </span>tags/v0.3.1<span class="w"> </span>-b<span class="w"> </span>v0.3.1
 </pre></div>
 </div>
-<div class="admonition-ros-installation admonition">
-<p class="admonition-title">Ros Installation</p>
-<p>:class: important</p>
-<p>Intall Ros2 humble from ROS website. if its already install skip this step.</p>
-</div>
-<div class="admonition-isaac-sim-installation admonition">
-<p class="admonition-title">Isaac sim installation</p>
-<p>Install all required form ROS setup from Isaac Doc</p>
-</div>
-<p>Execute this</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add to ~/.bashrc</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export ISAACSIM_PATH=&quot;${HOME}/.local/share/ov/pkg/isaac-sim-2023.1.1&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</li>
+</ol>
+</section>
+<section id="ros-and-isaac-sim-configuration">
+<h2>ROS and Isaac Sim Configuration<a class="headerlink" href="#ros-and-isaac-sim-configuration" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Add to <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code></strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export ISAACSIM_PATH=&quot;${HOME}/.local/share/ov/pkg/isaac-sim-2023.1.1&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
 <span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export ISAACSIM_PYTHON_EXE=&quot;${ISAACSIM_PATH}/python.sh&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
 <span class="nb">source</span><span class="w"> </span>~/.bashrc
 </pre></div>
 </div>
+</li>
+<li><p><strong>Create a Symbolic Link</strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/IsaacLab-0.3.1/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span><span class="si">${</span><span class="nv">ISAACSIM_PATH</span><span class="si">}</span><span class="w"> </span>_isaac_sim
 </pre></div>
 </div>
+</li>
+<li><p><strong>Install Dependencies</strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./orbit.sh<span class="w"> </span>--conda
-
 conda<span class="w"> </span>activate<span class="w"> </span>orbit
-
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>build-essential
+./orbit.sh<span class="w"> </span>--install
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;rsl-rl-lib@git+https://github.com/leggedrobotics/rsl_rl.git&quot;</span>
+conda<span class="w"> </span>deactivate
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./orbit.sh<span class="w"> </span>--install
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;rsl-rl-lib@git+https://github.com/leggedrobotics/rsl_rl.git&quot;</span>
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>deactivate
-</pre></div>
-</div>
-<p>After executing all these we need to verify our isaacsim</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It takes more than 10-15mins to load!. Run below command without Conda env</p>
-<p>You need to check that you have “Isaac Sim Python 2023.1.1 - New Stage*” on the top of the window.</p>
-</div>
+</li>
+</ol>
+</section>
+<section id="verify-isaac-sim-installation">
+<h2>Verify Isaac Sim Installation<a class="headerlink" href="#verify-isaac-sim-installation" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Run a Test Script</strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>source/standalone/tutorials/00_sim/create_empty.py
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>if you face any errors install these it worked for me</p>
-<p>numpy==1.24.4
-numba==0.57.0
-stable-baselines3==2.0.0
-usd-core&gt;=21.11,&lt;24.00
-nvidia-srl-usd==0.13.0
-nvidia-srl-usd-to-urdf==0.5.0
-moviepy==1.0.3</p>
+<p><strong>Note</strong>: It may take 10-15 minutes to load. Ensure you see “Isaac Sim Python 2023.1.1 - New Stage*” at the top of the window.</p>
+</li>
+<li><p><strong>Troubleshooting</strong>: If you encounter errors, try installing the following packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">numpy</span><span class="o">==</span><span class="m">1</span>.24.4<span class="w"> </span><span class="nv">numba</span><span class="o">==</span><span class="m">0</span>.57.0<span class="w"> </span>stable-baselines3<span class="o">==</span><span class="m">2</span>.0.0<span class="w"> </span>usd-core&gt;<span class="o">=</span><span class="m">21</span>.11,&lt;<span class="m">24</span>.00<span class="w"> </span>nvidia-srl-usd<span class="o">==</span><span class="m">0</span>.13.0<span class="w"> </span>nvidia-srl-usd-to-urdf<span class="o">==</span><span class="m">0</span>.5.0<span class="w"> </span><span class="nv">moviepy</span><span class="o">==</span><span class="m">1</span>.0.3
+</pre></div>
 </div>
+</li>
+</ol>
+</section>
+<section id="clone-go2-omniverse-repository">
+<h2>Clone <code class="docutils literal notranslate"><span class="pre">go2_omniverse</span></code> Repository<a class="headerlink" href="#clone-go2-omniverse-repository" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Clone the Repository</strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/abizovnuralem/go2_omniverse/<span class="w"> </span>--recurse-submodules<span class="w"> </span>-j8<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span>
 </pre></div>
 </div>
-<p>After that we need to do this setup</p>
+</li>
+</ol>
+</section>
+<section id="setup-go2-robot">
+<h2>Setup Go2 Robot<a class="headerlink" href="#setup-go2-robot" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Copy Sensor Configuration</strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~
-mkdir<span class="w"> </span>-p<span class="w"> </span>IsaacLab-0.3.1/source/data/sensors/lidar<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cp<span class="w"> </span>go2_omniverse/Isaac_sim/Unitree/Unitree_L1.json<span class="w"> </span>IsaacLab-0.3.1/source/data/sensors/lidar/Unitree_L1.json
+mkdir<span class="w"> </span>-p<span class="w"> </span>IsaacLab-0.3.1/source/data/sensors/lidar
+cp<span class="w"> </span>go2_omniverse/Isaac_sim/Unitree/Unitree_L1.json<span class="w"> </span>IsaacLab-0.3.1/source/data/sensors/lidar/Unitree_L1.json
 </pre></div>
 </div>
-<p>copy materials</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>IsaacLab-0.3.1/source/data/material_files<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>~/.local/share/ov/pkg/isaac-sim-2023.1.1/data/material_files/*<span class="w"> </span>IsaacLab-0.3.1/source/data/material_files/
+</li>
+<li><p><strong>Copy Material Files</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>IsaacLab-0.3.1/source/data/material_files
+cp<span class="w"> </span>-r<span class="w"> </span>~/.local/share/ov/pkg/isaac-sim-2023.1.1/data/material_files/*<span class="w"> </span>IsaacLab-0.3.1/source/data/material_files/
 </pre></div>
 </div>
-<p>Now run the ‘./run_sim.sh’ in repo</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/go2_omniverse
-
-./run_sim.sh
+</li>
+</ol>
+</section>
+<section id="run-the-simulation">
+<h2>Run the Simulation<a class="headerlink" href="#run-the-simulation" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Navigate to the Repository</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/go2_omniverse
 </pre></div>
 </div>
+</li>
+<li><p><strong>Run the Simulation Script</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./run_sim.sh
+</pre></div>
+</div>
+</li>
+</ol>
 </section>
 </section>
 
@@ -530,9 +563,15 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>IsaacLab-0.3.1/source/dat
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-of-isaacsim">Installation of isaacsim</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isaacsim-setup">Isaacsim setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-isaaclab-0-3-1">clone Isaaclab-0.3.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isaac-sim-installation">Isaac Sim Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isaac-sim-setup">Isaac Sim Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-isaaclab-0-3-1">Clone IsaacLab-0.3.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ros-and-isaac-sim-configuration">ROS and Isaac Sim Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-isaac-sim-installation">Verify Isaac Sim Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-go2-omniverse-repository">Clone <code class="docutils literal notranslate"><span class="pre">go2_omniverse</span></code> Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-go2-robot">Setup Go2 Robot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-simulation">Run the Simulation</a></li>
 </ul>
   </nav></div>
 
