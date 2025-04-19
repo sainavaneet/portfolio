@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Vision Guided Imitation Learnig using Action Chunck Transformer &#8212; Portfolio  documentation</title>
+    <title>ActFranka &#8212; Portfolio  documentation</title>
   
   
   
@@ -48,7 +48,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="🎉 Autonomus harvesting using Object Detecion" href="../Autonomus%20Harvesting/index.html" />
-    <link rel="prev" title="Projects" href="../index.html" />
+    <link rel="prev" title="Transformer Based Vision Guided Tissue Processing" href="../Tissue-processing/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -191,9 +191,11 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../Resume/index.html">Resume</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Projects</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Vision Guided Imitation Learnig using Action Chunck Transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Tissue-processing/index.html">Transformer Based Vision Guided Tissue Processing</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ActFranka</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Autonomus%20Harvesting/index.html">🎉 Autonomus harvesting using Object Detecion</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../TelloDrone%20with%20KeyBoard/index.html">TelloDrone with Keyboard and Object Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basic-reinforcment-Learning/index.html">Basic Reinforcement Learning Algorithms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Deep%20Neural%20Network%20Nonlinear%20Model%20Predictive%20Control%20for%20CSTR/index.html">Deep Neural Network Nonlinear Model Predictive Control for CSTR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Drone%20Control%20with%20Keyboard/index.html">Drone Control with Keyboard</a></li>
@@ -202,7 +204,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../LMPC-ILC/index.html">Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html">32 bit CPU based on MIPS architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Smart%20Home%20Using%20Iot/index.html">Smart-Home-Using-IOT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../TelloDrone%20with%20KeyBoard/index.html">TelloDrone with Keyboard and Object Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Verilog/index.html">Verilog Projects</a></li>
 </ul>
 </details></li>
@@ -362,7 +363,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Vision Guided Imitation Learnig using Action Chunck Transformer</h1>
+    <h1>ActFranka</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -384,8 +385,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="vision-guided-imitation-learnig-using-action-chunck-transformer">
-<h1>Vision Guided Imitation Learnig using Action Chunck Transformer<a class="headerlink" href="#vision-guided-imitation-learnig-using-action-chunck-transformer" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="actfranka">
+<h1>ActFranka<a class="headerlink" href="#actfranka" title="Permalink to this heading">#</a></h1>
 <p align="center">
   <video width="100%" autoplay loop muted controls="false">
     <source src="/_static/videos/demo.mp4" type="video/mp4">
@@ -395,7 +396,14 @@ document.write(`
 <section id="abstract">
 <h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this heading">#</a></h2>
 <p>This project introduces the use of the Action Chunking with Transformers (ACT) technique in single-arm robotic manipulation for vision-guided pick-and-place tasks. ACT employs a Conditional Variational Autoencoder (CVAE) to predict sequences of actions, termed “action chunks,” which are groups of actions predicted together to achieve more complex tasks efficiently. Unlike traditional methods that rely solely on joint position data and predict individual actions, our approach integrates visual data to enrich the learning context and enhance execution precision. We acquired the expert data by providing manual demonstrations of the task, allowing the model to learn from real-time, complex action sequences. By predicting these action chunks instead of single actions, the ACT model adapts from dual-arm to single-arm configurations, enhancing control strategies and demonstrating significant improvements in the robot’s speed, precision, and reliability. This substantiates the paper’s title, “Vision-Guided Imitation Learning Using Action Chunk Transformers,” highlighting the critical role of vision in advancing robotic control systems.</p>
-<p align="center"><a href="https://sainavaneet.github.io/ACTfranka.github.io/" target="_blank" style="border: 2px solid #2F4F4F; background-color: transparent; color: #2F4F4F; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 2px; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">🌐 Project Website</a></p>
+<p align="center"><a href="https://sainavaneet.github.io/ACTfranka.github.io/" target="_blank" style="border: 2px solid #0066cc; background-color: transparent; color: #0066cc; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 2px; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: all 0.3s ease; animation: pulse 2s infinite;" onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='#0066cc'; this.style.color='white';" onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='transparent'; this.style.color='#0066cc';">🌐 Project Website</a></p>
+<style>
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+</style>
 </section>
 </section>
 
@@ -411,12 +419,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../index.html"
+       href="../Tissue-processing/index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Projects</p>
+        <p class="prev-next-title">Transformer Based Vision Guided Tissue Processing</p>
       </div>
     </a>
     <a class="right-next"

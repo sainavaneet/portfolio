@@ -20,6 +20,32 @@ This project demonstrates how to control a Tello drone using your keyboard and p
 
 - [Source code](https://github.com/sainavaneet/TelloDrone-with-KeyBoard-and-Objectdetection.git)
 
+
+## Videos
+
+### 🎯 Object Detection Demo
+
+```{raw} html
+<iframe width="746" height="420"
+    src="https://www.youtube.com/embed/FL7ku3DEp7o?autoplay=1&loop=1&mute=1&controls=0&playlist=FL7ku3DEp7o"
+    title="Tello Drone Object Detection"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe>
+```
+
+### 🕹️ Keyboard Control Demo
+
+```{raw} html
+<iframe width="746" height="420"
+    src="https://www.youtube.com/embed/IpdcT8TlTOE?autoplay=1&loop=1&mute=1&controls=0&playlist=IpdcT8TlTOE"
+    title="Tello Drone Keyboard Control"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe>
+```
 ## Prerequisites
 
 - Python 3.x
@@ -87,29 +113,7 @@ while True:
     # Accept keyboard input for control
 ```
 
-## Videos
 
-### 🎯 Object Detection Demo
-
-```{raw} html
-<iframe width="746" height="420"
-    src="https://www.youtube.com/embed/FL7ku3DEp7o"
-    title="Tello Drone Object Detection"
-    frameborder="0"
-    allowfullscreen>
-</iframe>
-```
-
-### 🕹️ Keyboard Control Demo
-
-```{raw} html
-<iframe width="746" height="420"
-    src="https://www.youtube.com/embed/IpdcT8TlTOE"
-    title="Tello Drone Keyboard Control"
-    frameborder="0"
-    allowfullscreen>
-</iframe>
-```
 
 ## Contributing
 

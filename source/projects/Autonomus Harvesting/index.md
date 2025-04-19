@@ -179,10 +179,9 @@ python harvest.py
 <iframe
   width="746"
   height="420"
-  src="https://www.youtube.com/embed/E9Sd3xxTBig?autoplay=1"
+  src="https://www.youtube.com/embed/E9Sd3xxTBig?autoplay=1&loop=1&mute=1&controls=0&playlist=E9Sd3xxTBig"
   title="Go2 Robot in Isaac Sim"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allow="autoplay; encrypted-media; fullscreen"
   allowfullscreen
 ></iframe>
