@@ -9,7 +9,8 @@ parts:
   
       - file: source/projects/index
         sections:
-            - file: source/projects/Actfranka/index       
+            - file: source/projects/ActFranka/index       
+
             - file: source/projects/Autonomus Harvesting/index
             - file: source/projects/Basic-reinforcment-Learning/index
             - file: source/projects/Deep Neural Network Nonlinear Model Predictive Control for CSTR/index
@@ -27,6 +28,8 @@ parts:
 
       - file: source/Blog/Bluetooth/index
         sections:
+
+            - file: source/Blog/Actfranka/index       
             - file: source/Blog/isaacsim/index
             - file: source/Blog/go2_robot_isaacsim/index
 
