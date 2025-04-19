@@ -9,17 +9,17 @@ parts:
   
       - file: source/projects/index
         sections:
-        
+
             - file: source/projects/Tissue-processing/index
             - file: source/projects/ActFranka/index       
             - file: source/projects/Autonomus Harvesting/index
             - file: source/projects/TelloDrone with KeyBoard/index
+            - file: source/projects/LMPC-ILC/index
+            - file: source/projects/Imitation-Learning-Franka/index
             - file: source/projects/Basic-reinforcment-Learning/index
             - file: source/projects/Deep Neural Network Nonlinear Model Predictive Control for CSTR/index
             - file: source/projects/Drone Control with Keyboard/index
             - file: source/projects/Drone Trajectory Tracking/index
-            - file: source/projects/Imitation-Learning-Franka/index
-            - file: source/projects/LMPC-ILC/index
             - file: source/projects/32 bit CPU based on MIPS architecture/index
             - file: source/projects/Smart Home Using Iot/index
             - file: source/projects/Verilog/index
