@@ -15,6 +15,13 @@ This project introduces the use of the Action Chunking with Transformers (ACT) t
 
 
 
-<p align="center"><a href="https://sainavaneet.github.io/ACTfranka.github.io/" target="_blank" style="border: 2px solid #2F4F4F; background-color: transparent; color: #2F4F4F; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 2px; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">🌐 Project Website</a></p>
+<p align="center"><a href="https://sainavaneet.github.io/ACTfranka.github.io/" target="_blank" style="border: 2px solid #0066cc; background-color: transparent; color: #0066cc; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 2px; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: all 0.3s ease; animation: pulse 2s infinite;" onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='#0066cc'; this.style.color='white';" onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='transparent'; this.style.color='#0066cc';">🌐 Project Website</a></p>
 
+<style>
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+</style>
 
