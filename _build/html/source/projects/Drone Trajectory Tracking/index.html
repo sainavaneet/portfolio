@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Drone Trajectory Tracking with Python &#8212; Portfolio  documentation</title>
   
@@ -28,19 +29,19 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=d9d6623f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/Drone Trajectory Tracking/index';</script>
@@ -192,7 +193,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../Resume/index.html">Resume</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Projects</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../Actfranka/index.html">Applied Action chunk Transformer on franka Emika</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Actfranka/index.html">Vision Guided Imitation Learning using Action Chunk Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Autonomus%20Harvesting/index.html">🎉 Autonomus harvesting using Object Detecion</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../Basic-reinforcment-Learning/index.html">Basic Reinforcement Learning Algorithms</a></li>
@@ -203,7 +204,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../LMPC-ILC/index.html">Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html">32 bit CPU based on MIPS architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Smart%20Home%20Using%20Iot/index.html">Smart-Home-Using-IOT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../TelloDrone%20with%20KeyBoard/index.html">TelloDrone with KeyBoard and Object detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TelloDrone%20with%20KeyBoard/index.html">TelloDrone with Keyboard and Object Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Verilog/index.html">Verilog Projects</a></li>
 </ul>
 </details></li>
@@ -393,7 +394,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="drone-trajectory-tracking-with-python">
-<h1>Drone Trajectory Tracking with Python<a class="headerlink" href="#drone-trajectory-tracking-with-python" title="Link to this heading">#</a></h1>
+<h1>Drone Trajectory Tracking with Python<a class="headerlink" href="#drone-trajectory-tracking-with-python" title="Permalink to this heading">#</a></h1>
 <p>The dynamics and kinematics of a drone are crucial in understanding and controlling its flight behavior.</p>
 <iframe
   width="746"
@@ -405,10 +406,10 @@ document.write(`
   allow="autoplay; encrypted-media; fullscreen"
   allowfullscreen
 ></iframe><section id="dynamics-and-kinematics-of-the-drone">
-<h2>1. Dynamics and Kinematics of the Drone<a class="headerlink" href="#dynamics-and-kinematics-of-the-drone" title="Link to this heading">#</a></h2>
+<h2>1. Dynamics and Kinematics of the Drone<a class="headerlink" href="#dynamics-and-kinematics-of-the-drone" title="Permalink to this heading">#</a></h2>
 <p>The drone’s state can be described by its position <span class="math notranslate nohighlight">\(x, y, z\)</span>, orientation (roll <span class="math notranslate nohighlight">\(\phi\)</span>, pitch <span class="math notranslate nohighlight">\(\theta\)</span>, and yaw <span class="math notranslate nohighlight">\(\psi\)</span>), and their respective velocities and angular velocities.</p>
 <section id="translational-motion">
-<h3>Translational Motion<a class="headerlink" href="#translational-motion" title="Link to this heading">#</a></h3>
+<h3>Translational Motion<a class="headerlink" href="#translational-motion" title="Permalink to this heading">#</a></h3>
 <p>The translational motion of the drone can be described by Newton’s second law of motion:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -424,7 +425,7 @@ m\ddot{\mathbf{r}} = \mathbf{F} - mg\hat{z}
 </ul>
 </section>
 <section id="rotational-motion">
-<h3>Rotational Motion<a class="headerlink" href="#rotational-motion" title="Link to this heading">#</a></h3>
+<h3>Rotational Motion<a class="headerlink" href="#rotational-motion" title="Permalink to this heading">#</a></h3>
 <p>The rotational motion of the drone is described using Euler’s equations of motion for a rigid body:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -438,7 +439,7 @@ I \dot{\boldsymbol{\omega}} + \boldsymbol{\omega} \times (I \boldsymbol{\omega})
 </ul>
 </section>
 <section id="dynamic-system-matrix">
-<h3>Dynamic System Matrix<a class="headerlink" href="#dynamic-system-matrix" title="Link to this heading">#</a></h3>
+<h3>Dynamic System Matrix<a class="headerlink" href="#dynamic-system-matrix" title="Permalink to this heading">#</a></h3>
 <p>The dynamics of the drone can be represented in a state-space format:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -461,9 +462,9 @@ I \dot{\boldsymbol{\omega}} + \boldsymbol{\omega} \times (I \boldsymbol{\omega})
 </section>
 </section>
 <section id="control-system">
-<h2>2. Control System<a class="headerlink" href="#control-system" title="Link to this heading">#</a></h2>
+<h2>2. Control System<a class="headerlink" href="#control-system" title="Permalink to this heading">#</a></h2>
 <section id="control-inputs">
-<h3>Control Inputs<a class="headerlink" href="#control-inputs" title="Link to this heading">#</a></h3>
+<h3>Control Inputs<a class="headerlink" href="#control-inputs" title="Permalink to this heading">#</a></h3>
 <p>The control inputs for the drone include thrust <span class="math notranslate nohighlight">\(U_1\)</span> and torques <span class="math notranslate nohighlight">\(U_2, U_3, U_4\)</span>. These are calculated as:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -484,7 +485,7 @@ U_4 = c_q (-\omega_1^2 + \omega_2^2 - \omega_3^2 + \omega_4^2)
 </section>
 </section>
 <section id="trajectory-generation">
-<h2>3. Trajectory Generation<a class="headerlink" href="#trajectory-generation" title="Link to this heading">#</a></h2>
+<h2>3. Trajectory Generation<a class="headerlink" href="#trajectory-generation" title="Permalink to this heading">#</a></h2>
 <p>The desired trajectory as a function of time <span class="math notranslate nohighlight">\(t\)</span> is:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -492,7 +493,7 @@ X_{\text{ref}}(t),\quad Y_{\text{ref}}(t),\quad Z_{\text{ref}}(t),\quad \psi_{\t
 \]</div>
 </section>
 <section id="linear-parameter-varying-lpv-systems">
-<h2>4. Linear Parameter Varying (LPV) Systems<a class="headerlink" href="#linear-parameter-varying-lpv-systems" title="Link to this heading">#</a></h2>
+<h2>4. Linear Parameter Varying (LPV) Systems<a class="headerlink" href="#linear-parameter-varying-lpv-systems" title="Permalink to this heading">#</a></h2>
 <p>LPV systems are described by:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -504,7 +505,7 @@ y(t) = C(t)x(t) + D(t)u(t)
 \]</div>
 </section>
 <section id="model-predictive-control-mpc">
-<h2>5. Model Predictive Control (MPC)<a class="headerlink" href="#model-predictive-control-mpc" title="Link to this heading">#</a></h2>
+<h2>5. Model Predictive Control (MPC)<a class="headerlink" href="#model-predictive-control-mpc" title="Permalink to this heading">#</a></h2>
 <p>MPC uses a dynamic model to optimize future control actions. The objective function is:</p>
 <div class="math notranslate nohighlight">
 \[

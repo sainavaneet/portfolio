@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Deep Neural Network Nonlinear Model Predictive Control for CSTR &#8212; Portfolio  documentation</title>
   
@@ -28,19 +29,19 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=d9d6623f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/Deep Neural Network Nonlinear Model Predictive Control for CSTR/index';</script>
@@ -192,7 +193,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../Resume/index.html">Resume</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Projects</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../Actfranka/index.html">Applied Action chunk Transformer on franka Emika</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Actfranka/index.html">Vision Guided Imitation Learning using Action Chunk Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Autonomus%20Harvesting/index.html">🎉 Autonomus harvesting using Object Detecion</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../Basic-reinforcment-Learning/index.html">Basic Reinforcement Learning Algorithms</a></li>
@@ -203,7 +204,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../LMPC-ILC/index.html">Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html">32 bit CPU based on MIPS architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Smart%20Home%20Using%20Iot/index.html">Smart-Home-Using-IOT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../TelloDrone%20with%20KeyBoard/index.html">TelloDrone with KeyBoard and Object detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../TelloDrone%20with%20KeyBoard/index.html">TelloDrone with Keyboard and Object Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Verilog/index.html">Verilog Projects</a></li>
 </ul>
 </details></li>
@@ -400,13 +401,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="deep-neural-network-nonlinear-model-predictive-control-for-cstr">
-<h1>Deep Neural Network Nonlinear Model Predictive Control for CSTR<a class="headerlink" href="#deep-neural-network-nonlinear-model-predictive-control-for-cstr" title="Link to this heading">#</a></h1>
+<h1>Deep Neural Network Nonlinear Model Predictive Control for CSTR<a class="headerlink" href="#deep-neural-network-nonlinear-model-predictive-control-for-cstr" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>The Continuous Stirred Tank Reactor (CSTR) is a fundamental model in chemical engineering, representing a reactor where the contents are well-mixed, ensuring uniform composition and temperature throughout. This report delves into the mathematical modeling of a CSTR, its simulation, and control using a Nonlinear Model Predictive Control (NMPC) strategy integrated with a neural network for predictive behavior.</p>
 </section>
 <section id="cstr-model">
-<h2>CSTR Model<a class="headerlink" href="#cstr-model" title="Link to this heading">#</a></h2>
+<h2>CSTR Model<a class="headerlink" href="#cstr-model" title="Permalink to this heading">#</a></h2>
 <p>The CSTR dynamics are governed by the mass and energy balance equations:</p>
 <div class="math notranslate nohighlight">
 \[\frac{dC}{dt} = \frac{F}{V}(C_{in} - C) - k(T)C\]</div>
@@ -465,7 +466,7 @@ document.write(`
 </table>
 </div>
 <section id="parameter-equations">
-<h3>Parameter Equations<a class="headerlink" href="#parameter-equations" title="Link to this heading">#</a></h3>
+<h3>Parameter Equations<a class="headerlink" href="#parameter-equations" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 F_0 = 0.1~\mathrm{m}^3/\mathrm{min}
@@ -521,15 +522,15 @@ u_s = [300,\,0.1]
 </section>
 </section>
 <section id="nonlinear-model-predictive-control-nmpc">
-<h2>Nonlinear Model Predictive Control (NMPC)<a class="headerlink" href="#nonlinear-model-predictive-control-nmpc" title="Link to this heading">#</a></h2>
+<h2>Nonlinear Model Predictive Control (NMPC)<a class="headerlink" href="#nonlinear-model-predictive-control-nmpc" title="Permalink to this heading">#</a></h2>
 <p>NMPC optimizes control inputs over a prediction horizon to minimize deviations from desired setpoints while respecting constraints.</p>
 <section id="parameters">
-<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[N = 15, \quad dt = 0.25\;\text{seconds}, \quad Tf = 3.75\;\text{seconds}\]</div>
 </section>
 <section id="cost-function">
-<h3>Cost Function<a class="headerlink" href="#cost-function" title="Link to this heading">#</a></h3>
+<h3>Cost Function<a class="headerlink" href="#cost-function" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[J = \sum_{k=t}^{t+N-1} L(x_k, u_k) + M(x_{t+N})\]</div>
 <p>Where:</p>
@@ -548,13 +549,13 @@ u_s = [300,\,0.1]
 \end{bmatrix}\end{split}\]</div>
 </section>
 <section id="constraints">
-<h3>Constraints<a class="headerlink" href="#constraints" title="Link to this heading">#</a></h3>
+<h3>Constraints<a class="headerlink" href="#constraints" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\textbf{umin} = \begin{bmatrix} 0.95 \\ 0.85 \end{bmatrix} \times \textbf{us}, \quad
 \textbf{umax} = \begin{bmatrix} 1.05 \\ 1.15 \end{bmatrix} \times \textbf{us}\end{split}\]</div>
 </section>
 <section id="acados-configuration">
-<h3>ACADOS Configuration<a class="headerlink" href="#acados-configuration" title="Link to this heading">#</a></h3>
+<h3>ACADOS Configuration<a class="headerlink" href="#acados-configuration" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Solver</strong>: SQP / SQP-RTI</p></li>
 <li><p><strong>Integrator</strong>: IRK</p></li>
@@ -567,9 +568,9 @@ u_s = [300,\,0.1]
 </section>
 </section>
 <section id="neural-network-integration">
-<h2>Neural Network Integration<a class="headerlink" href="#neural-network-integration" title="Link to this heading">#</a></h2>
+<h2>Neural Network Integration<a class="headerlink" href="#neural-network-integration" title="Permalink to this heading">#</a></h2>
 <section id="data-preparation">
-<h3>Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading">#</a></h3>
+<h3>Data Preparation<a class="headerlink" href="#data-preparation" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Gather time-series data: concentration, temperature, inflow, heat input</p></li>
 <li><p>Scale input/output:</p></li>
@@ -578,7 +579,7 @@ u_s = [300,\,0.1]
 \[\mathbf{X}_{\text{scaled}} = \frac{\mathbf{X} - \mu_{\mathbf{X}}}{\sigma_{\mathbf{X}}}\]</div>
 </section>
 <section id="neural-network-architecture">
-<h3>Neural Network Architecture<a class="headerlink" href="#neural-network-architecture" title="Link to this heading">#</a></h3>
+<h3>Neural Network Architecture<a class="headerlink" href="#neural-network-architecture" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Input</strong>: <span class="math notranslate nohighlight">\( \mathbf{a}_0 = \mathbf{x} \)</span></p></li>
 <li><p><strong>Hidden layers</strong>:</p></li>
@@ -592,7 +593,7 @@ u_s = [300,\,0.1]
 \[\mathbf{y} = \mathbf{W}_{\text{out}} \mathbf{a}_{\text{last}} + \mathbf{b}_{\text{out}}\]</div>
 </section>
 <section id="training">
-<h3>Training<a class="headerlink" href="#training" title="Link to this heading">#</a></h3>
+<h3>Training<a class="headerlink" href="#training" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Loss</strong>: Mean Squared Error</p></li>
 </ul>
@@ -609,22 +610,22 @@ u_s = [300,\,0.1]
 </section>
 </section>
 <section id="results">
-<h2>Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h2>
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h2>
 <figure class="align-default" id="loss-plot">
 <img alt="../../../_images/loss.png" src="../../../_images/loss.png" />
 <figcaption>
-<p><span class="caption-text">Training loss over epochs</span><a class="headerlink" href="#loss-plot" title="Link to this image">#</a></p>
+<p><span class="caption-text">Training loss over epochs</span><a class="headerlink" href="#loss-plot" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="dnn-result">
 <img alt="../../../_images/dnn.png" src="../../../_images/dnn.png" />
 <figcaption>
-<p><span class="caption-text">DNN-NMPC simulation results for CSTR</span><a class="headerlink" href="#dnn-result" title="Link to this image">#</a></p>
+<p><span class="caption-text">DNN-NMPC simulation results for CSTR</span><a class="headerlink" href="#dnn-result" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
 <p>The CSTR model, integrated with a neural network and controlled via NMPC, represents a sophisticated and powerful approach for managing complex chemical systems. This architecture allows for efficient real-time control and adaptation to dynamic operating conditions.</p>
 </section>
 </section>
