@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Combining Imitation Learning with Diffusion Processes on Robot Manipulator &#8212; Portfolio  documentation</title>
   
@@ -29,19 +28,19 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=d9d6623f" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/Imitation-Learning-Franka/index';</script>
@@ -194,7 +193,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../Resume/index.html">Resume</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Projects</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Tissue-processing/index.html">Transformer Based Vision Guided Tissue Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ActFranka/index.html">ActFranka</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Autonomus%20Harvesting/index.html">🎉 Autonomus harvesting using Object Detecion</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../TelloDrone%20with%20KeyBoard/index.html">TelloDrone with Keyboard and Object Detection</a></li>
@@ -395,7 +393,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="combining-imitation-learning-with-diffusion-processes-on-robot-manipulator">
-<h1>Combining Imitation Learning with Diffusion Processes on Robot Manipulator<a class="headerlink" href="#combining-imitation-learning-with-diffusion-processes-on-robot-manipulator" title="Permalink to this heading">#</a></h1>
+<h1>Combining Imitation Learning with Diffusion Processes on Robot Manipulator<a class="headerlink" href="#combining-imitation-learning-with-diffusion-processes-on-robot-manipulator" title="Link to this heading">#</a></h1>
 <iframe
   width="746"
   height="420"
@@ -405,7 +403,7 @@ document.write(`
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
 ></iframe><section id="diffusion-processes">
-<h2>Diffusion Processes<a class="headerlink" href="#diffusion-processes" title="Permalink to this heading">#</a></h2>
+<h2>Diffusion Processes<a class="headerlink" href="#diffusion-processes" title="Link to this heading">#</a></h2>
 <p>Diffusion processes can be modeled by Stochastic Differential Equations (SDEs) as follows:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -420,7 +418,7 @@ dX_t = \mu(X_t, t)dt + \sigma(X_t, t)dW_t
 </ul>
 </section>
 <section id="imitation-learning">
-<h2>Imitation Learning<a class="headerlink" href="#imitation-learning" title="Permalink to this heading">#</a></h2>
+<h2>Imitation Learning<a class="headerlink" href="#imitation-learning" title="Link to this heading">#</a></h2>
 <p>The objective function in imitation learning can be expressed as:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -434,7 +432,7 @@ dX_t = \mu(X_t, t)dt + \sigma(X_t, t)dW_t
 </ul>
 </section>
 <section id="combining-diffusion-processes-with-imitation-learning">
-<h2>Combining Diffusion Processes with Imitation Learning<a class="headerlink" href="#combining-diffusion-processes-with-imitation-learning" title="Permalink to this heading">#</a></h2>
+<h2>Combining Diffusion Processes with Imitation Learning<a class="headerlink" href="#combining-diffusion-processes-with-imitation-learning" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 \min_{\pi} \mathbb{E}_{(s,a^*)\sim D, X_t\sim SDE}[-\log \pi(a^* | s) + \lambda \cdot L(X_t, \pi(s))]
@@ -446,7 +444,7 @@ dX_t = \mu(X_t, t)dt + \sigma(X_t, t)dW_t
 </ul>
 </section>
 <section id="neural-network-model">
-<h2>Neural Network Model<a class="headerlink" href="#neural-network-model" title="Permalink to this heading">#</a></h2>
+<h2>Neural Network Model<a class="headerlink" href="#neural-network-model" title="Link to this heading">#</a></h2>
 <p>Given a desired end-effector position <span class="math notranslate nohighlight">\(x \in \mathbb{R}^3\)</span>, the network computes the joint angles <span class="math notranslate nohighlight">\(y \in \mathbb{R}^7\)</span> through a series of transformations:</p>
 <ol class="arabic simple">
 <li><p>Layer 1: <span class="math notranslate nohighlight">\(h_1 = \text{ReLU}(W_1x + b_1)\)</span></p></li>
@@ -461,7 +459,7 @@ dX_t = \mu(X_t, t)dt + \sigma(X_t, t)dW_t
 </ul>
 </section>
 <section id="loss-function">
-<h2>Loss Function<a class="headerlink" href="#loss-function" title="Permalink to this heading">#</a></h2>
+<h2>Loss Function<a class="headerlink" href="#loss-function" title="Link to this heading">#</a></h2>
 <p>Minimizing the difference between the predicted joint angles and the true joint angles. The loss function used is the Mean Squared Error (MSE), given by:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -476,7 +474,7 @@ L(\theta) = \frac{1}{N} \sum_{i=1}^{N} \| f(x^{(i)}; \theta) - y^{(i)} \|^2
 </ul>
 </section>
 <section id="optimization">
-<h2>Optimization<a class="headerlink" href="#optimization" title="Permalink to this heading">#</a></h2>
+<h2>Optimization<a class="headerlink" href="#optimization" title="Link to this heading">#</a></h2>
 <p>The training process seeks to find the optimal parameters <span class="math notranslate nohighlight">\(\theta^*\)</span> that minimize the loss function <span class="math notranslate nohighlight">\(L(\theta)\)</span>. This is typically done using gradient-based optimization methods, such as Adam. The update rule for Adam at each iteration <span class="math notranslate nohighlight">\(t\)</span> is:</p>
 <ol class="arabic simple">
 <li><p>Compute gradients: <span class="math notranslate nohighlight">\(g_t = \nabla_{\theta} L(\theta)\)</span></p></li>
@@ -498,7 +496,7 @@ L(\theta) = \frac{1}{N} \sum_{i=1}^{N} \| f(x^{(i)}; \theta) - y^{(i)} \|^2
 </ul>
 </section>
 <section id="training-process">
-<h2>Training Process<a class="headerlink" href="#training-process" title="Permalink to this heading">#</a></h2>
+<h2>Training Process<a class="headerlink" href="#training-process" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Epochs:</strong> 10,000</p></li>
 <li><p><strong>Learning Rate (<span class="math notranslate nohighlight">\(\eta\)</span>):</strong> 0.001</p></li>
@@ -506,7 +504,7 @@ L(\theta) = \frac{1}{N} \sum_{i=1}^{N} \| f(x^{(i)}; \theta) - y^{(i)} \|^2
 </ul>
 </section>
 <section id="demonstration">
-<h2>Demonstration<a class="headerlink" href="#demonstration" title="Permalink to this heading">#</a></h2>
+<h2>Demonstration<a class="headerlink" href="#demonstration" title="Link to this heading">#</a></h2>
 <p>We used the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> Python library to draw some trajectories to imitate.</p>
 </section>
 </section>
