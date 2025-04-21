@@ -122,8 +122,19 @@ Ensure you see `Isaac Sim Python 2023.1.1 - New Stage*` in the title bar.
 python source/standalone/tutorials/00_sim/create_empty.py
 ```
 
+
+
+
 ### If you face errors, try installing these specific versions:
 
+```bash
+
+pip install catkin_pkg
+pip install empy==3.3.4
+pip install lark
+pip install shutdown
+
+```
 ```bash
 pip install \
   numpy==1.24.4 \
