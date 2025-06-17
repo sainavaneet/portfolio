@@ -42,11 +42,12 @@ templates_path = ["_templates"]
 
 external_toc_path = "_toc.yml"  # Optional, default is _toc.yml
 
-html_css_files = ["custom.css"]
+html_css_files = [
+    'custom.css',
+]
 
 html_js_files = [
-    'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js',
-    'custom.js',
+    'scroll-video.js',
 ]
 # Assuming your `conf.py` has a sibling folder called `_static` with these files
 html_theme_options = {
