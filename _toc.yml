@@ -9,7 +9,7 @@ parts:
   
       - file: source/projects/index
         sections:
-            - file: source/projects/QROOT/index
+            # - file: source/projects/QROOT/index
             - file: source/projects/Tissue-processing/index
             - file: source/projects/ActFranka/index       
             - file: source/projects/Autonomus Harvesting/index

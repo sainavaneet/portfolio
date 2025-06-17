@@ -15,3 +15,6 @@ From the moment I discovered the excitement of engineering, I’ve been drawn to
 Over the years, I’ve honed my skills in software development tailored specifically for robotics, finding tremendous satisfaction in turning complex ideas into practical, automated solutions. Whether I’m designing sophisticated mechatronic frameworks or crafting next-generation software, I’m driven by a passion to expand the horizons of what robotics can achieve. Through each endeavor, I strive to blend innovation and precision, forging new paths in the fast-evolving world of automation.
 
 
+
+
+
