@@ -32,6 +32,8 @@ myst_enable_extensions = [
 
 
 
+
+
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
@@ -43,12 +45,14 @@ templates_path = ["_templates"]
 external_toc_path = "_toc.yml"  # Optional, default is _toc.yml
 
 html_css_files = [
-    'custom.css',
+    'css/custom.css',
 ]
 
 html_js_files = [
-    'scroll-video.js',
+    'js/scroll-video.js',
 ]
+
+
 # Assuming your `conf.py` has a sibling folder called `_static` with these files
 html_theme_options = {
     "use_sidenotes": True,
