@@ -64,3 +64,265 @@
     cursor: grab;
 }
 /*=====================*/
+
+/* Modern News Timeline */
+.news-container {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 20px;
+}
+
+.news-section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.news-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.news-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.news-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(102, 126, 234, 0.2);
+}
+
+.news-card:hover::before {
+    transform: scaleX(1);
+}
+
+.news-card.achievement::before { background: linear-gradient(90deg, #10b981, #059669); }
+.news-card.research::before { background: linear-gradient(90deg, #3b82f6, #1d4ed8); }
+.news-card.publication::before { background: linear-gradient(90deg, #ef4444, #dc2626); }
+.news-card.journal::before { background: linear-gradient(90deg, #f59e0b, #d97706); }
+.news-card.conference::before { background: linear-gradient(90deg, #8b5cf6, #7c3aed); }
+.news-card.industry::before { background: linear-gradient(90deg, #06b6d4, #0891b2); }
+.news-card.agriculture::before { background: linear-gradient(90deg, #ec4899, #db2777); }
+.news-card.published::before { background: linear-gradient(90deg, #14b8a6, #0d9488); }
+
+.news-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.news-date {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.news-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.news-card.achievement .news-icon { background: linear-gradient(135deg, #10b981, #059669); }
+.news-card.research .news-icon { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.news-card.publication .news-icon { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.news-card.journal .news-icon { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.news-card.conference .news-icon { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.news-card.industry .news-icon { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.news-card.agriculture .news-icon { background: linear-gradient(135deg, #ec4899, #db2777); }
+.news-card.published .news-icon { background: linear-gradient(135deg, #14b8a6, #0d9488); }
+
+.news-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #374151;
+    font-weight: 500;
+    margin: 0;
+}
+
+.news-card:hover .news-content {
+    color: #1f2937;
+}
+
+/* Year sections */
+.year-section {
+    margin-bottom: 3rem;
+}
+
+.year-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+.year-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-right: 1rem;
+}
+
+.year-badge {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.news-card {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.news-card:nth-child(1) { animation-delay: 0.1s; }
+.news-card:nth-child(2) { animation-delay: 0.2s; }
+.news-card:nth-child(3) { animation-delay: 0.3s; }
+.news-card:nth-child(4) { animation-delay: 0.4s; }
+.news-card:nth-child(5) { animation-delay: 0.5s; }
+.news-card:nth-child(6) { animation-delay: 0.6s; }
+.news-card:nth-child(7) { animation-delay: 0.7s; }
+.news-card:nth-child(8) { animation-delay: 0.8s; }
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .news-container {
+        padding: 0 15px;
+        margin: 2rem auto;
+    }
+    
+    .news-section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .news-card {
+        padding: 1.25rem;
+    }
+    
+    .year-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .news-card {
+        background: #1f2937;
+        border-color: rgba(255, 255, 255, 0.1);
+        color: #f9fafb;
+    }
+    
+    .news-card:hover {
+        background: #374151;
+        border-color: rgba(102, 126, 234, 0.3);
+    }
+    
+    .news-date {
+        color: #9ca3af;
+    }
+    
+    .news-content {
+        color: #d1d5db;
+    }
+    
+    .news-card:hover .news-content {
+        color: #f9fafb;
+    }
+    
+    .year-title {
+        color: #f9fafb;
+    }
+    
+    .year-header {
+        border-bottom-color: #374151;
+    }
+    
+    .news-section-title {
+        background: linear-gradient(135deg, #a78bfa 0%, #c084fc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .news-section-title::after {
+        background: linear-gradient(135deg, #a78bfa 0%, #c084fc 100%);
+    }
+}
+

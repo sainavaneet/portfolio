@@ -96,3 +96,5 @@ function handleSwipe() {
     // Prevent text/image selection while dragging
     videoScroll.addEventListener('dragstart', (e) => e.preventDefault());
 })();
+
+

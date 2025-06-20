@@ -27,7 +27,20 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 myst_enable_extensions = [
     "amsmath",
-    "dollarmath"
+    "dollarmath",
+    "html_admonition",
+    "html_image",
+    "html_inline",
+    "html_m2d",
+    "html_table",
+    "colon_fence",
+    "deflist",
+    "fieldlist",
+    "replacements",
+    "smartquotes",
+    "strikethrough",
+    "substitution",
+    "tasklist"
 ]
 
 
