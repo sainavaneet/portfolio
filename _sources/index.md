@@ -16,7 +16,7 @@ Over the years, I've honed my skills in software development tailored specifical
 
 
 <div class="news-container">
-  <h2 class="news-section-title">📰 Latest News & Updates</h2>
+  <h2 class="news-section-title">Latest News & Updates</h2>
   
   <div class="year-section">
     <div class="year-header" tabindex="0" role="button" aria-expanded="true" aria-label="Toggle 2025 year section">

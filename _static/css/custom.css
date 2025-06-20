@@ -1,3 +1,18 @@
+/* main */
+
+
+
+@media (min-width: 960px) {
+    .bd-page-width {
+        max-width: 100rem;
+    }
+}
+
+
+
+
+
+
 .github-profile-button a {
     font-weight: 500;
     color: var(--pst-color-text-base);
