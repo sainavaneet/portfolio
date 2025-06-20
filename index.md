@@ -19,10 +19,10 @@ Over the years, I've honed my skills in software development tailored specifical
   <h2 class="news-section-title">📰 Latest News & Updates</h2>
   
   <div class="year-section">
-    <div class="year-header">
+    <div class="year-header" tabindex="0" role="button" aria-expanded="true" aria-label="Toggle 2025 year section">
       <span class="year-badge">2025</span>
     </div>
-    <div class="news-grid">
+    <div class="news-grid expanded">
       
 <div class="news-card achievement">
         <div class="news-header">
@@ -68,10 +68,10 @@ Over the years, I've honed my skills in software development tailored specifical
   </div>
 
   <div class="year-section">
-    <div class="year-header">
+    <div class="year-header" tabindex="0" role="button" aria-expanded="true" aria-label="Toggle 2024 year section">
       <span class="year-badge">2024</span>
     </div>
-    <div class="news-grid">
+    <div class="news-grid expanded">
       
 <div class="news-card industry">
         <div class="news-header">

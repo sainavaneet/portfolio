@@ -63,6 +63,7 @@ html_css_files = [
 
 html_js_files = [
     'js/scroll-video.js',
+    'js/custom.js',
 ]
 
 
