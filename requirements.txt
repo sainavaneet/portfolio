@@ -16,5 +16,5 @@ matplotlib
 warp-lang
 # learning
 gymnasium
-
+livereload
 sphinx_external_toc

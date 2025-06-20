@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     const videoItems = document.querySelectorAll('.video-item');
     
@@ -16,6 +15,18 @@ document.addEventListener('DOMContentLoaded', function() {
             video.currentTime = 0;
         });
     });
+
+    // Enable horizontal scroll with mouse wheel
+    const videoScroll = document.querySelector('.video-scroll');
+    if (videoScroll) {
+        videoScroll.addEventListener('wheel', function(e) {
+            if (videoScroll.scrollWidth > videoScroll.clientWidth) {
+                e.preventDefault();
+                const scrollSpeed = 3; // Adjust this value as needed
+                videoScroll.scrollLeft += e.deltaY * scrollSpeed;
+            }
+        }, { passive: false });
+    }
 });
 
 // Add touch swipe support
@@ -47,3 +58,41 @@ function handleSwipe() {
         });
     }
 }
+
+// Enable click-and-drag horizontal scrolling
+(function() {
+    const videoScroll = document.querySelector('.video-scroll');
+    if (!videoScroll) return;
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    videoScroll.addEventListener('mousedown', (e) => {
+        isDown = true;
+        videoScroll.classList.add('dragging');
+        startX = e.pageX - videoScroll.offsetLeft;
+        scrollLeft = videoScroll.scrollLeft;
+    });
+
+    videoScroll.addEventListener('mouseleave', () => {
+        isDown = false;
+        videoScroll.classList.remove('dragging');
+    });
+
+    videoScroll.addEventListener('mouseup', () => {
+        isDown = false;
+        videoScroll.classList.remove('dragging');
+    });
+
+    videoScroll.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - videoScroll.offsetLeft;
+        const walk = (x - startX) * 2; // Adjust multiplier for speed
+        videoScroll.scrollLeft = scrollLeft - walk;
+    });
+
+    // Prevent text/image selection while dragging
+    videoScroll.addEventListener('dragstart', (e) => e.preventDefault());
+})();

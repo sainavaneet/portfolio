@@ -11,7 +11,7 @@ parts:
         sections:
             # - file: source/projects/QROOT/index
             - file: source/projects/Tissue-processing/index
-            - file: source/projects/ActFranka/index       
+            - file: source/projects/Actfranka/index       
             - file: source/projects/Autonomus Harvesting/index
             - file: source/projects/TelloDrone with KeyBoard/index
             - file: source/projects/LMPC-ILC/index
