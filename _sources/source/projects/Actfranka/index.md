@@ -1,4 +1,4 @@
-# ActFranka
+# Action Chunck Transfomer on Franka Robot
 
 <p align="center">
   <video width="100%" autoplay loop muted controls="false">
