@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=538361a2" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5bd4c31b" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -44,7 +44,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/Deep Neural Network Nonlinear Model Predictive Control for CSTR/index';</script>
-    <script src="../../../_static/js/scroll-video.js?v=5fdd7a70"></script>
+    <script src="../../../_static/js/scroll-video.js?v=c40cad62"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Drone Control with Keyboard" href="../Drone%20Control%20with%20Keyboard/index.html" />
@@ -402,7 +402,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="deep-neural-network-nonlinear-model-predictive-control-for-cstr">
+  <section id="deep-neural-network-nonlinear-model-predictive-control-for-cstr">
 <h1>Deep Neural Network Nonlinear Model Predictive Control for CSTR<a class="headerlink" href="#deep-neural-network-nonlinear-model-predictive-control-for-cstr" title="Link to this heading">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
@@ -469,58 +469,45 @@ document.write(`
 </div>
 <section id="parameter-equations">
 <h3>Parameter Equations<a class="headerlink" href="#parameter-equations" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 F_0 = 0.1~\mathrm{m}^3/\mathrm{min}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>$$
 T_0 = 350.0~\mathrm{K}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>$$
 c_0 = 1.0~\mathrm{kmol}/\mathrm{m}^3
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>$$
 r = 0.219~\mathrm{m}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>$$
 k_0 = 7.2 \times 10^{10}~\mathrm{min}^{-1}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>$$
 \frac{E_b}{R} = 8750~\mathrm{K}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>$$
 U = 54.94~\mathrm{kJ}/(\mathrm{min}\cdot\mathrm{m}^2\cdot\mathrm{K})
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>$$
 \rho = 1000~\mathrm{kg}/\mathrm{m}^3
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>$$
 C_p = 0.239~\mathrm{kJ}/(\mathrm{kg}\cdot\mathrm{K})
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>$$
 \Delta H = -5 \times 10^4~\mathrm{kJ}/\mathrm{kmol}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
+$$</p>
+<p>$$
 \varepsilon = 1 \times 10^{-5}~\mathrm{m}
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-x_s = [0.878,\,324.5,\,0.659]
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-u_s = [300,\,0.1]
-\]</div>
+$$</p>
+<p>$$
+x_s = [0.878,,324.5,,0.659]
+$$</p>
+<p>$$
+u_s = [300,,0.1]
+$$</p>
 </section>
 </section>
 <section id="nonlinear-model-predictive-control-nmpc">
@@ -562,7 +549,7 @@ u_s = [300,\,0.1]
 <li><p><strong>Solver</strong>: SQP / SQP-RTI</p></li>
 <li><p><strong>Integrator</strong>: IRK</p></li>
 <li><p><strong>QP Solver</strong>: PARTIAL_CONDENSING_HPIPM</p></li>
-<li><p><strong>Condensing</strong>: Full (<span class="math notranslate nohighlight">\(N\)</span> intervals)</p></li>
+<li><p><strong>Condensing</strong>: Full ($N$ intervals)</p></li>
 <li><p><strong>Regularization</strong>:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -583,7 +570,7 @@ u_s = [300,\,0.1]
 <section id="neural-network-architecture">
 <h3>Neural Network Architecture<a class="headerlink" href="#neural-network-architecture" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>Input</strong>: <span class="math notranslate nohighlight">\( \mathbf{a}_0 = \mathbf{x} \)</span></p></li>
+<li><p><strong>Input</strong>: $ \mathbf{a}_0 = \mathbf{x} $</p></li>
 <li><p><strong>Hidden layers</strong>:</p></li>
 </ul>
 <div class="math notranslate nohighlight">

@@ -15,6 +15,93 @@ Over the years, I've honed my skills in software development tailored specifical
 
 
 
+<div class="news-container">
+  <h2 class="news-section-title">📰 Latest News & Updates</h2>
+  
+  <div class="year-section">
+    <div class="year-header">
+      <span class="year-badge">2025</span>
+    </div>
+    <div class="news-grid">
+      
+<div class="news-card achievement">
+        <div class="news-header">
+          <div class="news-date">June 2025</div>
+          <div class="news-icon">🏆</div>
+        </div>
+        <div class="news-content">Won Lerobot (Hugging Face) Hackathon in Daegu</div>
+      </div>
+
+<div class="news-card research">
+        <div class="news-header">
+          <div class="news-date">July 2025</div>
+          <div class="news-icon">🧠</div>
+        </div>
+        <div class="news-content">Developing VLA Models using State Space Models like MAMBA</div>
+      </div>
+
+<div class="news-card publication">
+        <div class="news-header">
+          <div class="news-date">May 2025</div>
+          <div class="news-icon">📊</div>
+        </div>
+        <div class="news-content">Submitted a paper to NeurIPS</div>
+      </div>
+
+<div class="news-card journal">
+        <div class="news-header">
+          <div class="news-date">April 2025</div>
+          <div class="news-icon">📚</div>
+        </div>
+        <div class="news-content">Submitted a paper to Engineering Applications of Artificial Intelligence journal</div>
+      </div>
+
+<div class="news-card conference">
+        <div class="news-header">
+          <div class="news-date">March 2025</div>
+          <div class="news-icon">🎯</div>
+        </div>
+        <div class="news-content">Submitted a paper in NODYCON(2025)</div>
+      </div>
+      
+</div>
+  </div>
+
+  <div class="year-section">
+    <div class="year-header">
+      <span class="year-badge">2024</span>
+    </div>
+    <div class="news-grid">
+      
+<div class="news-card industry">
+        <div class="news-header">
+          <div class="news-date">December 2024</div>
+          <div class="news-icon">🔬</div>
+        </div>
+        <div class="news-content">Developed Automated Tissue Processing using Transformers (Dexweaver Company)</div>
+      </div>
+
+<div class="news-card agriculture">
+        <div class="news-header">
+          <div class="news-date">October 2024</div>
+          <div class="news-icon">🌾</div>
+        </div>
+        <div class="news-content">Developed Autonomous Harvesting Using Object Detection (YOLOv11) (Dexweaver Company)</div>
+      </div>
+
+<div class="news-card published">
+        <div class="news-header">
+          <div class="news-date">August 2024</div>
+          <div class="news-icon">📖</div>
+        </div>
+        <div class="news-content">Published a paper in KNU-EERC2024 based on Leader Follower Robot Tracking Using Model Predictive Control</div>
+      </div>
+      
+</div>
+  </div>
+
+</div>
+
 ## Go2
 
 <div class="video-container">
