@@ -33,12 +33,17 @@ function initializeCollapsibleYears() {
             }
         });
         
-        // Set initial state (expanded by default)
+        // Set initial state based on aria-expanded attribute
         const newsGrid = header.nextElementSibling;
         if (newsGrid && newsGrid.classList.contains('news-grid')) {
-            newsGrid.classList.add('expanded');
-            header.classList.remove('collapsed');
-            header.setAttribute('aria-expanded', 'true');
+            const isExpanded = header.getAttribute('aria-expanded') === 'true';
+            if (isExpanded) {
+                newsGrid.classList.add('expanded');
+                header.classList.remove('collapsed');
+            } else {
+                newsGrid.classList.add('collapsed');
+                header.classList.add('collapsed');
+            }
         }
     });
 }
@@ -85,24 +90,52 @@ function addInteractiveFeatures() {
     console.log('Found news cards:', newsCards.length);
     
     newsCards.forEach((card, index) => {
-        // Add click event for more details
+        // Add click event for navigation
         card.addEventListener('click', function(e) {
-            showNewsDetails(this, index);
+            e.preventDefault();
+            navigateToNewsLink(this);
         });
         
         // Add keyboard navigation
         card.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                showNewsDetails(this, index);
+                navigateToNewsLink(this);
             }
         });
         
         // Add tabindex for accessibility
         card.setAttribute('tabindex', '0');
         card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', 'News item');
+        card.setAttribute('aria-label', 'News item - click to visit related link');
+        
+        // Add visual feedback for clickable cards
+        if (card.hasAttribute('data-link')) {
+            card.style.cursor = 'pointer';
+            card.title = 'Click to visit related link';
+        }
     });
+}
+
+function navigateToNewsLink(card) {
+    console.log('Navigating to news link...');
+    
+    const link = card.getAttribute('data-link');
+    if (link) {
+        console.log('Opening link:', link);
+        // Open link in new tab
+        window.open(link, '_blank', 'noopener,noreferrer');
+        
+        // Add visual feedback
+        card.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            card.style.transform = '';
+        }, 150);
+    } else {
+        console.log('No link found for this card');
+        // Fallback to modal if no link is provided
+        showNewsDetails(card, 0);
+    }
 }
 
 function showNewsDetails(card, index) {
@@ -199,6 +232,14 @@ style.textContent = `
     
     .modal-content button:hover {
         color: #1f2937 !important;
+    }
+    
+    .news-card[data-link] {
+        transition: transform 0.15s ease;
+    }
+    
+    .news-card[data-link]:active {
+        transform: scale(0.95);
     }
 `;
 document.head.appendChild(style);

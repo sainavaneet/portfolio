@@ -24,7 +24,7 @@ Over the years, I've honed my skills in software development tailored specifical
     </div>
     <div class="news-grid expanded">
       
-<div class="news-card achievement">
+<div class="news-card achievement" data-link="">
         <div class="news-header">
           <div class="news-date">June 2025</div>
           <div class="news-icon">🏆</div>
@@ -32,7 +32,7 @@ Over the years, I've honed my skills in software development tailored specifical
         <div class="news-content">Won Lerobot (Hugging Face) Hackathon in Daegu</div>
       </div>
 
-<div class="news-card research">
+<div class="news-card research" data-link="">
         <div class="news-header">
           <div class="news-date">July 2025</div>
           <div class="news-icon">🧠</div>
@@ -40,7 +40,7 @@ Over the years, I've honed my skills in software development tailored specifical
         <div class="news-content">Developing VLA Models using State Space Models like MAMBA</div>
       </div>
 
-<div class="news-card publication">
+<div class="news-card publication" data-link="https://neurips.cc/">
         <div class="news-header">
           <div class="news-date">May 2025</div>
           <div class="news-icon">📊</div>
@@ -48,7 +48,7 @@ Over the years, I've honed my skills in software development tailored specifical
         <div class="news-content">Submitted a paper to NeurIPS</div>
       </div>
 
-<div class="news-card journal">
+<div class="news-card journal" data-link="https://www.sciencedirect.com/journal/engineering-applications-of-artificial-intelligence">
         <div class="news-header">
           <div class="news-date">April 2025</div>
           <div class="news-icon">📚</div>
@@ -56,7 +56,7 @@ Over the years, I've honed my skills in software development tailored specifical
         <div class="news-content">Submitted a paper to Engineering Applications of Artificial Intelligence journal</div>
       </div>
 
-<div class="news-card conference">
+<div class="news-card conference" data-link="https://www.nodycon.org/">
         <div class="news-header">
           <div class="news-date">March 2025</div>
           <div class="news-icon">🎯</div>
@@ -68,12 +68,12 @@ Over the years, I've honed my skills in software development tailored specifical
   </div>
 
   <div class="year-section">
-    <div class="year-header" tabindex="0" role="button" aria-expanded="true" aria-label="Toggle 2024 year section">
+    <div class="year-header" tabindex="0" role="button" aria-expanded="false" aria-label="Toggle 2024 year section">
       <span class="year-badge">2024</span>
     </div>
-    <div class="news-grid expanded">
+    <div class="news-grid">
       
-<div class="news-card industry">
+<div class="news-card industry" data-link="https://dexweaver.com/">
         <div class="news-header">
           <div class="news-date">December 2024</div>
           <div class="news-icon">🔬</div>
@@ -81,7 +81,7 @@ Over the years, I've honed my skills in software development tailored specifical
         <div class="news-content">Developed Automated Tissue Processing using Transformers (Dexweaver Company)</div>
       </div>
 
-<div class="news-card agriculture">
+<div class="news-card agriculture" data-link="https://github.com/ultralytics/ultralytics">
         <div class="news-header">
           <div class="news-date">October 2024</div>
           <div class="news-icon">🌾</div>
@@ -89,7 +89,7 @@ Over the years, I've honed my skills in software development tailored specifical
         <div class="news-content">Developed Autonomous Harvesting Using Object Detection (YOLOv11) (Dexweaver Company)</div>
       </div>
 
-<div class="news-card published">
+<div class="news-card published" data-link="https://www.knu.ac.kr/">
         <div class="news-header">
           <div class="news-date">August 2024</div>
           <div class="news-icon">📖</div>

@@ -1,11 +1,11 @@
 # Action Chunck Transfomer on Franka Robot
 
-<p align="center">
+<!-- <p align="center">
   <video width="100%" autoplay loop muted controls="false">
     <source src="/_static/videos/demo.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-</p>
+</p> -->
 
 
 
