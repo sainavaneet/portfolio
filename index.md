@@ -104,11 +104,31 @@ Over the years, I've honed my skills in software development tailored specifical
 
 ## Go2
 
+<video loop muted autoplay class="video-fit" style="max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <source src="_static/videos/go2/go2_intro_low.mp4" type="video/mp4">
+  </video>
+
+
 <div class="video-container">
     <div class="video-scroll">
         <div class="video-item">
             <video loop muted autoplay>
-                <source src="_static/videos/go2/output.mp4" type="video/mp4">
+                <source src="_static/videos/go2/jump_compressed.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video loop muted autoplay>
+                <source src="_static/videos/go2/dance_compressed.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video loop muted autoplay>
+                <source src="_static/videos/go2/side_jump_compressed.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video loop muted autoplay>
+                <source src="_static/videos/go2/run_track_compressed.mp4" type="video/mp4">
             </video>
         </div>
     </div>
