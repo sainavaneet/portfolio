@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=23015db4" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=40176a7b" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -44,7 +44,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <script src="_static/js/scroll-video.js?v=c40cad62"></script>
     <script src="_static/js/custom.js?v=d56d4a5f"></script>
-    <script src="_static/js/video-section.js?v=df7daf45"></script>
+    <script src="_static/js/video-section.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Resume" href="source/Resume/index.html" />
@@ -470,66 +470,32 @@ document.write(`
 </div>
 <section id="go2">
 <h2>Go2<a class="headerlink" href="#go2" title="Link to this heading">#</a></h2>
-<div class="video-section">
-    <div class="video-section-header">
-        <h2 class="video-section-title">Go2 Robot Demonstrations</h2>
-        <p class="video-section-subtitle">Explore the advanced capabilities of the Go2 robot through these interactive demonstrations showcasing its agility, precision, and innovative control systems.</p>
+<video loop muted autoplay class="video-fit" style="max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <source src="_static/videos/go2/go2_intro_low.mp4" type="video/mp4">
+</video>
+<div class="video-container">
+    <div class="video-scroll">
+        <div class="video-item">
+            <video loop muted autoplay>
+                <source src="_static/videos/go2/jump_compressed.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video loop muted autoplay>
+                <source src="_static/videos/go2/dance_compressed.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video loop muted autoplay>
+                <source src="_static/videos/go2/side_jump_compressed.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-item">
+            <video loop muted autoplay>
+                <source src="_static/videos/go2/run_track_compressed.mp4" type="video/mp4">
+            </video>
+        </div>
     </div>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;div class=&quot;video-main&quot;&gt;
-    &lt;div class=&quot;video-main-container&quot;&gt;
-        &lt;video loop muted autoplay&gt;
-            &lt;source src=&quot;_static/videos/go2/go2_intro_low.mp4&quot; type=&quot;video/mp4&quot;&gt;
-        &lt;/video&gt;
-        &lt;div class=&quot;video-main-overlay&quot;&gt;
-            &lt;button class=&quot;video-play-button&quot; aria-label=&quot;Play main video&quot;&gt;&lt;/button&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;video-gallery&quot;&gt;
-    &lt;div class=&quot;video-gallery-header&quot;&gt;
-        &lt;h3 class=&quot;video-gallery-title&quot;&gt;Additional Demonstrations&lt;/h3&gt;
-    &lt;/div&gt;
-    
-    &lt;div class=&quot;video-container&quot;&gt;
-        &lt;div class=&quot;video-scroll&quot;&gt;
-            &lt;div class=&quot;video-item&quot;&gt;
-                &lt;video loop muted autoplay&gt;
-                    &lt;source src=&quot;_static/videos/go2/jump_compressed.mp4&quot; type=&quot;video/mp4&quot;&gt;
-                &lt;/video&gt;
-                &lt;div class=&quot;video-item-overlay&quot;&gt;
-                    &lt;button class=&quot;video-item-play&quot; aria-label=&quot;Play jump demonstration&quot;&gt;&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;video-item&quot;&gt;
-                &lt;video loop muted autoplay&gt;
-                    &lt;source src=&quot;_static/videos/go2/dance_compressed.mp4&quot; type=&quot;video/mp4&quot;&gt;
-                &lt;/video&gt;
-                &lt;div class=&quot;video-item-overlay&quot;&gt;
-                    &lt;button class=&quot;video-item-play&quot; aria-label=&quot;Play dance demonstration&quot;&gt;&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;video-item&quot;&gt;
-                &lt;video loop muted autoplay&gt;
-                    &lt;source src=&quot;_static/videos/go2/side_jump_compressed.mp4&quot; type=&quot;video/mp4&quot;&gt;
-                &lt;/video&gt;
-                &lt;div class=&quot;video-item-overlay&quot;&gt;
-                    &lt;button class=&quot;video-item-play&quot; aria-label=&quot;Play side jump demonstration&quot;&gt;&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;video-item&quot;&gt;
-                &lt;video loop muted autoplay&gt;
-                    &lt;source src=&quot;_static/videos/go2/run_track_compressed.mp4&quot; type=&quot;video/mp4&quot;&gt;
-                &lt;/video&gt;
-                &lt;div class=&quot;video-item-overlay&quot;&gt;
-                    &lt;button class=&quot;video-item-play&quot; aria-label=&quot;Play running track demonstration&quot;&gt;&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</pre></div>
-</div>
 </div>
 </section>
 <div class="toctree-wrapper compound">
