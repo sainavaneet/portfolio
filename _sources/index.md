@@ -104,32 +104,63 @@ Over the years, I've honed my skills in software development tailored specifical
 
 ## Go2
 
-<video loop muted autoplay class="video-fit" style="max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-      <source src="_static/videos/go2/go2_intro_low.mp4" type="video/mp4">
-  </video>
-
-
-<div class="video-container">
-    <div class="video-scroll">
-        <div class="video-item">
+<div class="video-section">
+    <div class="video-section-header">
+        <h2 class="video-section-title">Go2 Robot Demonstrations</h2>
+        <p class="video-section-subtitle">Explore the advanced capabilities of the Go2 robot through these interactive demonstrations showcasing its agility, precision, and innovative control systems.</p>
+    </div>
+    
+    <div class="video-main">
+        <div class="video-main-container">
             <video loop muted autoplay>
-                <source src="_static/videos/go2/jump_compressed.mp4" type="video/mp4">
+                <source src="_static/videos/go2/go2_intro_low.mp4" type="video/mp4">
             </video>
+            <div class="video-main-overlay">
+                <button class="video-play-button" aria-label="Play main video"></button>
+            </div>
         </div>
-        <div class="video-item">
-            <video loop muted autoplay>
-                <source src="_static/videos/go2/dance_compressed.mp4" type="video/mp4">
-            </video>
+    </div>
+    
+    <div class="video-gallery">
+        <div class="video-gallery-header">
+            <h3 class="video-gallery-title">Additional Demonstrations</h3>
         </div>
-        <div class="video-item">
-            <video loop muted autoplay>
-                <source src="_static/videos/go2/side_jump_compressed.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="video-item">
-            <video loop muted autoplay>
-                <source src="_static/videos/go2/run_track_compressed.mp4" type="video/mp4">
-            </video>
+        
+        <div class="video-container">
+            <div class="video-scroll">
+                <div class="video-item">
+                    <video loop muted autoplay>
+                        <source src="_static/videos/go2/jump_compressed.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-item-overlay">
+                        <button class="video-item-play" aria-label="Play jump demonstration"></button>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <video loop muted autoplay>
+                        <source src="_static/videos/go2/dance_compressed.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-item-overlay">
+                        <button class="video-item-play" aria-label="Play dance demonstration"></button>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <video loop muted autoplay>
+                        <source src="_static/videos/go2/side_jump_compressed.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-item-overlay">
+                        <button class="video-item-play" aria-label="Play side jump demonstration"></button>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <video loop muted autoplay>
+                        <source src="_static/videos/go2/run_track_compressed.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-item-overlay">
+                        <button class="video-item-play" aria-label="Play running track demonstration"></button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
