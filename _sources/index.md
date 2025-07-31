@@ -23,7 +23,15 @@ Over the years, I've honed my skills in software development tailored specifical
       <span class="year-badge">2025</span>
     </div>
     <div class="news-grid expanded">
-      
+
+<div class="news-card achievement" data-link="">
+        <div class="news-header">
+          <div class="news-date">July 2025</div>
+          <div class="news-icon">📚</div>
+        </div>
+        <div class="news-content">Submitted a paper to CCNC / CES 2026 </div>
+      </div>
+
 <div class="news-card achievement" data-link="">
         <div class="news-header">
           <div class="news-date">June 2025</div>
@@ -61,7 +69,7 @@ Over the years, I've honed my skills in software development tailored specifical
           <div class="news-date">March 2025</div>
           <div class="news-icon">🎯</div>
         </div>
-        <div class="news-content">Submitted a paper in NODYCON(2025)</div>
+        <div class="news-content">Published a paper in NODYCON(2025)</div>
       </div>
       
 </div>
