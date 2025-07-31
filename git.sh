@@ -1,3 +1,5 @@
 git add .
-git commit -m "updated go2 videos in the intro"
+echo "Enter commit message:"
+read commit_message
+git commit -m "$commit_message"
 git push origin main
