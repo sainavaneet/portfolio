@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add interactive features for news cards
     addInteractiveFeatures();
+    
+    // Initialize video carousel
+    initializeVideoCarousel();
 });
 
 function initializeCollapsibleYears() {
@@ -243,3 +246,75 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Video Carousel Functions
+function initializeVideoCarousel() {
+    console.log('Initializing video carousel...');
+    
+    // Set initial state
+    window.currentVideo = 0;
+    window.videoPairs = document.querySelectorAll('.video-carousel .video-pair');
+    
+    console.log('Found video pairs:', window.videoPairs.length);
+    
+    // Set up initial active video pair
+    if (window.videoPairs.length > 0) {
+        window.videoPairs.forEach((pair, index) => {
+            pair.classList.remove('active');
+            if (index === 0) {
+                pair.classList.add('active');
+            }
+        });
+    }
+}
+
+function changeVideo(direction) {
+    console.log('Changing video, direction:', direction);
+    
+    if (!window.videoPairs || window.videoPairs.length === 0) {
+        console.log('No video pairs found');
+        return;
+    }
+    
+    // Remove active class from current video pair
+    window.videoPairs[window.currentVideo].classList.remove('active');
+    
+    // Calculate new video index
+    window.currentVideo += direction;
+    
+    // Handle wrapping
+    if (window.currentVideo >= window.videoPairs.length) {
+        window.currentVideo = 0;
+    } else if (window.currentVideo < 0) {
+        window.currentVideo = window.videoPairs.length - 1;
+    }
+    
+    // Add active class to new video pair
+    window.videoPairs[window.currentVideo].classList.add('active');
+    
+    // Update autoplay for the new active pair
+    updateVideoAutoplay();
+    
+    console.log('Current video pair index:', window.currentVideo);
+}
+
+function updateVideoAutoplay() {
+    // Get all video pairs
+    const videoPairs = document.querySelectorAll('.video-pair');
+    
+    videoPairs.forEach((pair, index) => {
+        const iframes = pair.querySelectorAll('iframe');
+        
+        iframes.forEach(iframe => {
+            const currentSrc = iframe.src;
+            
+            if (pair.classList.contains('active')) {
+                // For active pair, enable autoplay
+                iframe.src = currentSrc.replace('autoplay=0', 'autoplay=1');
+            } else {
+                // For inactive pairs, disable autoplay
+                iframe.src = currentSrc.replace('autoplay=1', 'autoplay=0');
+            }
+        });
+    });
+}

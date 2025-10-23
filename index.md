@@ -24,12 +24,29 @@ Over the years, I've honed my skills in software development tailored specifical
     </div>
     <div class="news-grid expanded">
 
+
+<div class="news-card poster" data-link="">
+        <div class="news-header">
+          <div class="news-date">Oct 2025</div>
+          <div class="news-icon">📊</div>
+        </div>
+        <div class="news-content">Submited a paper to Neural Networks Journal </div>
+      </div>
+      
+<div class="news-card poster" data-link="">
+        <div class="news-header">
+          <div class="news-date">Oct 2025</div>
+          <div class="news-icon">📊</div>
+        </div>
+        <div class="news-content">Presented a poster at IROS 2025 </div>
+      </div>
+      
 <div class="news-card achievement" data-link="">
         <div class="news-header">
           <div class="news-date">July 2025</div>
           <div class="news-icon">📚</div>
         </div>
-        <div class="news-content">Submitted a paper to CCNC / CES 2026 </div>
+        <div class="news-content">Published a paper to CCNC / CES 2026 </div>
       </div>
 
 <div class="news-card achievement" data-link="">
@@ -61,7 +78,7 @@ Over the years, I've honed my skills in software development tailored specifical
           <div class="news-date">April 2025</div>
           <div class="news-icon">📚</div>
         </div>
-        <div class="news-content">Submitted a paper to Engineering Applications of Artificial Intelligence journal</div>
+        <div class="news-content">Submitted a paper to Engineering Applications of Artificial Intelligence journal (Rejected)</div>
       </div>
 
 <div class="news-card conference" data-link="https://www.nodycon.org/">
@@ -113,32 +130,50 @@ Over the years, I've honed my skills in software development tailored specifical
 ## Go2
 
 <video loop muted autoplay class="video-fit" style="max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-      <source src="_static/videos/go2/go2_intro_low.mp4" type="video/mp4">
+      <source src="./_static/videos/go2/go2_intro_low.mp4" type="video/mp4">
 </video>
 
 
-<div class="video-container">
-    <div class="video-scroll">
-        <div class="video-item">
-            <video loop muted autoplay>
-                <source src="_static/videos/go2/jump_compressed.mp4" type="video/mp4">
-            </video>
+<div class="video-carousel">
+    <button class="carousel-btn prev-btn" onclick="changeVideo(-1)">❮</button>
+    <div class="video-container">
+        <div class="video-pair active">
+            <div class="video-item">
+                <iframe width="100%" height="230" 
+                        src="https://www.youtube.com/embed/gu3yjCYIe2g?autoplay=1&mute=1&loop=1&playlist=gu3yjCYIe2g&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-item">
+                <iframe width="100%" height="230" 
+                        src="https://www.youtube.com/embed/7spnNB3zgdw?autoplay=1&mute=1&loop=1&playlist=7spnNB3zgdw&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                </iframe>
+            </div>
         </div>
-        <div class="video-item">
-            <video loop muted autoplay>
-                <source src="_static/videos/go2/dance_compressed.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="video-item">
-            <video loop muted autoplay>
-                <source src="_static/videos/go2/side_jump_compressed.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="video-item">
-            <video loop muted autoplay>
-                <source src="_static/videos/go2/run_track_compressed.mp4" type="video/mp4">
-            </video>
+        <div class="video-pair">
+            <div class="video-item">
+                <iframe width="100%" height="230" 
+                        src="https://www.youtube.com/embed/kXpV_FGBw_M?autoplay=0&mute=1&loop=1&playlist=kXpV_FGBw_M&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-item">
+                <iframe width="100%" height="230" 
+                        src="https://www.youtube.com/embed/gu3yjCYIe2g?autoplay=0&mute=1&loop=1&playlist=gu3yjCYIe2g&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                </iframe>
+            </div>
         </div>
     </div>
+    <button class="carousel-btn next-btn" onclick="changeVideo(1)">❯</button>
 </div>
 
