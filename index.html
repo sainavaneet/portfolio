@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=40176a7b" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=c3fed2b1" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -43,7 +43,7 @@
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <script src="_static/js/scroll-video.js?v=c40cad62"></script>
-    <script src="_static/js/custom.js?v=d56d4a5f"></script>
+    <script src="_static/js/custom.js?v=d53883ba"></script>
     <script src="_static/js/video-section.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -402,12 +402,26 @@ document.write(`
       <span class="year-badge">2025</span>
     </div>
     <div class="news-grid expanded">
+<div class="news-card poster" data-link="">
+        <div class="news-header">
+          <div class="news-date">Oct 2025</div>
+          <div class="news-icon">📊</div>
+        </div>
+        <div class="news-content">Submited a paper to Neural Networks Journal </div>
+      </div>
+<div class="news-card poster" data-link="">
+        <div class="news-header">
+          <div class="news-date">Oct 2025</div>
+          <div class="news-icon">📊</div>
+        </div>
+        <div class="news-content">Presented a poster at IROS 2025 </div>
+      </div>
 <div class="news-card achievement" data-link="">
         <div class="news-header">
           <div class="news-date">July 2025</div>
           <div class="news-icon">📚</div>
         </div>
-        <div class="news-content">Submitted a paper to CCNC / CES 2026 </div>
+        <div class="news-content">Published a paper to CCNC / CES 2026 </div>
       </div>
 <div class="news-card achievement" data-link="">
         <div class="news-header">
@@ -435,7 +449,7 @@ document.write(`
           <div class="news-date">April 2025</div>
           <div class="news-icon">📚</div>
         </div>
-        <div class="news-content">Submitted a paper to Engineering Applications of Artificial Intelligence journal</div>
+        <div class="news-content">Submitted a paper to Engineering Applications of Artificial Intelligence journal (Rejected)</div>
       </div>
 <div class="news-card conference" data-link="https://www.nodycon.org/">
         <div class="news-header">
@@ -478,31 +492,49 @@ document.write(`
 <section id="go2">
 <h2>Go2<a class="headerlink" href="#go2" title="Link to this heading">#</a></h2>
 <video loop muted autoplay class="video-fit" style="max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-      <source src="_static/videos/go2/go2_intro_low.mp4" type="video/mp4">
+      <source src="./_static/videos/go2/go2_intro_low.mp4" type="video/mp4">
 </video>
-<div class="video-container">
-    <div class="video-scroll">
-        <div class="video-item">
-            <video loop muted autoplay>
-                <source src="_static/videos/go2/jump_compressed.mp4" type="video/mp4">
-            </video>
+<div class="video-carousel">
+    <button class="carousel-btn prev-btn" onclick="changeVideo(-1)">❮</button>
+    <div class="video-container">
+        <div class="video-pair active">
+            <div class="video-item">
+                <iframe width="100%" height="230" 
+                        src="https://www.youtube.com/embed/gu3yjCYIe2g?autoplay=1&mute=1&loop=1&playlist=gu3yjCYIe2g&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-item">
+                <iframe width="100%" height="230" 
+                        src="https://www.youtube.com/embed/7spnNB3zgdw?autoplay=1&mute=1&loop=1&playlist=7spnNB3zgdw&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                </iframe>
+            </div>
         </div>
-        <div class="video-item">
-            <video loop muted autoplay>
-                <source src="_static/videos/go2/dance_compressed.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="video-item">
-            <video loop muted autoplay>
-                <source src="_static/videos/go2/side_jump_compressed.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="video-item">
-            <video loop muted autoplay>
-                <source src="_static/videos/go2/run_track_compressed.mp4" type="video/mp4">
-            </video>
+        <div class="video-pair">
+            <div class="video-item">
+                <iframe width="100%" height="230" 
+                        src="https://www.youtube.com/embed/kXpV_FGBw_M?autoplay=0&mute=1&loop=1&playlist=kXpV_FGBw_M&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-item">
+                <iframe width="100%" height="230" 
+                        src="https://www.youtube.com/embed/gu3yjCYIe2g?autoplay=0&mute=1&loop=1&playlist=gu3yjCYIe2g&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                </iframe>
+            </div>
         </div>
     </div>
+    <button class="carousel-btn next-btn" onclick="changeVideo(1)">❯</button>
 </div>
 </section>
 <div class="toctree-wrapper compound">
