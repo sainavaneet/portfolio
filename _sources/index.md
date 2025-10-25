@@ -99,7 +99,7 @@ Over the years, I've honed my skills in software development tailored specifical
   </div>
 
   <div class="year-section">
-    <div class="year-header" tabindex="0" role="button" aria-expanded="false" aria-label="Toggle 2024 year section">
+    <div class="year-header" tabindex="1" role="button" aria-expanded="false" aria-label="Toggle 2024 year section">
       <span class="year-badge">2024</span>
     </div>
     <div class="news-grid">
