@@ -1,7 +1,7 @@
 # Bio
 
 <p align="center">
-  <img src="_static/avatar.JPEG" alt="Avatar" style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover;" />
+  <img src="_static/profile.jpg" alt="Avatar" style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover;" />
   <br />
   <span style="font-size: 1.8em; font-weight: bold; font-family: Georgia, serif;">Sai Navaneet</span>
   <br />
