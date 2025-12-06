@@ -308,9 +308,30 @@ function initializeTopNavbar() {
                 // Check pathParts as fallback
                 rootPath = `/${pathParts[0]}/`;
             } else {
-                // Default to 'portfolio' for project sites
-                // If we're at root or can't detect, assume it's a project site
-                rootPath = '/portfolio/';
+                // Try to extract repo name from hostname for project pages
+                // Format: username.github.io/repo-name or repo-name.github.io
+                const hostnameParts = window.location.hostname.split('.');
+                if (hostnameParts.length === 3 && hostnameParts[1] === 'github' && hostnameParts[2] === 'io') {
+                    // Project page: repo-name.github.io - root is at /
+                    rootPath = '/';
+                } else if (hostnameParts.length === 4 && hostnameParts[2] === 'github' && hostnameParts[3] === 'io') {
+                    // User/org page: username.github.io
+                    // Check if we're at root or in a subdirectory
+                    if (fullPath === '/' || fullPath === '/index.html') {
+                        // At root of user page
+                        rootPath = '/';
+                    } else {
+                        // In a subdirectory - try to use root as fallback
+                        // This handles cases where repo detection failed but we're on a user page
+                        rootPath = '/';
+                        console.warn('Could not detect repository name from path, defaulting to root. If navigation is broken, the site may be served from a subdirectory.');
+                    }
+                } else {
+                    // If we're at root or can't detect, use root as safe fallback
+                    // This works for both user pages and project pages at root
+                    rootPath = '/';
+                    console.warn('Could not detect repository name, defaulting to root path. If navigation is broken, check the repository structure.');
+                }
             }
         }
     } else {
