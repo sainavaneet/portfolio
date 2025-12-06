@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Drone Control with Keyboard &#8212; Portfolio  documentation</title>
+    <title>Discrete Latent Diffusion Motion Planning &#8212; Portfolio  documentation</title>
   
   
   
@@ -41,14 +41,14 @@
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/Drone Control with Keyboard/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/DLDMP/index';</script>
     <script src="../../../_static/js/scroll-video.js?v=c40cad62"></script>
     <script src="../../../_static/js/custom.js?v=71ab81ca"></script>
     <script src="../../../_static/js/video-section.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Drone Trajectory Tracking with Python" href="../Drone%20Trajectory%20Tracking/index.html" />
-    <link rel="prev" title="Deep Neural Network Nonlinear Model Predictive Control for CSTR" href="../Deep%20Neural%20Network%20Nonlinear%20Model%20Predictive%20Control%20for%20CSTR/index.html" />
+    <link rel="next" title="Transformer Based Vision Guided Tissue Processing" href="../Tissue-processing/index.html" />
+    <link rel="prev" title="DiffDAIL: Diffusion-Enhanced Vision-Guided Imitation Learning with Discrete Latent Representations" href="../DiffDAIL/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -194,7 +194,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../MambaVLA/index.html">MambaVLA: A Scalable and Efficient Vision-Language-Action Model with State Space Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../QROOT/index.html">QROOT: An Integrated Diffusion Transformer and Reinforcement Learning Approach for Quadrupedal Locomotion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../DiffDAIL/index.html">DiffDAIL: Diffusion-Enhanced Vision-Guided Imitation Learning with Discrete Latent Representations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../DLDMP/index.html">Discrete Latent Diffusion Motion Planning</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Discrete Latent Diffusion Motion Planning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Tissue-processing/index.html">Transformer Based Vision Guided Tissue Processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Actfranka/index.html">Action Chunck Transfomer on Franka Robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Autonomus%20Harvesting/index.html">🎉 Autonomus harvesting using Object Detecion</a></li>
@@ -204,7 +204,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Imitation-Learning-Franka/index.html">Combining Imitation Learning with Diffusion Processes on Robot Manipulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basic-reinforcment-Learning/index.html">Basic Reinforcement Learning Algorithms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Deep%20Neural%20Network%20Nonlinear%20Model%20Predictive%20Control%20for%20CSTR/index.html">Deep Neural Network Nonlinear Model Predictive Control for CSTR</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Drone Control with Keyboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Drone%20Control%20with%20Keyboard/index.html">Drone Control with Keyboard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Drone%20Trajectory%20Tracking/index.html">Drone Trajectory Tracking with Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html">32 bit CPU based on MIPS architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Smart%20Home%20Using%20Iot/index.html">Smart-Home-Using-IOT</a></li>
@@ -276,7 +276,7 @@
       
       
       
-      <li><a href="../../../_sources/source/projects/Drone Control with Keyboard/index.md" target="_blank"
+      <li><a href="../../../_sources/source/projects/DLDMP/index.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -360,7 +360,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Drone Control with Keyboard</h1>
+    <h1>Discrete Latent Diffusion Motion Planning</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -370,9 +370,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">Methodology</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-diffusion-models-ldm">Latent Diffusion Models (LDM)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collision-check">Collision Check</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#policy-evaluation">Policy Evaluation</a></li>
 </ul>
             </nav>
         </div>
@@ -384,73 +389,84 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="drone-control-with-keyboard">
-<h1>Drone Control with Keyboard<a class="headerlink" href="#drone-control-with-keyboard" title="Link to this heading">#</a></h1>
-<p>Developed a code to control a drone using a keyboard. It can
-perform actions such as takeoff, landing, and controlling the
-drone’s movements using the arrow keys and other designated keys.</p>
-<iframe
-  width="746"
-  height="420"
-  src="https://www.youtube.com/embed/-XZIpyt2KPE?autoplay=1"
-  title="Go2 Robot in Isaac Sim"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allow="autoplay; encrypted-media; fullscreen"
-  allowfullscreen
-></iframe>
-<section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
-<p>Before running the code, make sure you have the following dependencies installed:</p>
-<ul class="simple">
-<li><p>Python 3.x</p></li>
-<li><p>Olympe</p></li>
-<li><p>pynput</p></li>
-</ul>
-<p>You can install the required Python packages using pip:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">olympe</span> <span class="n">pynput</span>
-</pre></div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="discrete-latent-diffusion-motion-planning">
+<h1>Discrete Latent Diffusion Motion Planning<a class="headerlink" href="#discrete-latent-diffusion-motion-planning" title="Link to this heading">#</a></h1>
+<section id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Link to this heading">#</a></h2>
+<p>we introduce a framework that reduces computational costs while ensuring collision-free trajectory generation.
+The method integrates trajectory encoding, discrete diffusion, and transformer-based decoding to produce high-quality, goal-directed motion plans. Our approach demonstrates the potential of discrete generative models to enhance robotic planning performance in complex environments.</p>
 </section>
-<section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Connect to the drone’s Wi-Fi network.</p></li>
-<li><p>Update the <code class="docutils literal notranslate"><span class="pre">DRONE_IP</span></code> variable in the code to match the IP address of your drone. By default, it is set to <code class="docutils literal notranslate"><span class="pre">10.202.0.1</span></code>.</p></li>
-<li><p>Run the script by executing the following command:</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">script</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="4">
-<li><p>The script will establish a connection with the drone and wait for your input.</p></li>
-<li><p>Use the following keys to control the drone:</p>
-<ul class="simple">
-<li><p><strong>t</strong>: Takeoff</p></li>
-<li><p><strong>l</strong>: Landing</p></li>
-<li><p><strong>a</strong>: Move left</p></li>
-<li><p><strong>d</strong>: Move right</p></li>
-<li><p><strong>w</strong>: Move forward</p></li>
-<li><p><strong>s</strong>: Move backward</p></li>
-<li><p><strong>up arrow</strong>: Increase altitude</p></li>
-<li><p><strong>down arrow</strong>: Decrease altitude</p></li>
-<li><p><strong>left arrow</strong>: Rotate left</p></li>
-<li><p><strong>right arrow</strong>: Rotate right</p></li>
-<li><p><strong>esc</strong>: Quit the script</p></li>
-</ul>
-</li>
-<li><p>Press the corresponding keys to control the drone’s movements. The drone will respond accordingly.</p></li>
-<li><p>To quit the script, press the <strong>esc</strong> key.</p></li>
-</ol>
-<p><strong>Note:</strong> Make sure to fly the drone in a safe environment and comply with all local regulations and laws regarding drone usage.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<div style="display: flex; gap: 2rem; align-items: flex-start; margin: 1rem 0;">
+  <div style="flex: 1;">
+    <p>Trajectory planning is a core challenge in robotics, where the goal is to generate smooth, goal-directed paths that avoid collisions with obstacles. Traditional motion planners often rely on continuous optimization techniques, which can be computationally expensive and struggle with high-dimensional environments.</p>
+    
+    <p>Recent advances in generative models, especially diffusion models, have shown strong performance in structured output generation tasks. Inspired by their success, we explore how discrete latent diffusion can be leveraged to efficiently generate feasible trajectories in robotic settings.</p>
+    
+    <p><strong>Our goal:</strong> generate goal-directed, collision-free trajectories with lower computational cost.</p>
+  </div>
+  <div style="flex: 0 0 auto; max-width: 40%;">
+    <img src="../../../_static/images/DLDMP/main.png" alt="DLDMP Main" style="width: 80%; height: auto; display: block;">
+  </div>
+</div></section>
+<section id="methodology">
+<h2>Methodology<a class="headerlink" href="#methodology" title="Link to this heading">#</a></h2>
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/DLDMP/architecture.png" alt="DLDMP Architecture" style="max-width: 70%; height: auto; display: block; margin: 0 auto;">
+</div><section id="latent-diffusion-models-ldm">
+<h3>Latent Diffusion Models (LDM)<a class="headerlink" href="#latent-diffusion-models-ldm" title="Link to this heading">#</a></h3>
+<div style="display: flex; gap: 2rem; align-items: flex-start; margin: 1rem 0;">
+  <div style="flex: 1;">
+    <p>LDMs show that moving diffusion to a compressed latent space (e.g., VQ-VAE codes) drastically reduces computational load while preserving fidelity.</p>
+    <p>Achieves state-of-the-art in high-res image tasks (inpainting, super-resolution) via cross-attention for flexible conditioning.</p>
+    <p><strong>Key takeaway:</strong> Encode robot trajectories (e.g., sequences of joint angles or end-effector positions) into a discrete latent embedding (via VQ-VAE). Perform diffusion in this smaller, quantized space rather than in raw continuous waypoints.</p>
+  </div>
+  <div style="flex: 0 0 auto; max-width: 40%;">
+    <img src="../../../_static/images/DLDMP/ldm.png" alt="Latent Diffusion Models" style="width: 100%; height: auto; display: block;">
+  </div>
+</div></section>
+<section id="collision-check">
+<h3>Collision Check<a class="headerlink" href="#collision-check" title="Link to this heading">#</a></h3>
+<div style="display: flex; gap: 2rem; align-items: flex-start; margin: 1rem 0;">
+  <div style="flex: 1;">
+    <p>We used Gilbert-Johnson-Keerthi (GJK) algorithm to perform the collision check.</p>
+    <ul>
+      <li>Takes the new trajectory sample output from the decoder (sequence of robot poses).</li>
+      <li>Compares each pose or link of the robot arm with known obstacle shapes in the environment.</li>
+      <li>Checks for intersections (i.e., potential collisions) by computing the shortest distance between the robot and the obstacles using convex shape representations.</li>
+      <li>If a collision is detected, the new trajectory sample is iteratively refined until a collision-free trajectory is generated.</li>
+    </ul>
+  </div>
+  <div style="flex: 0 0 auto; max-width: 40%;">
+    <img src="../../../_static/images/DLDMP/collision.png" alt="Collision Check" style="width: 80%; height: auto; display: block;">
+  </div>
+</div></section>
 </section>
-<section id="acknowledgments">
-<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>The Olympe library: https://developer.parrot.com/docs/olympe/</p></li>
-<li><p>The pynput library: https://pynput.readthedocs.io/</p></li>
-</ul>
-</section>
+<section id="policy-evaluation">
+<h2>Policy Evaluation<a class="headerlink" href="#policy-evaluation" title="Link to this heading">#</a></h2>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 20px; align-items: flex-start;">
+          <div style="flex: 0 0 auto; max-width: 300px; width: 100%;">
+            <h3 style="text-align: center; margin-bottom: 1rem; font-size: 1.2rem; font-weight: 600;">Without Obstacle</h3>
+            <div style="position: relative; padding-bottom: 177.78%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #000;">
+              <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/VuQzvcPJjnE?autoplay=1&mute=1&controls=0&loop=1&playlist=VuQzvcPJjnE&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div style="flex: 0 0 auto; max-width: 300px; width: 100%;">
+            <h3 style="text-align: center; margin-bottom: 1rem; font-size: 1.2rem; font-weight: 600;">With Obstacle</h3>
+            <div style="position: relative; padding-bottom: 177.78%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #000;">
+              <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/MTVcWGUTb_w?autoplay=1&mute=1&controls=0&loop=1&playlist=MTVcWGUTb_w&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section></section>
 </section>
 
 
@@ -465,20 +481,20 @@ drone’s movements using the arrow keys and other designated keys.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Deep%20Neural%20Network%20Nonlinear%20Model%20Predictive%20Control%20for%20CSTR/index.html"
+       href="../DiffDAIL/index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Deep Neural Network Nonlinear Model Predictive Control for CSTR</p>
+        <p class="prev-next-title">DiffDAIL: Diffusion-Enhanced Vision-Guided Imitation Learning with Discrete Latent Representations</p>
       </div>
     </a>
     <a class="right-next"
-       href="../Drone%20Trajectory%20Tracking/index.html"
+       href="../Tissue-processing/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Drone Trajectory Tracking with Python</p>
+        <p class="prev-next-title">Transformer Based Vision Guided Tissue Processing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -498,9 +514,14 @@ drone’s movements using the arrow keys and other designated keys.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstract">Abstract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology">Methodology</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-diffusion-models-ldm">Latent Diffusion Models (LDM)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collision-check">Collision Check</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#policy-evaluation">Policy Evaluation</a></li>
 </ul>
   </nav></div>
 

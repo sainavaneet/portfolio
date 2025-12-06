@@ -28,6 +28,14 @@
       </a>
     </li>
     <li class="project-item">
+      <a href="./DLDMP/index.html" class="project-link">
+        <div class="project-info">
+          <h3 class="project-name">DLDMP: Discrete Latent Diffusion Motion Planning</h3>
+          <p class="project-description">Motion planning using discrete latent diffusion models</p>
+        </div>
+      </a>
+    </li>
+    <li class="project-item">
       <a href="./Tissue-processing/index.html" class="project-link">
         <div class="project-info">
           <h3 class="project-name">Transformer Based Vision Guided Tissue Processing</h3>
