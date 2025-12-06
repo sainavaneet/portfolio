@@ -266,6 +266,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize video carousel
     initializeVideoCarousel();
+    
+    // Initialize experience page
+    initializeExperiencePage();
 });
 
 function initializeTopNavbar() {
@@ -868,6 +871,101 @@ function updateVideoAutoplay() {
             } else {
                 // For inactive pairs, disable autoplay
                 iframe.src = currentSrc.replace('autoplay=1', 'autoplay=0');
+            }
+        });
+    });
+}
+
+// ============================================
+// Experience Page JavaScript
+// ============================================
+
+function initializeExperiencePage() {
+    console.log('Initializing experience page...');
+    
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const certCards = document.querySelectorAll('.cert-card');
+    
+    if (filterButtons.length === 0) {
+        // Experience page not loaded, skip initialization
+        return;
+    }
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            // Filter timeline items
+            timelineItems.forEach(item => {
+                const itemType = item.getAttribute('data-type');
+                if (filter === 'all' || filter === 'experience' || filter === 'education') {
+                    if (filter === 'all') {
+                        item.classList.remove('hidden');
+                    } else if (filter === 'experience' && itemType === 'experience') {
+                        item.classList.remove('hidden');
+                    } else if (filter === 'education' && itemType === 'education') {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            
+            // Filter certification cards
+            certCards.forEach(card => {
+                const cardType = card.getAttribute('data-type');
+                if (filter === 'all' || filter === 'certification') {
+                    if (filter === 'all') {
+                        card.classList.remove('hidden');
+                    } else if (filter === 'certification' && cardType === 'certification') {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+    
+    // Scroll reveal animation
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all timeline items and cert cards
+    timelineItems.forEach(item => observer.observe(item));
+    certCards.forEach(card => observer.observe(card));
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
     });
