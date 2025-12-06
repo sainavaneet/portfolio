@@ -36,6 +36,7 @@ Over the years, I've honed my skills in software development tailored specifical
           <div class="news-icon">🎉</div>
         </div>
         <div class="news-content">MambaVLA paper accepted at CCNC 2026 </div>
+        <div class="news-content" style="font-weight: 400; font-size: 0.85rem; margin-top: 0.3rem; opacity: 0.8;">MambaVLA: A Scalable and Efficient Vision-Language-Action Model with State Space Architecture</div>
       </div>
 
 <div class="news-card poster" data-link="https://sainavaneet.github.io/DAIL/">
@@ -44,6 +45,7 @@ Over the years, I've honed my skills in software development tailored specifical
           <div class="news-icon">📊</div>
         </div>
         <div class="news-content">Submited a paper to Neural Networks Journal </div>
+        <div class="news-content" style="font-weight: 400; font-size: 0.85rem; margin-top: 0.3rem; opacity: 0.8;">DiffDAIL: Diffusion-Enhanced Vision-Guided Imitation Learning with Discrete Latent Representations</div>
       </div>
       
 <div class="news-card poster" data-link="https://www.linkedin.com/posts/sainavaneet76_iros2025-robotics-ai-activity-7387805385748967424-Sp0o?utm_source=share&utm_medium=member_desktop&rcm=ACoAADOqNZwBw2TLZjRn5rvdW9iZYSVbdxZbLx4">
@@ -52,6 +54,7 @@ Over the years, I've honed my skills in software development tailored specifical
           <div class="news-icon">📊</div>
         </div>
         <div class="news-content">Presented a poster at IROS 2025 </div>
+        <div class="news-content" style="font-weight: 400; font-size: 0.85rem; margin-top: 0.3rem; opacity: 0.8;">LegMamba: A Scalable and Efficient State Space model for Quadrapedal Locomotion</div>
       </div>
       
 <div class="news-card achievement" data-link="source/projects/MambaVLA/index.html">
@@ -93,14 +96,16 @@ Over the years, I've honed my skills in software development tailored specifical
           <div class="news-icon">📚</div>
         </div>
         <div class="news-content">Submitted a paper to Engineering Applications of Artificial Intelligence journal (Rejected)</div>
+        <div class="news-content" style="font-weight: 400; font-size: 0.85rem; margin-top: 0.3rem; opacity: 0.8;">Vision-Guided Predictive Action Imitation Learning with Discrete Latent Encoding for Multitasking Robots</div>
       </div>
 
-<div class="news-card conference" data-link="https://www.nodycon.org/">
+<div class="news-card conference" data-link="source/projects/DLDMP/index.html">
         <div class="news-header">
           <div class="news-date">March 2025</div>
           <div class="news-icon">🎯</div>
         </div>
         <div class="news-content">Published a paper in NODYCON(2025)</div>
+        <div class="news-content" style="font-weight: 400; font-size: 0.85rem; margin-top: 0.3rem; opacity: 0.8;">DLDMP: Discrete Latent Diffusion Motion Planning for manipulators</div>
       </div>
       
 </div>
