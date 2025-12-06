@@ -13,6 +13,7 @@ parts:
             - file: source/projects/MambaVLA/index
             - file: source/projects/QROOT/index
             - file: source/projects/DiffDAIL/index
+            - file: source/projects/DLDMP/index
             - file: source/projects/Tissue-processing/index
             - file: source/projects/Actfranka/index       
             - file: source/projects/Autonomus Harvesting/index
