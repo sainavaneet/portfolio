@@ -87,9 +87,13 @@ J = \sum_{k=0}^{N-1}\left[\omega_p\|P_f(k)-P_d(k)\|^2 + \omega_\theta(\theta_f(k
 
 where:
 
-- $P_f(k) = [x_f(k), y_f(k)]^T$: position of follower.
-- $P_d(k), \theta_d(k)$: desired position and orientation.
-- $\omega_p, \omega_\theta, \omega_u$: weights for position, orientation errors, and control effort.
+```{raw} html
+<ul>
+<li><span class="math notranslate nohighlight">\(P_f(k) = [x_f(k), y_f(k)]^T\)</span>: position of follower.</li>
+<li><span class="math notranslate nohighlight">\(P_d(k), \theta_d(k)\)</span>: desired position and orientation.</li>
+<li><span class="math notranslate nohighlight">\(\omega_p, \omega_\theta, \omega_u\)</span>: weights for position, orientation errors, and control effort.</li>
+</ul>
+```
 
 ### Desired Position Calculation
 
@@ -122,9 +126,13 @@ u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]
 
 where:
 
-- $\nu_{MPC}(k)$: optimal MPC control input.
-- $L$: learning matrix.
-- $e(k-1)$: error from previous iteration.
+```{raw} html
+<ul>
+<li><span class="math notranslate nohighlight">\(\nu_{MPC}(k)\)</span>: optimal MPC control input.</li>
+<li><span class="math notranslate nohighlight">\(L\)</span>: learning matrix.</li>
+<li><span class="math notranslate nohighlight">\(e(k-1)\)</span>: error from previous iteration.</li>
+</ul>
+```
 
 ### Hybrid Integration
 

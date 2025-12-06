@@ -81,7 +81,11 @@ The project successfully achieved the following outcomes:
 
 Below is the circuit diagram of the smart home system:
 
-![Circuit Diagram](images/circuit.png)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Smart-Home-Using-Iot/circuit.png" alt="Circuit Diagram" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 The circuit diagram showcases the connectivity of various components involved in the project. It includes the relays, Wi-Fi module (ESP32), and other basic electronic components. This diagram provides a visual representation of how the different elements of the system are interconnected to enable the desired functionality.
 
@@ -93,22 +97,38 @@ The project implemented three different control methods for operating the smart 
 
 1. Control through the Cloud:
 
-   ![Control through the Cloud](images/appESP32.png)
+   ```{raw} html
+   <div style="text-align: center; margin: 1rem 0;">
+     <img src="../../../_static/images/Smart-Home-Using-Iot/appESP32.png" alt="Control through the Cloud" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+   </div>
+   ```
 
    This method allows users to control the smart home appliances using a web-based interface or application. Users can access the control interface through any internet-connected device, such as a computer or smartphone. It provides convenience and flexibility for managing the devices remotely, even in the absence of a mobile phone.
 
 2. Control through Voice:
 
-   ![Control through Voice](images/blynk.png)
+   ```{raw} html
+   <div style="text-align: center; margin: 1rem 0;">
+     <img src="../../../_static/images/Smart-Home-Using-Iot/blynk.png" alt="Control through Voice" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+   </div>
+   ```
 
    Voice control was implemented using Google Assistant and the IFTTT (If This Then That) platform. Users can give voice commands to control the devices. By assigning specific voice commands for turning on or off the appliances, users can conveniently operate the smart home system using their voice.
 
 3. Control through Timer:
 
-   ![Control through Timer](images/app2.png)
+   ```{raw} html
+   <div style="text-align: center; margin: 1rem 0;">
+     <img src="../../../_static/images/Smart-Home-Using-Iot/app2.png" alt="Control through Timer" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+   </div>
+   ```
 
    The timer control method enables users to schedule the activation of devices at specific times. Users can set a particular time for the devices to turn on automatically. This feature is useful for automating routines and ensuring that appliances are activated at desired times without manual intervention.
 
 ## Final Model
 
-![Final Model](images/model.png)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Smart-Home-Using-Iot/model.png" alt="Final Model" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```

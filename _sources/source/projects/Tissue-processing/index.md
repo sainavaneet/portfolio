@@ -18,7 +18,11 @@ This project demonstrates the automation of tissue packing using ViperX robotic 
 
 
 
-![](rviz.png)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Tissue-processing/rviz.png" alt="Hardware Configuration" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 ### Dataset Generation
 

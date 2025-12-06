@@ -401,7 +401,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="hybrid-model-predictive-and-iterative-learning-control-for-enhanced-leader-follower-robotic-tracking">
+  <section class="tex2jax_ignore mathjax_ignore" id="hybrid-model-predictive-and-iterative-learning-control-for-enhanced-leader-follower-robotic-tracking">
 <h1>Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking<a class="headerlink" href="#hybrid-model-predictive-and-iterative-learning-control-for-enhanced-leader-follower-robotic-tracking" title="Link to this heading">#</a></h1>
 <p>EERC paper</p>
 <section id="tested-for-s-trajectory">
@@ -438,23 +438,22 @@ v(k) \cos(\theta_f(k)) T \\
 v(k) \sin(\theta_f(k)) T \\
 \omega(k) T
 \end{bmatrix}\end{split}\]</div>
-<p>Where $T$ is the sampling time.</p>
+<p>Where <span class="math notranslate nohighlight">\(T\)</span> is the sampling time.</p>
 </section>
 <section id="mpc-cost-function">
 <h3>MPC Cost Function<a class="headerlink" href="#mpc-cost-function" title="Link to this heading">#</a></h3>
-<p>The MPC minimizes the following cost function over a finite horizon $N$:</p>
+<p>The MPC minimizes the following cost function over a finite horizon <span class="math notranslate nohighlight">\(N\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[J = \sum_{k=0}^{N-1}\left[\omega_p\|P_f(k)-P_d(k)\|^2 + \omega_\theta(\theta_f(k)-\theta_d(k))^2 + \omega_u\|u(k)\|^2\right]\]</div>
 <p>where:</p>
-<ul class="simple">
-<li><p>$P_f(k) = [x_f(k), y_f(k)]^T$: position of follower.</p></li>
-<li><p>$P_d(k), \theta_d(k)$: desired position and orientation.</p></li>
-<li><p>$\omega_p, \omega_\theta, \omega_u$: weights for position, orientation errors, and control effort.</p></li>
-</ul>
-</section>
+<ul>
+<li><span class="math notranslate nohighlight">\(P_f(k) = [x_f(k), y_f(k)]^T\)</span>: position of follower.</li>
+<li><span class="math notranslate nohighlight">\(P_d(k), \theta_d(k)\)</span>: desired position and orientation.</li>
+<li><span class="math notranslate nohighlight">\(\omega_p, \omega_\theta, \omega_u\)</span>: weights for position, orientation errors, and control effort.</li>
+</ul></section>
 <section id="desired-position-calculation">
 <h3>Desired Position Calculation<a class="headerlink" href="#desired-position-calculation" title="Link to this heading">#</a></h3>
-<p>The desired position $P_d$ is calculated from the leader’s state $x_l = [x_l, y_l, \theta_l]^T$ and specified distance $d$:</p>
+<p>The desired position <span class="math notranslate nohighlight">\(P_d\)</span> is calculated from the leader’s state <span class="math notranslate nohighlight">\(x_l = [x_l, y_l, \theta_l]^T\)</span> and specified distance <span class="math notranslate nohighlight">\(d\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}P_d = \begin{bmatrix}
 x_l - d\cos(\theta_l) \\
@@ -474,19 +473,18 @@ y_f(k)-y_d(k) \\
 <div class="math notranslate nohighlight">
 \[u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]\]</div>
 <p>where:</p>
-<ul class="simple">
-<li><p>$\nu_{MPC}(k)$: optimal MPC control input.</p></li>
-<li><p>$L$: learning matrix.</p></li>
-<li><p>$e(k-1)$: error from previous iteration.</p></li>
-</ul>
-</section>
+<ul>
+<li><span class="math notranslate nohighlight">\(\nu_{MPC}(k)\)</span>: optimal MPC control input.</li>
+<li><span class="math notranslate nohighlight">\(L\)</span>: learning matrix.</li>
+<li><span class="math notranslate nohighlight">\(e(k-1)\)</span>: error from previous iteration.</li>
+</ul></section>
 <section id="hybrid-integration">
 <h3>Hybrid Integration<a class="headerlink" href="#hybrid-integration" title="Link to this heading">#</a></h3>
 <p>The hybrid method combines MPC and ILC:</p>
 <ol class="arabic simple">
-<li><p>Solve MPC optimization: $\nu_{MPC}=\arg\min J$</p></li>
-<li><p>ILC update: $\nu=\nu_{ILC}$</p></li>
-<li><p>Apply $\nu$ to follower robot</p></li>
+<li><p>Solve MPC optimization: <span class="math notranslate nohighlight">\(\nu_{MPC}=\arg\min J\)</span></p></li>
+<li><p>ILC update: <span class="math notranslate nohighlight">\(\nu=\nu_{ILC}\)</span></p></li>
+<li><p>Apply <span class="math notranslate nohighlight">\(\nu\)</span> to follower robot</p></li>
 <li><p>Update follower and leader states</p></li>
 </ol>
 </section>
@@ -513,9 +511,9 @@ y_f(k)-y_d(k) \\
 <h2>Experimental Results<a class="headerlink" href="#experimental-results" title="Link to this heading">#</a></h2>
 <p>Experiments with TurtleBot 3 robots validated the hybrid MPC-ILC method, demonstrating significant improvements in position tracking accuracy, orientation accuracy, and balanced control efforts compared to standalone MPC and ILC.</p>
 <ul class="simple">
-<li><p>Leader velocity: $v=0.3,\text{m/s}, \omega=0.3,\text{rad/s}$</p></li>
-<li><p>MPC parameters: $N=20, T=0.2,s, \omega_p=7, \omega_\theta=1, \omega_u=1$</p></li>
-<li><p>ILC learning matrix: $L = \mathrm{diag}([0.1, 0.1])$</p></li>
+<li><p>Leader velocity: <span class="math notranslate nohighlight">\(v=0.3\,\text{m/s}, \omega=0.3\,\text{rad/s}\)</span></p></li>
+<li><p>MPC parameters: <span class="math notranslate nohighlight">\(N=20, T=0.2\,s, \omega_p=7, \omega_\theta=1, \omega_u=1\)</span></p></li>
+<li><p>ILC learning matrix: <span class="math notranslate nohighlight">\(L = \mathrm{diag}([0.1, 0.1])\)</span></p></li>
 </ul>
 <div style="text-align: center; margin: 1rem 0;">
   <img src="../../../_static/images/LMPC-ILC/cost_comparision.png" alt="Comparison of Cost" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">

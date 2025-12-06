@@ -22,7 +22,11 @@ links:
 
 Detecting cucumbers and we generate specific actions for two types of robots: the ViperX 300s arm robot and an Automated Guided Vehicle (AGV) robot.
 
-![task](task.PNG)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Autonomus-Harvesting/task.PNG" alt="task" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 Cucumber harvesting using Object Detecion
 ================
@@ -140,7 +144,11 @@ detected. We have designed the algorithm in such a way that it
 determines a stable pose of the cucumber after detecting it, based on a
 predefined threshold.
 
-![objdetection](images/obj_detection.png)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Autonomus-Harvesting/obj_detection.png" alt="objdetection" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 ## 🦾TASK
 
@@ -162,7 +170,11 @@ predefined threshold.
 - **`Return to Start`**`:` After completing the harvesting task, the
   robot returns to its starting position at 9.
 
-![](images/Task.PNG)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Autonomus-Harvesting/Task.PNG" alt="Task" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 The entire task can be executed using the Python script.  
 

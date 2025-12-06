@@ -413,7 +413,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="vision-guided-imitation-learning-using-action-chunk-transformer">
+  <section class="tex2jax_ignore mathjax_ignore" id="vision-guided-imitation-learning-using-action-chunk-transformer">
 <h1>Vision Guided Imitation Learning using Action Chunk Transformer<a class="headerlink" href="#vision-guided-imitation-learning-using-action-chunk-transformer" title="Link to this heading">#</a></h1>
 <p>The Action Chunking with Transformers (ACT) technique in single-arm robotic manipulation for vision-guided pick-and-place tasks. ACT employs a Conditional Variational Autoencoder (CVAE) to predict sequences of actions, termed “action chunks,” which are groups of actions predicted together to achieve more complex tasks efficiently. Unlike traditional methods that rely solely on joint position data and predict individual actions, our approach integrates visual data to enrich the learning context and enhance execution precision. We acquired the expert data by providing manual demonstrations of the task, allowing the model to learn from real-time, complex action sequences. By predicting these action chunks instead of single actions, the ACT model adapts from dual-arm to single-arm configurations, enhancing control strategies and demonstrating significant improvements in the robot’s speed, precision, and reliability. This substantiates the paper’s title, “Vision-Guided Imitation Learning Using Action Chunk Transformers,” highlighting the critical role of vision in advancing robotic control systems.</p>
 <p align="center"><a href="https://sainavaneet.github.io/ACTfranka.github.io/" target="_blank" style="border: 2px solid #0066cc; background-color: transparent; color: #0066cc; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; margin: 2px; cursor: pointer; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: all 0.3s ease; animation: pulse 2s infinite;" onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='#0066cc'; this.style.color='white';" onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='transparent'; this.style.color='#0066cc';">🌐 Project Website</a></p>
@@ -425,7 +425,7 @@ document.write(`
 }
 </style>
 </section>
-<section id="transformer">
+<section class="tex2jax_ignore mathjax_ignore" id="transformer">
 <h1>Transformer<a class="headerlink" href="#transformer" title="Link to this heading">#</a></h1>
 <p>This is from the main paper <code class="docutils literal notranslate"><span class="pre">&quot;Attention</span> <span class="pre">is</span> <span class="pre">all</span> <span class="pre">you</span> <span class="pre">need</span> <span class="pre">&quot;</span></code> .It’s designed to encode a sequence into a set of context-aware vector representations, relying heavily on self-attention and position-wise operations, without using recurrence (like RNNs) or convolution.</p>
 <p><img alt="" src="../../../_images/clipboard-3868909561.png" /></p>
@@ -473,7 +473,7 @@ $$
 <p>The only change in the decoder is that within its multi-headed attention, the values and keys are sourced from the encoder, while the queries are derived from the decoder’s preceding output.</p>
 </section>
 </section>
-<section id="main-overview-of-the-act">
+<section class="tex2jax_ignore mathjax_ignore" id="main-overview-of-the-act">
 <h1>Main Overview of the ACT<a class="headerlink" href="#main-overview-of-the-act" title="Link to this heading">#</a></h1>
 <p><img alt="" src="../../../_images/clipboard-1202681815.png" /></p>
 <p>The main architecture of the Action Chunk Transformer incorporates <code class="docutils literal notranslate"><span class="pre">two</span> <span class="pre">distinct</span> <span class="pre">encoders</span></code>. On the <code class="docutils literal notranslate"><span class="pre">left</span> <span class="pre">side</span></code>, one encoder is dedicated to processing action sequences along with position embeddings, which are then integrated into a style variable.</p>
@@ -544,11 +544,11 @@ $$
 </section>
 </section>
 </section>
-<section id="algorithm">
+<section class="tex2jax_ignore mathjax_ignore" id="algorithm">
 <h1>Algorithm<a class="headerlink" href="#algorithm" title="Link to this heading">#</a></h1>
 <p><img alt="" src="../../../_images/clipboard-4249152901.png" /></p>
 </section>
-<section id="code">
+<section class="tex2jax_ignore mathjax_ignore" id="code">
 <h1>CODE<a class="headerlink" href="#code" title="Link to this heading">#</a></h1>
 <section id="datset-prepare">
 <h2>Datset Prepare<a class="headerlink" href="#datset-prepare" title="Link to this heading">#</a></h2>

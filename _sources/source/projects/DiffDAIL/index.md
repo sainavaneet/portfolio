@@ -1,6 +1,10 @@
 # DiffDAIL: Diffusion-Enhanced Vision-Guided Imitation Learning with Discrete Latent Representations
 
-<img src="../../../_static/images/DiffDAIL/overview.png" alt="DiffDAIL Architecture" style="max-width: 40%; height: auto; display: block; margin: 0 auto;">
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/DiffDAIL/overview.png" alt="DiffDAIL Architecture" style="max-width: 40%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 
 ## 📝 Abstract
@@ -69,13 +73,25 @@ Robotic imitation learning often struggles with high-dimensional sensory inputs,
 
 ## 🔬 Methodology
 
-<img src="../../../_static/images/DiffDAIL/architecture.png" alt="DiffDAIL Architecture" style="max-width: 90%; height: auto; display: block; margin: 0 auto;">
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/DiffDAIL/architecture.png" alt="DiffDAIL Architecture" style="max-width: 90%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 ## 📊 Results
 
-<img src="../../../_static/images/DiffDAIL/successrate.png" alt="Success Rate on Various Benchmarks" style="max-width: 70%; height: auto; display: block; margin: 0 auto;">
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/DiffDAIL/successrate.png" alt="Success Rate on Various Benchmarks" style="max-width: 70%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
-<img src="../../../_static/images/DiffDAIL/successrate2.png" alt="Success Rate on Various Benchmarks" style="max-width: 70%; height: auto; display: block; margin: 0 auto;">
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/DiffDAIL/successrate2.png" alt="Success Rate on Various Benchmarks" style="max-width: 70%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 
 

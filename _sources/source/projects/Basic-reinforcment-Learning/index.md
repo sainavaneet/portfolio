@@ -27,26 +27,33 @@ Implemented some basic Rl examples
 
 ## Cartpole 
 
-<iframe
-  width="746"
-  height="420"
-  src="https://www.youtube.com/embed/Ka9Fwk6suv8?autoplay=1"
-  title="Go2 Robot in Isaac Sim"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allow="autoplay; encrypted-media; fullscreen"
-  allowfullscreen
-></iframe>
+```{raw} html
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/Ka9Fwk6suv8?autoplay=1&mute=1&controls=0&loop=1&playlist=Ka9Fwk6suv8&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+```
 
 ## Lunar Lander 
 
 
 
 ## Introduction
-In this article, we will cover a brief introduction to **Reinforcement Learning** and will learn about how to train a **Deep Q-Network(DQN)** agent to solve the “***Lunar Lander***” Environment in OpenAI gym.
-We will use Google’s Deepmind and Reinforcement Learning Implementation for this.
+In this article, we will cover a brief introduction to **Reinforcement Learning** and will learn about how to train a **Deep Q-Network(DQN)** agent to solve the "***Lunar Lander***" Environment in OpenAI gym.
+We will use Google's Deepmind and Reinforcement Learning Implementation for this.
 
-![https://raw.githubusercontent.com/fakemonk1/Reinforcement-Learning-Lunar_Lander/master/images/3.gif](https://raw.githubusercontent.com/fakemonk1/Reinforcement-Learning-Lunar_Lander/master/images/3.gif)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Basic-reinforcment-Learning/3.gif" alt="Lunar Lander Demo" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 **Reinforcement Learning** is a massive topic and we are not going to cover everything here in detail. Instead, the aim of this article is to get your hands dirty with some practical example of reinforcement learning and show the implementation of RL in solving real-world use cases.
 
@@ -104,7 +111,11 @@ There is no rule of thumb to find out how many hidden layers you need in a neura
 * **Hidden layer**: 1 layer, 256 nodes with ‘relu’ activation function
 * **Output layer**: 4 nodes, with ‘linear’ activation function
 
-![trained model](https://raw.githubusercontent.com/fakemonk1/Reinforcement-Learning-Lunar_Lander/master/images/trained_model.png)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Basic-reinforcment-Learning/trained_model.png" alt="Trained model" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 Still, this model was sometimes diverging after an average reward of 170 and was taking more than 1000 episodes to diverge. I figured out that this behaviour might be attributed to overtraining of the model and implemented ‘**Early Stopping**’. Early Stopping is the practice to stop the neural networks from overtraining. To implement this, I avoided training the model for a specific episode if the average of the last 10 rewards is more than 180.
 
@@ -120,27 +131,75 @@ Final benchmark model has the following hyperparameters:
 Initially, as we can see below the agent is very bad at landing, it’s basically taking random actions and receives the negative rewards for crashing the rocket.
 
   
-![untrained_model](https://raw.githubusercontent.com/fakemonk1/Reinforcement-Learning-Lunar_Lander/master/images/1.gif)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Basic-reinforcment-Learning/1.gif" alt="Untrained model" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 After around 300 training episodes, it starts learning how to control and land the rocket.
 
-![https://raw.githubusercontent.com/fakemonk1/Reinforcement-Learning-Lunar_Lander/master/images/2.gif](https://raw.githubusercontent.com/fakemonk1/Reinforcement-Learning-Lunar_Lander/master/images/2.gif)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Basic-reinforcment-Learning/2.gif" alt="Partially trained model" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
  
 After 600 the agent is fully trained. It learns to handle the rocket perfectly and lands the rocket perfectly each time.
 
-![https://raw.githubusercontent.com/fakemonk1/Reinforcement-Learning-Lunar_Lander/master/images/3.gif](https://raw.githubusercontent.com/fakemonk1/Reinforcement-Learning-Lunar_Lander/master/images/3.gif)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Basic-reinforcment-Learning/3.gif" alt="Fully trained model" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 ## Result analysis
 
 Figure 1. The reward for each training episode
-![Figure 1](https://raw.githubusercontent.com/fakemonk1/Reinforcement-Learning-Lunar_Lander/master/images/Figure_1_Reward%20for%20each%20training%20episode.png)
+
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Basic-reinforcment-Learning/Figure_1_Reward for each training episode.png" alt="Figure 1: Reward for each training episode" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 Figure 1 shows the reward values per experience at the time of training. Blue lines denote the reward for each training episodes and the orange line shows the rolling mean of the last 100 episodes. The agent keeps learning with the time and the value of the rolling mean increases with the training episodes. 
 
 The average reward in the earlier episodes is mostly negative because the agent has just started learning. Eventually, The agent starts performing relatively better and the average reward starts going up and becoming positive after 300 episodes. After 514 episodes the rolling mean crosses 200 and the training concludes. There are a couple of episodes where the agent has received negative awards at this time, but I believe if the agent is allowed to continue training, these instances will reduce.
 
 Figure 2. The reward for each testing episode
-![](https://raw.githubusercontent.com/fakemonk1/Reinforcement-Learning-Lunar_Lander/master/images/Figure_2_Reward%20for%20each%20testing%20episode.png)
+
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Basic-reinforcment-Learning/Figure_2_Reward for each testing episode.png" alt="Figure 2: Reward for each testing episode" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 Figure 2 shows the performance of the trained model for 100 episodes in the Lunar Lander environment. The trained model is performing well in the environment with all the rewards being positive. The average reward for 100 testing episodes is 205.
+
+## Hyperparameter Analysis
+
+Figure 3. Rewards per episode for different learning rates
+
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Basic-reinforcment-Learning/Figure 3: Rewards per episode for different learning rates.png" alt="Figure 3: Rewards per episode for different learning rates" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
+
+Figure 4. Rewards per episode for different gamma values
+
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Basic-reinforcment-Learning/Figure 4: Rewards per episode for different gamma values.png" alt="Figure 4: Rewards per episode for different gamma values" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
+
+Figure 5. Rewards per episode for different epsilon(ε) decay
+
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Basic-reinforcment-Learning/Figure 5: Rewards per episode for different epsilon(ε) decay.png" alt="Figure 5: Rewards per episode for different epsilon(ε) decay" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 

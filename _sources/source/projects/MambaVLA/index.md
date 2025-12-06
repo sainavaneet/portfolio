@@ -112,7 +112,11 @@ The MambaVLA architecture combines state space models with vision-language under
 
 This work demonstrates the effectiveness of state space architectures in vision-language-action tasks, providing a scalable alternative to transformer-based approaches.
 
-![Success Rate on Various Benchmarks](successrate.png)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/MambaVLA/successrate.png" alt="Success Rate on Various Benchmarks" style="max-width: 70%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 In terms of data efficiency, MambaVLA requires substantially fewer demonstrations to achieve similar performance to existing baselines. Specifically, it matches SmolVLA with 40 demonstrations (vs. 50) and reaches OpenVLA performance with just 35 demonstrations.
 
