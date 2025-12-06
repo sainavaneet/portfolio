@@ -1,22 +1,18 @@
 // Modern News Timeline JavaScript
 
-// Load and apply saved theme preference immediately (before DOMContentLoaded)
+// Force light theme always (before DOMContentLoaded)
 (function() {
     try {
-        const savedTheme = localStorage.getItem('theme') || localStorage.getItem('sphinx-theme');
-        if (savedTheme) {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            document.documentElement.setAttribute('data-bs-theme', savedTheme);
-            if (savedTheme === 'dark') {
-                document.documentElement.classList.add('theme-dark', 'dark');
-                document.body.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('theme-dark', 'dark');
-                document.body.classList.remove('dark');
-            }
-        }
+        // Always set to light theme
+        document.documentElement.setAttribute('data-theme', 'light');
+        document.documentElement.setAttribute('data-bs-theme', 'light');
+        document.documentElement.classList.remove('theme-dark', 'dark');
+        document.body.classList.remove('dark', 'theme-dark');
+        // Save light theme preference
+        localStorage.setItem('theme', 'light');
+        localStorage.setItem('sphinx-theme', 'light');
     } catch (e) {
-        console.log('Could not load theme preference');
+        console.log('Could not set light theme');
     }
 })();
 
@@ -179,11 +175,8 @@ function initializeTrailCursor() {
             pointer.y = (0.5 + 0.1 * (Math.cos(0.005 * t)) + 0.05 * Math.cos(0.01 * t)) * window.innerHeight;
         }
         
-        // Get current theme color - make it more visible on both backgrounds
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
-                      document.documentElement.classList.contains('dark') ||
-                      document.documentElement.classList.contains('theme-dark');
-        const strokeColor = isDark ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.8)';
+        // Always use light theme colors
+        const strokeColor = 'rgba(0, 0, 0, 0.8)';
         
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
@@ -236,22 +229,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize trail cursor (canvas-based) - disabled
     // initializeTrailCursor();
     
-    // Apply saved theme after DOM is ready (in case theme JS loads after)
+    // Force light theme after DOM is ready
     setTimeout(function() {
         try {
-            const savedTheme = localStorage.getItem('theme') || localStorage.getItem('sphinx-theme');
-            if (savedTheme) {
-                // Try to find and click the theme's built-in toggle if needed
-                const themeToggle = document.querySelector('.theme-switch-button, [data-bs-theme], button[aria-label*="theme" i]');
-                if (themeToggle) {
-                    const currentTheme = getCurrentTheme();
-                    if (currentTheme !== savedTheme) {
-                        themeToggle.click();
-                    }
-                }
-            }
+            // Always ensure light theme is set
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.documentElement.setAttribute('data-bs-theme', 'light');
+            document.documentElement.classList.remove('theme-dark', 'dark');
+            document.body.classList.remove('dark', 'theme-dark');
+            localStorage.setItem('theme', 'light');
+            localStorage.setItem('sphinx-theme', 'light');
         } catch (e) {
-            console.log('Could not sync with theme toggle');
+            console.log('Could not enforce light theme');
         }
     }, 100);
     
@@ -272,6 +261,60 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize projects page
     initializeProjectsPage();
+    
+    // Continuously enforce light theme (watch for any theme changes)
+    setInterval(function() {
+        try {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const hasDarkClass = document.documentElement.classList.contains('theme-dark') || 
+                                document.documentElement.classList.contains('dark');
+            
+            if (currentTheme !== 'light' || hasDarkClass) {
+                document.documentElement.setAttribute('data-theme', 'light');
+                document.documentElement.setAttribute('data-bs-theme', 'light');
+                document.documentElement.classList.remove('theme-dark', 'dark');
+                document.body.classList.remove('dark', 'theme-dark');
+                localStorage.setItem('theme', 'light');
+                localStorage.setItem('sphinx-theme', 'light');
+            }
+        } catch (e) {
+            // Silently handle errors
+        }
+    }, 500);
+    
+    // Use MutationObserver to watch for theme attribute changes
+    const themeObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'attributes' && 
+                (mutation.attributeName === 'data-theme' || mutation.attributeName === 'data-bs-theme')) {
+                const theme = document.documentElement.getAttribute('data-theme');
+                if (theme !== 'light') {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    document.documentElement.setAttribute('data-bs-theme', 'light');
+                    document.documentElement.classList.remove('theme-dark', 'dark');
+                    document.body.classList.remove('dark', 'theme-dark');
+                }
+            }
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                if (document.documentElement.classList.contains('theme-dark') || 
+                    document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('theme-dark', 'dark');
+                    document.body.classList.remove('dark', 'theme-dark');
+                }
+            }
+        });
+    });
+    
+    // Start observing
+    themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme', 'data-bs-theme', 'class']
+    });
+    
+    themeObserver.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
 });
 
 function initializeTopNavbar() {
@@ -344,22 +387,6 @@ function initializeTopNavbar() {
     
     console.log('Current path:', locationPath, 'Path parts:', pathParts, 'Depth:', depth, 'Root path:', rootPath, 'Is GitHub Pages:', isGitHubPages);
     
-    // Check current theme
-    const getCurrentTheme = () => {
-        if (document.documentElement.hasAttribute('data-theme')) {
-            return document.documentElement.getAttribute('data-theme');
-        }
-        // Check for other theme classes
-        if (document.documentElement.classList.contains('theme-dark') || 
-            document.documentElement.classList.contains('dark')) {
-            return 'dark';
-        }
-        return 'light';
-    };
-    
-    const isDarkMode = getCurrentTheme() === 'dark';
-    const themeIcon = isDarkMode ? '☀️' : '🌙';
-    
     // Create navbar HTML structure
     const navbar = document.createElement('nav');
     navbar.className = 'top-navbar';
@@ -391,9 +418,6 @@ function initializeTopNavbar() {
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                 </a>
-                <button class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
-                    ${themeIcon}
-                </button>
             </div>
         </div>
     `;
@@ -532,68 +556,16 @@ function initializeTopNavbar() {
         });
     }
     
-    // Dark mode toggle functionality
-    const darkModeToggle = navbar.querySelector('.dark-mode-toggle');
-    if (darkModeToggle) {
-        // Function to toggle theme
-        function toggleTheme() {
-            const currentTheme = getCurrentTheme();
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            // Try multiple methods to trigger theme change
-            let themeChanged = false;
-            
-            // Method 1: Try to find and trigger sphinx-book-theme's built-in theme toggle
-            const themeToggleButton = document.querySelector('.theme-switch-button, button[aria-label*="theme" i], .bd-header button[type="button"]');
-            if (themeToggleButton && !themeChanged) {
-                try {
-                    themeToggleButton.click();
-                    themeChanged = true;
-                } catch (e) {
-                    console.log('Could not click theme toggle button');
-                }
-            }
-            
-            // Method 2: Try to trigger via data attribute change
-            if (!themeChanged) {
-                // Set multiple theme attributes
-                document.documentElement.setAttribute('data-theme', newTheme);
-                document.documentElement.setAttribute('data-bs-theme', newTheme);
-                
-                // Apply classes to both html and body
-                if (newTheme === 'dark') {
-                    document.documentElement.classList.add('theme-dark', 'dark');
-                    document.body.classList.add('dark', 'theme-dark');
-                } else {
-                    document.documentElement.classList.remove('theme-dark', 'dark');
-                    document.body.classList.remove('dark', 'theme-dark');
-                }
-                
-                // Trigger a custom event for theme change
-                window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: newTheme } }));
-                themeChanged = true;
-            }
-            
-            // Update icon after a short delay to ensure theme has changed
-            setTimeout(function() {
-                const actualTheme = getCurrentTheme();
-                darkModeToggle.textContent = actualTheme === 'dark' ? '☀️' : '🌙';
-            }, 100);
-            
-            // Save preference to localStorage
-            try {
-                localStorage.setItem('theme', newTheme);
-                localStorage.setItem('sphinx-theme', newTheme);
-            } catch (e) {
-                console.log('Could not save theme preference');
-            }
-        }
-        
-        darkModeToggle.addEventListener('click', toggleTheme);
-        
-        // Ensure toggle button icon matches current theme (already loaded above)
-        const currentTheme = getCurrentTheme();
-        darkModeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+    // Ensure light theme is always enforced
+    try {
+        document.documentElement.setAttribute('data-theme', 'light');
+        document.documentElement.setAttribute('data-bs-theme', 'light');
+        document.documentElement.classList.remove('theme-dark', 'dark');
+        document.body.classList.remove('dark', 'theme-dark');
+        localStorage.setItem('theme', 'light');
+        localStorage.setItem('sphinx-theme', 'light');
+    } catch (e) {
+        console.log('Could not enforce light theme');
     }
 }
 

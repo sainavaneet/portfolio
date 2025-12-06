@@ -328,32 +328,18 @@ body .top-navbar .navbar-menu a[href*="contact"].active {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Dark Mode Toggle Button */
+/* Dark Mode Toggle Button - Hidden */
 .dark-mode-toggle {
-    background: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 6px;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-    color: var(--pst-color-text-base);
-    font-size: 1.1rem;
-    padding: 0;
-    flex-shrink: 0;
+    display: none !important;
 }
 
-[data-theme="dark"] .dark-mode-toggle,
-.theme-dark .dark-mode-toggle,
-.dark .dark-mode-toggle {
-    border-color: rgba(255, 255, 255, 0.15);
-}
-
-.dark-mode-toggle:hover {
-    opacity: 0.7;
+/* Hide built-in theme switcher from sphinx-book-theme */
+.theme-switch-button,
+button[aria-label*="theme" i],
+.bd-header button[type="button"][aria-label*="theme" i],
+.bd-header .theme-switch-button {
+    display: none !important;
+    visibility: hidden !important;
 }
 
 /* Adjust header spacing */
@@ -381,8 +367,7 @@ body .top-navbar .navbar-menu a[href*="contact"].active {
         gap: 0.5rem;
     }
     
-    .top-navbar .social-icon,
-    .dark-mode-toggle {
+    .top-navbar .social-icon {
         width: 36px;
         height: 36px;
     }
