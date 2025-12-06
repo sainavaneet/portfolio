@@ -36,17 +36,13 @@ function initializeCollapsibleYears() {
             }
         });
         
-        // Set initial state based on aria-expanded attribute
+        // Always expand all sections by default
         const newsGrid = header.nextElementSibling;
         if (newsGrid && newsGrid.classList.contains('news-grid')) {
-            const isExpanded = header.getAttribute('aria-expanded') === 'true';
-            if (isExpanded) {
-                newsGrid.classList.add('expanded');
-                header.classList.remove('collapsed');
-            } else {
-                newsGrid.classList.add('collapsed');
-                header.classList.add('collapsed');
-            }
+            newsGrid.classList.add('expanded');
+            newsGrid.classList.remove('collapsed');
+            header.classList.remove('collapsed');
+            header.setAttribute('aria-expanded', 'true');
         }
     });
 }

@@ -393,6 +393,10 @@
     transition: transform 0.2s ease;
 }
 
+.year-header {
+    margin-bottom: 1.5rem;
+}
+
 .year-header.collapsed .year-badge::after {
     transform: translateY(-50%) rotate(180deg);
 }
@@ -530,20 +534,28 @@
 }
 
 [data-theme="dark"] .year-header {
-    background: #343a40;
-    border-color: #495057;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
 }
 
 [data-theme="dark"] .year-header:hover {
-    background: #495057;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
 }
 
 [data-theme="dark"] .year-badge {
     background: #007bff;
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
 
 [data-theme="dark"] .year-badge::after {
-    color: #adb5bd;
+    color: #ffffff;
 }
 
 /* Alternative dark mode selectors for different theme implementations */
@@ -591,26 +603,34 @@
 .theme-dark .year-header,
 .dark .year-header,
 [class*="dark"] .year-header {
-    background: #343a40;
-    border-color: #495057;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
 }
 
 .theme-dark .year-header:hover,
 .dark .year-header:hover,
 [class*="dark"] .year-header:hover {
-    background: #495057;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
 }
 
 .theme-dark .year-badge,
 .dark .year-badge,
 [class*="dark"] .year-badge {
     background: #007bff;
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
 
 .theme-dark .year-badge::after,
 .dark .year-badge::after,
 [class*="dark"] .year-badge::after {
-    color: #adb5bd;
+    color: #ffffff;
 }
 
 .theme-dark .news-section-title,
@@ -731,6 +751,12 @@
 .publication-status.submitted {
     background: linear-gradient(135deg, #3b82f6, #1d4ed8);
     color: white;
+}
+
+.publication-status.poster {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+    margin-left: 0.5rem;
 }
 
 .publication-title {
