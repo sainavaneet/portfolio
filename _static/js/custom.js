@@ -286,15 +286,29 @@ function initializeTopNavbar() {
     
     if (isGitHubPages) {
         // Use absolute paths from the root of the GitHub Pages site
-        // Check if path starts with a repo name (not 'source')
-        const firstPathSegment = pathParts[0];
-        if (firstPathSegment && firstPathSegment !== 'source' && 
-            !['index.html', 'index', ''].includes(firstPathSegment)) {
-            // Repo name is in the path (e.g., /portfolio/source/...)
-            rootPath = `/${firstPathSegment}/`;
+        // Check the full pathname to detect repo name
+        const fullPath = window.location.pathname;
+        
+        // First, check if path starts with /portfolio/
+        if (fullPath.startsWith('/portfolio/')) {
+            rootPath = '/portfolio/';
         } else {
-            // User/organization site (e.g., username.github.io) - served from root
-            rootPath = '/';
+            // Try to extract repo name from path
+            const repoMatch = fullPath.match(/^\/([^\/]+)\//);
+            if (repoMatch && repoMatch[1] !== 'source' && repoMatch[1] !== 'index.html' && 
+                !repoMatch[1].endsWith('.html')) {
+                // Repo name is in the path (e.g., /portfolio/source/...)
+                rootPath = `/${repoMatch[1]}/`;
+            } else if (pathParts.length > 0 && pathParts[0] !== 'source' && 
+                       !['index.html', 'index', ''].includes(pathParts[0]) &&
+                       !pathParts[0].endsWith('.html')) {
+                // Check pathParts as fallback
+                rootPath = `/${pathParts[0]}/`;
+            } else {
+                // Default to 'portfolio' for project sites
+                // If we're at root or can't detect, assume it's a project site
+                rootPath = '/portfolio/';
+            }
         }
     } else {
         // Local development - use relative paths
