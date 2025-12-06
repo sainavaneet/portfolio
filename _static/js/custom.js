@@ -377,7 +377,7 @@ function initializeTopNavbar() {
                 <li><a href="${rootPath}source/projects/index.html">Projects</a></li>
                 <li><a href="${rootPath}source/experience/index.html">Experience</a></li>
                 <li><a href="${rootPath}source/publications/index.html">Publications</a></li>
-                <li><a href="${rootPath}source/Blog/Bluetooth/index.html">Blog</a></li>
+                <li><a href="${rootPath}source/Blog/index.html">Blog</a></li>
                 <li><a href="${rootPath}source/Contact/index.html">Contact</a></li>
             </ul>
             <div class="navbar-right-icons">

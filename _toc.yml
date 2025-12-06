@@ -31,8 +31,9 @@ parts:
       - file: source/experience/index  
       - file: source/publications/index
 
-      - file: source/Blog/Bluetooth/index
+      - file: source/Blog/index
         sections:
+            - file: source/Blog/Bluetooth/index
             - file: source/Blog/Vision-Language-Action-Transformer/index.md
             - file: source/Blog/Actfranka/index   
             - file: source/Blog/isaacsim/index
