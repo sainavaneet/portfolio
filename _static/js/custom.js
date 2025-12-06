@@ -278,9 +278,30 @@ function initializeTopNavbar() {
     const pathParts = locationPath.split('/').filter(p => p && p !== 'index.html');
     // Count directories - this is how many levels up we need to go
     const depth = pathParts.length;
-    const rootPath = depth > 0 ? '../'.repeat(depth) : './';
     
-    console.log('Current path:', locationPath, 'Path parts:', pathParts, 'Depth:', depth, 'Root path:', rootPath);
+    // For GitHub Pages, use absolute paths from root
+    // Detect if we're on GitHub Pages (github.io domain)
+    const isGitHubPages = window.location.hostname.includes('github.io');
+    let rootPath;
+    
+    if (isGitHubPages) {
+        // Use absolute paths from the root of the GitHub Pages site
+        // Check if path starts with a repo name (not 'source')
+        const firstPathSegment = pathParts[0];
+        if (firstPathSegment && firstPathSegment !== 'source' && 
+            !['index.html', 'index', ''].includes(firstPathSegment)) {
+            // Repo name is in the path (e.g., /portfolio/source/...)
+            rootPath = `/${firstPathSegment}/`;
+        } else {
+            // User/organization site (e.g., username.github.io) - served from root
+            rootPath = '/';
+        }
+    } else {
+        // Local development - use relative paths
+        rootPath = depth > 0 ? '../'.repeat(depth) : './';
+    }
+    
+    console.log('Current path:', locationPath, 'Path parts:', pathParts, 'Depth:', depth, 'Root path:', rootPath, 'Is GitHub Pages:', isGitHubPages);
     
     // Check current theme
     const getCurrentTheme = () => {
