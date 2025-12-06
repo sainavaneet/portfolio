@@ -412,15 +412,60 @@ demonstrate that MambaVLA matches or surpasses Transformer based models while
 offering substantially lower computational cost and faster inference. These results
 highlight the potential of state space modeling and flow-based action generation for
 compact, scalable, and deployable embodied intelligence systems.</p>
-<p><strong>Project Website</strong>: <a href="https://sainavaneet.github.io/MambaVLA.gihub.io/" target="_blank" style="font-weight: bold; text-decoration: none; color: #000000;">https://sainavaneet.github.io/MambaVLA.gihub.io/</a></p>
+<a href="https://sainavaneet.github.io/MambaVLA.gihub.io/" target="_blank" class="project-website-button">Project Website</a>
 <style>
-a[href="https://sainavaneet.github.io/MambaVLA.gihub.io/"]:hover {
-  text-decoration: underline !important;
+.project-website-button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #000000;
+  background: transparent;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
 }
-[data-theme="dark"] a[href="https://sainavaneet.github.io/MambaVLA.gihub.io/"],
-.theme-dark a[href="https://sainavaneet.github.io/MambaVLA.gihub.io/"],
-.dark a[href="https://sainavaneet.github.io/MambaVLA.gihub.io/"] {
-  color: #ffffff !important;
+
+.project-website-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #000000;
+  transition: width 0.3s ease;
+}
+
+.project-website-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.project-website-button:hover::after {
+  width: 100%;
+}
+
+[data-theme="dark"] .project-website-button,
+.theme-dark .project-website-button,
+.dark .project-website-button {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .project-website-button::after,
+.theme-dark .project-website-button::after,
+.dark .project-website-button::after {
+  background: #ffffff;
+}
+
+[data-theme="dark"] .project-website-button:hover,
+.theme-dark .project-website-button:hover,
+.dark .project-website-button:hover {
+  background: rgba(255, 255, 255, 0.05);
 }
 </style></section>
 <section id="key-features">
