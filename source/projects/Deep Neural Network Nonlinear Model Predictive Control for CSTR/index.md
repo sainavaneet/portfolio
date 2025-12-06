@@ -196,18 +196,16 @@ P = \begin{bmatrix}
 
 ## Results
 
-```{figure} images/loss.png
----
-name: loss-plot
----
-Training loss over epochs
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Deep-Neural-Network-CSTR/loss.png" alt="Training loss over epochs" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
 ```
 
-```{figure} images/dnn.png
----
-name: dnn-result
----
-DNN-NMPC simulation results for CSTR
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/Deep-Neural-Network-CSTR/dnn.png" alt="DNN-NMPC simulation results for CSTR" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
 ```
 
 ## Conclusion
