@@ -41,6 +41,8 @@
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/LMPC-ILC/index';</script>
     <script src="../../../_static/js/scroll-video.js?v=c40cad62"></script>
     <script src="../../../_static/js/custom.js?v=71ab81ca"></script>
@@ -404,15 +406,17 @@ document.write(`
 <p>EERC paper</p>
 <section id="tested-for-s-trajectory">
 <h2>Tested for “S” Trajectory<a class="headerlink" href="#tested-for-s-trajectory" title="Link to this heading">#</a></h2>
-<iframe
-  width="746"
-  height="420"
-  src="https://www.youtube.com/embed/6Dyg_3ztMKw"
-  title="S Trajectory Test"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe></section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/6Dyg_3ztMKw?autoplay=1&mute=1&controls=0&loop=1&playlist=6Dyg_3ztMKw&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section></section>
 <section id="abstract">
 <h2>Abstract<a class="headerlink" href="#abstract" title="Link to this heading">#</a></h2>
 <p>This paper introduces a novel hybrid control strategy combining Model Predictive Control (MPC) and Iterative Learning Control (ILC) to improve leader-follower tracking accuracy and robustness in mobile robots. MPC optimizes control inputs over a predictive horizon by minimizing a cost function, while ILC refines these inputs by learning from past errors.</p>
@@ -422,29 +426,25 @@ document.write(`
 <section id="system-dynamics">
 <h3>System Dynamics<a class="headerlink" href="#system-dynamics" title="Link to this heading">#</a></h3>
 <p>The state of the follower robot is:</p>
-<p>$$
-x_f = [x_f, y_f, \theta_f]^T
-$$</p>
+<div class="math notranslate nohighlight">
+\[x_f = [x_f, y_f, \theta_f]^T\]</div>
 <p>Control inputs:</p>
-<p>$$
-u = [v, \omega]^T
-$$</p>
+<div class="math notranslate nohighlight">
+\[u = [v, \omega]^T\]</div>
 <p>Discrete-time kinematic model:</p>
-<p>$$
-x_f(k + 1) = x_f(k) + \begin{bmatrix}
-v(k) \cos(\theta_f(k)) T \
-v(k) \sin(\theta_f(k)) T \
+<div class="math notranslate nohighlight">
+\[\begin{split}x_f(k + 1) = x_f(k) + \begin{bmatrix}
+v(k) \cos(\theta_f(k)) T \\
+v(k) \sin(\theta_f(k)) T \\
 \omega(k) T
-\end{bmatrix}
-$$</p>
+\end{bmatrix}\end{split}\]</div>
 <p>Where $T$ is the sampling time.</p>
 </section>
 <section id="mpc-cost-function">
 <h3>MPC Cost Function<a class="headerlink" href="#mpc-cost-function" title="Link to this heading">#</a></h3>
 <p>The MPC minimizes the following cost function over a finite horizon $N$:</p>
-<p>$$
-J = \sum_{k=0}^{N-1}\left[\omega_p|P_f(k)-P_d(k)|^2 + \omega_\theta(\theta_f(k)-\theta_d(k))^2 + \omega_u|u(k)|^2\right]
-$$</p>
+<div class="math notranslate nohighlight">
+\[J = \sum_{k=0}^{N-1}\left[\omega_p\|P_f(k)-P_d(k)\|^2 + \omega_\theta(\theta_f(k)-\theta_d(k))^2 + \omega_u\|u(k)\|^2\right]\]</div>
 <p>where:</p>
 <ul class="simple">
 <li><p>$P_f(k) = [x_f(k), y_f(k)]^T$: position of follower.</p></li>
@@ -455,27 +455,24 @@ $$</p>
 <section id="desired-position-calculation">
 <h3>Desired Position Calculation<a class="headerlink" href="#desired-position-calculation" title="Link to this heading">#</a></h3>
 <p>The desired position $P_d$ is calculated from the leader’s state $x_l = [x_l, y_l, \theta_l]^T$ and specified distance $d$:</p>
-<p>$$
-P_d = \begin{bmatrix}
-x_l - d\cos(\theta_l) \
+<div class="math notranslate nohighlight">
+\[\begin{split}P_d = \begin{bmatrix}
+x_l - d\cos(\theta_l) \\
 y_l - d\sin(\theta_l)
-\end{bmatrix}
-$$</p>
+\end{bmatrix}\end{split}\]</div>
 </section>
 <section id="iterative-learning-control-ilc-update">
 <h3>Iterative Learning Control (ILC) Update<a class="headerlink" href="#iterative-learning-control-ilc-update" title="Link to this heading">#</a></h3>
 <p>Error vector:</p>
-<p>$$
-e(k) = \begin{bmatrix}
-x_f(k)-x_d(k) \
-y_f(k)-y_d(k) \
+<div class="math notranslate nohighlight">
+\[\begin{split}e(k) = \begin{bmatrix}
+x_f(k)-x_d(k) \\
+y_f(k)-y_d(k) \\
 \theta_f(k)-\theta_d(k)
-\end{bmatrix}
-$$</p>
+\end{bmatrix}\end{split}\]</div>
 <p>ILC control update:</p>
-<p>$$
-u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]
-$$</p>
+<div class="math notranslate nohighlight">
+\[u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]\]</div>
 <p>where:</p>
 <ul class="simple">
 <li><p>$\nu_{MPC}(k)$: optimal MPC control input.</p></li>
@@ -520,50 +517,65 @@ $$</p>
 <li><p>MPC parameters: $N=20, T=0.2,s, \omega_p=7, \omega_\theta=1, \omega_u=1$</p></li>
 <li><p>ILC learning matrix: $L = \mathrm{diag}([0.1, 0.1])$</p></li>
 </ul>
-<p><img alt="Comparison of Cost" src="../../../_images/cost_comparision.png" /></p>
-<p><img alt="Results" src="../../../_images/graph.png" /></p>
-</section>
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/LMPC-ILC/cost_comparision.png" alt="Comparison of Cost" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div><div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/LMPC-ILC/graph.png" alt="Results" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div></section>
 <section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <p>The hybrid MPC-ILC approach offers improved accuracy, robustness, and efficiency for leader-follower robotic tracking. Future work includes integrating with advanced control methods and testing in more complex scenarios.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/sainavaneet/MPC-ILC">Source Code</a></p></li>
 </ul>
-<iframe
-  width="746"
-  height="420"
-  src="https://www.youtube.com/embed/CdYn9fnHEcE"
-  title="Hybrid MPC-ILC Demo"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe></section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 20px; align-items: flex-start;">
+          <div style="flex: 1; min-width: 200px; max-width: 28%;">
+            <h2 class="title is-3" style="margin-bottom: 15px;">Hybrid MPC-ILC Demo</h2>
+            <div style="position: relative; padding-bottom: 177.78%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #000;">
+              <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/CdYn9fnHEcE?autoplay=1&mute=1&controls=0&loop=1&playlist=CdYn9fnHEcE&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section></section>
 <hr class="docutils" />
 <section id="comparison-between-mpc-and-lmpc-and-obstacle-avoidance">
 <h2>Comparison between MPC and LMPC and Obstacle Avoidance<a class="headerlink" href="#comparison-between-mpc-and-lmpc-and-obstacle-avoidance" title="Link to this heading">#</a></h2>
 <p>We included a safe set process to keep the follower robot at a fixed distance from the leader robot, and then we added obstacle avoidance to the follower robot using LMPC.</p>
-<iframe
-  width="746"
-  height="420"
-  src="https://www.youtube.com/embed/v308ep-aqd0"
-  title="LMPC with Obstacle Avoidance"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe><section id="testing-with-mpc">
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">LMPC with Obstacle Avoidance</h2>
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-top: 20px;">
+          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/v308ep-aqd0?autoplay=1&mute=1&controls=0&loop=1&playlist=v308ep-aqd0&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><section id="testing-with-mpc">
 <h3>Testing With MPC<a class="headerlink" href="#testing-with-mpc" title="Link to this heading">#</a></h3>
-<p><img alt="Testing with MPC" src="../../../_images/mpc.png" /></p>
-</section>
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/LMPC-ILC/mpc.png" alt="Testing with MPC" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div></section>
 <section id="testing-with-lmpc">
 <h3>Testing with LMPC<a class="headerlink" href="#testing-with-lmpc" title="Link to this heading">#</a></h3>
-<p><img alt="LMPC Result 1" src="../../../_images/lmpc.png" /><br />
-<img alt="LMPC Result 2" src="../../../_images/lmpc1.png" /><br />
-<img alt="LMPC Result 3" src="../../../_images/lmpc2.png" /></p>
-</section>
+<div style="display: flex; justify-content: center; gap: 1rem; margin: 1rem 0; flex-wrap: wrap;">
+  <img src="../../../_static/images/LMPC-ILC/lmpc.png" alt="LMPC Result 1" style="max-width: 30%; height: auto; flex: 1; min-width: 200px;">
+  <img src="../../../_static/images/LMPC-ILC/lmpc1.png" alt="LMPC Result 2" style="max-width: 30%; height: auto; flex: 1; min-width: 200px;">
+  <img src="../../../_static/images/LMPC-ILC/lmpc2.png" alt="LMPC Result 3" style="max-width: 30%; height: auto; flex: 1; min-width: 200px;">
+</div></section>
 <section id="results">
 <h3>Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h3>
-<p><img alt="Comparison Combined" src="../../../_images/comparision_combined_image.png" /></p>
-</section>
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/LMPC-ILC/comparision_combined_image.png" alt="Comparison Combined" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div></section>
 </section>
 </section>
 
