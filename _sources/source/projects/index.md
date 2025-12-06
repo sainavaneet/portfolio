@@ -1,6 +1,8 @@
 # Projects
 
+- [MambaVLA](./MambaVLA/index.md)
 - [QROOT](./QROOT/index.md)
+- [DiffDAIL](./DiffDAIL/index.md)
 - [Tissue-processing](./Tissue-processing/index.md)
 - [Actfranka](./Actfranka/index.md)
 - [Autonomus Harvesting](./Autonomus%20Harvesting/index.md)

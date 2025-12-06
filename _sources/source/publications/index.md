@@ -16,6 +16,19 @@
 
     <div class="publication-card">
       <div class="publication-header">
+        <div style="display: flex; gap: 0.5rem;">
+          <div class="publication-status published">Published</div>
+          <div class="publication-status poster">Poster</div>
+        </div>
+      </div>
+      <div class="publication-title">LegMamba: A Scalable and Efficient State Space model for Quadrapedal Locomotion</div>
+      <div class="publication-authors"><strong>Sai Navaneet</strong>, Manisha Lingala, Sangmoon Lee</div>
+      <div class="publication-venue">POSTER IROS 2025</div>
+      <div class="publication-date">October 2025</div>
+    </div>
+
+    <div class="publication-card">
+      <div class="publication-header">
         <div class="publication-status under-review">Under Review</div>
       </div>
       <div class="publication-title">QROOT: An Integrated Diffusion Transformer and Reinforcement Learning Approach for Quadrupedal Locomotion</div>

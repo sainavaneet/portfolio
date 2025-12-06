@@ -2,7 +2,6 @@
 
 <div align="center">
 
-![QROOT](architecture.png)
 </div>
 
 ## 📝 Abstract
@@ -23,7 +22,7 @@ To bridge the embodiment gap, we introduce a control stack that combines diffusi
 
 ### Algorithm Architecture
 
-![QROOT Architecture](architecture.png)
+<img src="../../../_static/images/QROOT/architecture.png" alt="QROOT Architecture" style="max-width: 45%; height: auto; display: block; margin: 0 auto;">
 
 ### Simulation Environments
 
