@@ -35,7 +35,7 @@ parts:
         sections:
             - file: source/Blog/Vision-Language-Action-Transformer/index.md
             - file: source/Blog/Actfranka/index   
-            # - file: source/Blog/isaacsim/index
-            # - file: source/Blog/go2_robot_isaacsim/index
+            - file: source/Blog/isaacsim/index
+            - file: source/Blog/go2_robot_isaacsim/index
 
       - file: source/Contact/index
