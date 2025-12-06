@@ -30,7 +30,7 @@ Over the years, I've honed my skills in software development tailored specifical
     </div>
     <div class="news-grid expanded">
 
-<div class="news-card conference" data-link="">
+<div class="news-card conference" data-link="https://sainavaneet.github.io/MambaVLA.gihub.io/">
         <div class="news-header">
           <div class="news-date">Nov 2025</div>
           <div class="news-icon">🎉</div>
@@ -38,7 +38,7 @@ Over the years, I've honed my skills in software development tailored specifical
         <div class="news-content">MambaVLA paper accepted at CCNC 2026 </div>
       </div>
 
-<div class="news-card poster" data-link="">
+<div class="news-card poster" data-link="https://sainavaneet.github.io/DAIL/">
         <div class="news-header">
           <div class="news-date">Oct 2025</div>
           <div class="news-icon">📊</div>
@@ -54,7 +54,7 @@ Over the years, I've honed my skills in software development tailored specifical
         <div class="news-content">Presented a poster at IROS 2025 </div>
       </div>
       
-<div class="news-card achievement" data-link="">
+<div class="news-card achievement" data-link="source/projects/MambaVLA/index.html">
         <div class="news-header">
           <div class="news-date">July 2025</div>
           <div class="news-icon">📚</div>
@@ -78,15 +78,16 @@ Over the years, I've honed my skills in software development tailored specifical
         <div class="news-content">Developing VLA Models using State Space Models like MAMBA</div>
       </div>
 
-<div class="news-card publication" data-link="https://neurips.cc/">
+<div class="news-card publication" data-link="source/projects/QROOT/index.html">
         <div class="news-header">
           <div class="news-date">May 2025</div>
           <div class="news-icon">📊</div>
         </div>
         <div class="news-content">Submitted a paper to NeurIPS</div>
+        <div class="news-content" style="font-weight: 400; font-size: 0.85rem; margin-top: 0.3rem; opacity: 0.8;">QROOT: An Integrated Diffusion Transformer and Reinforcement Learning Approach for Quadrupedal Locomotion</div>
       </div>
 
-<div class="news-card journal" data-link="https://www.sciencedirect.com/journal/engineering-applications-of-artificial-intelligence">
+<div class="news-card journal" data-link="source/projects/DiffDAIL/index.html">
         <div class="news-header">
           <div class="news-date">April 2025</div>
           <div class="news-icon">📚</div>
