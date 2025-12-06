@@ -32,15 +32,17 @@ EERC paper
 ## Tested for "S" Trajectory
 
 ```{raw} html
-<iframe
-  width="746"
-  height="420"
-  src="https://www.youtube.com/embed/6Dyg_3ztMKw"
-  title="S Trajectory Test"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/6Dyg_3ztMKw?autoplay=1&mute=1&controls=0&loop=1&playlist=6Dyg_3ztMKw&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 ```
 
 ## Abstract
@@ -53,25 +55,25 @@ This paper introduces a novel hybrid control strategy combining Model Predictive
 
 The state of the follower robot is:
 
-$$
+```{math}
 x_f = [x_f, y_f, \theta_f]^T
-$$
+```
 
 Control inputs:
 
-$$
+```{math}
 u = [v, \omega]^T
-$$
+```
 
 Discrete-time kinematic model:
 
-$$
+```{math}
 x_f(k + 1) = x_f(k) + \begin{bmatrix}
 v(k) \cos(\theta_f(k)) T \\
 v(k) \sin(\theta_f(k)) T \\
 \omega(k) T
 \end{bmatrix}
-$$
+```
 
 Where $T$ is the sampling time.
 
@@ -79,11 +81,12 @@ Where $T$ is the sampling time.
 
 The MPC minimizes the following cost function over a finite horizon $N$:
 
-$$
+```{math}
 J = \sum_{k=0}^{N-1}\left[\omega_p\|P_f(k)-P_d(k)\|^2 + \omega_\theta(\theta_f(k)-\theta_d(k))^2 + \omega_u\|u(k)\|^2\right]
-$$
+```
 
 where:
+
 - $P_f(k) = [x_f(k), y_f(k)]^T$: position of follower.
 - $P_d(k), \theta_d(k)$: desired position and orientation.
 - $\omega_p, \omega_\theta, \omega_u$: weights for position, orientation errors, and control effort.
@@ -92,32 +95,33 @@ where:
 
 The desired position $P_d$ is calculated from the leader's state $x_l = [x_l, y_l, \theta_l]^T$ and specified distance $d$:
 
-$$
+```{math}
 P_d = \begin{bmatrix}
 x_l - d\cos(\theta_l) \\
 y_l - d\sin(\theta_l)
 \end{bmatrix}
-$$
+```
 
 ### Iterative Learning Control (ILC) Update
 
 Error vector:
 
-$$
+```{math}
 e(k) = \begin{bmatrix}
 x_f(k)-x_d(k) \\
 y_f(k)-y_d(k) \\
 \theta_f(k)-\theta_d(k)
 \end{bmatrix}
-$$
+```
 
 ILC control update:
 
-$$
+```{math}
 u_{ILC}(k)=\nu_{MPC}(k)+L[e(k)-e(k-1)]
-$$
+```
 
 where:
+
 - $\nu_{MPC}(k)$: optimal MPC control input.
 - $L$: learning matrix.
 - $e(k-1)$: error from previous iteration.
@@ -157,9 +161,17 @@ Experiments with TurtleBot 3 robots validated the hybrid MPC-ILC method, demonst
 - MPC parameters: $N=20, T=0.2\,s, \omega_p=7, \omega_\theta=1, \omega_u=1$
 - ILC learning matrix: $L = \mathrm{diag}([0.1, 0.1])$
 
-![Comparison of Cost](cost_comparision.png)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/LMPC-ILC/cost_comparision.png" alt="Comparison of Cost" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
-![Results](graph.png)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/LMPC-ILC/graph.png" alt="Results" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 ## Conclusion
 
@@ -168,15 +180,22 @@ The hybrid MPC-ILC approach offers improved accuracy, robustness, and efficiency
 - [Source Code](https://github.com/sainavaneet/MPC-ILC)
 
 ```{raw} html
-<iframe
-  width="746"
-  height="420"
-  src="https://www.youtube.com/embed/CdYn9fnHEcE"
-  title="Hybrid MPC-ILC Demo"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 20px; align-items: flex-start;">
+          <div style="flex: 1; min-width: 200px; max-width: 28%;">
+            <h2 class="title is-3" style="margin-bottom: 15px;">Hybrid MPC-ILC Demo</h2>
+            <div style="position: relative; padding-bottom: 177.78%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #000;">
+              <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/CdYn9fnHEcE?autoplay=1&mute=1&controls=0&loop=1&playlist=CdYn9fnHEcE&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 ```
 
 ---
@@ -186,30 +205,45 @@ The hybrid MPC-ILC approach offers improved accuracy, robustness, and efficiency
 We included a safe set process to keep the follower robot at a fixed distance from the leader robot, and then we added obstacle avoidance to the follower robot using LMPC.
 
 ```{raw} html
-<iframe
-  width="746"
-  height="420"
-  src="https://www.youtube.com/embed/v308ep-aqd0"
-  title="LMPC with Obstacle Avoidance"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">LMPC with Obstacle Avoidance</h2>
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-top: 20px;">
+          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/v308ep-aqd0?autoplay=1&mute=1&controls=0&loop=1&playlist=v308ep-aqd0&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 ```
 
 ### Testing With MPC
 
-![Testing with MPC](mpc.png)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/LMPC-ILC/mpc.png" alt="Testing with MPC" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
 ### Testing with LMPC
 
-![LMPC Result 1](lmpc.png)  
-![LMPC Result 2](lmpc1.png)  
-![LMPC Result 3](lmpc2.png)
+```{raw} html
+<div style="display: flex; justify-content: center; gap: 1rem; margin: 1rem 0; flex-wrap: wrap;">
+  <img src="../../../_static/images/LMPC-ILC/lmpc.png" alt="LMPC Result 1" style="max-width: 30%; height: auto; flex: 1; min-width: 200px;">
+  <img src="../../../_static/images/LMPC-ILC/lmpc1.png" alt="LMPC Result 2" style="max-width: 30%; height: auto; flex: 1; min-width: 200px;">
+  <img src="../../../_static/images/LMPC-ILC/lmpc2.png" alt="LMPC Result 3" style="max-width: 30%; height: auto; flex: 1; min-width: 200px;">
+</div>
+```
 
 
 
 ### Results
 
-![Comparison Combined](comparision/comparision_combined_image.png)
+```{raw} html
+<div style="text-align: center; margin: 1rem 0;">
+  <img src="../../../_static/images/LMPC-ILC/comparision_combined_image.png" alt="Comparison Combined" style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+</div>
+```
 
