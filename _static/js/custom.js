@@ -269,6 +269,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize experience page
     initializeExperiencePage();
+    
+    // Initialize projects page
+    initializeProjectsPage();
 });
 
 function initializeTopNavbar() {
@@ -895,6 +898,24 @@ function updateVideoAutoplay() {
             }
         });
     });
+}
+
+// ============================================
+// Projects Page JavaScript
+// ============================================
+
+function initializeProjectsPage() {
+    console.log('Initializing projects page...');
+    
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    if (projectCards.length === 0) {
+        // Projects page not loaded, skip initialization
+        return;
+    }
+    
+    // Minimal style - no animations needed
+    // Cards are visible by default
 }
 
 // ============================================

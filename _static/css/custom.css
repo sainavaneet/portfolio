@@ -2189,3 +2189,116 @@ body .top-navbar .navbar-menu a[href*="contact"].active {
 .timeline-item:nth-child(5) { animation-delay: 0.5s; }
 .timeline-item:nth-child(6) { animation-delay: 0.6s; }
 
+/* ============================================
+   Projects Page Styles - Simple Black List
+   ============================================ */
+
+/* Projects List Container */
+.projects-list-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.projects-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-item {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.project-item:last-child {
+    border-bottom: none;
+}
+
+.project-link {
+    display: block;
+    padding: 1.25rem 0;
+    color: #000000;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.project-link:hover {
+    opacity: 0.6;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.project-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #000000;
+    line-height: 1.4;
+    display: inline-block;
+}
+
+.project-name::after {
+    content: ' →';
+    margin-left: 0.3rem;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.project-description {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin: 0;
+    color: #666666;
+    line-height: 1.5;
+}
+
+/* Dark Mode Support for Projects Page */
+[data-theme="dark"] .project-item,
+.theme-dark .project-item,
+.dark .project-item {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .project-link,
+.theme-dark .project-link,
+.dark .project-link {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .project-name,
+.theme-dark .project-name,
+.dark .project-name {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .project-description,
+.theme-dark .project-description,
+.dark .project-description {
+    color: #cccccc;
+}
+
+/* Responsive Design for Projects Page */
+@media (max-width: 768px) {
+    .projects-list-container {
+        padding: 0 15px;
+    }
+    
+    .project-link {
+        padding: 1rem 0;
+    }
+    
+    .project-name {
+        font-size: 1rem;
+    }
+    
+    .project-description {
+        font-size: 0.85rem;
+    }
+}
+
