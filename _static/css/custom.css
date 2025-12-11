@@ -6,20 +6,10 @@
     }
 }
 
-/* Custom Cursor - Circle */
+/* Custom Cursor - Circle - Disabled */
 .circle {
-    --circle-size: 35px;
-    position: fixed;
-    height: var(--circle-size);
-    width: var(--circle-size);
-    border: 2.5px solid var(--pst-color-text-base);
-    border-radius: 100%;
-    top: calc(var(--circle-size) / 2 * -1);
-    left: calc(var(--circle-size) / 2 * -1);
-    pointer-events: none;
-    z-index: 9999;
-    transition: border-color 0.2s ease;
-    opacity: 0.6;
+    display: none !important;
+    visibility: hidden !important;
 }
 
 [data-theme="dark"] .circle,

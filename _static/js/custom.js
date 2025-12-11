@@ -26,6 +26,9 @@ function initializeCustomCursor() {
         document.body.appendChild(circleElement);
     }
 
+    // Detect Safari browser
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    
     // Create objects to track mouse position and custom cursor position
     const mouse = { x: 0, y: 0 };
     const previousMouse = { x: 0, y: 0 };
@@ -35,10 +38,21 @@ function initializeCustomCursor() {
     let currentScale = 0;
     let currentAngle = 0;
 
+    // Get browser zoom level (Safari-specific handling)
+    function getZoomLevel() {
+        if (isSafari) {
+            // Safari zoom detection
+            const rect = document.body.getBoundingClientRect();
+            return window.outerWidth / window.innerWidth;
+        }
+        return window.devicePixelRatio || 1;
+    }
+
     // Update mouse position on the 'mousemove' event
     window.addEventListener('mousemove', (e) => {
-        mouse.x = e.x;
-        mouse.y = e.y;
+        // Use clientX/clientY for better Safari compatibility, especially with zoom
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
     });
 
     // Smoothing factor for cursor movement speed (0 = smoother, 1 = instant)
@@ -51,8 +65,17 @@ function initializeCustomCursor() {
         circle.x += (mouse.x - circle.x) * speed;
         circle.y += (mouse.y - circle.y) * speed;
 
-        // Create a transformation string for cursor translation
-        const translateTransform = `translate(${circle.x}px, ${circle.y}px)`;
+        // For Safari, use simpler transform that works better with zoom
+        let translateTransform;
+        if (isSafari) {
+            // Safari: Use translate with explicit pixel values, accounting for zoom
+            const circleSize = parseFloat(getComputedStyle(circleElement).getPropertyValue('--circle-size')) || 35;
+            const halfSize = circleSize / 2;
+            translateTransform = `translate3d(${circle.x - halfSize}px, ${circle.y - halfSize}px, 0)`;
+        } else {
+            // Other browsers: Use centered transform
+            translateTransform = `translate3d(${circle.x}px, ${circle.y}px, 0) translate(-50%, -50%)`;
+        }
 
         // SQUEEZE
         // 1. Calculate the change in mouse position (deltaMouse)
@@ -87,7 +110,9 @@ function initializeCustomCursor() {
         // 3. Create a transformation string for rotation
         const rotateTransform = `rotate(${currentAngle}deg)`;
 
-        // Apply all transformations to the circle element in a specific order: translate -> rotate -> scale
+        // Apply all transformations to the circle element
+        // For Safari: translate -> rotate -> scale
+        // For others: translate -> rotate -> scale (with translate centering)
         circleElement.style.transform = `${translateTransform} ${rotateTransform} ${scaleTransform}`;
 
         // Request the next frame to continue the animation
@@ -223,11 +248,17 @@ function initializeTrailCursor() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing modern news timeline...');
     
-    // Initialize custom cursor (circle)
-    initializeCustomCursor();
+    // Initialize custom cursor (circle) - disabled
+    // initializeCustomCursor();
     
     // Initialize trail cursor (canvas-based) - disabled
     // initializeTrailCursor();
+    
+    // Hide any existing custom cursor elements
+    const circleElement = document.querySelector('.circle');
+    if (circleElement) {
+        circleElement.style.display = 'none';
+    }
     
     // Force light theme after DOM is ready
     setTimeout(function() {
