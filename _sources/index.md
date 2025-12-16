@@ -1,8 +1,26 @@
+<style>
+.profile-avatar {
+  border-radius: 50% !important;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),
+              0 2px 10px 0 rgba(0,0,0,0.12) !important;
+
+  width: 200px;
+  height: 200px;
+  max-width: 100%;
+  object-fit: cover;
+
+  box-sizing: border-box;
+  border-style: none;
+  vertical-align: middle;
+}
+</style>
 
 <div style="display: flex; align-items: flex-start; gap: 2rem; margin: 4rem 0 2rem 0;">
+  
   <div style="flex-shrink: 0; text-align: center;">
-    <img src="_static/profile.JPEG" alt="Avatar"
-         style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover;" />
+    <img src="_static/profile.JPEG"
+         alt="Avatar"
+         class="profile-avatar" />
     <br />
     <span style="font-size: 1.8em; font-weight: bold; font-family: Georgia, serif;">
       Sai Navaneet
@@ -25,6 +43,7 @@
       ideas into reliable, deployable robotic solutions that advance intelligent automation.
     </p>
   </div>
+
 </div>
 
 
