@@ -37,7 +37,7 @@ myst_enable_extensions = [
     "smartquotes",
     "strikethrough",
     "substitution",
-    "tasklist"
+    "tasklist",
 ]
 
 
@@ -50,6 +50,9 @@ myst_enable_extensions = [
 html_theme = "sphinx_book_theme"
 html_static_path = ['_static']
 templates_path = ["_templates"]
+
+# Browser tab / HTML <title>
+html_title = "Sai Navaneet – Portfolio"
 
 
 external_toc_path = "_toc.yml"  # Optional, default is _toc.yml
