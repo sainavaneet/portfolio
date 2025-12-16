@@ -3,45 +3,66 @@
   border-radius: 50% !important;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),
               0 2px 10px 0 rgba(0,0,0,0.12) !important;
-
-  width: 200px;
-  height: 200px;
-  max-width: 100%;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
+}
 
-  box-sizing: border-box;
-  border-style: none;
-  vertical-align: middle;
+.profile-name {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--global-text-color);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.profile-degree {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  color: var(--global-text-color-light);
+  margin-bottom: 1.2rem;
+}
+
+.profile-bio {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--global-text-color);
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 </style>
 
-<div style="display: flex; align-items: flex-start; gap: 2rem; margin: 4rem 0 2rem 0;">
-  
-  <div style="flex-shrink: 0; text-align: center;">
-    <img src="_static/profile.JPEG"
-         alt="Avatar"
-         class="profile-avatar" />
-    <br />
-    <span style="font-size: 1.8em; font-weight: bold; font-family: Georgia, serif;">
-      Sai Navaneet
-    </span>
-    <br />
-    <span style="font-size: 1.2em; color: gray; font-family: 'Helvetica Neue', sans-serif;">
+<div style="display: flex; align-items: center; gap: 1.5rem; margin: 4rem 0 2rem 0;">
+
+  <!-- LEFT: TEXT -->
+  <div style="flex: 1;">
+    <h1 class="profile-name">Sai Navaneet</h1>
+    <div class="profile-degree">
       M.S. in Electronics & Electrical Engineering
-    </span>
+    </div>
+
+<p class="profile-bio">
+  I have graduated from Kyungpook National University with a Master’s degree in Electronics and Electrical Engineering,
+  with a strong focus on automation and robotics. My background is rooted in electronic systems, control, and embedded
+  technologies, developed through hands-on research and real-world robotic deployments.
+</p>
+
+<p class="profile-bio">
+  My work centers on robotic manipulation and autonomous systems, where I develop robotics software and
+  learning-based models that bridge perception, decision-making, and control. I enjoy transforming complex
+  ideas into reliable, deployable robotic solutions that advance intelligent automation.
+</p>
   </div>
 
-  <div style="flex: 1;">
-    <p>
-      I have graduated with a Master’s degree in Electronics and Electrical Engineering, with a strong focus on
-      automation and robotics. My background is rooted in electronic systems, control, and embedded technologies,
-      developed through hands-on research and real-world robotic deployments.
-    </p>
-    <p>
-      My work centers on robotic manipulation and autonomous systems, where I develop robotics software and
-      learning-based models that bridge perception, decision-making, and control. I enjoy transforming complex
-      ideas into reliable, deployable robotic solutions that advance intelligent automation.
-    </p>
+  <!-- RIGHT: IMAGE -->
+  <div style="flex-shrink: 0; text-align: center; margin-top: -1rem;">
+    <img src="_static/profile.JPEG"
+         alt="Sai Navaneet"
+         class="profile-avatar" />
   </div>
 
 </div>
