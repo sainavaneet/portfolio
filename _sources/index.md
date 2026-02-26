@@ -60,7 +60,7 @@
 
   <!-- RIGHT: IMAGE -->
   <div style="flex-shrink: 0; text-align: center; margin-top: -1rem;">
-    <img src="_static/profile.JPEG"
+    <img src="_static/profile3.png"
          alt="Sai Navaneet"
          class="profile-avatar" />
   </div>
