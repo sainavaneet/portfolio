@@ -1,18 +1,16 @@
 // Modern News Timeline JavaScript
 
-// Force light theme always (before DOMContentLoaded)
+// Force DARK theme always (graphify-style redesign)
 (function() {
     try {
-        // Always set to light theme
-        document.documentElement.setAttribute('data-theme', 'light');
-        document.documentElement.setAttribute('data-bs-theme', 'light');
-        document.documentElement.classList.remove('theme-dark', 'dark');
-        document.body.classList.remove('dark', 'theme-dark');
-        // Save light theme preference
-        localStorage.setItem('theme', 'light');
-        localStorage.setItem('sphinx-theme', 'light');
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+        document.documentElement.classList.add('graphify');
+        document.body && document.body.classList.add('graphify');
+        localStorage.setItem('theme', 'dark');
+        localStorage.setItem('sphinx-theme', 'dark');
     } catch (e) {
-        console.log('Could not set light theme');
+        console.log('Could not set dark theme');
     }
 })();
 
@@ -263,15 +261,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Force light theme after DOM is ready
     setTimeout(function() {
         try {
-            // Always ensure light theme is set
-            document.documentElement.setAttribute('data-theme', 'light');
-            document.documentElement.setAttribute('data-bs-theme', 'light');
-            document.documentElement.classList.remove('theme-dark', 'dark');
-            document.body.classList.remove('dark', 'theme-dark');
-            localStorage.setItem('theme', 'light');
-            localStorage.setItem('sphinx-theme', 'light');
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+            document.documentElement.classList.add('graphify');
+            document.body && document.body.classList.add('graphify');
+            localStorage.setItem('theme', 'dark');
+            localStorage.setItem('sphinx-theme', 'dark');
         } catch (e) {
-            console.log('Could not enforce light theme');
+            console.log('Could not set dark theme');
         }
     }, 100);
     
@@ -292,51 +289,62 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize projects page
     initializeProjectsPage();
-    
-    // Continuously enforce light theme (watch for any theme changes)
+
+    // --- Home page v2 (premium animated) ---
+    initScrollProgress();
+    initScrollReveal();
+    initStatCounters();
+    initGraphifyCursor();
+    // Synchronous, light: navbar highlight, back/forward arrows, detail decor.
+    initNavbarActive();
+    initExternalLinkArrows();
+    initDetailPageDecor();
+    initScrollToTop();
+    initChangelogLinks();
+    initProjectFilter();
+    initImagePerformance();
+
+    // Deferred to next idle frame so initial paint isn't blocked.
+    const idle = window.requestIdleCallback || function (cb) { return setTimeout(cb, 200); };
+    idle(function () {
+        decodeHeroName();
+        initAvatarParallax();
+        runTerminalLoop();
+        initLiveGithubStars();
+    });
+    // Disabled for graphify aesthetic — cards stay flat with border-color hover only.
+    // initMagneticCards();
+    // initCardSpotlight();
+
+    // Continuously enforce dark theme (graphify redesign)
     setInterval(function() {
         try {
             const currentTheme = document.documentElement.getAttribute('data-theme');
-            const hasDarkClass = document.documentElement.classList.contains('theme-dark') || 
-                                document.documentElement.classList.contains('dark');
-            
-            if (currentTheme !== 'light' || hasDarkClass) {
-                document.documentElement.setAttribute('data-theme', 'light');
-                document.documentElement.setAttribute('data-bs-theme', 'light');
-                document.documentElement.classList.remove('theme-dark', 'dark');
-                document.body.classList.remove('dark', 'theme-dark');
-                localStorage.setItem('theme', 'light');
-                localStorage.setItem('sphinx-theme', 'light');
+            if (currentTheme !== 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.documentElement.setAttribute('data-bs-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                localStorage.setItem('sphinx-theme', 'dark');
             }
         } catch (e) {
             // Silently handle errors
         }
-    }, 500);
-    
-    // Use MutationObserver to watch for theme attribute changes
+    }, 800);
+
+    // Watch for theme attribute changes — re-pin to dark
     const themeObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
-            if (mutation.type === 'attributes' && 
+            if (mutation.type === 'attributes' &&
                 (mutation.attributeName === 'data-theme' || mutation.attributeName === 'data-bs-theme')) {
                 const theme = document.documentElement.getAttribute('data-theme');
-                if (theme !== 'light') {
-                    document.documentElement.setAttribute('data-theme', 'light');
-                    document.documentElement.setAttribute('data-bs-theme', 'light');
-                    document.documentElement.classList.remove('theme-dark', 'dark');
-                    document.body.classList.remove('dark', 'theme-dark');
-                }
-            }
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                if (document.documentElement.classList.contains('theme-dark') || 
-                    document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('theme-dark', 'dark');
-                    document.body.classList.remove('dark', 'theme-dark');
+                if (theme !== 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
                 }
             }
         });
     });
-    
-    // Start observing
+
     themeObserver.observe(document.documentElement, {
         attributes: true,
         attributeFilter: ['data-theme', 'data-bs-theme', 'class']
@@ -1015,3 +1023,738 @@ function initializeExperiencePage() {
         });
     });
 }
+
+// ============================================================
+// HOME PAGE V2 — premium animated helpers
+// ============================================================
+
+function _prefersReducedMotion() {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+// Top scroll-progress bar — updates --scroll CSS variable.
+function initScrollProgress() {
+    const bar = document.querySelector('.scroll-progress__bar');
+    if (!bar) return;
+    if (_prefersReducedMotion()) { bar.style.transform = 'scaleX(1)'; return; }
+
+    let ticking = false;
+    function update() {
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - window.innerHeight;
+        const pct = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+        bar.style.setProperty('--scroll', pct.toFixed(4));
+        ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+        if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+        }
+    }, { passive: true });
+    update();
+}
+
+// Generic IntersectionObserver-driven reveal for any element with [data-reveal].
+function initScrollReveal() {
+    const targets = document.querySelectorAll('[data-reveal]');
+    if (!targets.length) return;
+
+    if (_prefersReducedMotion() || !('IntersectionObserver' in window)) {
+        targets.forEach(el => el.classList.add('reveal--in'));
+        return;
+    }
+
+    const cardLikeStagger = new WeakMap();
+    // Compute per-element delay if not specified (cascade based on order within parent).
+    targets.forEach(el => {
+        if (el.dataset.revealDelay) return;
+        const parent = el.parentElement;
+        if (!parent) return;
+        const siblings = Array.from(parent.querySelectorAll(':scope > [data-reveal]'));
+        const idx = siblings.indexOf(el);
+        if (idx >= 0 && siblings.length > 1) {
+            cardLikeStagger.set(el, idx * 60);
+        }
+    });
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const delay = parseInt(el.dataset.revealDelay || cardLikeStagger.get(el) || 0, 10);
+            if (delay > 0) {
+                el.style.transitionDelay = delay + 'ms';
+            }
+            // Defer a tick to ensure transition starts after delay assignment.
+            requestAnimationFrame(() => el.classList.add('reveal--in'));
+            io.unobserve(el);
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    targets.forEach(el => io.observe(el));
+}
+
+// Stat counters: animate [data-count] number from 0 to target the first time it scrolls in.
+function initStatCounters() {
+    const nums = document.querySelectorAll('.stat-num[data-count]');
+    if (!nums.length) return;
+
+    if (_prefersReducedMotion() || !('IntersectionObserver' in window)) {
+        nums.forEach(n => { n.textContent = n.dataset.count; });
+        return;
+    }
+
+    function animateTo(el, target) {
+        const duration = 900;
+        const start = performance.now();
+        function tick(t) {
+            const p = Math.min(1, (t - start) / duration);
+            // easeOutCubic
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(target * eased).toString();
+            if (p < 1) requestAnimationFrame(tick);
+            else el.textContent = target.toString();
+        }
+        requestAnimationFrame(tick);
+    }
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const target = parseInt(el.dataset.count, 10);
+            if (isNaN(target)) return;
+            animateTo(el, target);
+            io.unobserve(el);
+        });
+    }, { threshold: 0.5 });
+
+    nums.forEach(n => io.observe(n));
+}
+
+// Click-ripple animation only (native cursor stays).
+function initGraphifyCursor() {
+    if (_prefersReducedMotion()) return;
+    if ('ontouchstart' in window) return;
+
+    window.addEventListener('pointerdown', function (e) {
+        if (e.pointerType && e.pointerType !== 'mouse') return;
+        // Suppress the ripple inside the terminal so it stays "dead".
+        if (e.target && e.target.closest && e.target.closest('.terminal-window')) return;
+
+        // Outer expanding ring
+        const r = document.createElement('div');
+        r.className = 'gp-cursor-ripple';
+        r.style.left = e.clientX + 'px';
+        r.style.top  = e.clientY + 'px';
+        document.body.appendChild(r);
+        setTimeout(function () { r.remove(); }, 700);
+
+        // Inner amber flash
+        const f = document.createElement('div');
+        f.className = 'gp-cursor-flash';
+        f.style.left = e.clientX + 'px';
+        f.style.top  = e.clientY + 'px';
+        document.body.appendChild(f);
+        setTimeout(function () { f.remove(); }, 500);
+    }, { passive: true });
+}
+
+// Cursor-following spotlight glow on news cards (uses CSS vars).
+function initCardSpotlight() {
+    if (_prefersReducedMotion()) return;
+    if (!window.matchMedia('(min-width: 768px)').matches) return;
+
+    const cards = document.querySelectorAll('.news-card');
+    cards.forEach(card => {
+        card.addEventListener('pointermove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const mx = ((e.clientX - rect.left) / rect.width) * 100;
+            const my = ((e.clientY - rect.top) / rect.height) * 100;
+            card.style.setProperty('--mx', mx.toFixed(1) + '%');
+            card.style.setProperty('--my', my.toFixed(1) + '%');
+        });
+    });
+}
+
+// Subtle 3D tilt on news cards (cursor-tracked, max ±4°, only on wide viewports).
+function initMagneticCards() {
+    if (_prefersReducedMotion()) return;
+    if (!window.matchMedia('(min-width: 768px)').matches) return;
+
+    const cards = document.querySelectorAll('.news-card');
+    cards.forEach(card => {
+        let rafId = null;
+        card.style.transformStyle = 'preserve-3d';
+        card.style.willChange = 'transform';
+
+        function onMove(e) {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width;  // 0..1
+            const y = (e.clientY - rect.top) / rect.height;
+            const rotY = (x - 0.5) * 8;   // ±4°
+            const rotX = (0.5 - y) * 8;
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(() => {
+                card.style.transform =
+                    `perspective(700px) translateY(-3px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
+            });
+        }
+        function reset() {
+            if (rafId) cancelAnimationFrame(rafId);
+            card.style.transform = '';
+        }
+        card.addEventListener('pointermove', onMove);
+        card.addEventListener('pointerleave', reset);
+        card.addEventListener('pointercancel', reset);
+    });
+}
+
+// Graphify-style "decode" hero text — scrambled Unicode glyphs resolve into real text.
+function decodeHeroName() {
+    if (_prefersReducedMotion()) return;
+    const words = document.querySelectorAll('.hero-name .hero-word');
+    if (!words.length) return;
+
+    const CHARS = 'ΨΩΣ∇λπ∀∃ΔΦΘΞΛΣ01▓░▄▀█◆◇▲▼';
+    const totalMs = 1100;
+    const fps = 50; // ms between frames (~20 fps)
+    const frames = Math.round(totalMs / fps);
+
+    function rand(text) {
+        return text.split('').map(c => (c === ' ' || c === '\n') ? c : CHARS[(Math.random() * CHARS.length) | 0]).join('');
+    }
+
+    words.forEach((el, wi) => {
+        const realText = el.textContent;
+        // Mark the real text on the parent for accessibility (the h1 already has aria-label).
+        el.dataset.real = realText;
+        // Scramble immediately so the first paint shows random glyphs, not the actual name.
+        el.textContent = rand(realText);
+
+        const startDelay = 260 + wi * 230;
+        setTimeout(() => {
+            let f = 0;
+            const iv = setInterval(() => {
+                const p = f / frames;
+                el.textContent = realText.split('').map((c, i) => {
+                    if (c === ' ' || c === '\n') return c;
+                    // Reveal characters left-to-right based on progress.
+                    if (i / realText.length < p * 1.4) return c;
+                    return CHARS[(Math.random() * CHARS.length) | 0];
+                }).join('');
+                f++;
+                if (f >= frames) {
+                    el.textContent = realText;
+                    clearInterval(iv);
+                }
+            }, fps);
+        }, startDelay);
+    });
+}
+
+// Auto-append ↗ arrow on external links in the article body.
+function initExternalLinkArrows() {
+    const article = document.querySelector('.bd-article');
+    if (!article) return;
+    const links = article.querySelectorAll('a[href^="http"]');
+    links.forEach(a => {
+        try {
+            // Skip if already styled (badges, buttons, status pills, internal-only routes, or already has arrow).
+            if (a.matches('.live-badge, .btn-ghost, .resume-cta, .proj-pill, .resume-open, .nav-link, .pst-navbar-icon')) return;
+            if (a.dataset.noArrow === 'true') return;
+            if (a.querySelector('img, svg')) return;
+            const text = (a.textContent || '').trim();
+            if (text.endsWith('↗') || text.endsWith('→')) return;
+            // Same-origin links don't need the arrow either
+            const url = new URL(a.href, window.location.href);
+            if (url.host === window.location.host) return;
+            // Set target so external links open in a new tab
+            if (!a.target) a.target = '_blank';
+            if (!a.rel) a.rel = 'noopener';
+            a.classList.add('has-ext-arrow');
+        } catch (e) { /* ignore malformed URLs */ }
+    });
+}
+
+// Live GitHub stars — fetch user repos and sum stargazers; inject into [data-gh-stars].
+function initLiveGithubStars() {
+    const targets = document.querySelectorAll('[data-gh-stars]');
+    if (!targets.length) return;
+    const cacheKey = 'gh_stars_v3';
+    const ttl = 60 * 60 * 1000; // 1h
+
+    function apply(stars, repos) {
+        targets.forEach(el => {
+            const what = el.dataset.ghStars;
+            if (what === 'repos') el.textContent = repos;
+            else el.textContent = stars >= 1000 ? (stars / 1000).toFixed(1) + 'k' : stars;
+        });
+    }
+
+    try {
+        const cached = JSON.parse(sessionStorage.getItem(cacheKey) || 'null');
+        if (cached && Date.now() - cached.ts < ttl) {
+            apply(cached.stars, cached.repos);
+            return;
+        }
+    } catch (e) { /* ok */ }
+
+    fetch('https://api.github.com/users/sainavaneet/repos?per_page=100&sort=updated')
+        .then(r => r.ok ? r.json() : Promise.reject(r.status))
+        .then(repos => {
+            const stars = repos.reduce((s, r) => s + (r.stargazers_count || 0), 0);
+            const count = repos.length;
+            try { sessionStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), stars, repos: count })); } catch (e) {}
+            apply(stars, count);
+        })
+        .catch(() => {
+            // Silent fail; targets keep their fallback text.
+        });
+}
+
+// Highlight the currently-active top-nav link.
+function initNavbarActive() {
+    const path = window.location.pathname.replace(/\/$/, '').toLowerCase();
+    const links = document.querySelectorAll('.top-navbar .navbar-menu a[href]');
+    if (!links.length) return;
+    let best = null, bestLen = -1;
+    links.forEach(a => {
+        try {
+            const href = a.getAttribute('href') || '';
+            if (!href || href === '#') return;
+            const url = new URL(a.href, window.location.href);
+            const linkPath = url.pathname.replace(/\/$/, '').toLowerCase();
+            if (linkPath && (path === linkPath || (linkPath !== '' && path.startsWith(linkPath)))) {
+                if (linkPath.length > bestLen) { bestLen = linkPath.length; best = a; }
+            }
+        } catch (e) {}
+    });
+    // Special-case root → "Home"
+    if (!best && (path === '' || path === '/index.html' || path.endsWith('/index.html'))) {
+        links.forEach(a => {
+            const txt = (a.textContent || '').trim().toLowerCase();
+            if (txt === 'home') best = a;
+        });
+    }
+    if (best) best.classList.add('is-current');
+}
+
+// Image perf — add loading=lazy + decoding=async to every <img> that doesn't have them.
+// Above-the-fold hero img (profile3.png / favicon) gets fetchpriority=high.
+function initImagePerformance() {
+    const imgs = document.querySelectorAll('img');
+    imgs.forEach((img, idx) => {
+        if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+        if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
+        // First image (typically the hero avatar on the home page) is critical
+        if (idx === 0 && img.closest('.avatar-svg-frame, .hero-avatar')) {
+            img.setAttribute('loading', 'eager');
+            img.setAttribute('fetchpriority', 'high');
+        }
+    });
+}
+
+// Detail page decor — adds breadcrumb + section-tag to inner project / blog / publication pages.
+function initDetailPageDecor() {
+    const path = window.location.pathname || '';
+    if (!/\/source\/(projects|Blog|publications)\//.test(path)) return;
+    // Skip the index pages themselves
+    const segments = path.split('/').filter(Boolean);
+    const last = segments[segments.length - 1] || '';
+    const parent = segments[segments.length - 2] || '';
+    if ((last === 'index.html' || last === '') &&
+        (parent === 'projects' || parent === 'Blog' || parent === 'publications')) {
+        return; // we're on the index page, not a detail page
+    }
+
+    let area = 'detail';
+    let backHref = '../index.html';
+    let backLabel = '↩ all';
+    if (path.indexOf('/source/projects/') !== -1) {
+        area = 'projects';
+        backHref = '../index.html';
+        backLabel = '↩ all projects';
+    } else if (path.indexOf('/source/Blog/') !== -1) {
+        area = 'blog';
+        backHref = '../index.html';
+        backLabel = '↩ all posts';
+    } else if (path.indexOf('/source/publications/') !== -1) {
+        area = 'publications';
+        backHref = '../index.html';
+        backLabel = '↩ all publications';
+    }
+
+    document.body.classList.add('is-detail-page', 'is-' + area + '-detail');
+
+    const article = document.querySelector('.bd-article');
+    if (!article) return;
+    if (article.querySelector('.detail-toolbar')) return;
+
+    // Build a small toolbar with breadcrumb + section tag
+    const bar = document.createElement('div');
+    bar.className = 'detail-toolbar';
+    const tagLabel =
+        area === 'projects'     ? '// PROJECT_DETAIL' :
+        area === 'blog'         ? '// BLOG_POST'      :
+        area === 'publications' ? '// PUBLICATION'    : '// DETAIL';
+    bar.innerHTML =
+        '<a class="detail-back" href="' + backHref + '">' + backLabel + '</a>' +
+        '<span class="detail-section-tag">' + tagLabel + '</span>';
+
+    // Insert right at the top of the article body
+    article.insertBefore(bar, article.firstChild);
+}
+
+// Hero avatar parallax — subtle 3D tilt tracking the cursor.
+function initAvatarParallax() {
+    if (_prefersReducedMotion()) return;
+    if (!window.matchMedia('(min-width: 900px)').matches) return;
+    const frame = document.querySelector('.avatar-svg-frame');
+    if (!frame) return;
+
+    let targetX = 0, targetY = 0, curX = 0, curY = 0;
+    let rafId = null;
+    const MAX = 8; // degrees
+
+    function tick() {
+        curX += (targetX - curX) * 0.12;
+        curY += (targetY - curY) * 0.12;
+        frame.style.transform = 'perspective(800px) rotateX(' + curY.toFixed(2) + 'deg) rotateY(' + curX.toFixed(2) + 'deg)';
+        rafId = requestAnimationFrame(tick);
+    }
+    tick();
+
+    window.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth) * 2 - 1;   // -1..1
+        const y = (e.clientY / window.innerHeight) * 2 - 1;
+        targetX = x * MAX;
+        targetY = -y * MAX;
+    }, { passive: true });
+
+    window.addEventListener('mouseleave', () => { targetX = 0; targetY = 0; });
+}
+
+
+// Boot sequence — once-per-session terminal-style intro overlay.
+function initBootSequence() {
+    if (_prefersReducedMotion()) return;
+    try { if (sessionStorage.getItem('boot_shown_v3')) return; } catch (e) { /* ok */ }
+    if (document.querySelector('.boot-screen')) return;
+
+    const lines = [
+        { txt: '$ ./navaneet --boot', cls: 'b-cmd' },
+        { txt: '[INFO] loading portfolio modules…', cls: 'b-muted' },
+        { txt: '[ OK ] research   ·  17 projects · 8 papers', cls: 'b-ok' },
+        { txt: '[ OK ] timeline   ·  2019 → 2026', cls: 'b-ok' },
+        { txt: '[ OK ] systems    ·  online', cls: 'b-ok' },
+        { txt: '[READY]', cls: 'b-prompt' },
+    ];
+
+    const overlay = document.createElement('div');
+    overlay.className = 'boot-screen';
+    overlay.innerHTML = `
+        <div class="boot-stack">
+          <div class="boot-brand">navaneet.portfolio <span>v3.0</span></div>
+          <div class="boot-lines"></div>
+        </div>
+        <div class="boot-hint">click or press any key to skip</div>
+    `;
+    document.body.appendChild(overlay);
+    try { sessionStorage.setItem('boot_shown_v3', '1'); } catch (e) { /* ok */ }
+
+    const stack = overlay.querySelector('.boot-lines');
+    let i = 0, skipped = false;
+
+    function step() {
+        if (skipped) return;
+        if (i >= lines.length) { setTimeout(finish, 360); return; }
+        const ln = document.createElement('div');
+        ln.className = 'boot-line ' + lines[i].cls;
+        ln.textContent = lines[i].txt;
+        stack.appendChild(ln);
+        i++;
+        setTimeout(step, 160);
+    }
+
+    function finish() {
+        if (overlay.classList.contains('is-leaving')) return;
+        overlay.classList.add('is-leaving');
+        setTimeout(() => overlay.remove(), 450);
+    }
+
+    overlay.addEventListener('click', () => { skipped = true; finish(); });
+    const keyHandler = () => { skipped = true; finish(); document.removeEventListener('keydown', keyHandler); };
+    document.addEventListener('keydown', keyHandler);
+
+    setTimeout(step, 80);
+    setTimeout(finish, 2400); // hard cap
+}
+
+// Scroll-to-top floating button.
+function initScrollToTop() {
+    if (document.querySelector('.scroll-to-top')) return;
+    const btn = document.createElement('button');
+    btn.className = 'scroll-to-top';
+    btn.setAttribute('aria-label', 'Scroll to top');
+    btn.innerHTML = '<span aria-hidden="true">↑</span>';
+    document.body.appendChild(btn);
+
+    let ticking = false;
+    function update() {
+        if (window.scrollY > 400) btn.classList.add('is-visible');
+        else btn.classList.remove('is-visible');
+        ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// Project filter — pill buttons toggle visibility of [data-proj-category] rows.
+function initProjectFilter() {
+    const pills = document.querySelectorAll('.proj-pill');
+    const rows  = document.querySelectorAll('[data-proj-category]');
+    if (!pills.length || !rows.length) return;
+
+    pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            const filter = pill.dataset.filter;
+            pills.forEach(p => p.classList.remove('is-active'));
+            pill.classList.add('is-active');
+            rows.forEach(row => {
+                if (filter === 'all' || row.dataset.projCategory === filter) {
+                    row.classList.remove('is-hidden');
+                } else {
+                    row.classList.add('is-hidden');
+                }
+            });
+        });
+    });
+}
+
+// Make changelog entries clickable based on data-link attribute.
+function initChangelogLinks() {
+    const entries = document.querySelectorAll('.changelog-entry[data-link]');
+    entries.forEach(el => {
+        const url = (el.dataset.link || '').trim();
+        if (!url) return;
+        el.classList.add('is-linked');
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('role', 'link');
+
+        function go() {
+            if (/^https?:\/\//.test(url)) {
+                window.open(url, '_blank', 'noopener');
+            } else {
+                window.location.href = url;
+            }
+        }
+        el.addEventListener('click', (e) => {
+            if (e.target.closest && e.target.closest('a')) return; // let inner links handle themselves
+            go();
+        });
+        el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                go();
+            }
+        });
+    });
+}
+
+// ============================================================
+// Terminal loop — continuously typing demo (graphify-style)
+// ============================================================
+function runTerminalLoop() {
+    const body = document.querySelector('.terminal-body code[data-terminal-output]');
+    if (!body) return;
+    const win = document.querySelector('.terminal-window');
+    if (!win) return;
+
+    const SCENES = [
+        {
+            cmd: './list_research --active',
+            output: [
+                { kind: 'ok',    text: '5 projects loaded · 4 publications' },
+                { kind: 'blank' },
+                { kind: 'row', name: 'MAMBA-VLA',  desc: 'state-space VLA transformer',          tag: 'ACTIVE' },
+                { kind: 'row', name: 'DIFF-DAIL',  desc: 'diffusion-enhanced imitation',         tag: 'UNDER REVIEW' },
+                { kind: 'row', name: 'QROOT',      desc: 'diffusion transformer + RL',           tag: 'UNDER REVIEW' },
+                { kind: 'row', name: 'DLDMP',      desc: 'discrete latent diffusion planning',   tag: 'PUBLISHED' },
+                { kind: 'row', name: 'LMPC-ILC',   desc: 'learning MPC + ILC',                   tag: 'PUBLISHED' },
+            ],
+        },
+        {
+            cmd: './show_publications --recent',
+            output: [
+                { kind: 'ok',    text: '4 recent publications' },
+                { kind: 'blank' },
+                { kind: 'row', name: 'CCNC 2026',    desc: 'MambaVLA: state-space VLA' },
+                { kind: 'row', name: 'IROS 2025',    desc: 'LegMamba poster · quadruped locomotion' },
+                { kind: 'row', name: 'NODYCON 2025', desc: 'DLDMP: discrete latent diffusion' },
+                { kind: 'row', name: 'KNU-EERC \'24',desc: 'leader–follower tracking via MPC' },
+            ],
+        },
+        {
+            cmd: './stats --summary',
+            output: [
+                { kind: 'kv', key: 'degree',   value: "M.S. EE @ Kyungpook Nat'l Univ." },
+                { kind: 'kv', key: 'papers',   value: '4 published · 3 under review' },
+                { kind: 'kv', key: 'awards',   value: 'LeRobot 2025 hackathon winner' },
+                { kind: 'kv', key: 'projects', value: '15+ across robotics & ML' },
+            ],
+        },
+        {
+            cmd: './show_skills --top',
+            output: [
+                { kind: 'kv', key: 'core',     value: 'PyTorch · JAX · CUDA · Python · C++' },
+                { kind: 'kv', key: 'robotics', value: 'ROS 2 · MuJoCo · Isaac Sim · MotoMini · Franka · Go2' },
+                { kind: 'kv', key: 'models',   value: 'Mamba SSM · Diffusion · Transformers · MPC' },
+            ],
+        },
+        {
+            cmd: 'whoami',
+            output: [
+                { kind: 'muted', text: 'Sai Navaneet' },
+                { kind: 'muted', text: 'Robotics + ML researcher.' },
+                { kind: 'muted', text: 'Builds VLA, imitation learning, and quadruped RL.' },
+            ],
+        },
+    ];
+
+    const TYPE_MS = 45, LINE_MS = 80, AFTER_CMD_MS = 350, HOLD_MS = 2600, FADE_MS = 220, BETWEEN_MS = 280;
+
+    function renderScene1Static() {
+        body.innerHTML = '';
+        const s = SCENES[0];
+        appendCmdLine(s.cmd, /*withCursor*/ false);
+        s.output.forEach(o => appendOutput(o));
+        appendPromptLine(/*withCursor*/ true);
+    }
+    if (_prefersReducedMotion()) {
+        renderScene1Static();
+        return;
+    }
+
+    let paused = false, skip = false;
+    win.addEventListener('mouseenter', () => { paused = true; });
+    win.addEventListener('mouseleave', () => { paused = false; });
+    // Click inside the terminal is intentionally a no-op (no skip, no ripple).
+    win.addEventListener('pointerdown', (e) => {
+        e.stopPropagation();
+    });
+
+    function sleep(ms) {
+        return new Promise(r => {
+            const t0 = performance.now();
+            function tick() {
+                if (skip) return r();
+                if (paused) return requestAnimationFrame(tick);
+                if (performance.now() - t0 >= ms) return r();
+                requestAnimationFrame(tick);
+            }
+            tick();
+        });
+    }
+
+    function appendCmdLine(cmdText, withCursor) {
+        const line = document.createElement('span');
+        line.className = 't-line';
+        line.innerHTML = '<span class="t-prompt">$</span> <span class="t-cmd"></span>';
+        if (withCursor) line.innerHTML += '<span class="t-cursor">_</span>';
+        body.appendChild(line);
+        return line.querySelector('.t-cmd');
+    }
+    function appendPromptLine(withCursor) {
+        const line = document.createElement('span');
+        line.className = 't-line';
+        line.innerHTML = '<span class="t-prompt">$</span>' + (withCursor ? ' <span class="t-cursor">_</span>' : '');
+        body.appendChild(line);
+    }
+    function appendOutput(o) {
+        const line = document.createElement('span');
+        line.className = 't-line';
+        if (o.kind === 'ok') {
+            line.innerHTML = '<span class="t-ok">[OK]</span>   <span class="t-muted">' + escapeHTML(o.text) + '</span>';
+        } else if (o.kind === 'muted') {
+            line.innerHTML = '<span class="t-muted">' + escapeHTML(o.text) + '</span>';
+        } else if (o.kind === 'blank') {
+            line.innerHTML = ' ';
+        } else if (o.kind === 'kv') {
+            line.innerHTML =
+                '<span class="t-name">' + escapeHTML(o.key.padEnd(10, ' ')) + '</span>' +
+                '<span class="t-desc">' + escapeHTML(o.value) + '</span>';
+        } else if (o.kind === 'row') {
+            const namePad = (o.name || '').padEnd(12, ' ');
+            const tagClass =
+                o.tag === 'ACTIVE'        ? 't-tag--active' :
+                o.tag === 'UNDER REVIEW'  ? 't-tag--review' :
+                o.tag === 'PUBLISHED'     ? 't-tag--published' : '';
+            line.innerHTML =
+                '<span class="t-arrow">→</span> ' +
+                '<span class="t-name">' + escapeHTML(namePad) + '</span>' +
+                '<span class="t-desc">' + escapeHTML(o.desc || '') + '</span>' +
+                (o.tag ? ' <span class="t-tag ' + tagClass + '">[' + escapeHTML(o.tag) + ']</span>' : '');
+        }
+        body.appendChild(line);
+        return line;
+    }
+    function escapeHTML(s) {
+        return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+    }
+
+    async function playScene(scene) {
+        // Clear + start with prompt + blinking cursor for typing
+        body.classList.remove('is-clearing');
+        body.innerHTML = '';
+        const cmdSpan = appendCmdLine('', true);
+        const cursor = body.querySelector('.t-cursor');
+
+        // Type the command char by char
+        for (let i = 0; i < scene.cmd.length; i++) {
+            if (skip) break;
+            cmdSpan.textContent += scene.cmd[i];
+            await sleep(TYPE_MS);
+        }
+        if (cursor && cursor.parentNode) cursor.parentNode.removeChild(cursor);
+        await sleep(AFTER_CMD_MS);
+
+        // Emit output lines one by one
+        for (let i = 0; i < scene.output.length; i++) {
+            if (skip) break;
+            appendOutput(scene.output[i]);
+            await sleep(LINE_MS);
+        }
+
+        // Final prompt with blinking cursor
+        if (!skip) appendPromptLine(true);
+
+        // Hold
+        await sleep(HOLD_MS);
+
+        // Fade out, then clear
+        body.classList.add('is-clearing');
+        await sleep(FADE_MS);
+        body.innerHTML = '';
+        body.classList.remove('is-clearing');
+    }
+
+    (async function loop() {
+        let i = 0;
+        // small delay so the page settles first
+        await sleep(450);
+        while (true) {
+            skip = false;
+            await playScene(SCENES[i]);
+            await sleep(BETWEEN_MS);
+            i = (i + 1) % SCENES.length;
+        }
+    })();
+}
+

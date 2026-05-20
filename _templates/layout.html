@@ -1,0 +1,46 @@
+{% extends "!layout.html" %}
+
+{# Replace the default <title> so the home page doesn't read "<no title>" #}
+{% block htmltitle %}
+  {% if title and title|striptags|trim != '<no title>' %}
+    <title>{{ title|striptags|e }} — {{ docstitle|e }}</title>
+  {% else %}
+    <title>{{ docstitle|e }}</title>
+  {% endif %}
+{% endblock %}
+
+{% block extrahead %}
+{{ super() }}
+{% set og_site = "Sai Navaneet — Portfolio" %}
+{% set og_title = title|striptags|e if title else og_site %}
+{% set og_desc = "Robotics + ML researcher. Vision-language-action models, diffusion policy, quadruped RL, model predictive control. 17 projects, 8 papers, 2024–2026." %}
+{% set og_image = "https://sainavaneet.github.io/portfolio/_static/profile3.png" %}
+{% set og_url = "https://sainavaneet.github.io/portfolio/" %}
+
+<meta name="description" content="{{ og_desc }}" />
+<meta name="author" content="Sai Navaneet" />
+<meta name="theme-color" content="#040806" />
+
+<!-- Fonts: preconnect + non-blocking stylesheet swap (no @import, no render block) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" />
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      media="print" onload="this.media='all'; this.onload=null;" />
+<noscript><link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="{{ og_site }}" />
+<meta property="og:title" content="{{ og_title }} · {{ og_site }}" />
+<meta property="og:description" content="{{ og_desc }}" />
+<meta property="og:image" content="{{ og_image }}" />
+<meta property="og:url" content="{{ og_url }}" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ og_title }} · {{ og_site }}" />
+<meta name="twitter:description" content="{{ og_desc }}" />
+<meta name="twitter:image" content="{{ og_image }}" />
+{% endblock %}

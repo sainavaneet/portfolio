@@ -1,145 +1,63 @@
-# Contact Me
+# Contact
 
-<!-- Inline styling and form HTML below -->
+<section class="contact-hero">
+<span class="hero-graph-tag">// CONTACT</span>
+<h2 class="exp-hero-title">Let&rsquo;s <span class="resume-name__last">talk</span>.</h2>
+<p class="exp-hero-sub">Robotics collaboration, research, or just a hello — pick a channel below or drop a note.</p>
+</section>
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<section class="contact-channels">
+<dl class="contact-list">
 
-<style>
+<div class="contact-row">
+<dt>email</dt>
+<dd><a href="mailto:sainavaneet76@gmail.com">sainavaneet76@gmail.com</a></dd>
+</div>
 
+<div class="contact-row">
+<dt>github</dt>
+<dd><a href="https://github.com/sainavaneet" target="_blank" rel="noopener">github.com/sainavaneet</a></dd>
+</div>
 
-.contact-form {
-  font-family: 'Roboto', sans-serif;
-  background-color: #ffffff; /* White background for light theme */
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
-  margin: 2rem auto;
-  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-  border: 1px solid #eaeaea; /* Light border */
-  color: #333;
-}
+<div class="contact-row">
+<dt>linkedin</dt>
+<dd><a href="https://www.linkedin.com/in/sainavaneet76/" target="_blank" rel="noopener">linkedin.com/in/sainavaneet76</a></dd>
+</div>
 
-.contact-form:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-}
+<div class="contact-row">
+<dt>location</dt>
+<dd>Daegu, South Korea · open to remote &amp; relocation</dd>
+</div>
 
-.contact-form h2 {
-  margin-top: 0;
-  color: #333;
-  text-align: center;
-  position: relative;
-  font-size: 1.75rem;
-}
+<div class="contact-row">
+<dt>response time</dt>
+<dd>typically within 24h on weekdays</dd>
+</div>
 
-.contact-form h2::after {
-  content: '';
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, #007bff, #0056b3);
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 5px;
-}
+</dl>
+</section>
 
-.contact-form label {
-  display: block;
-  margin-bottom: 8px;
-  color: #555;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
+<section class="contact-form-section">
+<span class="hero-graph-tag">// SEND_A_MESSAGE</span>
 
-.contact-form .input-group {
-  margin-bottom: 1.5rem;
-}
+<form action="https://formspree.io/f/xanedwyo" method="post" class="contact-form-flat">
 
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.9rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: inherit;
-  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
-  background-color: #fff;
-  color: #333;
-  box-sizing: border-box;
-}
+<div class="cf-field">
+<label for="cf-name">name</label>
+<input type="text" id="cf-name" name="name" placeholder="your name" required>
+</div>
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #007bff; /* Match the gradient start color */
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2); /* Match the gradient start color */
-}
+<div class="cf-field">
+<label for="cf-email">email</label>
+<input type="email" id="cf-email" name="email" placeholder="you@somewhere.com" required>
+</div>
 
-.contact-form button {
-  width: 100%;
-  padding: 1rem;
-  background: linear-gradient(90deg, #007bff, #0056b3);
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
+<div class="cf-field">
+<label for="cf-message">message</label>
+<textarea id="cf-message" name="message" rows="5" placeholder="what's on your mind…" required></textarea>
+</div>
 
-.contact-form button:hover {
-  background: linear-gradient(90deg, #0056b3, #004085);
-  transform: scale(1.02);
-}
+<button type="submit" class="cf-submit">Send <span aria-hidden="true">→</span></button>
 
-/* 🌙 DARK MODE SUPPORT */
-@media (prefers-color-scheme: dark) {
-  .contact-form {
-    background-color: #1e1e1e;
-    border: 1px solid #333;
-    color: #f0f0f0;
-  }
-
-  .contact-form h2,
-  .contact-form label {
-    color: #f0f0f0;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    background-color: #2c2c2c;
-    color: #f0f0f0;
-    border: 1px solid #555;
-  }
-
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-color: #3399ff;
-    box-shadow: 0 0 0 2px rgba(51, 153, 255, 0.3);
-  }
-}
-
-
-
-</style>
-
-<form action="https://formspree.io/f/xanedwyo" method="post" class="contact-form">
-  <h2>Get in Touch</h2>
-  <div class="input-group">
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" name="name" required>
-  </div>
-  <div class="input-group">
-    <label for="email">Your Email:</label>
-    <input type="email" id="email" name="email" required>
-  </div>
-  <div class="input-group">
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-  </div>
-  <button type="submit">Send Message</button>
 </form>
+</section>

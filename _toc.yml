@@ -10,6 +10,10 @@ parts:
   
       - file: source/projects/index
         sections:
+            - file: source/projects/Tensiq/index
+            - file: source/projects/SUREFlow/index
+            - file: source/projects/RL-PPC-FTC/index
+            - file: source/projects/OpenARM-VLA/index
             - file: source/projects/MambaVLA/index
             - file: source/projects/QROOT/index
             - file: source/projects/DiffDAIL/index

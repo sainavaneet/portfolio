@@ -23,7 +23,7 @@ extensions = [
 ]
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv', 'venv', '**/.venv', 'node_modules', '.git', '.claude', '.claude-flow']
 
 myst_enable_extensions = [
     "amsmath",
@@ -53,6 +53,10 @@ templates_path = ["_templates"]
 
 # Browser tab / HTML <title>
 html_title = "Sai Navaneet – Portfolio"
+html_favicon = "_static/favicon.svg"
+
+# Base URL used by absolute OpenGraph image links.
+html_baseurl = "https://sainavaneet.github.io/portfolio/"
 
 
 external_toc_path = "_toc.yml"  # Optional, default is _toc.yml
