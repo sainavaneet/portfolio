@@ -51,6 +51,14 @@
 .bd-main .bd-content {
     margin-left: 0 !important;
     max-width: 100% !important;
+    justify-content: center !important;
+}
+
+.bd-main .bd-content .bd-article-container {
+    margin: 0 auto !important;
+    max-width: 1100px !important;
+    padding: 0 2rem;
+    width: 100%;
 }
 
 /* Top Navigation Bar - Professional Minimal Styling */
@@ -2263,17 +2271,4109 @@ button[aria-label*="theme" i],
     .projects-list-container {
         padding: 0 15px;
     }
-    
+
     .project-link {
         padding: 1rem 0;
     }
-    
+
     .project-name {
         font-size: 1rem;
     }
-    
+
     .project-description {
         font-size: 0.85rem;
     }
 }
+
+/* ============================================================
+   HOME PAGE V2 — premium animated (Linear/Vercel-feel)
+   ============================================================ */
+
+/* Smooth scroll only when motion is OK */
+@media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+}
+
+/* --- Top scroll progress bar --- */
+.scroll-progress {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    z-index: 9999;
+    pointer-events: none;
+    background: transparent;
+}
+.scroll-progress__bar {
+    height: 100%;
+    width: 100%;
+    transform: scaleX(var(--scroll, 0));
+    transform-origin: 0 50%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: transform 80ms linear;
+    will-change: transform;
+}
+
+/* --- Aurora ambient backdrop --- */
+.aurora-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 22%, rgba(102, 126, 234, 0.10) 0%, transparent 38%),
+        radial-gradient(circle at 82% 78%, rgba(34, 197, 94, 0.07) 0%, transparent 42%);
+    animation: auroraDrift 40s ease-in-out infinite alternate;
+    filter: blur(8px);
+}
+@keyframes auroraDrift {
+    0%   { transform: translate3d(-2%, -1%, 0) scale(1); }
+    100% { transform: translate3d(2%, 1.5%, 0) scale(1.04); }
+}
+
+/* --- Hero section --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin: 4rem 0 3rem 0;
+}
+.hero-text { flex: 1; min-width: 0; }
+
+.hero-name {
+    font-family: "Roboto", sans-serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.6rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+}
+.hero-name .hero-word {
+    display: inline-block;
+    background: linear-gradient(135deg, #1f2937 0%, #4b5563 60%, #667eea 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transform: translateY(110%);
+    clip-path: inset(0 0 100% 0);
+    animation: heroWordRise 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--i, 0) * 110ms + 80ms);
+}
+@keyframes heroWordRise {
+    0%   { transform: translateY(110%); clip-path: inset(0 0 100% 0); }
+    100% { transform: translateY(0);    clip-path: inset(0 0 0 0); }
+}
+
+.hero-degree {
+    font-size: 1.05rem;
+    color: #6b7280;
+    margin-bottom: 0.8rem;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: heroFadeIn 0.7s ease 0.45s forwards;
+}
+
+/* Rotating role line */
+.hero-roles {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.78rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.2rem;
+    opacity: 0;
+    animation: heroFadeIn 0.7s ease 0.65s forwards;
+}
+.hero-roles__static { opacity: 0.55; }
+.hero-roles__rotator {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 1.3em;
+    line-height: 1.3em;
+    vertical-align: bottom;
+    min-width: 11ch;
+}
+.hero-roles__rotator > span {
+    display: block;
+    color: #764ba2;
+    font-weight: 600;
+    animation: rolesCycle 12s steps(4, end) infinite;
+}
+@keyframes rolesCycle {
+    0%, 22%   { transform: translateY(0); }
+    25%, 47%  { transform: translateY(-100%); }
+    50%, 72%  { transform: translateY(-200%); }
+    75%, 97%  { transform: translateY(-300%); }
+    100%      { transform: translateY(-400%); }
+}
+.hero-roles__rotator > span:first-child::after,
+.hero-roles__rotator > span:first-child {
+    /* fifth slot loops back to first via the steps(4) cycle */
+}
+
+.hero-bio {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hero-bio.reveal--in { opacity: 1; transform: translateY(0); }
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    margin-top: 1.4rem;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.8s ease 0.15s, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+.hero-actions.reveal--in { opacity: 1; transform: translateY(0); }
+
+.badge-available {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #047857;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    padding: 0.42rem 0.85rem;
+    border-radius: 999px;
+}
+.badge-available__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55);
+    animation: pulseDot 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulseDot {
+    0%   { box-shadow: 0 0 0 0    rgba(16, 185, 129, 0.55); }
+    70%  { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0    rgba(16, 185, 129, 0); }
+}
+
+.btn-ghost {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1f2937;
+    padding: 0.42rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.btn-ghost:hover {
+    border-color: #667eea;
+    color: #667eea;
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+/* --- Avatar with HUD SVG frame (graphify-style technical ring) --- */
+.hero-avatar {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+}
+.avatar-svg-frame {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+    animation: avatarIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+}
+@keyframes avatarIn {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.avatar-svg-frame .avatar-img {
+    width: 240px !important;
+    height: 240px !important;
+    border-radius: 50% !important;
+    object-fit: cover;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(34, 197, 94, 0.25) !important;
+    position: relative;
+    z-index: 1;
+}
+.avatar-hud {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .avatar-hud__dash {
+        transform-origin: 170px 170px;
+        animation: hudDashSpin 30s linear infinite;
+    }
+    .avatar-hud__dot {
+        transform-origin: center;
+        animation: hudDotPulse 2.4s ease-in-out infinite;
+        animation-delay: var(--d, 0s);
+    }
+}
+@keyframes hudDashSpin {
+    to { transform: rotate(360deg); }
+}
+@keyframes hudDotPulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50%      { opacity: 1;   transform: scale(1.35); }
+}
+
+/* --- Stats strip --- */
+.stats-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2.4rem 0 3rem 0;
+}
+.stat-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    padding: 1.1rem 1rem 1rem;
+    text-align: left;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.stat-card.reveal--in { opacity: 1; transform: translateY(0); }
+.stat-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+}
+.stat-card.reveal--in::before { transform: scaleX(1); }
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(102, 126, 234, 0.12);
+    border-color: rgba(102, 126, 234, 0.25);
+}
+.stat-card__icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+    transition: transform 0.25s ease;
+}
+.stat-card:hover .stat-card__icon {
+    transform: scale(1.12) rotate(4deg);
+}
+.stat-card__value {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #1f2937;
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+}
+.stat-card__label {
+    font-size: 0.78rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+}
+
+/* --- Hero graph (animated SVG) --- */
+.hero-graph-wrap {
+    margin: 2rem 0 3.5rem 0;
+    padding: 1.4rem 1rem 0.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hero-graph-wrap.reveal--in { opacity: 1; transform: translateY(0); }
+
+.hero-graph-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0 0.5rem 0.4rem;
+}
+.hero-graph-tag {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: #764ba2;
+    font-weight: 600;
+}
+.hero-graph-sub {
+    font-size: 0.72rem;
+    color: #9ca3af;
+    letter-spacing: 0.05em;
+}
+
+.hero-graph {
+    width: 100%;
+    height: auto;
+    max-height: 460px;
+    display: block;
+}
+.hero-graph .hg-edge {
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    transition: stroke-dashoffset 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hero-graph-wrap.reveal--in .hero-graph .hg-edge {
+    stroke-dashoffset: 0;
+}
+.hero-graph-wrap.reveal--in .hero-graph .hg-edge:nth-child(2) { transition-delay: 0.15s; }
+.hero-graph-wrap.reveal--in .hero-graph .hg-edge:nth-child(3) { transition-delay: 0.3s; }
+.hero-graph-wrap.reveal--in .hero-graph .hg-edge:nth-child(4) { transition-delay: 0.45s; }
+.hero-graph-wrap.reveal--in .hero-graph .hg-edge:nth-child(5) { transition-delay: 0.6s; }
+
+.hero-graph .hg-sat {
+    cursor: pointer;
+    text-decoration: none;
+}
+.hero-graph .hg-sat circle {
+    transition: stroke 0.2s ease, stroke-width 0.2s ease, fill 0.2s ease;
+    animation: satPulse 3s ease-in-out infinite;
+    animation-delay: var(--pulse-delay, 0s);
+}
+.hero-graph .hg-sat:nth-of-type(1) circle { --pulse-delay: 0.0s; }
+.hero-graph .hg-sat:nth-of-type(2) circle { --pulse-delay: 0.6s; }
+.hero-graph .hg-sat:nth-of-type(3) circle { --pulse-delay: 1.2s; }
+.hero-graph .hg-sat:nth-of-type(4) circle { --pulse-delay: 1.8s; }
+.hero-graph .hg-sat:nth-of-type(5) circle { --pulse-delay: 2.4s; }
+@keyframes satPulse {
+    0%, 100% { stroke-opacity: 0.55; }
+    50%      { stroke-opacity: 1.0; }
+}
+.hero-graph .hg-sat:hover circle {
+    animation: none;
+    stroke: #764ba2;
+    stroke-opacity: 1;
+    stroke-width: 2;
+    fill: #faf7ff;
+}
+.hero-graph .hg-sat:hover text {
+    fill: #764ba2;
+}
+.hero-graph .hg-sat text {
+    transition: fill 0.2s ease;
+    pointer-events: none;
+}
+.hero-graph .hg-hub circle:first-child {
+    animation: hubBreathe 3.6s ease-in-out infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+@keyframes hubBreathe {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.04); }
+}
+
+/* --- Generic scroll reveal --- */
+[data-reveal]:not(.hero-bio):not(.hero-actions):not(.stat-card):not(.hero-graph-wrap):not(.news-card) {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal].reveal--in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* News cards: override existing nth-child static delays in favor of JS-driven reveal */
+.news-card[data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: none;
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+.news-card[data-reveal].reveal--in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* News section title: animated underline */
+.news-section-title[data-reveal]::after {
+    width: 0;
+    transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+}
+.news-section-title[data-reveal].reveal--in::after {
+    width: 60px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .hero-section { flex-direction: column-reverse; gap: 1.5rem; }
+    .hero-avatar { width: 100%; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    .hero-graph { max-height: 320px; }
+}
+@media (max-width: 540px) {
+    .stats-strip { grid-template-columns: 1fr; gap: 0.7rem; }
+    .hero-roles { font-size: 0.7rem; }
+    .avatar-frame { width: 200px; height: 200px; }
+    .avatar-img { width: 184px !important; height: 184px !important; }
+    .avatar-ring { -webkit-mask: radial-gradient(circle, transparent 96px, #000 98px); mask: radial-gradient(circle, transparent 96px, #000 98px); }
+}
+
+/* --- Reduced motion: collapse everything to instant --- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .aurora-bg { display: none; }
+    .hero-name .hero-word { transform: none; clip-path: none; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
+    .hero-graph .hg-edge { stroke-dashoffset: 0 !important; }
+}
+
+/* ============================================================
+   HOME PAGE V3 — pro polish layer (ui-ux-pro-max recommended)
+   - Premium fonts (Space Grotesk + JetBrains Mono)
+   - Animated gradient on hero name
+   - Tech-stack marquee
+   - Cursor spotlight on news cards
+   - Film grain ambient noise
+   - Visible focus rings
+   - Smoother glass on stats
+   ============================================================ */
+
+/* fonts now preconnected + preloaded in layout.html (non-blocking) */
+
+/* --- Animated gradient on the hero name --- */
+.hero-name .hero-word {
+    background: linear-gradient(110deg,
+        #1f2937 0%,
+        #4b5563 25%,
+        #667eea 55%,
+        #764ba2 80%,
+        #1f2937 100%);
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .hero-name .hero-word {
+        animation:
+            heroWordRise 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+            heroNameSheen 9s ease-in-out infinite 1.4s;
+    }
+}
+@keyframes heroNameSheen {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+}
+
+/* --- Space Grotesk for the stats display numbers (tabular figures) --- */
+.stat-card__value {
+    font-family: 'Space Grotesk', 'Roboto', sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1, 'ss01' 1;
+    letter-spacing: -0.01em;
+}
+.stat-card__label {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+}
+.hero-graph-tag {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* --- Tech marquee (slow infinite scroll, pause on hover) --- */
+.tech-marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: -1rem 0 2.5rem 0;
+    padding: 0.6rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+.tech-marquee__track {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marqueeSlide 55s linear infinite;
+}
+.tech-marquee:hover .tech-marquee__track {
+    animation-play-state: paused;
+}
+@keyframes marqueeSlide {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-50%, 0, 0); }
+}
+.tech-marquee__chip {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #4b5563;
+    padding: 0.32rem 0.85rem;
+    border: 1px solid rgba(102, 126, 234, 0.16);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.tech-marquee__chip:hover {
+    color: #764ba2;
+    border-color: rgba(118, 75, 162, 0.4);
+    background: rgba(118, 75, 162, 0.06);
+}
+.tech-marquee__dot {
+    color: #d1d5db;
+    font-weight: 700;
+    user-select: none;
+}
+
+/* --- Glass treatment on stat cards (subtle, light theme) --- */
+.stat-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.8) inset,
+        0 8px 20px rgba(102, 126, 234, 0.06);
+}
+.stat-card:hover {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+/* --- Cursor spotlight on news cards --- */
+.news-card {
+    position: relative;
+    isolation: isolate;
+}
+.news-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        320px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(102, 126, 234, 0.16),
+        transparent 55%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+.news-card:hover::after { opacity: 1; }
+.news-card > * { position: relative; z-index: 1; }
+
+/* --- Film grain overlay (very subtle, premium) --- */
+.film-grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.035;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 240px 240px;
+}
+
+/* --- Visible focus rings for keyboard nav --- */
+:focus-visible {
+    outline: none;
+}
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+.hg-sat:focus-visible,
+.tech-marquee__chip:focus-visible,
+.stat-card:focus-visible,
+.news-card:focus-visible {
+    outline: 2px solid #764ba2;
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+.hero-graph .hg-sat:focus-visible circle {
+    stroke: #764ba2;
+    stroke-width: 2.5;
+}
+
+/* --- Section hairline divider (used between hero, stats, graph, news) --- */
+.section-hairline {
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(118, 75, 162, 0.25) 50%,
+        transparent 100%);
+    margin: 0;
+    border: 0;
+}
+
+/* --- Reduce motion safety for the new layer --- */
+@media (prefers-reduced-motion: reduce) {
+    .tech-marquee__track { animation: none; }
+    .film-grain { display: none; }
+    .hero-name .hero-word { animation: none !important; background-position: 0% 50% !important; }
+}
+
+/* ============================================================
+   GRAPHIFY DARK THEME — full sitewide override
+   bg #040806 · green #22c55e · amber #f59e0b · violet accent
+   ============================================================ */
+
+/* fonts loaded async via layout.html — no @import here (avoids render-blocking) */
+
+:root {
+    --gp-bg:        #040806;
+    --gp-bg2:       #060d08;
+    --gp-green:     #22c55e;
+    --gp-green2:    #4ade80;
+    --gp-green3:    #86efac;
+    --gp-amber:     #f59e0b;
+    --gp-amber2:    #fbbf24;
+    --gp-violet:    #7c3aed;
+    --gp-border:    rgba(34,197,94,0.13);
+    --gp-border-hi: rgba(34,197,94,0.30);
+    --gp-glass:     rgba(34,197,94,0.04);
+    --gp-t1:        rgba(220,255,220,0.92);
+    --gp-t2:        rgba(220,255,220,0.55);
+    --gp-t3:        rgba(220,255,220,0.28);
+}
+
+html.graphify, html.graphify body {
+    background: var(--gp-bg) !important;
+    color: var(--gp-t1) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif !important;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle green grid + grain + scanlines layered behind everything */
+html.graphify body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+        linear-gradient(rgba(34, 197, 94, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 197, 94, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+}
+html.graphify body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9997;
+    background:
+        repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+}
+
+/* Top decorative gradient strip (graphify signature) */
+html.graphify::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    z-index: 10000;
+    background: linear-gradient(90deg,
+        transparent 0%, var(--gp-green) 32%, var(--gp-amber) 50%, var(--gp-green) 68%, transparent 100%);
+}
+
+/* Aurora drift becomes green/amber */
+html.graphify .aurora-bg {
+    background:
+        radial-gradient(circle at 18% 22%, rgba(34, 197, 94, 0.07) 0%, transparent 38%),
+        radial-gradient(circle at 82% 78%, rgba(245, 158, 11, 0.05) 0%, transparent 42%);
+    will-change: transform;
+    contain: layout paint;
+}
+/* Save the ambient drift for high-end devices; static gradient elsewhere. */
+@media (prefers-reduced-motion: reduce), (prefers-reduced-data: reduce) {
+    .aurora-bg { animation: none !important; }
+    .film-grain { display: none !important; }
+}
+
+/* Force theme overrides on sphinx-book-theme containers */
+html.graphify .bd-page-width,
+html.graphify .bd-container,
+html.graphify .bd-main,
+html.graphify .bd-content,
+html.graphify .bd-article-container,
+html.graphify .bd-article,
+html.graphify article {
+    background: transparent !important;
+    color: var(--gp-t1) !important;
+}
+
+html.graphify h1, html.graphify h2, html.graphify h3, html.graphify h4, html.graphify h5, html.graphify h6 {
+    color: var(--gp-t1) !important;
+    font-family: 'Bricolage Grotesque', 'Inter', sans-serif !important;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+}
+html.graphify p, html.graphify li, html.graphify span, html.graphify div {
+    color: inherit;
+}
+
+html.graphify a {
+    color: var(--gp-green2);
+    text-decoration: none;
+}
+html.graphify a:hover {
+    color: var(--gp-green3);
+}
+
+/* Top navbar — re-skin dark with green hairline */
+html.graphify .top-navbar {
+    background: rgba(4, 8, 6, 0.92) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--gp-border) !important;
+}
+html.graphify .top-navbar .navbar-brand,
+html.graphify .top-navbar .navbar-menu a {
+    color: var(--gp-t1) !important;
+}
+html.graphify .top-navbar .navbar-menu a::after {
+    background: var(--gp-green) !important;
+}
+html.graphify .top-navbar .navbar-menu a:hover,
+html.graphify .top-navbar .navbar-menu a.active {
+    color: var(--gp-green2) !important;
+}
+html.graphify .top-navbar .social-icon {
+    border-color: var(--gp-border) !important;
+    color: var(--gp-t1);
+}
+html.graphify .top-navbar .social-icon:hover {
+    border-color: var(--gp-border-hi) !important;
+    color: var(--gp-green2);
+}
+
+/* Hero overrides for graphify look */
+html.graphify .hero-name .hero-word {
+    background-image: linear-gradient(110deg,
+        var(--gp-green3) 0%, var(--gp-green2) 30%, var(--gp-green) 55%, var(--gp-amber2) 80%, var(--gp-amber) 100%) !important;
+    background-size: 220% 100% !important;
+    background-position: 0% 50% !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+html.graphify .hero-degree, html.graphify .profile-degree {
+    color: var(--gp-t2) !important;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+html.graphify .hero-roles {
+    color: var(--gp-t2);
+}
+html.graphify .hero-roles__rotator > span {
+    color: var(--gp-amber2);
+}
+html.graphify .profile-bio, html.graphify .hero-bio {
+    color: var(--gp-t1) !important;
+    font-family: 'Inter', sans-serif;
+}
+html.graphify .badge-available {
+    color: var(--gp-green3);
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid var(--gp-border-hi);
+}
+html.graphify .badge-available__dot {
+    background: var(--gp-green2);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+}
+@keyframes pulseDotGP {
+    0%   { box-shadow: 0 0 0 0    rgba(34, 197, 94, 0.6); }
+    70%  { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+    100% { box-shadow: 0 0 0 0    rgba(34, 197, 94, 0); }
+}
+html.graphify .badge-available__dot { animation-name: pulseDotGP; }
+html.graphify .btn-ghost {
+    color: var(--gp-t1);
+    border-color: var(--gp-border-hi);
+    background: rgba(34, 197, 94, 0.04);
+}
+html.graphify .btn-ghost:hover {
+    color: var(--gp-green2);
+    border-color: var(--gp-green2);
+}
+
+/* Avatar ring becomes green/amber */
+html.graphify .avatar-ring {
+    background: conic-gradient(from 0deg,
+        var(--gp-green) 0deg, var(--gp-amber) 80deg, transparent 140deg,
+        var(--gp-green2) 200deg, transparent 260deg, var(--gp-green) 360deg);
+}
+html.graphify .avatar-frame::after {
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.22) 0%, transparent 65%);
+}
+html.graphify .profile-avatar {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6),
+                0 0 0 1px var(--gp-border-hi) !important;
+}
+
+/* Stats strip — dark glass */
+html.graphify .stat-card {
+    background: rgba(34, 197, 94, 0.04) !important;
+    border: 1px solid var(--gp-border) !important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02) inset, 0 8px 20px rgba(0, 0, 0, 0.35);
+    color: var(--gp-t1);
+}
+html.graphify .stat-card:hover {
+    border-color: var(--gp-border-hi) !important;
+    background: rgba(34, 197, 94, 0.07) !important;
+    box-shadow: 0 0 0 1px var(--gp-border-hi), 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+html.graphify .stat-card::before {
+    background: linear-gradient(90deg, var(--gp-green), var(--gp-amber)) !important;
+}
+html.graphify .stat-card__value {
+    color: var(--gp-t1) !important;
+    font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+}
+html.graphify .stat-card__label {
+    color: var(--gp-t2) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* Section tags */
+html.graphify .hero-graph-tag {
+    color: var(--gp-green2) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+}
+html.graphify .hero-graph-sub {
+    color: var(--gp-t3) !important;
+}
+html.graphify .hero-graph-wrap {
+    border-top: 1px solid var(--gp-border);
+    border-bottom: 1px solid var(--gp-border);
+}
+
+/* Hero graph SVG re-color */
+html.graphify .hero-graph .hg-sat circle {
+    fill: rgba(4, 8, 6, 0.85) !important;
+    stroke: var(--gp-green) !important;
+}
+html.graphify .hero-graph .hg-sat:hover circle {
+    fill: rgba(34, 197, 94, 0.10) !important;
+    stroke: var(--gp-green2) !important;
+}
+html.graphify .hero-graph .hg-sat text {
+    fill: var(--gp-t1) !important;
+}
+html.graphify .hero-graph .hg-sat:hover text {
+    fill: var(--gp-green2) !important;
+}
+html.graphify .hero-graph .hg-hub circle:nth-child(1) {
+    stroke: var(--gp-border) !important;
+}
+html.graphify .hero-graph .hg-hub circle:nth-child(2) {
+    stroke: var(--gp-border-hi) !important;
+}
+html.graphify .hero-graph .hg-hub circle:nth-child(3) {
+    fill: rgba(4, 8, 6, 0.9) !important;
+    stroke: var(--gp-amber) !important;
+}
+html.graphify .hero-graph .hg-hub text:nth-child(4) { fill: var(--gp-t1) !important; }
+html.graphify .hero-graph .hg-hub text:nth-child(5) { fill: var(--gp-t2) !important; }
+html.graphify .hero-graph .hg-particles circle { fill: var(--gp-green2); }
+
+/* Tech marquee dark */
+html.graphify .tech-marquee {
+    border-top: 1px solid var(--gp-border);
+    border-bottom: 1px solid var(--gp-border);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+html.graphify .tech-marquee__chip {
+    background: rgba(34, 197, 94, 0.05);
+    border: 1px solid var(--gp-border);
+    color: var(--gp-t1);
+}
+html.graphify .tech-marquee__chip:hover {
+    color: var(--gp-green2);
+    border-color: var(--gp-border-hi);
+    background: rgba(34, 197, 94, 0.1);
+}
+html.graphify .tech-marquee__dot { color: var(--gp-t3); }
+
+/* News section title */
+html.graphify .news-section-title {
+    background: linear-gradient(135deg, var(--gp-green3) 0%, var(--gp-amber2) 100%) !important;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+html.graphify .news-section-title::after {
+    background: linear-gradient(90deg, var(--gp-green), var(--gp-amber)) !important;
+}
+html.graphify .year-title { color: var(--gp-t2) !important; }
+html.graphify .year-badge {
+    background: rgba(34, 197, 94, 0.12) !important;
+    color: var(--gp-green2) !important;
+    border: 1px solid var(--gp-border-hi);
+}
+html.graphify .year-badge::after { color: var(--gp-t2) !important; }
+
+/* News cards dark glass */
+html.graphify .news-card {
+    background: rgba(34, 197, 94, 0.04) !important;
+    border: 1px solid var(--gp-border) !important;
+    color: var(--gp-t1) !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+html.graphify .news-card:hover {
+    background: rgba(34, 197, 94, 0.08) !important;
+    border-color: var(--gp-border-hi) !important;
+    box-shadow: 0 0 0 1px var(--gp-border-hi), 0 12px 28px rgba(0, 0, 0, 0.6);
+}
+html.graphify .news-card::after {
+    background: radial-gradient(
+        320px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(34, 197, 94, 0.18),
+        transparent 55%) !important;
+}
+html.graphify .news-date {
+    color: var(--gp-green2) !important;
+    font-family: 'JetBrains Mono', monospace;
+}
+html.graphify .news-content { color: var(--gp-t1) !important; }
+
+/* Per-category top gradient lines: re-tint to green/amber palette */
+html.graphify .news-card.achievement::before  { background: linear-gradient(90deg, var(--gp-green), var(--gp-amber)) !important; }
+html.graphify .news-card.research::before     { background: linear-gradient(90deg, var(--gp-green2), var(--gp-green)) !important; }
+html.graphify .news-card.publication::before  { background: linear-gradient(90deg, var(--gp-amber), #ef4444) !important; }
+html.graphify .news-card.journal::before      { background: linear-gradient(90deg, var(--gp-amber), var(--gp-amber2)) !important; }
+html.graphify .news-card.conference::before   { background: linear-gradient(90deg, var(--gp-violet), var(--gp-green)) !important; }
+html.graphify .news-card.industry::before     { background: linear-gradient(90deg, #06b6d4, var(--gp-green)) !important; }
+html.graphify .news-card.agriculture::before  { background: linear-gradient(90deg, var(--gp-green2), var(--gp-amber)) !important; }
+html.graphify .news-card.published::before    { background: linear-gradient(90deg, #14b8a6, var(--gp-green)) !important; }
+html.graphify .news-card.poster::before       { background: linear-gradient(90deg, var(--gp-violet), var(--gp-amber)) !important; }
+html.graphify .news-card .news-icon {
+    background: linear-gradient(135deg, var(--gp-green), var(--gp-amber)) !important;
+    color: var(--gp-bg);
+}
+
+/* Publication / experience / projects pages — dark glass cards too */
+html.graphify .publication-card,
+html.graphify .timeline-content,
+html.graphify .cert-card,
+html.graphify .skill-category,
+html.graphify .interest-item {
+    background: rgba(34, 197, 94, 0.04) !important;
+    border: 1px solid var(--gp-border) !important;
+    color: var(--gp-t1) !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+html.graphify .publication-card:hover,
+html.graphify .timeline-content:hover,
+html.graphify .cert-card:hover,
+html.graphify .skill-category:hover,
+html.graphify .interest-item:hover {
+    background: rgba(34, 197, 94, 0.08) !important;
+    border-color: var(--gp-border-hi) !important;
+    box-shadow: 0 0 0 1px var(--gp-border-hi), 0 12px 28px rgba(0, 0, 0, 0.55);
+}
+html.graphify .publication-title,
+html.graphify .card-title,
+html.graphify .cert-title,
+html.graphify .skill-category-title { color: var(--gp-t1) !important; }
+html.graphify .publication-authors,
+html.graphify .publication-venue,
+html.graphify .publication-date,
+html.graphify .card-meta,
+html.graphify .card-org,
+html.graphify .card-location,
+html.graphify .cert-meta { color: var(--gp-t2) !important; }
+html.graphify .card-period {
+    color: var(--gp-amber2) !important;
+    background: rgba(245, 158, 11, 0.08) !important;
+}
+html.graphify .publication-card::before,
+html.graphify .timeline-content::before,
+html.graphify .cert-card::before {
+    background: linear-gradient(90deg, var(--gp-green), var(--gp-amber)) !important;
+}
+html.graphify .publication-card:hover .publication-title,
+html.graphify .timeline-item:hover .card-title,
+html.graphify .cert-card:hover .cert-title {
+    color: var(--gp-green2) !important;
+}
+html.graphify .timeline::before {
+    background: linear-gradient(180deg, var(--gp-green) 0%, var(--gp-amber) 100%) !important;
+}
+html.graphify .timeline-marker {
+    background: linear-gradient(135deg, var(--gp-green), var(--gp-amber)) !important;
+    border-color: var(--gp-bg) !important;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+}
+html.graphify .filter-btn {
+    border-color: var(--gp-border-hi) !important;
+    color: var(--gp-t1) !important;
+    background: transparent !important;
+}
+html.graphify .filter-btn.active {
+    background: linear-gradient(135deg, var(--gp-green) 0%, var(--gp-amber) 100%) !important;
+    border-color: var(--gp-green) !important;
+    color: var(--gp-bg) !important;
+}
+html.graphify .skill-tag {
+    background: rgba(34, 197, 94, 0.06) !important;
+    border: 1px solid var(--gp-border) !important;
+    color: var(--gp-t1) !important;
+}
+html.graphify .skill-tag:hover {
+    background: linear-gradient(135deg, var(--gp-green), var(--gp-amber)) !important;
+    color: var(--gp-bg) !important;
+}
+html.graphify .language-bar { background: rgba(34, 197, 94, 0.1) !important; }
+html.graphify .language-progress {
+    background: linear-gradient(90deg, var(--gp-green), var(--gp-amber)) !important;
+}
+html.graphify .card-list li::before,
+html.graphify .cert-list li::before { color: var(--gp-green2) !important; }
+html.graphify .section-title {
+    background: linear-gradient(135deg, var(--gp-green3) 0%, var(--gp-amber2) 100%) !important;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+html.graphify .section-title::after {
+    background: linear-gradient(135deg, var(--gp-green) 0%, var(--gp-amber) 100%) !important;
+}
+
+/* Projects list */
+html.graphify .project-item { border-bottom-color: var(--gp-border) !important; }
+html.graphify .project-link,
+html.graphify .project-name { color: var(--gp-t1) !important; }
+html.graphify .project-description { color: var(--gp-t2) !important; }
+html.graphify .project-link:hover .project-name { color: var(--gp-green2) !important; }
+
+/* Scroll progress bar — green gradient */
+html.graphify .scroll-progress__bar {
+    background: linear-gradient(90deg, var(--gp-green) 0%, var(--gp-amber) 100%) !important;
+}
+
+/* Film grain — slightly stronger on dark */
+html.graphify .film-grain {
+    opacity: 0.05;
+    mix-blend-mode: screen;
+}
+
+/* Code blocks / pre — dark */
+html.graphify pre, html.graphify code {
+    background: rgba(34, 197, 94, 0.05) !important;
+    border: 1px solid var(--gp-border);
+    color: var(--gp-green3) !important;
+}
+
+/* Footer + misc */
+html.graphify footer, html.graphify .footer-item, html.graphify .prev-next-bottom {
+    color: var(--gp-t2) !important;
+    border-color: var(--gp-border) !important;
+}
+
+/* LIVE pulse badge (graphify signature) */
+.live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--gp-green2);
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid var(--gp-border-hi);
+    padding: 6px 14px;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+.live-badge__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gp-green2);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+    animation: pulseDotGP 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Section mono tag, reusable */
+.section-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gp-green2);
+    margin-bottom: 0.6rem;
+}
+
+/* ============================================================
+   GRAPHIFY EXACT CARD RECIPE — final overrides
+   Matches the .glass class from https://graphifylabs.ai/ exactly:
+   - flat low-opacity green-tinted bg, hairline border, no shadow
+   - only border-color brightens on hover (no transform, no shadow change)
+   ============================================================ */
+
+html.graphify .news-card,
+html.graphify .stat-card,
+html.graphify .publication-card,
+html.graphify .timeline-content,
+html.graphify .cert-card,
+html.graphify .skill-category,
+html.graphify .interest-item {
+    background: rgba(34, 197, 94, 0.04) !important;
+    border: 1px solid rgba(34, 197, 94, 0.13) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    box-shadow: none !important;
+    transition: border-color 0.25s ease !important;
+    transform: none !important;
+}
+html.graphify .news-card:hover,
+html.graphify .stat-card:hover,
+html.graphify .publication-card:hover,
+html.graphify .timeline-content:hover,
+html.graphify .cert-card:hover,
+html.graphify .skill-category:hover,
+html.graphify .interest-item:hover {
+    background: rgba(34, 197, 94, 0.04) !important;
+    border-color: rgba(34, 197, 94, 0.3) !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* Strip our extra decorations to match graphify's reserved aesthetic */
+html.graphify .news-card::before,
+html.graphify .stat-card::before,
+html.graphify .publication-card::before,
+html.graphify .timeline-content::before,
+html.graphify .cert-card::before { display: none !important; }
+html.graphify .news-card::after { display: none !important; }
+
+/* Defeat the magnetic-tilt inline transform if any sticks around */
+html.graphify .news-card { transform-style: flat !important; }
+
+/* ============================================================
+   TERMINAL — "Research Areas" rendered as a graphify code block
+   ============================================================ */
+.terminal-section {
+    margin: 2.5rem 0 3.5rem 0;
+}
+.terminal-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0 0.4rem 0.7rem;
+}
+.terminal-window {
+    position: relative;
+    background: rgba(4, 10, 6, 0.92);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+}
+.terminal-window::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: 12px;
+    background: linear-gradient(135deg,
+        rgba(34, 197, 94, 0.45),
+        rgba(245, 158, 11, 0.2),
+        rgba(34, 197, 94, 0.08));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+}
+.terminal-chrome {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.12);
+    background: rgba(4, 10, 6, 0.7);
+}
+.terminal-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.terminal-dot--red    { background: #ff5f57; }
+.terminal-dot--yellow { background: #febc2e; }
+.terminal-dot--green  { background: #28c840; }
+.terminal-title {
+    margin-left: 0.6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: rgba(220, 255, 220, 0.45);
+    letter-spacing: 0.04em;
+}
+.terminal-body {
+    margin: 0;
+    padding: 1.2rem 1.4rem 1.4rem;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.84rem;
+    line-height: 1.7;
+    color: rgba(220, 255, 220, 0.85);
+    white-space: pre;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.terminal-body code { font: inherit; color: inherit; background: transparent; padding: 0; border: 0; }
+
+.t-line {
+    display: block;
+    opacity: 0;
+    transform: translateY(4px);
+    animation: tLineIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes tLineIn { to { opacity: 1; transform: translateY(0); } }
+.terminal-body code { transition: opacity 0.22s ease; }
+.terminal-body code.is-clearing { opacity: 0; }
+.t-prompt { color: #4ade80; font-weight: 600; }
+.t-cmd    { color: #ffffff; }
+.t-muted  { color: rgba(220, 255, 220, 0.45); }
+.t-ok     { color: #22c55e; font-weight: 600; }
+
+.t-link {
+    display: inline-block;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    padding: 0 0.2rem;
+    margin: 0 -0.2rem;
+    border-radius: 3px;
+}
+.t-link:hover {
+    background: rgba(34, 197, 94, 0.08);
+    text-decoration: none !important;
+}
+.t-arrow { color: #fbbf24; }
+.t-name {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+.t-link:hover .t-name { color: #4ade80; }
+.t-desc { color: rgba(220, 255, 220, 0.55); }
+
+.t-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 0.4rem;
+}
+.t-tag--active    { color: #4ade80; background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.35); }
+.t-tag--review    { color: #fbbf24; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); }
+.t-tag--published { color: rgba(220, 255, 220, 0.55); background: rgba(220, 255, 220, 0.05); border: 1px solid rgba(220, 255, 220, 0.15); }
+
+.t-cursor {
+    display: inline-block;
+    width: 8px;
+    background: #4ade80;
+    color: #4ade80;
+    animation: tBlink 1s steps(2) infinite;
+}
+@keyframes tBlink { 50% { opacity: 0; } }
+
+@media (max-width: 720px) {
+    .terminal-body { font-size: 0.72rem; padding: 1rem; }
+    .t-desc { display: block; padding-left: 1.6rem; }
+    .t-tag  { display: inline-block; margin-left: 1.6rem; }
+}
+
+/* ============================================================
+   CHANGELOG — Linear-style activity log
+   ============================================================ */
+.changelog {
+    margin: 3rem auto 4rem;
+    max-width: 920px;
+    padding: 0 1rem;
+}
+.changelog-head {
+    margin-bottom: 1.8rem;
+}
+.changelog-title-main {
+    font-family: 'Bricolage Grotesque', 'Inter', sans-serif !important;
+    font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    margin: 0.3rem 0 0 0;
+    color: var(--gp-t1) !important;
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+}
+.changelog-year-group {
+    margin: 1.4rem 0;
+}
+.changelog-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    color: var(--gp-t3);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--gp-border);
+    margin-bottom: 0.15rem;
+}
+.changelog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.changelog-entry {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1rem;
+    padding: 0.55rem 0.5rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.06);
+    cursor: default;
+    transition: background 0.2s ease, padding-left 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    align-items: baseline;
+}
+.changelog-entry.is-linked { cursor: pointer; }
+.changelog-entry.is-linked .changelog-h::after {
+    content: ' ↗';
+    color: var(--gp-green2);
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-left: 0.3rem;
+}
+.changelog-entry.is-linked:hover .changelog-h::after {
+    opacity: 1;
+    transform: translate(2px, -2px);
+}
+.changelog-entry:hover {
+    background: rgba(34, 197, 94, 0.03);
+    padding-left: 1rem;
+}
+.changelog-entry::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 2px;
+    height: 0;
+    background: linear-gradient(180deg, var(--gp-green), var(--gp-amber));
+    transition: height 0.25s ease;
+    transform: translateY(-50%);
+}
+.changelog-entry:hover::before { height: 60%; }
+.changelog-entry:last-child { border-bottom: 0; }
+
+.changelog-meta {
+    display: grid;
+    grid-template-columns: 72px 110px;
+    column-gap: 0.55rem;
+    align-items: center;
+    padding-top: 0;
+}
+.changelog-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--gp-t2);
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: left;
+}
+.changelog-tag {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.56rem;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    color: var(--gp-green2);
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.changelog-entry.conference   .changelog-tag { color: #c084fc; background: rgba(124, 58, 237, 0.1);  border-color: rgba(124, 58, 237, 0.35); }
+.changelog-entry.publication  .changelog-tag,
+.changelog-entry.published    .changelog-tag,
+.changelog-entry.poster       .changelog-tag { color: #fbbf24; background: rgba(245, 158, 11, 0.1);  border-color: rgba(245, 158, 11, 0.35); }
+.changelog-entry.journal      .changelog-tag { color: #f87171; background: rgba(239, 68, 68, 0.1);   border-color: rgba(239, 68, 68, 0.35); }
+.changelog-entry.research     .changelog-tag { color: #93c5fd; background: rgba(59, 130, 246, 0.1);  border-color: rgba(59, 130, 246, 0.35); }
+.changelog-entry.achievement  .changelog-tag { color: #4ade80; background: rgba(34, 197, 94, 0.1);   border-color: rgba(34, 197, 94, 0.35); }
+.changelog-entry.industry,
+.changelog-entry.agriculture  { /* keep default green tag */ }
+
+.changelog-body { min-width: 0; }
+.changelog-h {
+    font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--gp-t1);
+    margin: 0;
+    letter-spacing: -0.01em;
+    transition: color 0.2s ease;
+}
+.changelog-entry:hover .changelog-h { color: var(--gp-green2); }
+/* Description hidden by default, expands on hover (mirrors projects-index pattern). */
+.changelog-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    color: var(--gp-t2);
+    line-height: 1.55;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-3px);
+    margin: 0;
+    transition:
+        max-height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.28s ease,
+        transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+        margin 0.28s ease;
+    pointer-events: none;
+}
+.changelog-entry:hover .changelog-desc {
+    max-height: 160px;
+    opacity: 1;
+    transform: translateY(0);
+    margin: 0.5rem 0 0 0;
+    pointer-events: auto;
+}
+
+@media (max-width: 640px) {
+    .changelog-entry {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    .changelog-meta {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    .t-line { animation: none; opacity: 1; transform: none; }
+    .t-cursor { animation: none; }
+    .changelog-entry { transition: none; }
+}
+
+/* ============================================================
+   CLICK RIPPLE — green expanding ring + amber inner flash on press
+   Native cursor stays visible.
+   ============================================================ */
+
+.gp-cursor-ripple,
+.gp-cursor-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    will-change: transform, width, height, opacity;
+}
+
+.gp-cursor-ripple {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    border: 2px solid #4ade80;
+    z-index: 99999;
+    animation: gpRipple 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes gpRipple {
+    0%   { width: 0;     height: 0;     border-width: 2px;   opacity: 0.9; }
+    100% { width: 120px; height: 120px; border-width: 0.5px; opacity: 0; }
+}
+
+.gp-cursor-flash {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+        rgba(251, 191, 36, 0.9) 0%,
+        rgba(245, 158, 11, 0.5) 50%,
+        transparent 75%);
+    z-index: 100000;
+    animation: gpFlash 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes gpFlash {
+    0%   { transform: translate(-50%, -50%) scale(0.4); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gp-cursor-ripple, .gp-cursor-flash { display: none; }
+}
+
+/* Safety net: protect only the top-level new sections from the [data-reveal] opacity-0 rule.
+   Descendants are NOT protected with !important so the per-line stagger animation can run. */
+.terminal-section,
+.changelog,
+.changelog-entry,
+.changelog-head,
+.changelog-year-group {
+    opacity: 1 !important;
+    transform: none !important;
+}
+/* per-line stagger CSS removed: JS now drives the terminal */
+
+/* ============================================================
+   HERO DECODE + GRAPHIFY COLOR TREATMENT
+   "Sai" → pure white   ·   "Navaneet" → amber gradient
+   Mirrors graphify's "AI tools forget. Graphify decodes everything."
+   ============================================================ */
+html.graphify .hero-name .hero-word {
+    transform: none !important;
+    clip-path: none !important;
+    animation: none !important;
+}
+
+/* First word: pure white */
+html.graphify .hero-name .hero-word:nth-child(1) {
+    background: none !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Prevent layout shift while JetBrains Mono is still loading by reserving the
+   metric of a similar mono fallback. */
+html.graphify .hero-name {
+    font-display: optional;
+    font-synthesis: none;
+    contain: layout style;
+}
+
+/* Second word: amber gradient (graphify .grad-amber) */
+html.graphify .hero-name .hero-word:nth-child(2) {
+    background-image: linear-gradient(135deg, #fde68a 0%, #f59e0b 60%, #d97706 100%) !important;
+    background-size: 100% 100% !important;
+    background-position: 0 0 !important;
+    -webkit-background-clip: text !important;
+            background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* ============================================================
+   GLOBAL TEXT COLOR — match graphify's t1 / t2 / t3 scale
+   t1 = rgba(220,255,220,0.92)  primary text
+   t2 = rgba(220,255,220,0.55)  secondary / descriptions / dates
+   t3 = rgba(220,255,220,0.28)  tertiary / dividers / mono dots
+   ============================================================ */
+
+html.graphify {
+    --gp-t1: rgba(220, 255, 220, 0.92);
+    --gp-t2: rgba(220, 255, 220, 0.55);
+    --gp-t3: rgba(220, 255, 220, 0.28);
+}
+
+html.graphify body,
+html.graphify p,
+html.graphify span,
+html.graphify li,
+html.graphify .hero-bio,
+html.graphify .profile-bio,
+html.graphify .changelog-h,
+html.graphify .changelog-title-main,
+html.graphify .news-content,
+html.graphify .publication-title,
+html.graphify .card-title,
+html.graphify .cert-title,
+html.graphify .skill-category-title,
+html.graphify .project-name,
+html.graphify .top-navbar .navbar-brand,
+html.graphify .top-navbar .navbar-menu a {
+    color: var(--gp-t1) !important;
+}
+
+html.graphify .hero-degree,
+html.graphify .profile-degree,
+html.graphify .hero-roles,
+html.graphify .hero-roles__static,
+html.graphify .changelog-desc,
+html.graphify .changelog-date,
+html.graphify .news-date,
+html.graphify .year-title,
+html.graphify .publication-authors,
+html.graphify .publication-venue,
+html.graphify .publication-date,
+html.graphify .card-meta,
+html.graphify .card-org,
+html.graphify .card-location,
+html.graphify .cert-meta,
+html.graphify .project-description,
+html.graphify .stat-card__label,
+html.graphify .hero-graph-sub {
+    color: var(--gp-t2) !important;
+}
+
+html.graphify .tech-marquee__dot,
+html.graphify .terminal-title,
+html.graphify .t-muted {
+    color: var(--gp-t3) !important;
+}
+
+/* Section tags / mono accents stay green */
+html.graphify .hero-graph-tag,
+html.graphify .section-tag,
+html.graphify .live-badge {
+    color: #4ade80 !important;
+}
+
+/* Headings: pure white (graphify uses text-white on h2/h3) */
+html.graphify h2,
+html.graphify h3,
+html.graphify h4,
+html.graphify .changelog-title-main,
+html.graphify .news-section-title {
+    color: #ffffff !important;
+    background: none !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+html.graphify .news-section-title::after {
+    background: linear-gradient(135deg, #fde68a 0%, #f59e0b 60%, #d97706 100%) !important;
+}
+
+/* ============================================================
+   RESUME PAGE — hybrid HTML hero + dark-framed PDF embed
+   ============================================================ */
+
+html.graphify .resume-hero {
+    margin: 2.5rem 0 2rem 0;
+}
+html.graphify .resume-name {
+    font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+    font-size: clamp(2.2rem, 4.2vw, 3.4rem) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.04em !important;
+    line-height: 1.05 !important;
+    margin: 0.4rem 0 0.5rem 0 !important;
+    color: #ffffff !important;
+    background: none !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+html.graphify .resume-name__first { color: #ffffff !important; }
+html.graphify .resume-name__last {
+    background-image: linear-gradient(135deg, #fde68a 0%, #f59e0b 60%, #d97706 100%) !important;
+    -webkit-background-clip: text !important;
+            background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+html.graphify .resume-role {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.84rem !important;
+    color: var(--gp-t2) !important;
+    letter-spacing: 0.08em !important;
+    margin: 0 0 1.4rem 0 !important;
+}
+html.graphify .resume-actions {
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    margin-top: 1.2rem;
+}
+html.graphify .resume-cta {
+    text-decoration: none !important;
+    margin: 0 !important;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+html.graphify .resume-cta:hover {
+    border-color: var(--gp-green2) !important;
+    color: var(--gp-green2) !important;
+    background: rgba(34, 197, 94, 0.14) !important;
+}
+html.graphify .resume-cta--primary {
+    background: linear-gradient(135deg, #16a34a, #15803d) !important;
+    border-color: rgba(34, 197, 94, 0.45) !important;
+    color: #ffffff !important;
+}
+html.graphify .resume-cta--primary:hover {
+    background: linear-gradient(135deg, #15803d, #14532d) !important;
+    color: #ffffff !important;
+}
+
+html.graphify .resume-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0 2.5rem 0;
+}
+
+html.graphify .resume-summary {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2.5rem;
+    margin: 2.5rem 0 2.5rem 0;
+}
+html.graphify .resume-col { min-width: 0; }
+html.graphify .resume-col .hero-graph-tag {
+    display: block;
+    margin-bottom: 0.85rem;
+}
+html.graphify .resume-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.4rem;
+}
+
+html.graphify .resume-timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+html.graphify .resume-timeline li {
+    position: relative;
+    border-left: 1px solid rgba(34, 197, 94, 0.18);
+    padding: 0.55rem 0 0.55rem 1.2rem;
+    margin: 0 0 0.85rem 0.4rem;
+}
+html.graphify .resume-timeline li::before {
+    content: '';
+    position: absolute;
+    left: -4.5px;
+    top: 0.95rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gp-amber);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.12);
+}
+html.graphify .resume-timeline li strong {
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+}
+html.graphify .resume-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gp-amber);
+    letter-spacing: 0.12em;
+    margin-left: 0.6rem;
+    padding: 1px 6px;
+    border: 1px solid rgba(245, 158, 11, 0.32);
+    border-radius: 3px;
+    background: rgba(245, 158, 11, 0.06);
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: 1px;
+}
+
+html.graphify .resume-pdf {
+    margin: 3rem 0 4rem 0;
+}
+html.graphify .resume-pdf-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0 0.4rem 0.7rem;
+}
+html.graphify .resume-open {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gp-t2) !important;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+    text-decoration: none !important;
+}
+html.graphify .resume-open:hover { color: var(--gp-green2) !important; }
+html.graphify .resume-pdf-frame { margin: 0; }
+html.graphify .resume-iframe {
+    width: 100%;
+    height: 920px;
+    border: 0;
+    display: block;
+    background: #1a1a1a;
+}
+
+@media (max-width: 760px) {
+    html.graphify .resume-stats   { grid-template-columns: repeat(2, 1fr); }
+    html.graphify .resume-summary { grid-template-columns: 1fr; gap: 1.5rem; }
+    html.graphify .resume-iframe  { height: 620px; }
+}
+
+/* Hide the H1 "Resume" only on the resume page (scoped via :has(.resume-hero)) */
+html.graphify .bd-article section:has(.resume-hero) > h1:first-child,
+html.graphify .bd-article section:has(.exp-hero) > h1:first-child {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ============================================================
+   EXPERIENCE PAGE — Gantt timeline graph + legend + restyle
+   ============================================================ */
+
+html.graphify .exp-hero {
+    margin: 2.5rem 0 1.4rem 0;
+}
+html.graphify .exp-hero-title {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: clamp(1.9rem, 3.4vw, 2.6rem) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.1 !important;
+    color: #ffffff !important;
+    margin: 0.3rem 0 0.5rem 0 !important;
+}
+html.graphify .exp-hero-sub {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.8rem !important;
+    color: var(--gp-t2) !important;
+    letter-spacing: 0.05em !important;
+    margin: 0 0 1.4rem 0 !important;
+}
+
+html.graphify .exp-gantt-wrap {
+    margin: 0 0 3rem 0;
+    padding: 1.4rem;
+    background: rgba(34, 197, 94, 0.04);
+    border: 1px solid rgba(34, 197, 94, 0.13);
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+html.graphify .exp-gantt {
+    width: 100%;
+    min-width: 880px;
+    height: auto;
+    display: block;
+}
+html.graphify .exp-bar {
+    cursor: default;
+    transition: opacity 0.2s ease;
+}
+html.graphify .exp-bar rect {
+    transition: fill-opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
+}
+html.graphify .exp-bar:hover rect {
+    fill-opacity: 0.35;
+    stroke-width: 1.5;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.12));
+}
+html.graphify .exp-bar:hover {
+    opacity: 1;
+}
+html.graphify .exp-gantt:hover .exp-bar:not(:hover) {
+    opacity: 0.55;
+}
+
+html.graphify .exp-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin: 1rem 0.3rem 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    color: var(--gp-t2);
+}
+html.graphify .exp-legend__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+html.graphify .exp-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+}
+html.graphify .exp-swatch--industry   { background: rgba(245, 158, 11, 0.25); border: 1px solid #f59e0b; }
+html.graphify .exp-swatch--research   { background: rgba(34, 197, 94, 0.20);  border: 1px solid #22c55e; }
+html.graphify .exp-swatch--intern     { background: rgba(107, 114, 128, 0.28); border: 1px solid #9ca3af; }
+html.graphify .exp-swatch--education  { background: rgba(124, 58, 237, 0.22); border: 1px solid #a78bfa; }
+
+/* Filter pills — restyle for dark */
+html.graphify .filter-btn {
+    border-color: rgba(34, 197, 94, 0.25) !important;
+    color: var(--gp-t2) !important;
+    background: rgba(34, 197, 94, 0.04) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.74rem !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase;
+}
+html.graphify .filter-btn:hover {
+    color: var(--gp-green2) !important;
+    border-color: rgba(34, 197, 94, 0.5) !important;
+    background: rgba(34, 197, 94, 0.08) !important;
+}
+html.graphify .filter-btn.active {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    border-color: #f59e0b !important;
+    color: #0a0a0a !important;
+}
+html.graphify .filter-btn::before { display: none !important; }
+
+/* Timeline: kill the L/R zigzag, make every entry left-aligned for clarity */
+html.graphify .timeline { padding-left: 30px; }
+html.graphify .timeline::before { left: 12px !important; transform: none !important; }
+html.graphify .timeline-item { display: block !important; }
+html.graphify .timeline-item:nth-child(odd)  .timeline-content,
+html.graphify .timeline-item:nth-child(even) .timeline-content {
+    width: 100% !important;
+    margin: 0 0 0 30px !important;
+    padding: 1.2rem !important;
+    text-align: left !important;
+}
+html.graphify .timeline-marker {
+    left: 12px !important;
+    transform: translateX(-50%) !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+html.graphify .timeline-item:nth-child(odd):hover  .timeline-content,
+html.graphify .timeline-item:nth-child(even):hover .timeline-content {
+    transform: translateX(3px) !important;
+}
+html.graphify .card-icon {
+    background: rgba(34, 197, 94, 0.08) !important;
+}
+html.graphify .card-list li::before { color: var(--gp-amber) !important; }
+html.graphify .card-list li { color: var(--gp-t1) !important; }
+html.graphify .card-list li strong { color: var(--gp-green2) !important; }
+
+@media (max-width: 760px) {
+    html.graphify .exp-gantt-wrap { padding: 0.8rem; }
+    html.graphify .exp-legend { gap: 0.7rem; font-size: 0.65rem; }
+}
+
+/* ============================================================
+   EXPERIENCE v3 — compact sections below the Gantt
+   ============================================================ */
+
+html.graphify .exp-section {
+    margin: 2.6rem 0;
+}
+html.graphify .exp-section > .hero-graph-tag {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* — Highlights: numbered compact rows — */
+html.graphify .exp-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+html.graphify .exp-row {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    align-items: baseline;
+    gap: 1.2rem;
+    padding: 1.1rem 0.6rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.08);
+    position: relative;
+    transition: background 0.2s ease, padding-left 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html.graphify .exp-row:hover {
+    background: rgba(34, 197, 94, 0.03);
+    padding-left: 1rem;
+}
+html.graphify .exp-row::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    height: 0;
+    width: 2px;
+    transform: translateY(-50%);
+    background: linear-gradient(180deg, var(--gp-green), var(--gp-amber));
+    transition: height 0.25s ease;
+}
+html.graphify .exp-row:hover::before { height: 60%; }
+
+html.graphify .exp-row__num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--gp-t3);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+}
+html.graphify .exp-row--industry  .exp-row__num { color: var(--gp-amber); }
+html.graphify .exp-row--research  .exp-row__num { color: var(--gp-green2); }
+html.graphify .exp-row--intern    .exp-row__num { color: #9ca3af; }
+
+html.graphify .exp-row__title {
+    margin: 0 0 0.2rem 0 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.98rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.01em !important;
+}
+html.graphify .exp-row__org {
+    color: var(--gp-t2) !important;
+    font-weight: 400;
+}
+html.graphify .exp-row--industry  .exp-row__org { color: var(--gp-amber) !important; }
+html.graphify .exp-row--research  .exp-row__org { color: var(--gp-green2) !important; }
+html.graphify .exp-row__desc {
+    margin: 0 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.84rem !important;
+    color: var(--gp-t2) !important;
+    line-height: 1.55 !important;
+}
+html.graphify .exp-row__date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    padding: 2px 8px;
+    border-radius: 3px;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    color: var(--gp-t2);
+    background: rgba(34, 197, 94, 0.06);
+    white-space: nowrap;
+}
+html.graphify .exp-row--industry .exp-row__date {
+    color: var(--gp-amber);
+    border-color: rgba(245, 158, 11, 0.32);
+    background: rgba(245, 158, 11, 0.06);
+}
+html.graphify .exp-row--research .exp-row__date {
+    color: var(--gp-green2);
+}
+
+/* — Skills: stacked rows — */
+html.graphify .exp-skills {
+    margin: 0;
+    padding: 0;
+}
+html.graphify .exp-skill-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1.4rem;
+    align-items: start;
+    padding: 1rem 0.4rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.06);
+}
+html.graphify .exp-skill-row dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--gp-t2);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding-top: 0.4rem;
+}
+html.graphify .exp-skill-row dd {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+/* — Certifications: compact list rows — */
+html.graphify .exp-cert-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+html.graphify .exp-cert {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1.2rem;
+    align-items: center;
+    padding: 0.85rem 0.6rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.06);
+    font-family: 'JetBrains Mono', monospace;
+}
+html.graphify .exp-cert:hover { background: rgba(34, 197, 94, 0.03); }
+html.graphify .exp-cert__title {
+    color: var(--gp-t1);
+    font-size: 0.88rem;
+}
+html.graphify .exp-cert__meta {
+    color: var(--gp-t2);
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+html.graphify .exp-cert__sep { color: var(--gp-t3); margin: 0 0.2rem; }
+html.graphify .exp-cert__link {
+    color: var(--gp-amber) !important;
+    text-decoration: none !important;
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 3px 9px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+html.graphify .exp-cert__link:hover {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: var(--gp-amber);
+}
+html.graphify .exp-cert__link--muted {
+    color: var(--gp-t3) !important;
+    border-color: rgba(220, 255, 220, 0.1);
+    cursor: default;
+}
+html.graphify .exp-cert__link--muted:hover {
+    background: transparent;
+    border-color: rgba(220, 255, 220, 0.1);
+}
+
+/* — Languages: single tight row — */
+html.graphify .exp-lang-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.4rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+html.graphify .exp-lang {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.5rem 0.95rem;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 4px;
+    background: rgba(34, 197, 94, 0.04);
+}
+html.graphify .exp-lang strong {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.88rem;
+}
+html.graphify .exp-lang-lvl {
+    color: var(--gp-amber);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+}
+
+@media (max-width: 720px) {
+    html.graphify .exp-row {
+        grid-template-columns: 32px 1fr;
+        gap: 0.7rem;
+    }
+    html.graphify .exp-row__date {
+        grid-column: 2;
+        justify-self: start;
+        margin-top: 0.3rem;
+    }
+    html.graphify .exp-skill-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    html.graphify .exp-cert {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+}
+
+/* ============================================================
+   PUBLICATIONS PAGE — stats + distribution + topic + list
+   ============================================================ */
+
+html.graphify .bd-article section:has(.pub-hero) > h1:first-child {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+html.graphify .pub-hero {
+    margin: 2.5rem 0 1.6rem 0;
+}
+
+/* Stat cards row */
+html.graphify .pub-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.9rem;
+    margin: 1.4rem 0 2.6rem 0;
+}
+html.graphify .pub-stat {
+    background: rgba(34, 197, 94, 0.04);
+    border: 1px solid rgba(34, 197, 94, 0.13);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 10px;
+    padding: 1.1rem 1.2rem;
+    transition: border-color 0.25s ease, background 0.25s ease;
+    position: relative;
+}
+html.graphify .pub-stat:hover {
+    border-color: rgba(34, 197, 94, 0.3);
+    background: rgba(34, 197, 94, 0.06);
+}
+html.graphify .pub-stat__num {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+    margin-bottom: 0.3rem;
+}
+html.graphify .pub-stat__lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gp-t2);
+    letter-spacing: 0.16em;
+}
+html.graphify .pub-stat--pub  .pub-stat__num { color: #4ade80; }
+html.graphify .pub-stat--pend .pub-stat__num { color: #fbbf24; }
+html.graphify .pub-stat--rej  .pub-stat__num { color: #f87171; }
+html.graphify .pub-stat--first .pub-stat__num {
+    background-image: linear-gradient(135deg, #fde68a 0%, #f59e0b 60%, #d97706 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Status distribution segmented bar */
+html.graphify .pub-dist {
+    margin: 2rem 0;
+}
+html.graphify .pub-dist__head,
+html.graphify .pub-topics__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0 0.2rem 0.7rem;
+}
+html.graphify .pub-dist__total {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gp-t2);
+    letter-spacing: 0.12em;
+}
+html.graphify .pub-dist__bar {
+    display: flex;
+    gap: 4px;
+    height: 56px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(34, 197, 94, 0.04);
+    border: 1px solid rgba(34, 197, 94, 0.13);
+    padding: 4px;
+}
+html.graphify .pub-dist__seg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    border-radius: 5px;
+    transition: filter 0.2s ease;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+html.graphify .pub-dist__seg:hover { filter: brightness(1.15); }
+html.graphify .pub-dist__seg span:last-child {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+html.graphify .pub-dist__seg--published {
+    background: linear-gradient(135deg, rgba(34,197,94,0.35), rgba(22,163,74,0.25));
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.45);
+}
+html.graphify .pub-dist__seg--pending {
+    background: linear-gradient(135deg, rgba(245,158,11,0.32), rgba(217,119,6,0.22));
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.45);
+}
+html.graphify .pub-dist__seg--rejected {
+    background: linear-gradient(135deg, rgba(239,68,68,0.30), rgba(220,38,38,0.20));
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.45);
+}
+
+/* Topic distribution */
+html.graphify .pub-topics {
+    margin: 2rem 0;
+}
+html.graphify .pub-topics__list {
+    list-style: none;
+    padding: 1.1rem 1.2rem;
+    margin: 0;
+    background: rgba(34, 197, 94, 0.04);
+    border: 1px solid rgba(34, 197, 94, 0.13);
+    border-radius: 10px;
+}
+html.graphify .pub-topic {
+    display: grid;
+    grid-template-columns: 220px 1fr 30px;
+    gap: 1.2rem;
+    align-items: center;
+    padding: 0.6rem 0;
+    font-family: 'JetBrains Mono', monospace;
+}
+html.graphify .pub-topic + .pub-topic {
+    border-top: 1px solid rgba(34, 197, 94, 0.06);
+}
+html.graphify .pub-topic__label {
+    font-size: 0.84rem;
+    color: var(--gp-t1);
+}
+html.graphify .pub-topic__track {
+    display: block;
+    height: 8px;
+    background: rgba(34, 197, 94, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+}
+html.graphify .pub-topic__bar {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e 0%, #4ade80 100%);
+    border-radius: 4px;
+    transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html.graphify .pub-topic__bar--alt  { background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%); }
+html.graphify .pub-topic__bar--alt2 { background: linear-gradient(90deg, #7c3aed 0%, #a78bfa 100%); }
+html.graphify .pub-topic__bar--alt3 { background: linear-gradient(90deg, #06b6d4 0%, #67e8f9 100%); }
+html.graphify .pub-topic__count {
+    text-align: right;
+    color: var(--gp-amber);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Publications list */
+html.graphify .pub-list {
+    margin: 3rem 0 2rem 0;
+}
+html.graphify .pub-year-group {
+    margin-bottom: 1.6rem;
+}
+html.graphify .pub-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--gp-t3);
+    letter-spacing: 0.18em;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.18);
+    margin: 1.2rem 0 0.4rem 0;
+}
+html.graphify .pub-rows {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+html.graphify .pub-row {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    gap: 1.2rem;
+    padding: 1.1rem 0.6rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.07);
+    position: relative;
+    transition: background 0.2s ease, padding-left 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html.graphify .pub-row:hover {
+    background: rgba(34, 197, 94, 0.03);
+    padding-left: 1rem;
+}
+html.graphify .pub-row::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    height: 0; width: 2px;
+    transform: translateY(-50%);
+    background: linear-gradient(180deg, var(--gp-green), var(--gp-amber));
+    transition: height 0.25s ease;
+}
+html.graphify .pub-row:hover::before { height: 60%; }
+
+html.graphify .pub-row__num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--gp-t3);
+    letter-spacing: 0.1em;
+    padding-top: 0.15rem;
+}
+html.graphify .pub-row--published .pub-row__num { color: var(--gp-green2); }
+html.graphify .pub-row--submitted .pub-row__num { color: #fbbf24; }
+html.graphify .pub-row--review    .pub-row__num { color: #fbbf24; }
+html.graphify .pub-row--rejected  .pub-row__num { color: #f87171; }
+
+html.graphify .pub-row__title {
+    margin: 0 0 0.4rem 0 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.98rem !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    letter-spacing: -0.01em !important;
+    color: #ffffff !important;
+}
+html.graphify .pub-row__title a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease;
+}
+html.graphify .pub-row__title a:hover {
+    color: var(--gp-amber) !important;
+}
+html.graphify .pub-row__authors {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--gp-t2);
+    margin-bottom: 0.25rem;
+}
+html.graphify .pub-row__authors strong {
+    color: var(--gp-green2);
+    font-weight: 600;
+}
+html.graphify .pub-row__venue {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--gp-t3);
+    font-style: normal;
+}
+
+html.graphify .pub-row__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+    white-space: nowrap;
+}
+html.graphify .pub-row__date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--gp-t2);
+    letter-spacing: 0.1em;
+}
+html.graphify .pub-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    border: 1px solid;
+}
+html.graphify .pub-status--published {
+    color: #4ade80;
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.35);
+}
+html.graphify .pub-status--submitted,
+html.graphify .pub-status--review {
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.35);
+}
+html.graphify .pub-status--rejected {
+    color: #f87171;
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.35);
+}
+html.graphify .pub-status--poster {
+    color: #c084fc;
+    background: rgba(124, 58, 237, 0.1);
+    border-color: rgba(124, 58, 237, 0.35);
+}
+
+@media (max-width: 720px) {
+    html.graphify .pub-stats { grid-template-columns: repeat(2, 1fr); }
+    html.graphify .pub-topic { grid-template-columns: 1fr; gap: 0.4rem; padding: 0.8rem 0; }
+    html.graphify .pub-topic__count { text-align: left; }
+    html.graphify .pub-row { grid-template-columns: 30px 1fr; gap: 0.7rem; }
+    html.graphify .pub-row__meta { grid-column: 2; flex-direction: row; align-items: center; }
+    html.graphify .pub-dist__bar { height: auto; flex-direction: column; }
+    html.graphify .pub-dist__seg { padding: 0.6rem 0.9rem; }
+}
+
+/* ============================================================
+   BLOG PAGE — category chips (uses .pub-row structure)
+   ============================================================ */
+html.graphify .bd-article section:has(.blog-rows) > h1:first-child {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+html.graphify .blog-row__chip {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    border: 1px solid;
+    margin-bottom: 0.45rem;
+}
+html.graphify .blog-row__chip--robotics { color: #4ade80; background: rgba(34,197,94,0.10);  border-color: rgba(34,197,94,0.35); }
+html.graphify .blog-row__chip--sim      { color: #fbbf24; background: rgba(245,158,11,0.10); border-color: rgba(245,158,11,0.35); }
+html.graphify .blog-row__chip--tutorial { color: #67e8f9; background: rgba(6,182,212,0.10);  border-color: rgba(6,182,212,0.35); }
+html.graphify .blog-row__chip--ai       { color: #c084fc; background: rgba(124,58,237,0.10); border-color: rgba(124,58,237,0.35); }
+html.graphify .blog-row__chip--tech     { color: #f9a8d4; background: rgba(236,72,153,0.10); border-color: rgba(236,72,153,0.35); }
+
+html.graphify .blog-row .pub-row__venue code {
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.18);
+    color: var(--gp-green2) !important;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.74rem;
+}
+
+/* ============================================================
+   CONTACT PAGE — no cards, no tiles, just hairlines + text
+   ============================================================ */
+html.graphify .bd-article section:has(.contact-hero) > h1:first-child {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+html.graphify .contact-hero {
+    margin: 2.5rem 0 1.8rem 0;
+}
+
+/* Channels: clean dt/dd row list, no boxes */
+html.graphify .contact-channels {
+    margin: 2rem 0 3rem 0;
+}
+html.graphify .contact-list {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(34, 197, 94, 0.12);
+}
+html.graphify .contact-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1.2rem;
+    padding: 0.95rem 0.4rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.08);
+    align-items: baseline;
+    font-family: 'JetBrains Mono', monospace;
+}
+html.graphify .contact-row dt {
+    color: var(--gp-t3);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+html.graphify .contact-row dd {
+    margin: 0;
+    color: var(--gp-t1);
+    font-size: 0.92rem;
+}
+html.graphify .contact-row dd a {
+    color: var(--gp-t1) !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(74, 222, 128, 0.35);
+    transition: color 0.2s ease, border-color 0.2s ease;
+    padding-bottom: 1px;
+}
+html.graphify .contact-row dd a:hover {
+    color: var(--gp-amber) !important;
+    border-color: var(--gp-amber);
+}
+
+/* Form: no card, just terminal-style underline inputs */
+html.graphify .contact-form-section {
+    margin: 3rem 0 4rem 0;
+}
+html.graphify .contact-form-section > .hero-graph-tag {
+    display: block;
+    margin-bottom: 1.4rem;
+}
+html.graphify .contact-form-flat {
+    max-width: 640px;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0;
+    margin: 0;
+}
+html.graphify .contact-form-flat:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+html.graphify .cf-field {
+    margin-bottom: 1.6rem;
+}
+html.graphify .cf-field label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gp-t2);
+    margin-bottom: 0.45rem;
+}
+html.graphify .cf-field input,
+html.graphify .cf-field textarea {
+    width: 100%;
+    background: transparent !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.25) !important;
+    border-radius: 0 !important;
+    padding: 0.55rem 0.1rem !important;
+    color: var(--gp-t1) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.95rem !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    resize: vertical;
+}
+html.graphify .cf-field textarea {
+    min-height: 110px;
+    line-height: 1.55;
+}
+html.graphify .cf-field input::placeholder,
+html.graphify .cf-field textarea::placeholder {
+    color: var(--gp-t3);
+}
+html.graphify .cf-field input:focus,
+html.graphify .cf-field textarea:focus {
+    outline: none !important;
+    border-bottom-color: var(--gp-amber) !important;
+    background: rgba(34, 197, 94, 0.02) !important;
+}
+
+html.graphify .cf-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: transparent !important;
+    border: 1px solid var(--gp-amber) !important;
+    color: var(--gp-amber) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.84rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase;
+    padding: 0.65rem 1.4rem !important;
+    border-radius: 4px !important;
+    cursor: pointer;
+    width: auto !important;
+    margin-top: 0.6rem !important;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+html.graphify .cf-submit:hover {
+    background: rgba(245, 158, 11, 0.1) !important;
+    color: #fde68a !important;
+    transform: none !important;
+}
+html.graphify .cf-submit:active {
+    transform: translateY(1px) !important;
+}
+
+@media (max-width: 640px) {
+    html.graphify .contact-row {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+    }
+}
+
+/* ============================================================
+   PROJECTS PAGE — bento grid + interactive filter
+   ============================================================ */
+
+html.graphify .bd-article section:has(.pub-hero) + section:has(.proj-pills) > h1:first-child,
+html.graphify .bd-article > section > h1:first-child:has(+ section .pub-hero) {
+    /* not needed — handled by page-level :has() above */
+}
+
+html.graphify .proj-filter { margin: 2rem 0 1.4rem 0; }
+html.graphify .proj-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    padding: 0.3rem;
+    background: rgba(34, 197, 94, 0.04);
+    border: 1px solid rgba(34, 197, 94, 0.13);
+    border-radius: 8px;
+}
+html.graphify .proj-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    color: var(--gp-t2);
+    background: transparent;
+    border: 1px solid rgba(34, 197, 94, 0.18);
+    border-radius: 5px;
+    padding: 0.5rem 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+html.graphify .proj-pill span {
+    font-size: 0.66rem;
+    color: var(--gp-t3);
+    padding: 1px 6px;
+    background: rgba(34, 197, 94, 0.08);
+    border-radius: 3px;
+}
+html.graphify .proj-pill:hover {
+    border-color: var(--gp-green2);
+    color: #ffffff;
+    background: rgba(34, 197, 94, 0.05);
+}
+html.graphify .proj-pill.is-active {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border-color: #f59e0b;
+    color: #0a0a0a;
+}
+html.graphify .proj-pill.is-active span {
+    background: rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+}
+
+/* — Editorial index list — */
+html.graphify .proj-index {
+    margin: 1.6rem 0 4rem 0;
+}
+html.graphify .proj-index > .hero-graph-tag {
+    display: block;
+    margin-bottom: 0.9rem;
+}
+html.graphify .proj-rows-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid rgba(34, 197, 94, 0.18);
+}
+
+/* Row */
+html.graphify .proj-row {
+    position: relative;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.10);
+    transition: background 0.3s ease;
+    overflow: hidden;
+}
+html.graphify .proj-row::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--proj-cat-color, var(--gp-green2));
+    transform: scaleY(0);
+    transform-origin: 50% 50%;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+html.graphify .proj-row:hover {
+    background: linear-gradient(90deg, color-mix(in srgb, var(--proj-cat-color, #4ade80) 6%, transparent), transparent 70%);
+}
+html.graphify .proj-row:hover::before { transform: scaleY(1); }
+
+/* Link wraps the entire row */
+html.graphify .proj-row__link {
+    display: grid;
+    grid-template-columns: 56px 130px 1fr 70px 130px 30px;
+    grid-template-areas: "num cat title year status arrow";
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.6rem 1.2rem;
+    text-decoration: none !important;
+    transition: padding 0.3s ease;
+}
+html.graphify .proj-row:hover .proj-row__link {
+    padding-left: 1.8rem;
+}
+
+html.graphify .proj-row__num {
+    grid-area: num;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--gp-t3);
+    letter-spacing: 0.1em;
+}
+html.graphify .proj-row__cat {
+    grid-area: cat;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--proj-cat-color, var(--gp-green2));
+    text-transform: uppercase;
+}
+html.graphify .proj-row__title {
+    grid-area: title;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: clamp(1.3rem, 2.2vw, 1.85rem) !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.025em !important;
+    margin: 0 !important;
+    line-height: 1.1 !important;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+html.graphify .proj-row:hover .proj-row__title {
+    color: var(--proj-cat-color, var(--gp-amber)) !important;
+}
+html.graphify .proj-row__year {
+    grid-area: year;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--gp-t2);
+    letter-spacing: 0.1em;
+}
+html.graphify .proj-row__status {
+    grid-area: status;
+    justify-self: end;
+}
+html.graphify .proj-row__arrow {
+    grid-area: arrow;
+    justify-self: end;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.3rem;
+    color: var(--proj-cat-color, var(--gp-amber));
+    transform: translateX(-6px);
+    opacity: 0.55;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+html.graphify .proj-row:hover .proj-row__arrow {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Expanding panel (description + tags) — slides open on row hover */
+html.graphify .proj-row__expand {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease, margin 0.3s ease;
+    padding-left: calc(56px + 130px + 3rem);
+    padding-right: 1.2rem;
+    margin: 0;
+}
+html.graphify .proj-row:hover .proj-row__expand {
+    max-height: 200px;
+    opacity: 1;
+    transform: translateY(0);
+    margin: 0 0 1.2rem 0;
+}
+html.graphify .proj-row__desc {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.86rem !important;
+    color: var(--gp-t2) !important;
+    margin: 0 0 0.6rem 0 !important;
+    line-height: 1.6 !important;
+}
+html.graphify .proj-row__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+/* Tag chip */
+html.graphify .proj-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    color: var(--gp-t1);
+    background: rgba(34, 197, 94, 0.06);
+    border: 1px solid rgba(34, 197, 94, 0.16);
+    border-radius: 3px;
+    padding: 2px 7px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+/* Per-category accent colors (drives the row stripe + arrow + hover tint) */
+html.graphify .proj-cat--research   { --proj-cat-color: #c084fc; }
+html.graphify .proj-cat--locomotion { --proj-cat-color: #4ade80; }
+html.graphify .proj-cat--control    { --proj-cat-color: #67e8f9; }
+html.graphify .proj-cat--industry   { --proj-cat-color: #fbbf24; }
+html.graphify .proj-cat--drones     { --proj-cat-color: #f87171; }
+html.graphify .proj-cat--hardware   { --proj-cat-color: #f9a8d4; }
+
+/* Filter transition: collapse */
+html.graphify .proj-row.is-hidden {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-8px);
+    border-bottom-color: transparent;
+    pointer-events: none;
+    transition: opacity 0.25s ease, max-height 0.3s ease, transform 0.25s ease;
+}
+html.graphify .proj-row.is-hidden .proj-row__link { padding: 0 !important; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    html.graphify .proj-row__link {
+        grid-template-columns: 40px 1fr auto;
+        grid-template-areas:
+            "num title arrow"
+            "cat year   status";
+        gap: 0.4rem 1rem;
+        padding: 1.2rem 0.8rem;
+    }
+    html.graphify .proj-row__cat   { font-size: 0.62rem; }
+    html.graphify .proj-row__year  { justify-self: start; }
+    html.graphify .proj-row__expand { padding-left: 40px; padding-right: 0.8rem; }
+    html.graphify .proj-row:hover .proj-row__expand { max-height: 280px; }
+}
+@media (max-width: 640px) {
+    html.graphify .proj-pill { padding: 0.42rem 0.7rem; font-size: 0.68rem; }
+    html.graphify .proj-row__title { font-size: 1.1rem !important; }
+}
+
+/* ============================================================
+   BOOT SEQUENCE — once-per-session intro overlay
+   ============================================================ */
+.boot-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 100002;
+    background: #040806;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0s linear 0.45s;
+    color: rgba(220, 255, 220, 0.9);
+    font-family: 'JetBrains Mono', monospace;
+}
+.boot-screen.is-leaving {
+    opacity: 0;
+    visibility: hidden;
+}
+.boot-screen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(34, 197, 94, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 197, 94, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+.boot-screen::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #22c55e 35%, #f59e0b 50%, #22c55e 65%, transparent);
+}
+.boot-stack {
+    position: relative;
+    max-width: 520px;
+    width: 90%;
+    padding: 0 1rem;
+    z-index: 1;
+}
+.boot-brand {
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 1.4rem;
+    text-align: center;
+}
+.boot-brand span {
+    color: #fbbf24;
+    font-weight: 500;
+    margin-left: 0.4rem;
+}
+.boot-lines {
+    font-size: 0.84rem;
+    line-height: 1.85;
+}
+.boot-line {
+    opacity: 0;
+    transform: translateY(3px);
+    animation: bootLineIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes bootLineIn { to { opacity: 1; transform: none; } }
+.boot-line.b-cmd    { color: #ffffff; }
+.boot-line.b-muted  { color: rgba(220, 255, 220, 0.5); }
+.boot-line.b-ok     { color: #4ade80; }
+.boot-line.b-prompt { color: #fbbf24; margin-top: 0.4rem; }
+
+.boot-hint {
+    position: absolute;
+    bottom: 24px;
+    color: rgba(220, 255, 220, 0.32);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .boot-screen { display: none !important; }
+}
+
+/* ============================================================
+   SCROLL-TO-TOP — floating ghost button bottom-right
+   ============================================================ */
+.scroll-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(4, 8, 6, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #4ade80;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+    pointer-events: none;
+    transition:
+        opacity 0.25s ease,
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+}
+.scroll-to-top.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+.scroll-to-top:hover {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: #fbbf24;
+    color: #fbbf24;
+    transform: translateY(-2px);
+}
+.scroll-to-top:active {
+    transform: translateY(0);
+}
+@media (max-width: 640px) {
+    .scroll-to-top { bottom: 16px; right: 16px; width: 40px; height: 40px; }
+}
+
+/* ============================================================
+   EXTERNAL LINK ARROWS — auto ↗ on outbound article links
+   ============================================================ */
+html.graphify .bd-article a.has-ext-arrow::after {
+    content: ' ↗';
+    color: var(--gp-t3);
+    font-size: 0.78em;
+    margin-left: 1px;
+    transition: color 0.2s ease;
+}
+html.graphify .bd-article a.has-ext-arrow:hover::after { color: var(--gp-amber); }
+
+/* ============================================================
+   NAVBAR CURRENT-PAGE HIGHLIGHT
+   ============================================================ */
+html.graphify .top-navbar .navbar-menu a.is-current,
+html.graphify .top-navbar .navbar-menu li:has(a.is-current) > a {
+    color: var(--gp-amber) !important;
+    font-weight: 600;
+}
+html.graphify .top-navbar .navbar-menu a.is-current::after {
+    width: 60% !important;
+    background: linear-gradient(90deg, var(--gp-amber), #fde68a) !important;
+}
+
+/* (keyboard shortcuts modal and matrix-rain easter egg removed per user request) */
+
+/* ============================================================
+   DETAIL PAGES — Project / Blog / Publication inner pages
+   ============================================================ */
+
+/* Toolbar (back link + section tag) injected at top of article */
+html.graphify .detail-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.6rem 0 1.4rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.12);
+    font-family: 'JetBrains Mono', monospace;
+}
+html.graphify .detail-back {
+    color: var(--gp-t2) !important;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-decoration: none !important;
+    transition: color 0.2s ease, transform 0.2s ease;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    background: rgba(34, 197, 94, 0.04);
+    padding: 0.4rem 0.85rem;
+    border-radius: 4px;
+}
+html.graphify .detail-back:hover {
+    color: var(--gp-amber) !important;
+    border-color: var(--gp-amber);
+    background: rgba(245, 158, 11, 0.08);
+    transform: translateX(-2px);
+}
+html.graphify .detail-section-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--gp-green2);
+    font-weight: 600;
+}
+
+/* Hero H1 — make the first heading of a detail page feel intentional */
+html.graphify body.is-detail-page .bd-article h1:first-of-type,
+html.graphify body.is-detail-page .bd-article > section > h1:first-of-type {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: clamp(1.7rem, 3.2vw, 2.4rem) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.15 !important;
+    color: #ffffff !important;
+    margin: 0.5rem 0 1.4rem 0 !important;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.08);
+    background: none !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Section headings inside detail body */
+html.graphify body.is-detail-page .bd-article h2 {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 1.35rem !important;
+    color: #ffffff !important;
+    margin-top: 2.5rem !important;
+    margin-bottom: 0.7rem !important;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.1);
+    letter-spacing: -0.015em;
+}
+html.graphify body.is-detail-page .bd-article h2::before {
+    content: '## ';
+    color: var(--gp-green2);
+    font-weight: 600;
+    opacity: 0.6;
+}
+html.graphify body.is-detail-page .bd-article h3 {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 1.08rem !important;
+    color: var(--gp-amber) !important;
+    margin-top: 1.8rem !important;
+    margin-bottom: 0.5rem !important;
+    letter-spacing: -0.01em;
+}
+html.graphify body.is-detail-page .bd-article h3::before {
+    content: '### ';
+    color: var(--gp-t3);
+    font-weight: 500;
+}
+
+/* Body paragraphs in detail pages */
+html.graphify body.is-detail-page .bd-article p {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.92rem !important;
+    line-height: 1.75 !important;
+    color: var(--gp-t1) !important;
+    margin: 0.9rem 0;
+}
+
+/* Lists */
+html.graphify body.is-detail-page .bd-article ul,
+html.graphify body.is-detail-page .bd-article ol {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.9rem !important;
+    line-height: 1.75 !important;
+    color: var(--gp-t1) !important;
+    padding-left: 1.4rem;
+}
+html.graphify body.is-detail-page .bd-article ul li::marker {
+    color: var(--gp-amber);
+    content: '▸ ';
+    font-weight: 700;
+}
+html.graphify body.is-detail-page .bd-article ol li::marker {
+    color: var(--gp-green2);
+    font-weight: 600;
+}
+html.graphify body.is-detail-page .bd-article li {
+    padding-left: 0.2rem;
+    margin: 0.25rem 0;
+}
+html.graphify body.is-detail-page .bd-article li strong,
+html.graphify body.is-detail-page .bd-article p strong {
+    color: var(--gp-green2) !important;
+    font-weight: 600;
+}
+
+/* Inline code */
+html.graphify body.is-detail-page .bd-article :not(pre) > code {
+    background: rgba(34, 197, 94, 0.08) !important;
+    border: 1px solid rgba(34, 197, 94, 0.18) !important;
+    color: var(--gp-green2) !important;
+    padding: 1px 6px !important;
+    border-radius: 3px !important;
+    font-size: 0.84em !important;
+    font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* Code blocks */
+html.graphify body.is-detail-page .bd-article pre,
+html.graphify body.is-detail-page .bd-article .highlight {
+    background: rgba(4, 10, 6, 0.85) !important;
+    border: 1px solid rgba(34, 197, 94, 0.2) !important;
+    border-radius: 8px !important;
+    padding: 1rem 1.1rem !important;
+    overflow-x: auto;
+    box-shadow: none !important;
+}
+html.graphify body.is-detail-page .bd-article pre code,
+html.graphify body.is-detail-page .bd-article .highlight pre {
+    background: transparent !important;
+    border: 0 !important;
+    color: rgba(220, 255, 220, 0.92) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.84rem !important;
+    line-height: 1.6;
+    padding: 0 !important;
+}
+
+/* Images — give them a subtle dark frame */
+html.graphify body.is-detail-page .bd-article img {
+    border-radius: 8px;
+    border: 1px solid rgba(34, 197, 94, 0.16);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    background: rgba(4, 10, 6, 0.5);
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.2rem auto;
+    transition: border-color 0.25s ease, transform 0.3s ease;
+}
+html.graphify body.is-detail-page .bd-article img:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-2px);
+}
+/* Centered image figures (common pattern in projects) */
+html.graphify body.is-detail-page .bd-article figure {
+    background: transparent;
+    margin: 1.5rem auto;
+}
+html.graphify body.is-detail-page .bd-article figcaption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--gp-t2);
+    text-align: center;
+    letter-spacing: 0.05em;
+    margin-top: 0.6rem;
+}
+
+/* Links inside body */
+html.graphify body.is-detail-page .bd-article a:not(.detail-back):not(.has-ext-arrow) {
+    color: var(--gp-green2) !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(74, 222, 128, 0.35);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+html.graphify body.is-detail-page .bd-article a:not(.detail-back):not(.has-ext-arrow):hover {
+    color: var(--gp-amber) !important;
+    border-color: var(--gp-amber);
+}
+
+/* Tables */
+html.graphify body.is-detail-page .bd-article table {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    border-collapse: collapse;
+    margin: 1.4rem 0;
+    width: 100%;
+    background: rgba(34, 197, 94, 0.03);
+    border: 1px solid rgba(34, 197, 94, 0.18);
+    border-radius: 6px;
+    overflow: hidden;
+}
+html.graphify body.is-detail-page .bd-article th {
+    background: rgba(34, 197, 94, 0.08);
+    color: var(--gp-amber);
+    text-transform: uppercase;
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+    padding: 0.6rem 0.85rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.2);
+}
+html.graphify body.is-detail-page .bd-article td {
+    padding: 0.55rem 0.85rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.06);
+    color: var(--gp-t1);
+}
+html.graphify body.is-detail-page .bd-article tr:last-child td { border-bottom: 0; }
+
+/* Block quotes / admonitions */
+html.graphify body.is-detail-page .bd-article blockquote,
+html.graphify body.is-detail-page .bd-article .admonition {
+    border-left: 3px solid var(--gp-amber) !important;
+    background: rgba(245, 158, 11, 0.05) !important;
+    padding: 0.85rem 1.1rem !important;
+    margin: 1.3rem 0 !important;
+    border-radius: 0 6px 6px 0;
+    color: var(--gp-t1) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    box-shadow: none !important;
+}
+html.graphify body.is-detail-page .bd-article .admonition-title {
+    color: var(--gp-amber) !important;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    background: transparent !important;
+    padding: 0 !important;
+    margin-bottom: 0.5rem;
+}
+
+/* Videos — match image frame */
+html.graphify body.is-detail-page .bd-article video {
+    border-radius: 8px;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    display: block;
+    margin: 1.4rem auto;
+}
+
+/* Iframes (YouTube embeds etc.) */
+html.graphify body.is-detail-page .bd-article iframe {
+    border-radius: 8px;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    background: #040806;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    max-width: 100%;
+}
+
+/* HR dividers */
+html.graphify body.is-detail-page .bd-article hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.4), transparent);
+    margin: 2.5rem 0;
+}
+
+/* Math / equations from MyST/MathJax — keep readable on dark */
+html.graphify body.is-detail-page .bd-article mjx-container,
+html.graphify body.is-detail-page .bd-article .math {
+    color: var(--gp-t1) !important;
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+    html.graphify .detail-toolbar { flex-direction: column; gap: 0.6rem; align-items: flex-start; }
+    html.graphify body.is-detail-page .bd-article p,
+    html.graphify body.is-detail-page .bd-article ul,
+    html.graphify body.is-detail-page .bd-article ol {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* ============================================================
+   404 PAGE STYLES
+   ============================================================ */
+html.graphify .not-found { margin: 3rem 0 4rem; }
+html.graphify .nf-terminal {
+    margin-top: 1.6rem;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 10px;
+    padding: 1.4rem 1.6rem;
+    background: rgba(4, 10, 6, 0.92);
+}
+html.graphify .nf-terminal a { color: #fbbf24 !important; text-decoration: none !important; }
+html.graphify .nf-terminal a:hover { color: #4ade80 !important; }
+
+/* GitHub-stars badge variant of .live-badge */
+html.graphify .live-badge--gh {
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.08);
+    border-color: rgba(245, 158, 11, 0.3);
+    margin-left: 0.5rem;
+    text-decoration: none !important;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+html.graphify .live-badge--gh:hover {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fde68a !important;
+    border-color: #fde68a;
+}
+
+/* ============================================================
+   GLOBAL FONT — JetBrains Mono everywhere (terminal-first feel)
+   Wins by !important to override the dozens of font-family
+   declarations scattered through the rest of this file + the
+   sphinx-book-theme defaults.
+   ============================================================ */
+html.graphify,
+html.graphify body,
+html.graphify h1, html.graphify h2, html.graphify h3,
+html.graphify h4, html.graphify h5, html.graphify h6,
+html.graphify p, html.graphify a, html.graphify span,
+html.graphify div, html.graphify li, html.graphify ol, html.graphify ul,
+html.graphify button, html.graphify input, html.graphify textarea, html.graphify select,
+html.graphify .hero-name, html.graphify .hero-word,
+html.graphify .hero-degree, html.graphify .profile-degree,
+html.graphify .hero-bio, html.graphify .profile-bio,
+html.graphify .hero-roles, html.graphify .hero-roles__rotator > span,
+html.graphify .live-badge, html.graphify .btn-ghost,
+html.graphify .badge-available,
+html.graphify .stat-card__value, html.graphify .stat-card__label,
+html.graphify .hero-graph-tag, html.graphify .hero-graph-sub,
+html.graphify .section-tag,
+html.graphify .news-section-title, html.graphify .news-content, html.graphify .news-date,
+html.graphify .year-title, html.graphify .year-badge,
+html.graphify .changelog-title-main, html.graphify .changelog-h,
+html.graphify .changelog-desc, html.graphify .changelog-tag, html.graphify .changelog-date,
+html.graphify .publication-title, html.graphify .publication-authors,
+html.graphify .publication-venue, html.graphify .publication-date,
+html.graphify .card-title, html.graphify .card-meta, html.graphify .card-org,
+html.graphify .card-location, html.graphify .card-period,
+html.graphify .cert-title, html.graphify .skill-category-title,
+html.graphify .skill-tag, html.graphify .filter-btn,
+html.graphify .project-name, html.graphify .project-description,
+html.graphify .top-navbar .navbar-brand, html.graphify .top-navbar .navbar-menu a,
+html.graphify .tech-marquee__chip, html.graphify .terminal-title,
+html.graphify .section-title {
+    font-family: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace !important;
+    font-feature-settings: 'calt' 1, 'liga' 0, 'tnum' 1;
+}
+
+/* Hero name: a touch tighter so the mono characters don't sprawl */
+html.graphify .hero-name {
+    letter-spacing: -0.04em !important;
+    font-weight: 600 !important;
+}
+html.graphify .hero-word {
+    letter-spacing: -0.04em !important;
+}
+
+/* Card titles + section titles: keep weight readable */
+html.graphify .changelog-title-main,
+html.graphify .changelog-h,
+html.graphify .section-title,
+html.graphify h1, html.graphify h2, html.graphify h3 {
+    font-weight: 600 !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* Body bio: looser tracking + slightly smaller so mono doesn't feel cramped */
+html.graphify .hero-bio,
+html.graphify .profile-bio,
+html.graphify .changelog-desc {
+    letter-spacing: -0.005em !important;
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+}
+
+/* Smaller mono uppercase labels keep their look */
+html.graphify .hero-graph-tag,
+html.graphify .changelog-date,
+html.graphify .changelog-tag,
+html.graphify .stat-card__label,
+html.graphify .live-badge,
+html.graphify .hero-roles,
+html.graphify .terminal-title,
+html.graphify .changelog-year {
+    letter-spacing: 0.08em !important;
+}
+
+/* ============================================================
+   PROJECT DETAIL PAGES — bespoke per-project hero (e.g. OpenARM-VLA)
+   ============================================================ */
+html.graphify .proj-detail-hero {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2.2rem;
+    align-items: center;
+    margin: 1rem 0 2.4rem 0;
+}
+html.graphify .proj-detail-lede { min-width: 0; }
+
+/* Attribution row — "open-source contribution to Reazon · OpenArm" */
+html.graphify .proj-attribution {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0 0 0.8rem 0;
+    font-family: 'JetBrains Mono', monospace;
+}
+html.graphify .proj-attribution__tag {
+    color: #67e8f9;
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.35);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+}
+html.graphify .proj-attribution__to {
+    font-size: 0.78rem;
+    color: var(--gp-t2);
+    letter-spacing: 0.04em;
+}
+html.graphify .proj-attribution__to a {
+    color: var(--gp-t1) !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(6, 182, 212, 0.45);
+    padding-bottom: 1px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+html.graphify .proj-attribution__to a:hover {
+    color: #67e8f9 !important;
+    border-color: #67e8f9;
+}
+
+/* OSS callout block (open-source contribution framing) */
+html.graphify .oss-callout {
+    position: relative;
+    margin: 1.6rem 0 2rem 0;
+    padding: 1rem 1.2rem 1.05rem;
+    background: rgba(6, 182, 212, 0.05);
+    border: 1px solid rgba(6, 182, 212, 0.28);
+    border-left: 3px solid #67e8f9;
+    border-radius: 0 8px 8px 0;
+}
+html.graphify .oss-callout__head { margin-bottom: 0.45rem; }
+html.graphify .oss-callout p {
+    margin: 0 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.85rem !important;
+    line-height: 1.7 !important;
+    color: var(--gp-t1) !important;
+}
+html.graphify .oss-callout a {
+    color: #67e8f9 !important;
+    border-bottom-color: rgba(6, 182, 212, 0.45) !important;
+}
+html.graphify .oss-callout a:hover {
+    color: #a5f3fc !important;
+    border-color: #a5f3fc !important;
+}
+
+/* Small subtitle right next to a row title (OSS · REAZON marker) */
+html.graphify .proj-row__sub {
+    font-style: normal;
+    font-size: 0.58em;
+    color: #67e8f9;
+    letter-spacing: 0.14em;
+    margin-left: 0.5rem;
+    vertical-align: 0.25em;
+    font-weight: 500;
+}
+html.graphify .proj-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 1.2rem;
+}
+html.graphify .proj-detail-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-bottom: 1.2rem;
+}
+html.graphify .proj-detail-actions a { text-decoration: none !important; margin: 0 !important; }
+html.graphify .proj-detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+html.graphify .proj-detail-sidekick img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(34, 197, 94, 0.22);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+}
+
+html.graphify .proj-detail-section { margin: 2.4rem 0; }
+html.graphify .proj-detail-section > .hero-graph-tag {
+    display: block;
+    margin-bottom: 0.9rem;
+}
+html.graphify .proj-detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+html.graphify .proj-detail-list li {
+    position: relative;
+    padding: 0.6rem 0 0.6rem 1.4rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.06);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--gp-t1);
+}
+html.graphify .proj-detail-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--gp-amber);
+    font-weight: 700;
+}
+html.graphify .proj-detail-list li strong {
+    color: var(--gp-green2);
+    font-weight: 600;
+}
+
+/* Embedded report frame (terminal-window chrome) */
+html.graphify .report-frame-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0 0.4rem 0.7rem;
+}
+html.graphify .report-open {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gp-t2) !important;
+    letter-spacing: 0.05em;
+    text-decoration: none !important;
+    transition: color 0.2s ease;
+}
+html.graphify .report-open:hover { color: var(--gp-amber) !important; }
+html.graphify .report-frame { margin: 0; }
+html.graphify .report-iframe {
+    width: 100%;
+    height: min(85vh, 1500px);
+    min-height: 900px;
+    border: 0;
+    display: block;
+    background: #ffffff;
+}
+
+@media (max-width: 900px) {
+    html.graphify .proj-detail-hero { grid-template-columns: 1fr; }
+    html.graphify .proj-detail-sidekick { order: -1; max-width: 480px; margin: 0 auto; }
+    html.graphify .report-iframe { height: 720px; }
+}
+
+/* ============================================================
+   CAMERA FEED VISUALIZATION — Dataset Camera Views
+   ============================================================ */
+html.graphify .cam-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 0.9fr;
+    gap: 1rem;
+    margin: 1.6rem 0;
+}
+html.graphify .cam-panel {
+    background: rgba(4, 10, 6, 0.85);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    border-radius: 10px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+html.graphify .cam-panel--secondary { border-color: rgba(245, 158, 11, 0.3); }
+
+html.graphify .cam-head {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.55rem 0.85rem;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.15);
+    background: rgba(4, 10, 6, 0.6);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+}
+html.graphify .cam-led {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+    animation: pulseDotGP 1.8s ease-in-out infinite;
+}
+html.graphify .cam-led--amber {
+    background: #fbbf24;
+    box-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
+}
+html.graphify .cam-id { color: rgba(220, 255, 220, 0.85); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+html.graphify .cam-tag {
+    background: rgba(34, 197, 94, 0.12);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.62rem;
+    font-weight: 600;
+}
+html.graphify .cam-tag--amber {
+    background: rgba(245, 158, 11, 0.12);
+    color: #fbbf24;
+    border-color: rgba(245, 158, 11, 0.4);
+}
+
+html.graphify .cam-stage {
+    position: relative;
+    background: #050a07;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+html.graphify .cam-stage img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    display: block;
+}
+html.graphify .cam-crosshair {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(74, 222, 128, 0.6);
+    pointer-events: none;
+}
+html.graphify .cam-crosshair--tl { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
+html.graphify .cam-crosshair--tr { top: 10px; right: 10px; border-left: 0; border-bottom: 0; }
+html.graphify .cam-crosshair--bl { bottom: 10px; left: 10px; border-right: 0; border-top: 0; }
+html.graphify .cam-crosshair--br { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+html.graphify .cam-panel--secondary .cam-crosshair { border-color: rgba(251, 191, 36, 0.6); }
+
+html.graphify .cam-overlay-rec {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    color: #f87171;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 2px 8px;
+    border-radius: 3px;
+    border: 1px solid rgba(248, 113, 113, 0.45);
+}
+
+html.graphify .cam-foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.55rem 0.85rem;
+    border-top: 1px solid rgba(34, 197, 94, 0.1);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    color: rgba(220, 255, 220, 0.55);
+    letter-spacing: 0.05em;
+    background: rgba(4, 10, 6, 0.4);
+}
+
+html.graphify .cam-meta {
+    padding: 0.95rem 1.1rem;
+    background: rgba(34, 197, 94, 0.04);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 10px;
+}
+html.graphify .cam-spec {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.3rem 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    line-height: 1.5;
+}
+html.graphify .cam-spec dt {
+    color: var(--gp-t3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.66rem;
+    padding-top: 2px;
+}
+html.graphify .cam-spec dd {
+    margin: 0;
+    color: rgba(220, 255, 220, 0.85);
+}
+
+@media (max-width: 900px) {
+    html.graphify .cam-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   TENSIQ PROJECT PAGE — bespoke marketing layout
+   ============================================================ */
+
+/* Hero override: split layout with custom SVG art on the right */
+html.graphify .tensiq-hero { align-items: center; }
+html.graphify .tensiq-title {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: clamp(1.9rem, 3.6vw, 2.7rem) !important;
+    font-weight: 600 !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.035em !important;
+    margin: 0.5rem 0 1rem 0 !important;
+    color: #ffffff !important;
+}
+html.graphify .tensiq-lede {
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+    color: var(--gp-t1) !important;
+    margin-bottom: 1.3rem !important;
+}
+html.graphify .tensiq-hero-art {
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 1 / 1;
+    margin-left: auto;
+}
+html.graphify .tensiq-hero-art svg { width: 100%; height: auto; display: block; }
+
+/* Pillars row — 4 cards under the hero */
+html.graphify .tensiq-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2.2rem 0 2.6rem 0;
+}
+html.graphify .tensiq-pillar {
+    background: rgba(34, 197, 94, 0.04);
+    border: 1px solid rgba(34, 197, 94, 0.16);
+    border-radius: 10px;
+    padding: 1.1rem 1.15rem;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+html.graphify .tensiq-pillar:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    background: rgba(34, 197, 94, 0.07);
+    transform: translateY(-2px);
+}
+html.graphify .tensiq-pillar__icon {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem;
+    color: var(--gp-amber);
+    margin-bottom: 0.5rem;
+}
+html.graphify .tensiq-pillar h4 {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    margin: 0 0 0.35rem 0 !important;
+    letter-spacing: -0.01em !important;
+}
+html.graphify .tensiq-pillar h4::before { content: '' !important; }
+html.graphify .tensiq-pillar p {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.78rem !important;
+    line-height: 1.55 !important;
+    color: var(--gp-t2) !important;
+    margin: 0 !important;
+}
+
+/* Flow diagram container */
+html.graphify .tensiq-flow {
+    margin: 1.4rem 0 2.4rem 0;
+    background: rgba(4, 10, 6, 0.6);
+    border: 1px solid rgba(34, 197, 94, 0.22);
+    border-radius: 12px;
+    padding: 0.8rem 1rem 0.6rem;
+    overflow-x: auto;
+}
+html.graphify .tensiq-flow svg {
+    width: 100%;
+    min-width: 980px;
+    height: auto;
+    display: block;
+}
+
+/* Capability matrix table */
+html.graphify .tensiq-matrix table {
+    font-family: 'JetBrains Mono', monospace;
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(34, 197, 94, 0.03);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1.2rem 0 2.4rem 0;
+}
+html.graphify .tensiq-matrix th {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--gp-amber);
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    padding: 0.7rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.2);
+}
+html.graphify .tensiq-matrix tbody th {
+    background: rgba(245, 158, 11, 0.05);
+    color: var(--gp-amber);
+    font-size: 0.72rem;
+    white-space: nowrap;
+}
+html.graphify .tensiq-matrix td {
+    padding: 0.6rem 1rem;
+    font-size: 0.82rem;
+    color: var(--gp-t1);
+    border-bottom: 1px solid rgba(34, 197, 94, 0.06);
+}
+html.graphify .tensiq-matrix tr:last-child td,
+html.graphify .tensiq-matrix tr:last-child th { border-bottom: 0; }
+html.graphify .tensiq-cell-sub { color: var(--gp-t3); font-size: 0.74rem; }
+
+/* "Why it matters" — 4 numbered cards */
+html.graphify .tensiq-why {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.1rem;
+    margin: 1.4rem 0 2.4rem 0;
+}
+html.graphify .tensiq-why__card {
+    position: relative;
+    background: rgba(34, 197, 94, 0.04);
+    border: 1px solid rgba(34, 197, 94, 0.16);
+    border-radius: 10px;
+    padding: 1.3rem 1.4rem 1.2rem;
+}
+html.graphify .tensiq-why__card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gp-green), var(--gp-amber));
+}
+html.graphify .tensiq-why__num {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gp-amber);
+    letter-spacing: 0.18em;
+    margin-bottom: 0.5rem;
+}
+html.graphify .tensiq-why__card h4 {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 1.02rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    margin: 0 0 0.4rem 0 !important;
+    letter-spacing: -0.015em !important;
+}
+html.graphify .tensiq-why__card h4::before { content: '' !important; }
+html.graphify .tensiq-why__card p {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.84rem !important;
+    line-height: 1.6 !important;
+    color: var(--gp-t2) !important;
+    margin: 0 !important;
+}
+
+@media (max-width: 900px) {
+    html.graphify .tensiq-pillars { grid-template-columns: repeat(2, 1fr); }
+    html.graphify .tensiq-why { grid-template-columns: 1fr; }
+    html.graphify .tensiq-hero-art { max-width: 240px; margin: 0 auto 1rem; }
+}
+@media (max-width: 540px) {
+    html.graphify .tensiq-pillars { grid-template-columns: 1fr; }
+}
+
+/* SUREFlow results grid — 4 stat tiles */
+html.graphify .sf-results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1.4rem 0 2rem 0;
+}
+html.graphify .sf-stat {
+    background: rgba(34, 197, 94, 0.04);
+    border: 1px solid rgba(34, 197, 94, 0.18);
+    border-radius: 10px;
+    padding: 1.1rem 1.2rem;
+    text-align: left;
+}
+html.graphify .sf-stat__num {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fbbf24;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+}
+html.graphify .sf-stat__lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gp-t2);
+    letter-spacing: 0.08em;
+}
+@media (max-width: 720px) {
+    html.graphify .sf-results-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+
+
+
 

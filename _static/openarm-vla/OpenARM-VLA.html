@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="pandoc" />
+
+    
+    
+    <title>OpenARM-VLA</title>
+
+        <script src="OpenARM-VLA_files/header-attrs-2.30/header-attrs.js"></script>
+        <script src="OpenARM-VLA_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="OpenARM-VLA_files/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="OpenARM-VLA_files/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+        <script src="OpenARM-VLA_files/navigation-1.1/tabsets.js"></script>
+        <link href="OpenARM-VLA_files/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+        <script src="OpenARM-VLA_files/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+        <link href="OpenARM-VLA_files/downcute-0.1/downcute.css" rel="stylesheet" />
+        <link href="OpenARM-VLA_files/downcute-0.1/downcute_fonts_embed.css" rel="stylesheet" />
+        <script src="OpenARM-VLA_files/downcute-0.1/downcute_styles.js"></script>
+        <script src="OpenARM-VLA_files/downcute-0.1/downcute.js"></script>
+        <script src="OpenARM-VLA_files/prism-1.22/prism.js"></script>
+    
+    
+    
+        <link rel="stylesheet" href="style.css" type="text/css" />
+    
+    <!-- tabsets -->
+    <script>
+      $(document).ready(function () {
+	  window.buildTabsets("toc");
+      });
+      $(document).ready(function () {
+	  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+	      $(this).parent().toggleClass('nav-tabs-open')
+	  });
+      });
+    </script>
+
+    <!-- code folding -->
+    
+    <!-- code download -->
+    
+    <!-- tabsets dropdown -->
+
+    <style type="text/css">
+      .tabset-dropdown > .nav-tabs {
+	  display: inline-table;
+	  max-height: 500px;
+	  min-height: 44px;
+	  overflow-y: auto;
+	  background: white;
+	  border: 1px solid #ddd;
+	  border-radius: 4px;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+	  content: "&#xe258;";
+	  border: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active {
+	  display: block;
+      }
+
+      .tabset-dropdown > .nav-tabs > li.active a {
+  	  padding: 0 15px !important;
+      }
+
+      .tabset-dropdown > .nav-tabs > li > a,
+      .tabset-dropdown > .nav-tabs > li > a:focus,
+      .tabset-dropdown > .nav-tabs > li > a:hover {
+	  border: none;
+	  display: inline-block;
+	  border-radius: 4px;
+	  background-color: transparent;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+	  display: block;
+	  float: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li {
+	  display: none;
+	  margin-left: 0 !important;
+      }
+    </style>
+    
+</head>
+
+<body class="preload">
+
+   	
+               <!-- downcute start -->   
+   <div id="docute" class="Root theme-default">
+     <div class="Page layout-narrow">
+      <div class="Wrap">
+        <div class="Sidebar">
+          <div class="SidebarItems" id="toc">
+            <ul>
+            <li><a href="#introduction"
+            id="toc-introduction">Introduction</a>
+            <ul>
+            <li><a href="#pipeline-overview"
+            id="toc-pipeline-overview">Pipeline Overview</a></li>
+            </ul></li>
+            <li><a href="#simulation-environment"
+            id="toc-simulation-environment">Simulation Environment</a>
+            <ul>
+            <li><a href="#dataset-camera-views"
+            id="toc-dataset-camera-views">Dataset Camera Views</a></li>
+            </ul></li>
+            <li><a href="#dataset-demonstrations"
+            id="toc-dataset-demonstrations">Dataset &amp;
+            Demonstrations</a></li>
+            <li><a href="#training-the-model"
+            id="toc-training-the-model">Training the Model</a></li>
+            <li><a href="#evaluation-metrics"
+            id="toc-evaluation-metrics">Evaluation Metrics</a>
+            <ul>
+            <li><a href="#success-rate" id="toc-success-rate">Success
+            Rate</a></li>
+            </ul></li>
+            <li><a href="#results" id="toc-results">Results</a>
+            <ul>
+            <li><a href="#detailed-performance-table"
+            id="toc-detailed-performance-table">Detailed Performance
+            Table</a></li>
+            <li><a href="#executive-summary"
+            id="toc-executive-summary">Executive Summary</a>
+            <ul>
+            <li><a href="#success-rate-statistics"
+            id="toc-success-rate-statistics">Success Rate
+            Statistics</a></li>
+            </ul></li>
+            <li><a href="#learning-trajectory"
+            id="toc-learning-trajectory">Learning Trajectory</a>
+            <ul>
+            <li><a href="#task-1-learning-pattern"
+            id="toc-task-1-learning-pattern">Task 1 Learning
+            Pattern</a></li>
+            <li><a href="#task-2-learning-pattern"
+            id="toc-task-2-learning-pattern">Task 2 Learning
+            Pattern</a></li>
+            </ul></li>
+            </ul></li>
+            <li><a href="#rollouts" id="toc-rollouts">Rollouts</a></li>
+            <li><a href="#failures-faced-and-how-i-solved-them"
+            id="toc-failures-faced-and-how-i-solved-them">Failures Faced
+            and How I Solved Them</a>
+            <ul>
+            <li><a href="#multi-cube-scene-caused-floating-cubes"
+            id="toc-multi-cube-scene-caused-floating-cubes">1)
+            Multi-cube scene caused floating cubes</a></li>
+            <li><a href="#camera-orientation-mismatch"
+            id="toc-camera-orientation-mismatch">2) Camera orientation
+            mismatch</a></li>
+            <li><a href="#dataset-contamination-and-failed-rollouts"
+            id="toc-dataset-contamination-and-failed-rollouts">3)
+            Dataset contamination and failed rollouts</a></li>
+            <li><a href="#mamba-isaaclab-environment-conflicts"
+            id="toc-mamba-isaaclab-environment-conflicts">4) Mamba +
+            IsaacLab environment conflicts</a></li>
+            <li><a href="#task-policy-mismatch"
+            id="toc-task-policy-mismatch">5) Task-policy
+            mismatch</a></li>
+            <li><a href="#environment-setup-steps"
+            id="toc-environment-setup-steps">6) Environment setup
+            steps</a></li>
+            </ul></li>
+            </ul>
+          </div>
+          <div data-position="sidebar:post-end" class="InjectedComponents"><div class="dark-theme-toggler"><div class="toggle "><div class="toggle-track"><div class="toggle-track-check"><img  src="data:image/png;base64,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" role="presentation" style="pointer-events: none;" width="16" height="16"></div> <div class="toggle-track-x"><img src="data:image/png;base64,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" role="presentation" style="pointer-events: none;" width="16" height="16"></div></div> <div class="toggle-thumb"></div></div> <input type="checkbox" aria-label="Switch between Dark and Default theme" class="toggler-screen-reader-only"></div></div>
+        </div>
+        <div class="Main">
+          <div class="Content" id="content"> 
+   
+   
+        
+      <h1 class="title">OpenARM-VLA</h1>
+      
+      <p class="authors">
+           <span class="glyphicon glyphicon-user"></span> <div
+style="display:flex; flex-direction:row; align-items:center; gap:12px; flex-wrap:wrap;">
+<p><strong>Sai Navaneet</strong>
+<a href='https://sainavaneet.github.io/portfolio/' style='color:blue;text-decoration:underline;'>
+<img src='icons/internetarchive.svg' alt='Portfolio' style='height:1em;vertical-align:middle;margin-right:4px;'/>Portfolio
+</a>
+<a href='mailto:sainavaneet76@gmail.com' style='color:blue;text-decoration:underline;'>
+<img src='icons/gmail.svg' alt='Email' style='height:1em;vertical-align:middle;margin-right:4px;'/>sainavaneet76@gmail.com
+</a>
+<a href='https://github.com/sainavaneet' style='color:blue;text-decoration:underline;'>
+<img src='icons/github.svg' alt='GitHub' style='height:1em;vertical-align:middle;margin-right:4px;'/>GitHub
+</a>
+<a href='https://www.linkedin.com/in/sainavaneet76/' style='color:blue;text-decoration:underline;'>
+<img src='icons/linkedin.svg' alt='LinkedIn' style='height:1em;vertical-align:middle;margin-right:4px;'/>LinkedIn
+</a></p>
+</div>
+      </p>
+              
+
+   
+      
+   
+<!-- Don't indent these lines or it will mess pre blocks indentation --> 
+<div class="page-content has-page-title">
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>This report presents OpenARM-VLA, a Vision-Language-Action learning
+framework developed for robotic manipulation using the OpenArm platform
+in NVIDIA Isaac Sim, I evaluate the OpenARM-VLA framework using both
+MambaVLA and MDT Transformer architectures. My primary objective is to
+systematically compare state space and transformer-based policies on a
+cube lifting task involving directional motion commands. To achieve
+this, I construct a synthetic data generation pipeline with a
+reinforcement learning teacher policy to produce large-scale
+demonstration trajectories. This setup allows for fair benchmarking
+across architectures under identical perception, control, and simulation
+conditions. Experimental results demonstrate reliable task completion,
+establishing a foundation for scalable imitation learning and future
+foundation model training for robotic manipulation.</p>
+<div id="pipeline-overview" class="section level2">
+<h2>Pipeline Overview</h2>
+<pre class="text"><code>    ┌───────────────────────────────────────────────────────────────┐
+    │                                                               │
+    │        OpenARM Cube Lifting Task Environment (Isaac Sim)      |
+    |                                                               |
+    │   • Created Cameras for the observations                      |
+    |                                                               |
+    |   • Multi-direction lifting commands                          |
+    |   • RGB camera observations                                   |
+    |   • Randomized cube poses                                     |
+    |                                                               |
+    └───────────────────────────────────────────────────────────────┘
+    ┌───────────────────────────────────────────────────────────────┐
+    │                 Rollout Trajectory Collection                 │
+    │                                                               │
+    │  { Images | Robot States | Language Commands | Actions }      │
+    │                                                               │
+    └───────────────────────────────┬───────────────────────────────┘
+                                    │
+                                    ▼
+                        ┌──────────────────────────┐
+                        │   Episode Evaluation     │
+                        │──────────────────────────│
+                        │  SUCCESS  →  Save Demo   │
+                        │  FAILURE  →  Discard     │
+                        └─────────────┬────────────┘
+                                      │
+                                      ▼
+    ┌───────────────────────────────────────────────────────────────┐
+    │                  Demonstration Dataset Store                  │
+    │                                                               │
+    │  • Large scale trajectories                                   │
+    │  • Balanced directions                                        │
+    │  • Train / Val / Test splits                                  │
+    │                                                               │
+    └───────────────────────────────┬───────────────────────────────┘
+                                    │
+                                    ▼
+    ┌───────────────────────────────────────────────────────────────┐
+    │                     Imitation Learning via Flow Matching      │
+    │                         Diffusion Policy Training             │
+    │                                                               │
+    │   Conditioning:                                               │
+    │     • Visual Tokens                                           │
+    │     • Language Tokens                                         │
+    │     • Robot State                                             │
+    │                                                               │
+    │   Backbone Networks:                                          │
+    │     ┌──────────────────────┐        ┌────────────────────────┐│
+    │     │        MambaVLA      │        │    Transformer Model   ││
+    │     │  (State Space Model) │        │ (Attention Based Model)││
+    │     └─────────────┬────────┘        └─────────────┬──────────┘│
+    │                   │                               │           │
+    │                   └───────────────┬───────────────┘           │
+    │                                   ▼                           │
+    │                         Action Trajectory Predictor           │
+    │                      (Joint Targets + Gripper Cmd)            │
+    └───────────────────────────────┬───────────────────────────────┘
+                                    │
+                                    ▼
+    ┌───────────────────────────────────────────────────────────────┐
+    │                    Policy Evaluation in Simulation            │
+    │                                                               │
+    │        OpenARM Cube Lifting Task Environment (Isaac Sim)      │
+    │                                                               │
+    │  • Success Rate                                               │
+    │  • Completion Time                                            │
+    │  • Failure Modes                                              │
+    │                                                               │
+    └───────────────────────────────────────────────────────────────┘</code></pre>
+</div>
+</div>
+<div id="simulation-environment" class="section level1">
+<h1>Simulation Environment</h1>
+<p>I used the OpenArm already available Env
+<code>Isaac-Lift-Cube-OpenArm-v0</code> for the simulation.</p>
+<p>But as the default RL env doesnt have the cameras, I created cameras
+for the <code>Isaac-Lift-Cube-OpenArm-Play-v0</code> env.</p>
+<p>I created three cameras:</p>
+<ul>
+<li><code>camera_link0</code>: This is the camera attached to the link0
+of the robot.</li>
+<li><code>camera_fixed</code>: This is the camera attached to the fixed
+frame of the robot.</li>
+<li><code>main_camera</code>: This is used to record videos of the robot
+performing the task.</li>
+</ul>
+<div id="dataset-camera-views" class="section level2">
+<h2>Dataset Camera Views</h2>
+<div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: flex-start;">
+  <div style="width:15%; display:flex; flex-direction:column; align-items:center;">
+    <img src="figures/demo_0_t018_agentview.png" alt="Agent view" style="width:100%; border-radius:6px;"/>
+    <span style="margin-top:12px; font-size:1em; color:#444;">camera_link0</span>
+  </div>
+  <div style="width:15%; display:flex; flex-direction:column; align-items:center;">
+    <img src="figures/demo_0_t018_eye_in_hand.png" alt="Eye-in-hand view" style="width:100%; border-radius:6px;"/>
+    <span style="margin-top:12px; font-size:1em; color:#444;">camera_fixed</span>
+  </div>
+</div>
+<p>This the code that i added for
+<code>OpenARM-VLA/openarm_isaac_lab/source/openarm/openarm/tasks/manager_based/openarm_manipulation/unimanual/lift/lift_env_cfg.py</code>
+file to add the cameras:</p>
+<pre class="python"><code>    camera_link0: TiledCameraCfg = TiledCameraCfg(
+        prim_path=&quot;{ENV_REGEX_NS}/Robot/openarm_link0/CameraLink0&quot;,
+        offset=TiledCameraCfg.OffsetCfg(
+            pos=(0.0, 0.0, 0.2),
+            rot=(-0.29884, 0.64086, -0.64086, 0.29884),
+        ),
+        data_types=[&quot;rgb&quot;],
+        spawn=sim_utils.PinholeCameraCfg(
+            focal_length=12.0,
+            focus_distance=400.0,
+            horizontal_aperture=20.955,
+            clipping_range=(0.1, 20.0),
+        ),
+        width=128,
+        height=128,
+    )</code></pre>
+</div>
+</div>
+<div id="dataset-demonstrations" class="section level1">
+<h1>Dataset &amp; Demonstrations</h1>
+<p>I collected 100 demonstration for each task that is metnioned in the
+<code>conf/tasks.yaml</code> file.</p>
+<ul>
+<li>Dataset can be generated using the
+<code>src/generate_dataset.py</code> script.</li>
+<li>The script collects the demonstration dataset for each task
+mentioned in the <code>conf/tasks.yaml</code> file.</li>
+</ul>
+<p>If the task is successful, the script will save the demonstration
+dataset in the <code>data/demo_&lt;id&gt;/</code> directory. Otherwise,
+the script will skip the demonstration.</p>
+<pre class="yaml"><code>tasks:
+  task0:
+    name: pick_the_cube_and_lift_it_to_the_middle_of_the_table
+    target_pose: &quot;0.25,0.0,0.25&quot;
+  task1:
+    name: pick_the_cube_and_reach_to_the_right_side_but_slighlty_lower
+    target_pose: &quot;0.25,-0.20,0.20&quot;</code></pre>
+<p>Each demo is stored under: <code>data/demo_&lt;id&gt;/</code></p>
+<pre class="python"><code>data/demo_&lt;id&gt;/
+  actions        (T, 8)      float32
+  dones          (T,)        int64
+  rewards        (T,)        float32
+  robot_states   (T, 9)      float32
+  obs/
+    agentview_rgb    (T, 128, 128, 3)  uint8
+    eye_in_hand_rgb  (T, 128, 128, 3)  uint8
+    joint_states     (T, 6)            float32
+    gripper_states   (T, 2)            float32</code></pre>
+<ul>
+<li>The dataset is sotred in the form of <code>hdf5</code> files.</li>
+</ul>
+<div style="display:flex; gap:16px; flex-wrap:wrap;">
+  <div style="width:49%;">
+    <video controls width="100%">
+      <source src="videos/middle_table_all_demos.mp4" type="video/mp4">
+    </video>
+    <div style="text-align:center;">Lift to middle</div>
+  </div>
+
+  <div style="width:49%;">
+    <video controls width="100%">
+      <source src="videos/right_lower_all_demos.mp4" type="video/mp4">
+    </video>
+    <div style="text-align:center;">Right-side lower</div>
+  </div>
+</div>
+</div>
+<div id="training-the-model" class="section level1">
+<h1>Training the Model</h1>
+<p>Model can be trained using the <code>scripts/train_model.sh</code>
+script.</p>
+<ul>
+<li>Both <code>mamba</code> and <code>transformer</code> models can be
+trained using the <code>scripts/train_model.sh</code> script.</li>
+<li>The config file is <code>conf/config.yaml</code> file contains the
+training parameters and the dataset creation parameters</li>
+<li>I trained the model for 500 epochs and saved the model in the
+<code>outputs/train/mamba/</code> and
+<code>outputs/train/transformer/</code> directories.</li>
+<li>eval videos are stored in the <code>outputs/eval/mamba/</code> and
+<code>outputs/eval/transformer/</code> directories.</li>
+</ul>
+<p>To embed the images i used the resnets from the
+<code>MambaVLA/backbones/resnet/resnet_img_encoder.py</code> file.</p>
+<pre class="python"><code>obs_encoder = MultiImageResNetEncoder(
+    camera_names=[&quot;agentview&quot;, &quot;eye_in_hand&quot;],
+    latent_dim=256,
+    input_channels=3,
+)</code></pre>
+<p>And for the language encoder i used the clip model from the
+<code>MambaVLA/backbones/clip/clip_lang_encoder.py</code> file.</p>
+<pre class="python"><code>language_encoder = LangClip(
+    freeze_backbone=True,
+    model_name=&quot;ViT-B/32&quot;,
+)</code></pre>
+<p>So my model contains the following parameters</p>
+<ul>
+<li>Total number of parameters: 177,773,96M</li>
+<li>Trainable parameters: 26,496,648</li>
+<li>Frozen parameters: 151,277,312</li>
+</ul>
+<p>Almost both Mamba and Transformer contains almost similar number of
+parameters.</p>
+<pre class="python"><code>model_mamba = create_mambavla_model(
+    dataloader=None,
+    camera_names=[&quot;agentview&quot;, &quot;eye_in_hand&quot;],
+    layers=5,
+    latent_dim=256,
+    action_dim=8,
+    lang_emb_dim=512,
+    embed_dim=256,
+    obs_tok_len=2,
+    action_seq_len=5,
+    model_type=&quot;mamba&quot;,
+)</code></pre>
+<pre class="python"><code>    transformer_cfg={
+        &quot;n_heads&quot;: 8,
+        &quot;attn_pdrop&quot;: 0.1,
+        &quot;resid_pdrop&quot;: 0.1,
+        &quot;mlp_pdrop&quot;: 0.0,
+        &quot;bias&quot;: False,
+        &quot;use_rot_embed&quot;: False,
+        &quot;rotary_xpos&quot;: False,
+    },
+)</code></pre>
+</div>
+<div id="evaluation-metrics" class="section level1">
+<h1>Evaluation Metrics</h1>
+<p>I evaluated the models on the following metrics:</p>
+<ul>
+<li>Success Rate</li>
+<li>Inference Time</li>
+<li>Average Episode Steps</li>
+<li>Average Inference Time</li>
+<li>Training Time</li>
+<li>Computation Cost</li>
+</ul>
+<div id="success-rate" class="section level2">
+<h2>Success Rate</h2>
+<p>As i mentiond in the above sections that i collected 100
+demonstrations for each task</p>
+<p>tasks are basically
+<code>pick_the_cube_and_lift_it_to_the_middle_of_the_table</code> and
+<code>pick_the_cube_and_reach_to_the_right_side_but_slighlty_lower</code></p>
+<p>so it find that the task is successfully completed i basically check
+the error between the target pose and the current pose of the cube.</p>
+<p>I gave some threshold for the error and if the error is less than the
+threshold then i consider the task as <strong>successful</strong>
+otherwise i consider the task as <strong>failed</strong>.</p>
+</div>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<hr />
+<div id="detailed-performance-table" class="section level2">
+<h2>Detailed Performance Table</h2>
+<table style="width:100%;">
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Epoch</th>
+<th>Task 1 Success Rate</th>
+<th></th>
+<th>Task 2 Success Rate</th>
+<th></th>
+<th>Task 1 Avg Steps</th>
+<th></th>
+<th>Task 2 Avg Steps</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><strong>Transformer</strong></td>
+<td><strong>Mamba</strong></td>
+<td><strong>Transformer</strong></td>
+<td><strong>Mamba</strong></td>
+<td><strong>Transformer</strong></td>
+<td><strong>Mamba</strong></td>
+<td><strong>Transformer</strong></td>
+<td><strong>Mamba</strong></td>
+</tr>
+<tr class="even">
+<td>200</td>
+<td>60%</td>
+<td><strong>80%</strong> ⭐</td>
+<td><strong>40%</strong></td>
+<td>30%</td>
+<td>57.4</td>
+<td><strong>45.5</strong> ⭐</td>
+<td><strong>69.3</strong> ⭐</td>
+<td>80.4</td>
+</tr>
+<tr class="odd">
+<td>400</td>
+<td>50%</td>
+<td><strong>70%</strong> ⭐</td>
+<td><strong>60%</strong> ⭐</td>
+<td>30%</td>
+<td>63.5</td>
+<td><strong>49.8</strong> ⭐</td>
+<td><strong>54.7</strong> ⭐</td>
+<td>78.4</td>
+</tr>
+<tr class="even">
+<td>600</td>
+<td><strong>80%</strong> ⭐</td>
+<td>70%</td>
+<td><strong>40%</strong> ⭐</td>
+<td>30%</td>
+<td><strong>43.4</strong> ⭐</td>
+<td>48.7</td>
+<td><strong>70.0</strong> ⭐</td>
+<td>77.6</td>
+</tr>
+<tr class="odd">
+<td>800</td>
+<td><strong>60%</strong> ⭐</td>
+<td>50%</td>
+<td>40%</td>
+<td><strong>50%</strong> ⭐</td>
+<td><strong>57.6</strong> ⭐</td>
+<td>67.7</td>
+<td>71.2</td>
+<td><strong>64.0</strong> ⭐</td>
+</tr>
+<tr class="even">
+<td>1000</td>
+<td>60%</td>
+<td><strong>80%</strong> ⭐</td>
+<td><strong>60%</strong></td>
+<td><strong>60%</strong></td>
+<td>58.2</td>
+<td><strong>41.1</strong> ⭐</td>
+<td><strong>55.3</strong> ⭐</td>
+<td>55.5</td>
+</tr>
+<tr class="odd">
+<td>1200</td>
+<td>50%</td>
+<td><strong>70%</strong> ⭐</td>
+<td>30%</td>
+<td><strong>90%</strong> ⭐</td>
+<td>64.6</td>
+<td><strong>48.4</strong> ⭐</td>
+<td>76.8</td>
+<td><strong>33.0</strong> ⭐</td>
+</tr>
+<tr class="even">
+<td>1400</td>
+<td>40%</td>
+<td><strong>80%</strong> ⭐</td>
+<td>40%</td>
+<td><strong>60%</strong> ⭐</td>
+<td>71.0</td>
+<td><strong>45.4</strong> ⭐</td>
+<td>68.6</td>
+<td><strong>53.3</strong> ⭐</td>
+</tr>
+<tr class="odd">
+<td>1600</td>
+<td><strong>70%</strong> ⭐</td>
+<td>50%</td>
+<td>20%</td>
+<td><strong>60%</strong> ⭐</td>
+<td><strong>50.6</strong> ⭐</td>
+<td>63.6</td>
+<td>83.9</td>
+<td><strong>56.2</strong> ⭐</td>
+</tr>
+<tr class="even">
+<td>1800</td>
+<td><strong>80%</strong> ⭐</td>
+<td>60%</td>
+<td><strong>60%</strong> ⭐</td>
+<td><strong>60%</strong></td>
+<td><strong>43.0</strong> ⭐</td>
+<td>54.3</td>
+<td><strong>55.6</strong> ⭐</td>
+<td>60.0</td>
+</tr>
+<tr class="odd">
+<td>2000</td>
+<td><strong>70%</strong></td>
+<td><strong>70%</strong></td>
+<td>40%</td>
+<td><strong>50%</strong> ⭐</td>
+<td><strong>54.3</strong> ⭐</td>
+<td>50.2</td>
+<td><strong>67.3</strong> ⭐</td>
+<td>63.6</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div style="display: flex; justify-content: center; margin-bottom: 22px;">
+  <img src="all_epochs_success_rate.png" alt="Success rate over all epochs" loading="lazy" style="width: 100%; max-width: 1100px; height: auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.18);">
+</div>
+<p><em>Figure: Success rate across epochs for both models on both tasks.
+Mamba outperforms Transformer, especially on Task 2 (“Reach
+Right”).</em></p>
+<div style="display: flex; justify-content: center; margin-bottom: 22px;">
+  <img src="image.png" alt="Complete training analysis" loading="lazy" style="width: 100%; max-width: 1100px; height: auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.18);">
+</div>
+</div>
+<div id="executive-summary" class="section level2">
+<h2>Executive Summary</h2>
+<p>Comprehensive analysis of 10 training checkpoints reveals that
+<strong>Mamba consistently outperforms Transformer</strong> across both
+tasks with higher average success rates: - <strong>Task 1 (Lift
+Left):</strong> Mamba 68.0% vs Transformer 62.0% (+6%) - <strong>Task 2
+(Reach Right):</strong> Mamba 52.0% vs Transformer 43.0% (+9%)</p>
+<p><strong>Best Performance:</strong> Mamba achieves <strong>90% success
+rate</strong> on Task 2 at epoch 1200, the highest performance recorded
+across all evaluations.</p>
+<div id="success-rate-statistics" class="section level3">
+<h3>Success Rate Statistics</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Transformer</th>
+<th>Mamba</th>
+<th>Winner</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Task 1 - Mean</strong></td>
+<td>62.0%</td>
+<td>68.0%</td>
+<td><strong>Mamba (+6%)</strong> ⭐</td>
+</tr>
+<tr class="even">
+<td><strong>Task 1 - Max</strong></td>
+<td>80%</td>
+<td>80%</td>
+<td><strong>TIE</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Task 1 - Min</strong></td>
+<td>40%</td>
+<td>50%</td>
+<td><strong>Mamba</strong> ⭐</td>
+</tr>
+<tr class="even">
+<td><strong>Task 2 - Mean</strong></td>
+<td>43.0%</td>
+<td>52.0%</td>
+<td><strong>Mamba (+9%)</strong> ⭐</td>
+</tr>
+<tr class="odd">
+<td><strong>Task 2 - Max</strong></td>
+<td>60%</td>
+<td>90%</td>
+<td><strong>Mamba (+30%)</strong> ⭐</td>
+</tr>
+<tr class="even">
+<td><strong>Task 2 - Min</strong></td>
+<td>20%</td>
+<td>30%</td>
+<td><strong>Mamba</strong> ⭐</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="learning-trajectory" class="section level2">
+<h2>Learning Trajectory</h2>
+<div id="task-1-learning-pattern" class="section level3">
+<h3>Task 1 Learning Pattern</h3>
+<p>Both models show relatively stable performance throughout training
+with periodic peaks and valleys. No clear upward or downward trend,
+suggesting both models learned this task early and maintained
+capability.</p>
+</div>
+<div id="task-2-learning-pattern" class="section level3">
+<h3>Task 2 Learning Pattern</h3>
+<p><strong>Mamba</strong> shows clear learning progression: - Early
+training (200-600): 30% baseline - Mid training (800-1200): Breakthrough
+to 50-90% - Late training (1400-2000): Stabilizes at 50-60%</p>
+<p><strong>Transformer</strong> shows more erratic pattern: - Alternates
+between 20-60% throughout training - No clear improvement trajectory -
+Suggests Task 2 is at the edge of Transformer’s capability</p>
+<hr />
+</div>
+</div>
+</div>
+<div id="rollouts" class="section level1">
+<h1>Rollouts</h1>
+<div class="rollout-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:start;">
+  <div>
+    <strong>Lift to left side (1)</strong>
+    <video controls width="100%" style="border-radius:8px;">
+      <source src="videos/rollouts/lift-to-left-side-1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div>
+    <strong>Lift to left side (2)</strong>
+    <video controls width="100%" style="border-radius:8px;">
+      <source src="videos/rollouts/lift-to-left-side-2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div>
+    <strong>Reach to right (1)</strong>
+    <video controls width="100%" style="border-radius:8px;">
+      <source src="videos/rollouts/reach-to-right-1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div>
+    <strong>Reach to right (2)</strong>
+    <video controls width="100%" style="border-radius:8px;">
+      <source src="videos/rollouts/reach-to-right-2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+</div>
+<div id="failures-faced-and-how-i-solved-them" class="section level1">
+<h1>Failures Faced and How I Solved Them</h1>
+<p>This section summarizes the main problems I encountered during
+environment setup, data collection, and model training, along with the
+fixes.</p>
+<div id="multi-cube-scene-caused-floating-cubes" class="section level2">
+<h2>1) Multi-cube scene caused floating cubes</h2>
+<p><strong>Issue:</strong> When I spawned 3 cubes and shifted their
+colors to select a target cube, some cubes spawned in mid‑air and caused
+collisions or unstable physics.<br />
+<strong>Fix:</strong> I reduced the scene to a single cube for the
+lifting policy and fixed the target pose for that cube. This kept the
+scene stable and matched the policy assumptions.</p>
+<div style="margin-top: 8px;">
+  <video width="100%" controls preload="metadata" playsinline style="max-width:100%;height:auto;border-radius:8px;background:#000;">
+    <source src="videos/extra_frames.mp4" type="video/mp4">
+    <source src="videos/extra_frames.mov" type="video/quicktime">
+    Your browser does not support the video tag.
+  </video>
+  <p>
+    So as you can observe in the video, when the episode changes and the cube is placed in a different
+    position, extra frames get recorded. These frames are stored in the dataset, which is a problem
+    because the model trains on noisy frames and struggles to learn the task.
+  </p>
+  <p>
+    To solve this, I added a short settling phase at the beginning of each episode. I publish zero
+    actions for a few steps, let the robot and physics settle, and only then start recording the dataset.
+  </p>
+  <p>
+    This issue happens because Isaac Sim needs time to stabilize the physics after the cube is moved,
+    which produces transient frames.
+  </p>
+  <p>
+    A cleaner fix is to use the built-in `DexCube`, but because I needed different cube colors, I kept
+    the custom cube and constrained the task to simple target directions.
+  </p>
+</div>
+</div>
+<div id="camera-orientation-mismatch" class="section level2">
+<h2>2) Camera orientation mismatch</h2>
+<p><strong>Issue:</strong> The cameras initially produced incorrect
+viewpoints because the quaternion order/axis convention was wrong.<br />
+<strong>Fix:</strong> I converted the orientation from
+<code>w, x, y, z</code> to the correct convention for Isaac Sim
+(<code>-x, w, z, -y</code>) and verified the view. I also tuned focal
+length (e.g., 12) for clear observations.</p>
+</div>
+<div id="dataset-contamination-and-failed-rollouts"
+class="section level2">
+<h2>3) Dataset contamination and failed rollouts</h2>
+<p><strong>Issue:</strong> Some episodes failed because the cube
+placement was too fast, and early frames contained visuals from the
+previous episode.<br />
+<strong>Fix:</strong> I added warm‑up steps at the start of each rollout
+and skipped failed episodes (no save if success conditions were not
+met). This improved dataset quality.</p>
+</div>
+<div id="mamba-isaaclab-environment-conflicts" class="section level2">
+<h2>4) Mamba + IsaacLab environment conflicts</h2>
+<p><strong>Issue:</strong> <code>mamba-ssm</code> initially failed to
+build under Python 3.11 (required by Isaac Sim 5.1.0), and CUDA kernels
+were incompatible with the RTX PRO 6000 (sm_120).<br />
+<strong>Fix:</strong> I installed <code>mamba-ssm</code> from source and
+upgraded to a PyTorch build that supports newer CUDA architectures:</p>
+<pre class="python"><code>Traceback (most recent call last):
+  File &quot;/home/navaneet/Documents/openarm/MambaVLA/run.py&quot;, line 179, in &lt;module&gt;
+    main(args.benchmark_type, args.checkpoint_path)
+  File &quot;/home/navaneet/Documents/openarm/MambaVLA/run.py&quot;, line 109, in main
+    model = create_model(cfg)
+            ^^^^^^^^^^^^^^^^^
+  File &quot;/home/navaneet/Documents/openarm/MambaVLA/configs/factory.py&quot;, line 93, in create_model
+    encoder = instantiate_from_config(model_config.model.backbones.encoder)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/home/navaneet/Documents/openarm/MambaVLA/configs/factory.py&quot;, line 23, in instantiate_from_config
+    target_class = _get_class_from_target(config._target_)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/home/navaneet/Documents/openarm/MambaVLA/configs/factory.py&quot;, line 67, in _get_class_from_target
+    from MambaVLA import MambaModel
+  File &quot;/home/navaneet/Documents/openarm/MambaVLA/MambaVLA/__init__.py&quot;, line 11, in &lt;module&gt;
+    from .mamba.mamba import MixerModel as MambaModel
+  File &quot;/home/navaneet/Documents/openarm/MambaVLA/MambaVLA/mamba/mamba.py&quot;, line 14, in &lt;module&gt;
+    from mamba_ssm.models.config_mamba import MambaConfig
+  File &quot;/home/navaneet/miniconda3/envs/lab/lib/python3.11/site-packages/mamba_ssm/__init__.py&quot;, line 3, in &lt;module&gt;
+    from mamba_ssm.ops.selective_scan_interface import selective_scan_fn, mamba_inner_fn
+  File &quot;/home/navaneet/miniconda3/envs/lab/lib/python3.11/site-packages/mamba_ssm/ops/selective_scan_interface.py&quot;, line 20, in &lt;module&gt;
+    import selective_scan_cuda
+ImportError: /home/navaneet/miniconda3/envs/lab/lib/python3.11/site-packages/selective_scan_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c104cuda29c10_cuda_check_implementationEiPKcS2_jb</code></pre>
+<pre class="bash"><code>pip install --no-cache-dir --no-binary :all: --no-build-isolation &quot;mamba-ssm[causal-conv1d]&quot;
+pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
+pip install mamba-ssm --no-build-isolation</code></pre>
+</div>
+<div id="task-policy-mismatch" class="section level2">
+<h2>5) Task-policy mismatch</h2>
+<p><strong>Issue:</strong> I initially added two cubes but the teacher
+policy was trained for a single cube, so the policy moved to incorrect
+targets.<br />
+<strong>Fix:</strong> I constrained the environment to a single cube and
+fixed the command to a consistent target pose (e.g., middle position),
+which aligned with the trained policy.</p>
+</div>
+<div id="environment-setup-steps" class="section level2">
+<h2>6) Environment setup steps</h2>
+<p><strong>Steps taken to stabilize the project setup:</strong> -
+Created a new environment config and registered it in the task
+init.<br />
+- Added cameras for data collection.<br />
+- Disabled visualization markers to avoid distraction in RGB
+frames.<br />
+- Verified task registration and command targets before rollout.</p>
+<p>As My main goal is to train the model with both the transformer and
+the mamba architecture and compare the results.</p>
+<p>So i chose with the simple task with single cube and for each task i
+gave a direction like <code>lift_it_to_the_middle_of_the_table</code> or
+<code>reach_to_the_right_side_but_slighlty_lower</code></p>
+<p>So i can easily compare the results of the transformer and the mamba
+architecture.</p>
+</div>
+</div>
+</div>
+
+   
+   
+              </div>
+  </div>
+  </div>
+  </div>
+   
+      
+
+  <script>
+    $(document).ready(function () {
+
+		// add bootstrap table styles to pandoc tables
+	$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+		
+ 		
+		$('#content img:not(.no-lightbox)').addClass("image-lb");
+	$('#content').magnificPopup({
+	    type:'image',
+	    closeOnContentClick: false,
+	    closeBtnInside: false,
+	    delegate: '.image-lb',
+	    gallery: {enabled: true },
+	    image: {
+	        verticalFit: true,
+		titleSrc: 'alt'
+	    }
+ 	});
+ 	    });
+  </script>
+
+
+
+    <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+	document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,1167 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+    <title>OpenARM-VLA — Sai Navaneet – Portfolio</title>
+  
+
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d93d844d" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/OpenARM-VLA/index';</script>
+    <script src="../../../_static/js/scroll-video.js?v=c40cad62"></script>
+    <script src="../../../_static/js/custom.js?v=1a0cc657"></script>
+    <script src="../../../_static/js/video-section.js"></script>
+    <link rel="canonical" href="https://sainavaneet.github.io/portfolio/source/projects/OpenARM-VLA/index.html" />
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="MambaVLA: A Scalable and Efficient Vision-Language-Action Model with State Space Architecture" href="../MambaVLA/index.html" />
+    <link rel="prev" title="RL Prescribed Performance · Fault-Tolerant Control" href="../RL-PPC-FTC/index.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+
+
+
+
+
+
+<meta name="description" content="Robotics + ML researcher. Vision-language-action models, diffusion policy, quadruped RL, model predictive control. 17 projects, 8 papers, 2024–2026." />
+<meta name="author" content="Sai Navaneet" />
+<meta name="theme-color" content="#040806" />
+
+<!-- Fonts: preconnect + non-blocking stylesheet swap (no @import, no render block) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" />
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      media="print" onload="this.media='all'; this.onload=null;" />
+<noscript><link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sai Navaneet — Portfolio" />
+<meta property="og:title" content="OpenARM-VLA · Sai Navaneet — Portfolio" />
+<meta property="og:description" content="Robotics + ML researcher. Vision-language-action models, diffusion policy, quadruped RL, model predictive control. 17 projects, 8 papers, 2024–2026." />
+<meta property="og:image" content="https://sainavaneet.github.io/portfolio/_static/profile3.png" />
+<meta property="og:url" content="https://sainavaneet.github.io/portfolio/" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="OpenARM-VLA · Sai Navaneet — Portfolio" />
+<meta name="twitter:description" content="Robotics + ML researcher. Vision-language-action models, diffusion policy, quadruped RL, model predictive control. 17 projects, 8 papers, 2024–2026." />
+<meta name="twitter:image" content="https://sainavaneet.github.io/portfolio/_static/profile3.png" />
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Navaneet</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sainavaneet" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/sainavaneet76/" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">LinkedIn</span></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Resume/index.html">Resume</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Projects</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Tensiq/index.html">Tensiq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SUREFlow/index.html">SUREFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RL-PPC-FTC/index.html">RL Prescribed Performance · Fault-Tolerant Control</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">OpenARM-VLA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MambaVLA/index.html">MambaVLA: A Scalable and Efficient Vision-Language-Action Model with State Space Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QROOT/index.html">QROOT: An Integrated Diffusion Transformer and Reinforcement Learning Approach for Quadrupedal Locomotion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DiffDAIL/index.html">DiffDAIL: Diffusion-Enhanced Vision-Guided Imitation Learning with Discrete Latent Representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DLDMP/index.html">Discrete Latent Diffusion Motion Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Tissue-processing/index.html">Transformer Based Vision Guided Tissue Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Actfranka/index.html">Action Chunck Transfomer on Franka Robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Autonomus%20Harvesting/index.html">🎉 Autonomus harvesting using Object Detecion</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../TelloDrone%20with%20KeyBoard/index.html">TelloDrone with Keyboard and Object Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LMPC-ILC/index.html">Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Imitation-Learning-Franka/index.html">Combining Imitation Learning with Diffusion Processes on Robot Manipulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basic-reinforcment-Learning/index.html">Basic Reinforcement Learning Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Deep%20Neural%20Network%20Nonlinear%20Model%20Predictive%20Control%20for%20CSTR/index.html">Deep Neural Network Nonlinear Model Predictive Control for CSTR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Drone%20Control%20with%20Keyboard/index.html">Drone Control with Keyboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Drone%20Trajectory%20Tracking/index.html">Drone Trajectory Tracking with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html">32 bit CPU based on MIPS architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Smart%20Home%20Using%20Iot/index.html">Smart-Home-Using-IOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Verilog/index.html">Verilog Projects</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../experience/index.html">Experience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications/index.html">Publications</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Blog/index.html">Blog</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/Bluetooth/index.html">Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/Vision-Language-Action-Transformer/index.html">Vision-Language-Action Transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/Actfranka/index.html">Vision Guided Imitation Learning using Action Chunk Transformer</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/isaacsim/index.html">Isaac Sim Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/go2_robot_isaacsim/index.html">🐾 Go2 Robot in Isaac Sim (Omniverse)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Contact/index.html">Contact</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/source/projects/OpenARM-VLA/index.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>OpenARM-VLA</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-overview">Pipeline Overview</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-environment">Simulation Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-camera-views">Dataset Camera Views</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-demonstrations">Dataset &amp; Demonstrations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-model">Training the Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-metrics">Evaluation Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#success-rate-definition">Success Rate Definition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-performance-table">Detailed Performance Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#executive-summary">Executive Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#success-rate-statistics">Success Rate Statistics</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-trajectory">Learning Trajectory</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rollouts">Rollouts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#failures-faced-how-i-solved-them">Failures Faced &amp; How I Solved Them</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-cube-scene-caused-floating-cubes">1) Multi-cube scene caused floating cubes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#camera-orientation-mismatch">2) Camera orientation mismatch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-contamination-and-failed-rollouts">3) Dataset contamination and failed rollouts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mamba-isaaclab-environment-conflicts">4) Mamba + IsaacLab environment conflicts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taskpolicy-mismatch">5) Task–policy mismatch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-setup-steps">6) Environment setup steps</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="openarm-vla">
+<h1>OpenARM-VLA<a class="headerlink" href="#openarm-vla" title="Link to this heading">#</a></h1>
+<section class="proj-detail-hero">
+<div class="proj-detail-lede">
+<p class="proj-attribution">
+<span class="proj-attribution__tag">OPEN-SOURCE CONTRIBUTION</span>
+<span class="proj-attribution__to">to <a href="https://github.com/reazon-research/openarm" target="_blank" rel="noopener">Reazon Research · OpenArm</a></span>
+</p>
+<p class="exp-hero-sub" style="margin-bottom: 1.4rem;">
+A Vision-Language-Action learning framework for robotic manipulation on the
+<strong>OpenArm</strong> platform in <strong>NVIDIA Isaac Sim</strong> — contributed back to the
+open-source OpenArm ecosystem. Benchmarks <strong>MambaVLA</strong> state-space policies
+against the <strong>MDT Transformer</strong> under identical perception, control, and
+simulation conditions.
+</p>
+<div class="proj-detail-meta">
+<span class="pub-status pub-status--published" style="background: rgba(34,197,94,0.12); color:#4ade80; border-color: rgba(34,197,94,0.4);">RELEASED</span>
+<span class="pub-status pub-status--poster" style="background: rgba(124,58,237,0.10); color:#c084fc; border-color: rgba(124,58,237,0.35);">ISAAC SIM</span>
+<span class="pub-status pub-status--published" style="background: rgba(245,158,11,0.10); color:#fbbf24; border-color: rgba(245,158,11,0.35);">MAMBA · MDT</span>
+<span class="pub-status pub-status--published" style="background: rgba(6,182,212,0.10); color:#67e8f9; border-color: rgba(6,182,212,0.35);">OSS CONTRIB</span>
+</div>
+<div class="proj-detail-actions">
+<a href="https://github.com/sainavaneet/OpenARM-VLA" target="_blank" rel="noopener" class="live-badge resume-cta resume-cta--primary"><span>◆</span> MY FORK</a>
+<a href="https://github.com/reazon-research/openarm" target="_blank" rel="noopener" class="live-badge resume-cta"><span>◆</span> OPENARM UPSTREAM</a>
+<a href="../../../_static/openarm-vla/OpenARM-VLA.html" target="_blank" rel="noopener" class="live-badge resume-cta"><span>↗</span> ORIGINAL REPORT</a>
+</div>
+<div class="proj-detail-tags">
+<span class="tech-marquee__chip">Vision-Language-Action</span>
+<span class="tech-marquee__chip">Mamba SSM</span>
+<span class="tech-marquee__chip">MDT Transformer</span>
+<span class="tech-marquee__chip">Isaac Sim</span>
+<span class="tech-marquee__chip">OpenArm</span>
+<span class="tech-marquee__chip">Imitation Learning</span>
+<span class="tech-marquee__chip">Synthetic Data</span>
+<span class="tech-marquee__chip">RL Teacher</span>
+<span class="tech-marquee__chip">PyTorch</span>
+</div>
+</div>
+<div class="proj-detail-sidekick">
+<img src="../../../_static/images/OpenARM-VLA/featured.png" alt="OpenARM-VLA — task overview" />
+</div>
+</section><section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>OpenARM-VLA is a <strong>Vision-Language-Action learning framework</strong> developed for robotic manipulation using the OpenArm platform in NVIDIA Isaac Sim. I evaluate it with both <strong>MambaVLA</strong> and <strong>MDT Transformer</strong> architectures. The primary objective is to systematically compare state-space and transformer-based policies on a cube-lifting task involving directional motion commands.</p>
+<p>To achieve this, I construct a <strong>synthetic data generation pipeline</strong> with a reinforcement-learning teacher policy that produces large-scale demonstration trajectories. This setup allows for fair benchmarking across architectures under identical perception, control, and simulation conditions. Experimental results demonstrate <strong>reliable task completion</strong>, establishing a foundation for scalable imitation learning and future foundation-model training for robotic manipulation.</p>
+<aside class="oss-callout">
+<div class="oss-callout__head"><span class="hero-graph-tag">// OPEN-SOURCE CONTRIBUTION</span></div>
+<p>
+OpenARM-VLA is contributed back to the <a href="https://github.com/reazon-research/openarm" target="_blank" rel="noopener"><strong>Reazon Research · OpenArm</strong></a> ecosystem.
+It extends the upstream OpenArm Isaac Sim environment with a complete VLA-learning stack:
+camera pipeline, synthetic data generator, two backbone implementations (MambaVLA + MDT Transformer),
+training scripts, and reproducible benchmark configs.
+The fork is at
+<a href="https://github.com/sainavaneet/OpenARM-VLA" target="_blank" rel="noopener">github.com/sainavaneet/OpenARM-VLA</a>.
+</p>
+</aside><section id="pipeline-overview">
+<h3>Pipeline Overview<a class="headerlink" href="#pipeline-overview" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>┌───────────────────────────────────────────────────────────────┐
+│  OpenARM Cube Lifting Task Environment (Isaac Sim)            │
+│    • Cameras for observations                                 │
+│    • Multi-direction lifting commands                         │
+│    • RGB camera observations                                  │
+│    • Randomized cube poses                                    │
+└───────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────┐
+│            Rollout Trajectory Collection                      │
+│    { Images | Robot States | Language Commands | Actions }   │
+└───────────────────────────────┬───────────────────────────────┘
+                                ▼
+                    ┌──────────────────────────┐
+                    │   Episode Evaluation     │
+                    │  SUCCESS  →  Save Demo   │
+                    │  FAILURE  →  Discard     │
+                    └─────────────┬────────────┘
+                                  ▼
+┌───────────────────────────────────────────────────────────────┐
+│            Demonstration Dataset Store                        │
+│    • Large-scale trajectories                                 │
+│    • Balanced directions · Train / Val / Test splits          │
+└───────────────────────────────┬───────────────────────────────┘
+                                ▼
+┌───────────────────────────────────────────────────────────────┐
+│       Imitation Learning via Flow Matching                    │
+│         Diffusion Policy Training                             │
+│                                                               │
+│   Conditioning: Visual Tokens · Language Tokens · Robot State │
+│                                                               │
+│   Backbones:   ┌───────────────┐    ┌────────────────────┐    │
+│                │   MambaVLA    │    │  Transformer Model │    │
+│                │   (State Sp.) │    │  (Attention-based) │    │
+│                └───────┬───────┘    └─────────┬──────────┘    │
+│                        └────────┬─────────────┘               │
+│                                 ▼                             │
+│                  Action Trajectory Predictor                  │
+│                (Joint Targets + Gripper Command)              │
+└───────────────────────────────┬───────────────────────────────┘
+                                ▼
+┌───────────────────────────────────────────────────────────────┐
+│            Policy Evaluation in Simulation                    │
+│      • Success Rate  • Completion Time  • Failure Modes       │
+└───────────────────────────────────────────────────────────────┘
+</pre></div>
+</div>
+</section>
+</section>
+<section id="simulation-environment">
+<h2>Simulation Environment<a class="headerlink" href="#simulation-environment" title="Link to this heading">#</a></h2>
+<p>I used the OpenArm-included <code class="docutils literal notranslate"><span class="pre">Isaac-Lift-Cube-OpenArm-v0</span></code> environment. Since the default RL env has no cameras, I created cameras for the play env <code class="docutils literal notranslate"><span class="pre">Isaac-Lift-Cube-OpenArm-Play-v0</span></code>.</p>
+<p>Three cameras were added:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">camera_link0</span></code></strong> — attached to the link-0 of the robot</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">camera_fixed</span></code></strong> — attached to the fixed frame of the robot</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">main_camera</span></code></strong> — used to record videos of the robot performing the task</p></li>
+</ul>
+<section id="dataset-camera-views">
+<h3>Dataset Camera Views<a class="headerlink" href="#dataset-camera-views" title="Link to this heading">#</a></h3>
+<div class="cam-grid">
+
+  <div class="cam-panel cam-panel--primary">
+    <div class="cam-head">
+      <span class="cam-led"></span>
+      <span class="cam-id">CAM 01 · camera_link0</span>
+      <span class="cam-tag">AGENT VIEW</span>
+    </div>
+    <div class="cam-stage">
+      <img src="../../../_static/openarm-vla/figures/demo_0_t018_agentview.png" alt="Agent view from camera_link0" loading="lazy"/>
+      <span class="cam-crosshair cam-crosshair--tl"></span>
+      <span class="cam-crosshair cam-crosshair--tr"></span>
+      <span class="cam-crosshair cam-crosshair--bl"></span>
+      <span class="cam-crosshair cam-crosshair--br"></span>
+      <span class="cam-overlay-rec">● REC</span>
+    </div>
+    <div class="cam-foot">
+      <span>128 × 128 · RGB</span>
+      <span>FOCAL 12.0 mm</span>
+      <span>POS  0.0  0.0  0.2</span>
+    </div>
+  </div>
+
+  <div class="cam-panel cam-panel--secondary">
+    <div class="cam-head">
+      <span class="cam-led cam-led--amber"></span>
+      <span class="cam-id">CAM 02 · camera_fixed</span>
+      <span class="cam-tag cam-tag--amber">EYE-IN-HAND</span>
+    </div>
+    <div class="cam-stage">
+      <img src="../../../_static/openarm-vla/figures/demo_0_t018_eye_in_hand.png" alt="Eye-in-hand view from camera_fixed" loading="lazy"/>
+      <span class="cam-crosshair cam-crosshair--tl"></span>
+      <span class="cam-crosshair cam-crosshair--tr"></span>
+      <span class="cam-crosshair cam-crosshair--bl"></span>
+      <span class="cam-crosshair cam-crosshair--br"></span>
+      <span class="cam-overlay-rec">● REC</span>
+    </div>
+    <div class="cam-foot">
+      <span>128 × 128 · RGB</span>
+      <span>WRIST-MOUNTED</span>
+      <span>ROT  −x  w  z  −y</span>
+    </div>
+  </div>
+
+  <div class="cam-meta">
+    <span class="hero-graph-tag" style="margin-bottom:0.4rem;display:block;">// CAMERA_FEED · live</span>
+    <dl class="cam-spec">
+      <dt>cameras</dt><dd>3 · agent, eye-in-hand, main</dd>
+      <dt>encoder</dt><dd>MultiImageResNet · 256-d latent</dd>
+      <dt>tokens</dt><dd>2 obs steps × 2 streams</dd>
+      <dt>conditioning</dt><dd>visual + language + state</dd>
+      <dt>frame rate</dt><dd>fixed-step (Isaac Sim physics)</dd>
+    </dl>
+  </div>
+
+</div><p>The camera config added to <code class="docutils literal notranslate"><span class="pre">openarm_isaac_lab/source/openarm/openarm/tasks/manager_based/openarm_manipulation/unimanual/lift/lift_env_cfg.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">camera_link0</span><span class="p">:</span> <span class="n">TiledCameraCfg</span> <span class="o">=</span> <span class="n">TiledCameraCfg</span><span class="p">(</span>
+    <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{ENV_REGEX_NS}</span><span class="s2">/Robot/openarm_link0/CameraLink0&quot;</span><span class="p">,</span>
+    <span class="n">offset</span><span class="o">=</span><span class="n">TiledCameraCfg</span><span class="o">.</span><span class="n">OffsetCfg</span><span class="p">(</span>
+        <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span>
+        <span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.29884</span><span class="p">,</span> <span class="mf">0.64086</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.64086</span><span class="p">,</span> <span class="mf">0.29884</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="n">data_types</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;rgb&quot;</span><span class="p">],</span>
+    <span class="n">spawn</span><span class="o">=</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">PinholeCameraCfg</span><span class="p">(</span>
+        <span class="n">focal_length</span><span class="o">=</span><span class="mf">12.0</span><span class="p">,</span>
+        <span class="n">focus_distance</span><span class="o">=</span><span class="mf">400.0</span><span class="p">,</span>
+        <span class="n">horizontal_aperture</span><span class="o">=</span><span class="mf">20.955</span><span class="p">,</span>
+        <span class="n">clipping_range</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="dataset-demonstrations">
+<h2>Dataset &amp; Demonstrations<a class="headerlink" href="#dataset-demonstrations" title="Link to this heading">#</a></h2>
+<p>I collected <strong>100 demonstrations per task</strong> as defined in <code class="docutils literal notranslate"><span class="pre">conf/tasks.yaml</span></code>. Dataset generation uses the <code class="docutils literal notranslate"><span class="pre">src/generate_dataset.py</span></code> script.</p>
+<ul class="simple">
+<li><p>If a task is successful, the script saves the demo to <code class="docutils literal notranslate"><span class="pre">data/demo_&lt;id&gt;/</span></code></p></li>
+<li><p>If it fails, the demo is skipped</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">task0</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pick_the_cube_and_lift_it_to_the_middle_of_the_table</span>
+<span class="w">    </span><span class="nt">target_pose</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.25,0.0,0.25&quot;</span>
+<span class="w">  </span><span class="nt">task1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pick_the_cube_and_reach_to_the_right_side_but_slighlty_lower</span>
+<span class="w">    </span><span class="nt">target_pose</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.25,-0.20,0.20&quot;</span>
+</pre></div>
+</div>
+<p>Each demo’s structure:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">/</span><span class="n">demo_</span><span class="o">&lt;</span><span class="nb">id</span><span class="o">&gt;/</span>
+  <span class="n">actions</span>        <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>      <span class="n">float32</span>
+  <span class="n">dones</span>          <span class="p">(</span><span class="n">T</span><span class="p">,)</span>        <span class="n">int64</span>
+  <span class="n">rewards</span>        <span class="p">(</span><span class="n">T</span><span class="p">,)</span>        <span class="n">float32</span>
+  <span class="n">robot_states</span>   <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>      <span class="n">float32</span>
+  <span class="n">obs</span><span class="o">/</span>
+    <span class="n">agentview_rgb</span>    <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="n">uint8</span>
+    <span class="n">eye_in_hand_rgb</span>  <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="n">uint8</span>
+    <span class="n">joint_states</span>     <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>            <span class="n">float32</span>
+    <span class="n">gripper_states</span>   <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>            <span class="n">float32</span>
+</pre></div>
+</div>
+<p>Stored as <code class="docutils literal notranslate"><span class="pre">hdf5</span></code> files. Side-by-side demonstrations:</p>
+<div style="display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin:1.4rem 0;">
+  <figure style="margin:0;">
+    <video controls width="100%" preload="metadata" playsinline style="border-radius:8px;background:#000;">
+      <source src="../../../_static/openarm-vla/videos/middle_table_all_demos.mp4" type="video/mp4">
+    </video>
+    <figcaption>Lift to middle</figcaption>
+  </figure>
+  <figure style="margin:0;">
+    <video controls width="100%" preload="metadata" playsinline style="border-radius:8px;background:#000;">
+      <source src="../../../_static/openarm-vla/videos/right_lower_all_demos.mp4" type="video/mp4">
+    </video>
+    <figcaption>Right-side lower</figcaption>
+  </figure>
+</div></section>
+<section id="training-the-model">
+<h2>Training the Model<a class="headerlink" href="#training-the-model" title="Link to this heading">#</a></h2>
+<p>Models are trained via <code class="docutils literal notranslate"><span class="pre">scripts/train_model.sh</span></code>. Both Mamba and Transformer backbones are configurable from <code class="docutils literal notranslate"><span class="pre">conf/config.yaml</span></code>. I trained for <strong>500 epochs</strong> and saved checkpoints in <code class="docutils literal notranslate"><span class="pre">outputs/train/mamba/</span></code> and <code class="docutils literal notranslate"><span class="pre">outputs/train/transformer/</span></code>. Eval videos land in <code class="docutils literal notranslate"><span class="pre">outputs/eval/...</span></code>.</p>
+<p>Image embeddings via ResNet:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">obs_encoder</span> <span class="o">=</span> <span class="n">MultiImageResNetEncoder</span><span class="p">(</span>
+    <span class="n">camera_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;agentview&quot;</span><span class="p">,</span> <span class="s2">&quot;eye_in_hand&quot;</span><span class="p">],</span>
+    <span class="n">latent_dim</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+    <span class="n">input_channels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Language embeddings via CLIP:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">language_encoder</span> <span class="o">=</span> <span class="n">LangClip</span><span class="p">(</span>
+    <span class="n">freeze_backbone</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;ViT-B/32&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Model size summary:</p>
+<ul class="simple">
+<li><p><strong>Total parameters:</strong> 177,773,960</p></li>
+<li><p><strong>Trainable:</strong> 26,496,648</p></li>
+<li><p><strong>Frozen:</strong> 151,277,312</p></li>
+</ul>
+<p>Mamba and Transformer variants have near-identical parameter counts, ensuring fair comparison.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model_mamba</span> <span class="o">=</span> <span class="n">create_mambavla_model</span><span class="p">(</span>
+    <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">camera_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;agentview&quot;</span><span class="p">,</span> <span class="s2">&quot;eye_in_hand&quot;</span><span class="p">],</span>
+    <span class="n">layers</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">latent_dim</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+    <span class="n">action_dim</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">lang_emb_dim</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+    <span class="n">embed_dim</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+    <span class="n">obs_tok_len</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">action_seq_len</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">model_type</span><span class="o">=</span><span class="s2">&quot;mamba&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transformer_cfg</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;n_heads&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="s2">&quot;attn_pdrop&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="s2">&quot;resid_pdrop&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="s2">&quot;mlp_pdrop&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="s2">&quot;bias&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;use_rot_embed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;rotary_xpos&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="evaluation-metrics">
+<h2>Evaluation Metrics<a class="headerlink" href="#evaluation-metrics" title="Link to this heading">#</a></h2>
+<p>I evaluated the models on:</p>
+<ul class="simple">
+<li><p><strong>Success Rate</strong></p></li>
+<li><p><strong>Inference Time</strong></p></li>
+<li><p><strong>Average Episode Steps</strong></p></li>
+<li><p><strong>Average Inference Time</strong></p></li>
+<li><p><strong>Training Time</strong></p></li>
+<li><p><strong>Computation Cost</strong></p></li>
+</ul>
+<section id="success-rate-definition">
+<h3>Success Rate Definition<a class="headerlink" href="#success-rate-definition" title="Link to this heading">#</a></h3>
+<p>Tasks: <code class="docutils literal notranslate"><span class="pre">pick_the_cube_and_lift_it_to_the_middle_of_the_table</span></code> and <code class="docutils literal notranslate"><span class="pre">pick_the_cube_and_reach_to_the_right_side_but_slighlty_lower</span></code>.</p>
+<p>I check the L2 error between the <strong>target pose</strong> and the <strong>current cube pose</strong>. If the error is under threshold → <strong>success</strong>, otherwise → <strong>failure</strong>.</p>
+</section>
+</section>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h2>
+<section id="detailed-performance-table">
+<h3>Detailed Performance Table<a class="headerlink" href="#detailed-performance-table" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>Epoch</p></th>
+<th class="head text-center"><p>T1 Transformer</p></th>
+<th class="head text-center"><p>T1 Mamba</p></th>
+<th class="head text-center"><p>T2 Transformer</p></th>
+<th class="head text-center"><p>T2 Mamba</p></th>
+<th class="head text-center"><p>T1 Steps Tr</p></th>
+<th class="head text-center"><p>T1 Steps Mamba</p></th>
+<th class="head text-center"><p>T2 Steps Tr</p></th>
+<th class="head text-center"><p>T2 Steps Mamba</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>200</p></td>
+<td class="text-center"><p>60%</p></td>
+<td class="text-center"><p><strong>80% ⭐</strong></p></td>
+<td class="text-center"><p><strong>40%</strong></p></td>
+<td class="text-center"><p>30%</p></td>
+<td class="text-center"><p>57.4</p></td>
+<td class="text-center"><p><strong>45.5 ⭐</strong></p></td>
+<td class="text-center"><p><strong>69.3 ⭐</strong></p></td>
+<td class="text-center"><p>80.4</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>400</p></td>
+<td class="text-center"><p>50%</p></td>
+<td class="text-center"><p><strong>70% ⭐</strong></p></td>
+<td class="text-center"><p><strong>60% ⭐</strong></p></td>
+<td class="text-center"><p>30%</p></td>
+<td class="text-center"><p>63.5</p></td>
+<td class="text-center"><p><strong>49.8 ⭐</strong></p></td>
+<td class="text-center"><p><strong>54.7 ⭐</strong></p></td>
+<td class="text-center"><p>78.4</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>600</p></td>
+<td class="text-center"><p><strong>80% ⭐</strong></p></td>
+<td class="text-center"><p>70%</p></td>
+<td class="text-center"><p><strong>40% ⭐</strong></p></td>
+<td class="text-center"><p>30%</p></td>
+<td class="text-center"><p><strong>43.4 ⭐</strong></p></td>
+<td class="text-center"><p>48.7</p></td>
+<td class="text-center"><p><strong>70.0 ⭐</strong></p></td>
+<td class="text-center"><p>77.6</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>800</p></td>
+<td class="text-center"><p><strong>60% ⭐</strong></p></td>
+<td class="text-center"><p>50%</p></td>
+<td class="text-center"><p>40%</p></td>
+<td class="text-center"><p><strong>50% ⭐</strong></p></td>
+<td class="text-center"><p><strong>57.6 ⭐</strong></p></td>
+<td class="text-center"><p>67.7</p></td>
+<td class="text-center"><p>71.2</p></td>
+<td class="text-center"><p><strong>64.0 ⭐</strong></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>1000</p></td>
+<td class="text-center"><p>60%</p></td>
+<td class="text-center"><p><strong>80% ⭐</strong></p></td>
+<td class="text-center"><p><strong>60%</strong></p></td>
+<td class="text-center"><p><strong>60%</strong></p></td>
+<td class="text-center"><p>58.2</p></td>
+<td class="text-center"><p><strong>41.1 ⭐</strong></p></td>
+<td class="text-center"><p><strong>55.3 ⭐</strong></p></td>
+<td class="text-center"><p>55.5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>1200</p></td>
+<td class="text-center"><p>50%</p></td>
+<td class="text-center"><p><strong>70% ⭐</strong></p></td>
+<td class="text-center"><p>30%</p></td>
+<td class="text-center"><p><strong>90% ⭐</strong></p></td>
+<td class="text-center"><p>64.6</p></td>
+<td class="text-center"><p><strong>48.4 ⭐</strong></p></td>
+<td class="text-center"><p>76.8</p></td>
+<td class="text-center"><p><strong>33.0 ⭐</strong></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>1400</p></td>
+<td class="text-center"><p>40%</p></td>
+<td class="text-center"><p><strong>80% ⭐</strong></p></td>
+<td class="text-center"><p>40%</p></td>
+<td class="text-center"><p><strong>60% ⭐</strong></p></td>
+<td class="text-center"><p>71.0</p></td>
+<td class="text-center"><p><strong>45.4 ⭐</strong></p></td>
+<td class="text-center"><p>68.6</p></td>
+<td class="text-center"><p><strong>53.3 ⭐</strong></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>1600</p></td>
+<td class="text-center"><p><strong>70% ⭐</strong></p></td>
+<td class="text-center"><p>50%</p></td>
+<td class="text-center"><p>20%</p></td>
+<td class="text-center"><p><strong>60% ⭐</strong></p></td>
+<td class="text-center"><p><strong>50.6 ⭐</strong></p></td>
+<td class="text-center"><p>63.6</p></td>
+<td class="text-center"><p>83.9</p></td>
+<td class="text-center"><p><strong>56.2 ⭐</strong></p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>1800</p></td>
+<td class="text-center"><p><strong>80% ⭐</strong></p></td>
+<td class="text-center"><p>60%</p></td>
+<td class="text-center"><p><strong>60% ⭐</strong></p></td>
+<td class="text-center"><p><strong>60%</strong></p></td>
+<td class="text-center"><p><strong>43.0 ⭐</strong></p></td>
+<td class="text-center"><p>54.3</p></td>
+<td class="text-center"><p><strong>55.6 ⭐</strong></p></td>
+<td class="text-center"><p>60.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>2000</p></td>
+<td class="text-center"><p><strong>70%</strong></p></td>
+<td class="text-center"><p><strong>70%</strong></p></td>
+<td class="text-center"><p>40%</p></td>
+<td class="text-center"><p><strong>50% ⭐</strong></p></td>
+<td class="text-center"><p><strong>54.3 ⭐</strong></p></td>
+<td class="text-center"><p>50.2</p></td>
+<td class="text-center"><p><strong>67.3 ⭐</strong></p></td>
+<td class="text-center"><p>63.6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure style="margin:1.6rem 0;">
+  <img src="../../../_static/openarm-vla/all_epochs_success_rate.png" alt="Success rate over all epochs" loading="lazy" style="width:100%;"/>
+  <figcaption>Success rate across epochs for both models on both tasks. Mamba outperforms Transformer, especially on Task 2 (“Reach Right”).</figcaption>
+</figure>
+
+<figure style="margin:1.6rem 0;">
+  <img src="../../../_static/openarm-vla/image.png" alt="Complete training analysis" loading="lazy" style="width:100%;"/>
+  <figcaption>Complete training analysis across checkpoints.</figcaption>
+</figure></section>
+<section id="executive-summary">
+<h3>Executive Summary<a class="headerlink" href="#executive-summary" title="Link to this heading">#</a></h3>
+<p>Comprehensive analysis of 10 training checkpoints reveals that <strong>Mamba consistently outperforms Transformer</strong> across both tasks:</p>
+<ul class="simple">
+<li><p><strong>Task 1 (Lift Left):</strong> Mamba <strong>68.0%</strong> vs Transformer <strong>62.0%</strong> (+6%)</p></li>
+<li><p><strong>Task 2 (Reach Right):</strong> Mamba <strong>52.0%</strong> vs Transformer <strong>43.0%</strong> (+9%)</p></li>
+</ul>
+<p><strong>Best performance:</strong> Mamba achieves <strong>90% success rate</strong> on Task 2 at epoch 1200 — the highest of any evaluation.</p>
+<section id="success-rate-statistics">
+<h4>Success Rate Statistics<a class="headerlink" href="#success-rate-statistics" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head text-center"><p>Transformer</p></th>
+<th class="head text-center"><p>Mamba</p></th>
+<th class="head"><p>Winner</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>T1 — Mean</strong></p></td>
+<td class="text-center"><p>62.0%</p></td>
+<td class="text-center"><p>68.0%</p></td>
+<td><p><strong>Mamba (+6%) ⭐</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>T1 — Max</strong></p></td>
+<td class="text-center"><p>80%</p></td>
+<td class="text-center"><p>80%</p></td>
+<td><p><strong>TIE</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>T1 — Min</strong></p></td>
+<td class="text-center"><p>40%</p></td>
+<td class="text-center"><p>50%</p></td>
+<td><p><strong>Mamba ⭐</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>T2 — Mean</strong></p></td>
+<td class="text-center"><p>43.0%</p></td>
+<td class="text-center"><p>52.0%</p></td>
+<td><p><strong>Mamba (+9%) ⭐</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>T2 — Max</strong></p></td>
+<td class="text-center"><p>60%</p></td>
+<td class="text-center"><p>90%</p></td>
+<td><p><strong>Mamba (+30%) ⭐</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>T2 — Min</strong></p></td>
+<td class="text-center"><p>20%</p></td>
+<td class="text-center"><p>30%</p></td>
+<td><p><strong>Mamba ⭐</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="learning-trajectory">
+<h3>Learning Trajectory<a class="headerlink" href="#learning-trajectory" title="Link to this heading">#</a></h3>
+<p><strong>Task 1 pattern.</strong> Both models show relatively stable performance with periodic peaks and valleys — no clear upward or downward trend. Both learned this task early and maintained capability.</p>
+<p><strong>Task 2 pattern.</strong></p>
+<ul class="simple">
+<li><p><strong>Mamba</strong> shows clear learning progression — early (200-600) at a 30% baseline, mid (800-1200) breakthrough to 50-90%, late (1400-2000) stabilizes at 50-60%.</p></li>
+<li><p><strong>Transformer</strong> is more erratic — alternates between 20-60% throughout with no clear improvement trajectory. Task 2 sits at the edge of Transformer’s capability here.</p></li>
+</ul>
+</section>
+</section>
+<section id="rollouts">
+<h2>Rollouts<a class="headerlink" href="#rollouts" title="Link to this heading">#</a></h2>
+<div style="display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin:1.4rem 0;">
+  <figure style="margin:0;">
+    <video controls width="100%" preload="metadata" playsinline style="border-radius:8px;background:#000;">
+      <source src="../../../_static/openarm-vla/videos/rollouts/lift-to-left-side-1.mp4" type="video/mp4">
+    </video>
+    <figcaption>Lift to left side (1)</figcaption>
+  </figure>
+  <figure style="margin:0;">
+    <video controls width="100%" preload="metadata" playsinline style="border-radius:8px;background:#000;">
+      <source src="../../../_static/openarm-vla/videos/rollouts/lift-to-left-side-2.mp4" type="video/mp4">
+    </video>
+    <figcaption>Lift to left side (2)</figcaption>
+  </figure>
+  <figure style="margin:0;">
+    <video controls width="100%" preload="metadata" playsinline style="border-radius:8px;background:#000;">
+      <source src="../../../_static/openarm-vla/videos/rollouts/reach-to-right-1.mp4" type="video/mp4">
+    </video>
+    <figcaption>Reach to right (1)</figcaption>
+  </figure>
+  <figure style="margin:0;">
+    <video controls width="100%" preload="metadata" playsinline style="border-radius:8px;background:#000;">
+      <source src="../../../_static/openarm-vla/videos/rollouts/reach-to-right-2.mp4" type="video/mp4">
+    </video>
+    <figcaption>Reach to right (2)</figcaption>
+  </figure>
+</div></section>
+<section id="failures-faced-how-i-solved-them">
+<h2>Failures Faced &amp; How I Solved Them<a class="headerlink" href="#failures-faced-how-i-solved-them" title="Link to this heading">#</a></h2>
+<section id="multi-cube-scene-caused-floating-cubes">
+<h3>1) Multi-cube scene caused floating cubes<a class="headerlink" href="#multi-cube-scene-caused-floating-cubes" title="Link to this heading">#</a></h3>
+<p><strong>Issue:</strong> When I spawned 3 cubes and shifted their colors to select a target cube, some cubes spawned in mid-air and caused collisions or unstable physics.</p>
+<p><strong>Fix:</strong> I reduced the scene to a single cube for the lifting policy and fixed the target pose for that cube. This kept the scene stable and matched the policy assumptions.</p>
+<figure style="margin:1.2rem 0;">
+  <video controls width="100%" preload="metadata" playsinline style="border-radius:8px;background:#000;max-width:760px;display:block;margin:0 auto;">
+    <source src="../../../_static/openarm-vla/videos/extra_frames.mp4" type="video/mp4">
+  </video>
+</figure><p>When the episode changes and the cube is placed in a different position, extra frames get recorded. These end up in the dataset — the model trains on noisy frames and struggles to learn the task.</p>
+<p><strong>Solution:</strong> I added a short settling phase at the beginning of each episode. Publish zero actions for a few steps, let the robot and physics settle, then start recording. Isaac Sim needs time to stabilize physics after the cube moves, which produces transient frames. A cleaner fix is to use the built-in <code class="docutils literal notranslate"><span class="pre">DexCube</span></code>, but I needed different cube colors so I kept the custom cube and constrained the task to simple target directions.</p>
+</section>
+<section id="camera-orientation-mismatch">
+<h3>2) Camera orientation mismatch<a class="headerlink" href="#camera-orientation-mismatch" title="Link to this heading">#</a></h3>
+<p><strong>Issue:</strong> Cameras initially produced incorrect viewpoints because the quaternion order/axis convention was wrong.</p>
+<p><strong>Fix:</strong> Converted orientation from <code class="docutils literal notranslate"><span class="pre">w,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code> → <code class="docutils literal notranslate"><span class="pre">-x,</span> <span class="pre">w,</span> <span class="pre">z,</span> <span class="pre">-y</span></code> for Isaac Sim and verified the view. Tuned focal length to 12 for clearer observations.</p>
+</section>
+<section id="dataset-contamination-and-failed-rollouts">
+<h3>3) Dataset contamination and failed rollouts<a class="headerlink" href="#dataset-contamination-and-failed-rollouts" title="Link to this heading">#</a></h3>
+<p><strong>Issue:</strong> Some episodes failed because cube placement was too fast, and early frames contained visuals from the previous episode.</p>
+<p><strong>Fix:</strong> Added warm-up steps at the start of each rollout and skipped failed episodes (no save if success conditions weren’t met). Improved dataset quality.</p>
+</section>
+<section id="mamba-isaaclab-environment-conflicts">
+<h3>4) Mamba + IsaacLab environment conflicts<a class="headerlink" href="#mamba-isaaclab-environment-conflicts" title="Link to this heading">#</a></h3>
+<p><strong>Issue:</strong> <code class="docutils literal notranslate"><span class="pre">mamba-ssm</span></code> initially failed to build under Python 3.11 (required by Isaac Sim 5.1.0), and CUDA kernels were incompatible with the RTX PRO 6000 (sm_120).</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ImportError: /home/navaneet/miniconda3/envs/lab/lib/python3.11/site-packages/
+selective_scan_cuda.cpython-311-x86_64-linux-gnu.so:
+undefined symbol: _ZN3c104cuda29c10_cuda_check_implementationEiPKcS2_jb
+</pre></div>
+</div>
+<p><strong>Fix:</strong> Installed <code class="docutils literal notranslate"><span class="pre">mamba-ssm</span></code> from source and upgraded to a PyTorch build that supports newer CUDA architectures:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>--no-binary<span class="w"> </span>:all:<span class="w"> </span>--no-build-isolation<span class="w"> </span><span class="s2">&quot;mamba-ssm[causal-conv1d]&quot;</span>
+pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/nightly/cu128
+pip<span class="w"> </span>install<span class="w"> </span>mamba-ssm<span class="w"> </span>--no-build-isolation
+</pre></div>
+</div>
+</section>
+<section id="taskpolicy-mismatch">
+<h3>5) Task–policy mismatch<a class="headerlink" href="#taskpolicy-mismatch" title="Link to this heading">#</a></h3>
+<p><strong>Issue:</strong> I initially added two cubes but the teacher policy was trained for a single cube, so the policy moved to incorrect targets.</p>
+<p><strong>Fix:</strong> Constrained the environment to a single cube and fixed the command to a consistent target pose (e.g., middle position) — aligned with the trained policy.</p>
+</section>
+<section id="environment-setup-steps">
+<h3>6) Environment setup steps<a class="headerlink" href="#environment-setup-steps" title="Link to this heading">#</a></h3>
+<p>Steps taken to stabilize the project setup:</p>
+<ul class="simple">
+<li><p>Created a new environment config and registered it in the task init</p></li>
+<li><p>Added cameras for data collection</p></li>
+<li><p>Disabled visualization markers to avoid distraction in RGB frames</p></li>
+<li><p>Verified task registration and command targets before rollout</p></li>
+</ul>
+<p>My main goal was to train the model with both Transformer and Mamba architectures and compare. I chose a simple single-cube task and gave each variant a direction like <code class="docutils literal notranslate"><span class="pre">lift_it_to_the_middle_of_the_table</span></code> or <code class="docutils literal notranslate"><span class="pre">reach_to_the_right_side_but_slighlty_lower</span></code> so the comparison is clean and reproducible.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../RL-PPC-FTC/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">RL Prescribed Performance · Fault-Tolerant Control</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../MambaVLA/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MambaVLA: A Scalable and Efficient Vision-Language-Action Model with State Space Architecture</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pipeline-overview">Pipeline Overview</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-environment">Simulation Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-camera-views">Dataset Camera Views</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-demonstrations">Dataset &amp; Demonstrations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-model">Training the Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-metrics">Evaluation Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#success-rate-definition">Success Rate Definition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-performance-table">Detailed Performance Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#executive-summary">Executive Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#success-rate-statistics">Success Rate Statistics</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-trajectory">Learning Trajectory</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rollouts">Rollouts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#failures-faced-how-i-solved-them">Failures Faced &amp; How I Solved Them</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-cube-scene-caused-floating-cubes">1) Multi-cube scene caused floating cubes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#camera-orientation-mismatch">2) Camera orientation mismatch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-contamination-and-failed-rollouts">3) Dataset contamination and failed rollouts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mamba-isaaclab-environment-conflicts">4) Mamba + IsaacLab environment conflicts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taskpolicy-mismatch">5) Task–policy mismatch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-setup-steps">6) Environment setup steps</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Navaneet
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Navaneet.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

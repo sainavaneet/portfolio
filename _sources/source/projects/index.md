@@ -1,255 +1,346 @@
-# 🚀 Projects
+# Projects
 
 ```{raw} html
-<div class="projects-list-container">
-  <ul class="projects-list">
-    <li class="project-item">
-      <a href="./MambaVLA/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">MambaVLA: A Scalable and Efficient Vision-Language-Action Model with State Space Architecture</h3>
-          <p class="project-description">Vision-Language-Action models using State Space Models (Mamba) for robotic manipulation</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./QROOT/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">QROOT: An Integrated Diffusion Transformer and Reinforcement Learning Approach for Quadrupedal Locomotion</h3>
-          <p class="project-description">Quadrupedal locomotion using integrated Diffusion Transformer and Reinforcement Learning approach</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./DiffDAIL/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">DiffDAIL: Diffusion-Enhanced Vision-Guided Imitation Learning with Discrete Latent Representations</h3>
-          <p class="project-description">Diffusion-based Data Augmented Imitation Learning for robotic manipulation</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./DLDMP/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">DLDMP: Discrete Latent Diffusion Motion Planning</h3>
-          <p class="project-description">Motion planning using discrete latent diffusion models</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./Tissue-processing/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">Transformer Based Vision Guided Tissue Processing</h3>
-          <p class="project-description">Vision-guided tissue processing system using robotic arms and ACT algorithm</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./Actfranka/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">Action Chunck Transfomer on Franka Robot</h3>
-          <p class="project-description">Action Chunking Transformer implementation for Franka robotic arm</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./Autonomus%20Harvesting/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">Autonomus harvesting using Object Detecion</h3>
-          <p class="project-description">Cucumber harvesting system using YOLOv11 object detection with ViperX robots and AGV</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./TelloDrone%20with%20KeyBoard/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">TelloDrone with Keyboard and Object Detection</h3>
-          <p class="project-description">Drone control system using keyboard input for Tello drone</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./LMPC-ILC/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</h3>
-          <p class="project-description">Hybrid Model Predictive Control and Iterative Learning Control for leader-follower robotic tracking</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./Imitation-Learning-Franka/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">Combining Imitation Learning with Diffusion Processes on Robot Manipulator</h3>
-          <p class="project-description">Combining Imitation Learning with Diffusion Processes on robot manipulator</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./Basic-reinforcment-Learning/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">Basic Reinforcement Learning Algorithms</h3>
-          <p class="project-description">Fundamental reinforcement learning algorithms and implementations</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./Deep%20Neural%20Network%20Nonlinear%20Model%20Predictive%20Control%20for%20CSTR/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">Deep Neural Network Nonlinear Model Predictive Control for CSTR</h3>
-          <p class="project-description">Nonlinear Model Predictive Control using Deep Neural Networks for Continuous Stirred-Tank Reactor</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./Drone%20Control%20with%20Keyboard/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">Drone Control with Keyboard</h3>
-          <p class="project-description">Keyboard-based drone control system for UAV navigation</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./Drone%20Trajectory%20Tracking/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">Drone Trajectory Tracking with Python</h3>
-          <p class="project-description">UAV trajectory tracking with LPV-MPC control system</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">32 bit CPU based on MIPS architecture</h3>
-          <p class="project-description">MIPS architecture CPU implementation in hardware design</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./Smart%20Home%20Using%20Iot/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">Smart Home Using IoT</h3>
-          <p class="project-description">Home automation system using Internet of Things with ESP32 and cloud control</p>
-        </div>
-      </a>
-    </li>
-    <li class="project-item">
-      <a href="./Verilog/index.html" class="project-link">
-        <div class="project-info">
-          <h3 class="project-name">Verilog Codes</h3>
-          <p class="project-description">Digital design projects using Verilog Hardware Description Language</p>
-        </div>
-      </a>
-    </li>
-  </ul>
+<section class="pub-hero">
+<span class="hero-graph-tag">// PROJECT_DATABASE</span>
+<h2 class="exp-hero-title">21 projects, <span class="resume-name__last">6 domains</span>, 2021 → now</h2>
+<p class="exp-hero-sub">Research, control, locomotion, industry deployments, drones, and embedded hardware. Hover any row to expand. Click to dive in.</p>
+</section>
+
+<section class="pub-stats">
+<div class="pub-stat pub-stat--pub"><span class="pub-stat__num">21</span><span class="pub-stat__lbl">PROJECTS</span></div>
+<div class="pub-stat pub-stat--first"><span class="pub-stat__num">6</span><span class="pub-stat__lbl">DOMAINS</span></div>
+<div class="pub-stat pub-stat--pub"><span class="pub-stat__num">5</span><span class="pub-stat__lbl">WITH PAPERS</span></div>
+<div class="pub-stat pub-stat--pend"><span class="pub-stat__num">12</span><span class="pub-stat__lbl">CORE TECH</span></div>
+</section>
+
+<section class="proj-filter">
+<div class="pub-topics__head">
+<span class="hero-graph-tag">// FILTER · DOMAIN</span>
+<span class="pub-dist__total">click to filter</span>
 </div>
+<div class="proj-pills" role="tablist">
+<button class="proj-pill is-active" data-filter="all"        type="button">ALL <span>21</span></button>
+<button class="proj-pill" data-filter="research"             type="button">RESEARCH <span>6</span></button>
+<button class="proj-pill" data-filter="locomotion"           type="button">LOCOMOTION <span>2</span></button>
+<button class="proj-pill" data-filter="control"              type="button">CONTROL <span>4</span></button>
+<button class="proj-pill" data-filter="industry"             type="button">INDUSTRY <span>3</span></button>
+<button class="proj-pill" data-filter="drones"               type="button">DRONES <span>3</span></button>
+<button class="proj-pill" data-filter="hardware"             type="button">HARDWARE <span>3</span></button>
+</div>
+</section>
 
-<style>
-/* Projects List Container - Simple Black Style */
-.projects-list-container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 20px;
-}
+<section class="proj-index">
+<span class="hero-graph-tag">// ALL_PROJECTS · INDEX</span>
 
-.projects-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+<ol class="proj-rows-list">
 
-.project-item {
-  margin: 0;
-  padding: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
+<li class="proj-row proj-cat--industry" data-proj-category="industry">
+<a class="proj-row__link" href="./Tensiq/index.html">
+<span class="proj-row__num">01</span>
+<span class="proj-row__cat">INDUSTRY</span>
+<h3 class="proj-row__title">Tensiq <em class="proj-row__sub">· TT · TACTILE AI</em></h3>
+<span class="proj-row__year">2026</span>
+<span class="proj-row__status pub-status pub-status--published">SHIPPING</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Universal tactile intelligence for robotics. A standardized tensor format and processing pipeline that turns any tactile sensor into model-ready, physics-grounded data — the “MP4 for touch”.</p>
+<div class="proj-row__tags"><span class="proj-chip">Tactile AI</span><span class="proj-chip">Multi-Sensor</span><span class="proj-chip">Pipeline</span><span class="proj-chip">Robot Learning</span><span class="proj-chip">Standardization</span></div>
+</div>
+</a>
+</li>
 
-.project-item:last-child {
-  border-bottom: none;
-}
+<li class="proj-row proj-cat--research" data-proj-category="research" data-preview="../../_static/images/SUREFlow/featured.jpg" data-preview-type="img">
+<a class="proj-row__link" href="./SUREFlow/index.html">
+<span class="proj-row__num">02</span>
+<span class="proj-row__cat">RESEARCH</span>
+<h3 class="proj-row__title">SUREFlow <em class="proj-row__sub">· IROS '26</em></h3>
+<span class="proj-row__year">2026</span>
+<span class="proj-row__status pub-status pub-status--submitted">SUBMITTED</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">State-space uncertainty-aware residual flow matching for robust robot manipulation. Mamba-backbone VLA — 92.6% LIBERO success rate with just 179M parameters, beats MaIL by +34.3%.</p>
+<div class="proj-row__tags"><span class="proj-chip">Flow Matching</span><span class="proj-chip">Mamba</span><span class="proj-chip">VLA</span><span class="proj-chip">Uncertainty</span><span class="proj-chip">LIBERO</span></div>
+</div>
+</a>
+</li>
 
-.project-link {
-  display: block;
-  padding: 1.25rem 0;
-  color: #000000;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
+<li class="proj-row proj-cat--control" data-proj-category="control">
+<a class="proj-row__link" href="./RL-PPC-FTC/index.html">
+<span class="proj-row__num">03</span>
+<span class="proj-row__cat">CONTROL</span>
+<h3 class="proj-row__title">RL Prescribed Performance · FTC <em class="proj-row__sub">· IEEE TCYBE</em></h3>
+<span class="proj-row__year">2026</span>
+<span class="proj-row__status pub-status pub-status--review">UNDER REVIEW</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Reinforcement-learning-based neuro-optimal control for robot manipulators under composite actuator faults. Predefined-time tracking via prescribed performance functions + actor–critic–identifier RL. Submitted to IEEE Transactions on Cybernetics.</p>
+<div class="proj-row__tags"><span class="proj-chip">RL</span><span class="proj-chip">Neuro-Optimal Control</span><span class="proj-chip">Fault Tolerance</span><span class="proj-chip">PPF</span><span class="proj-chip">Manipulator</span></div>
+</div>
+</a>
+</li>
 
-.project-link:hover {
-  opacity: 0.6;
-}
+<li class="proj-row proj-cat--research" data-proj-category="research" data-preview="../../_static/images/OpenARM-VLA/featured.png" data-preview-type="img">
+<a class="proj-row__link" href="./OpenARM-VLA/index.html">
+<span class="proj-row__num">04</span>
+<span class="proj-row__cat">RESEARCH</span>
+<h3 class="proj-row__title">OpenARM-VLA <em class="proj-row__sub">· OSS · REAZON</em></h3>
+<span class="proj-row__year">2026</span>
+<span class="proj-row__status pub-status pub-status--published">OSS CONTRIB</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Open-source contribution to <strong>Reazon Research · OpenArm</strong>. A VLA framework on the OpenArm platform in Isaac Sim. Head-to-head benchmark of MambaVLA (state-space) vs MDT Transformer with an RL-teacher synthetic data pipeline.</p>
+<div class="proj-row__tags"><span class="proj-chip">VLA</span><span class="proj-chip">Mamba</span><span class="proj-chip">MDT</span><span class="proj-chip">Isaac Sim</span><span class="proj-chip">OpenArm</span><span class="proj-chip">OSS</span></div>
+</div>
+</a>
+</li>
 
-.project-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+<li class="proj-row proj-cat--research" data-proj-category="research" data-preview="../../_static/images/MambaVLA/successrate.png" data-preview-type="img">
+<a class="proj-row__link" href="./MambaVLA/index.html">
+<span class="proj-row__num">05</span>
+<span class="proj-row__cat">RESEARCH</span>
+<h3 class="proj-row__title">MambaVLA</h3>
+<span class="proj-row__year">2026</span>
+<span class="proj-row__status pub-status pub-status--published">CCNC ’26</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Scalable, efficient Vision-Language-Action transformer with state-space architecture for robotic manipulation. Mamba SSM at the policy core.</p>
+<div class="proj-row__tags"><span class="proj-chip">Mamba SSM</span><span class="proj-chip">VLA</span><span class="proj-chip">PyTorch</span><span class="proj-chip">Manipulation</span></div>
+</div>
+</a>
+</li>
 
-.project-name {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0;
-  color: #000000;
-  line-height: 1.4;
-  display: inline-block;
-}
+<li class="proj-row proj-cat--locomotion" data-proj-category="locomotion" data-preview="../../_static/images/QROOT/architecture.png" data-preview-type="img">
+<a class="proj-row__link" href="./QROOT/index.html">
+<span class="proj-row__num">06</span>
+<span class="proj-row__cat">LOCOMOTION</span>
+<h3 class="proj-row__title">QROOT</h3>
+<span class="proj-row__year">2025</span>
+<span class="proj-row__status pub-status pub-status--submitted">NeurIPS ’25</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Integrated diffusion transformer + reinforcement learning for quadrupedal locomotion. End-to-end gait synthesis from a latent prior.</p>
+<div class="proj-row__tags"><span class="proj-chip">DiT</span><span class="proj-chip">RL</span><span class="proj-chip">Quadruped</span><span class="proj-chip">Isaac Sim</span></div>
+</div>
+</a>
+</li>
 
-.project-name::after {
-  content: ' →';
-  margin-left: 0.3rem;
-  font-weight: 400;
-  opacity: 0.7;
-}
+<li class="proj-row proj-cat--research" data-proj-category="research" data-preview="../../_static/images/DiffDAIL/architecture.png" data-preview-type="img">
+<a class="proj-row__link" href="./DiffDAIL/index.html">
+<span class="proj-row__num">07</span>
+<span class="proj-row__cat">RESEARCH</span>
+<h3 class="proj-row__title">DiffDAIL</h3>
+<span class="proj-row__year">2025</span>
+<span class="proj-row__status pub-status pub-status--review">UNDER REVIEW</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Diffusion-enhanced, vision-guided imitation learning with discrete latent representations. Robust policies from noisy demonstrations.</p>
+<div class="proj-row__tags"><span class="proj-chip">Diffusion</span><span class="proj-chip">Imitation Learning</span><span class="proj-chip">Latent</span><span class="proj-chip">PyTorch</span></div>
+</div>
+</a>
+</li>
 
-.project-description {
-  font-size: 0.9rem;
-  font-weight: 400;
-  margin: 0;
-  color: #666666;
-  line-height: 1.5;
-}
+<li class="proj-row proj-cat--control" data-proj-category="control" data-preview="../../_static/images/DLDMP/main.png" data-preview-type="img">
+<a class="proj-row__link" href="./DLDMP/index.html">
+<span class="proj-row__num">08</span>
+<span class="proj-row__cat">CONTROL</span>
+<h3 class="proj-row__title">DLDMP</h3>
+<span class="proj-row__year">2025</span>
+<span class="proj-row__status pub-status pub-status--published">NODYCON ’25</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Discrete latent diffusion motion planning for manipulators.</p>
+<div class="proj-row__tags"><span class="proj-chip">Diffusion</span><span class="proj-chip">Motion Planning</span><span class="proj-chip">Manipulator</span></div>
+</div>
+</a>
+</li>
 
-/* Dark Mode Support */
-[data-theme="dark"] .project-item,
-.theme-dark .project-item,
-.dark .project-item {
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-}
+<li class="proj-row proj-cat--industry" data-proj-category="industry" data-preview="../../_static/images/Tissue-processing/rviz.png" data-preview-type="img">
+<a class="proj-row__link" href="./Tissue-processing/index.html">
+<span class="proj-row__num">09</span>
+<span class="proj-row__cat">INDUSTRY</span>
+<h3 class="proj-row__title">Tissue Processing</h3>
+<span class="proj-row__year">2024</span>
+<span class="proj-row__status pub-status pub-status--published">DEPLOYED</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Vision-guided tissue manipulation. 85.7% autonomous success on ViperX arms at Dexweaver.</p>
+<div class="proj-row__tags"><span class="proj-chip">ViperX</span><span class="proj-chip">ACT</span><span class="proj-chip">Dexweaver</span></div>
+</div>
+</a>
+</li>
 
-[data-theme="dark"] .project-link,
-.theme-dark .project-link,
-.dark .project-link {
-  color: #ffffff;
-}
+<li class="proj-row proj-cat--research" data-proj-category="research" data-preview="../../_static/images/Actfranka/demo.mov" data-preview-type="video" data-preview-fallback="../../_static/images/Actfranka/real_env.jpg">
+<a class="proj-row__link" href="./Actfranka/index.html">
+<span class="proj-row__num">10</span>
+<span class="proj-row__cat">RESEARCH</span>
+<h3 class="proj-row__title">ACT on Franka</h3>
+<span class="proj-row__year">2024</span>
+<span class="proj-row__status pub-status pub-status--published">IEMEK ’24</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Action Chunking Transformer implementation for vision-guided pick-and-place on the Franka arm.</p>
+<div class="proj-row__tags"><span class="proj-chip">ACT</span><span class="proj-chip">Franka</span><span class="proj-chip">Pick &amp; Place</span></div>
+</div>
+</a>
+</li>
 
-[data-theme="dark"] .project-name,
-.theme-dark .project-name,
-.dark .project-name {
-  color: #ffffff;
-}
+<li class="proj-row proj-cat--industry" data-proj-category="industry" data-preview="../../_static/images/Autonomus-Harvesting/featured.gif" data-preview-type="img">
+<a class="proj-row__link" href="./Autonomus%20Harvesting/index.html">
+<span class="proj-row__num">11</span>
+<span class="proj-row__cat">INDUSTRY</span>
+<h3 class="proj-row__title">Autonomous Harvesting</h3>
+<span class="proj-row__year">2024</span>
+<span class="proj-row__status pub-status pub-status--published">DEPLOYED</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Cucumber harvesting using YOLOv11 detection with ViperX arms on a mobile AGV.</p>
+<div class="proj-row__tags"><span class="proj-chip">YOLOv11</span><span class="proj-chip">ViperX</span><span class="proj-chip">AGV</span></div>
+</div>
+</a>
+</li>
 
-[data-theme="dark"] .project-description,
-.theme-dark .project-description,
-.dark .project-description {
-  color: #cccccc;
-}
+<li class="proj-row proj-cat--research" data-proj-category="research" data-preview="../../_static/images/Imitation-Learning-Franka/featured.gif" data-preview-type="img">
+<a class="proj-row__link" href="./Imitation-Learning-Franka/index.html">
+<span class="proj-row__num">12</span>
+<span class="proj-row__cat">RESEARCH</span>
+<h3 class="proj-row__title">Imitation × Diffusion · Franka</h3>
+<span class="proj-row__year">2024</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Combining imitation learning with diffusion processes on the Franka manipulator.</p>
+<div class="proj-row__tags"><span class="proj-chip">Imitation</span><span class="proj-chip">Diffusion</span><span class="proj-chip">Franka</span></div>
+</div>
+</a>
+</li>
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .projects-list-container {
-    padding: 0 15px;
-  }
-  
-  .project-link {
-    padding: 1rem 0;
-  }
-  
-  .project-name {
-    font-size: 1rem;
-  }
-  
-  .project-description {
-    font-size: 0.85rem;
-  }
-}
-</style>
+<li class="proj-row proj-cat--control" data-proj-category="control" data-preview="../../_static/images/LMPC-ILC/lmpc.png" data-preview-type="img">
+<a class="proj-row__link" href="./LMPC-ILC/index.html">
+<span class="proj-row__num">13</span>
+<span class="proj-row__cat">CONTROL</span>
+<h3 class="proj-row__title">Hybrid MPC + ILC</h3>
+<span class="proj-row__year">2024</span>
+<span class="proj-row__status pub-status pub-status--published">KNU-EERC ’24</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Hybrid model predictive and iterative learning control for leader-follower robotic tracking.</p>
+<div class="proj-row__tags"><span class="proj-chip">MPC</span><span class="proj-chip">ILC</span><span class="proj-chip">Tracking</span></div>
+</div>
+</a>
+</li>
+
+<li class="proj-row proj-cat--locomotion" data-proj-category="locomotion" data-preview="../../_static/images/Basic-reinforcment-Learning/featured.gif" data-preview-type="img">
+<a class="proj-row__link" href="./Basic-reinforcment-Learning/index.html">
+<span class="proj-row__num">14</span>
+<span class="proj-row__cat">LOCOMOTION</span>
+<h3 class="proj-row__title">Reinforcement Learning · Basics</h3>
+<span class="proj-row__year">2023</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Fundamental RL algorithms — DQN through SAC — implemented end-to-end.</p>
+<div class="proj-row__tags"><span class="proj-chip">PPO</span><span class="proj-chip">SAC</span><span class="proj-chip">Gymnasium</span></div>
+</div>
+</a>
+</li>
+
+<li class="proj-row proj-cat--control" data-proj-category="control" data-preview="../../_static/images/Deep-Neural-Network-CSTR/featured.jpeg" data-preview-type="img">
+<a class="proj-row__link" href="./Deep%20Neural%20Network%20Nonlinear%20Model%20Predictive%20Control%20for%20CSTR/index.html">
+<span class="proj-row__num">15</span>
+<span class="proj-row__cat">CONTROL</span>
+<h3 class="proj-row__title">DNN-NMPC for CSTR</h3>
+<span class="proj-row__year">2023</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Deep neural network–based nonlinear MPC for a continuous stirred-tank reactor.</p>
+<div class="proj-row__tags"><span class="proj-chip">DNN</span><span class="proj-chip">NMPC</span><span class="proj-chip">CSTR</span></div>
+</div>
+</a>
+</li>
+
+<li class="proj-row proj-cat--drones" data-proj-category="drones" data-preview="../../_static/images/TelloDrone-with-KeyBoard/featured.png" data-preview-type="img">
+<a class="proj-row__link" href="./TelloDrone%20with%20KeyBoard/index.html">
+<span class="proj-row__num">16</span>
+<span class="proj-row__cat">DRONES</span>
+<h3 class="proj-row__title">Tello + Object Detection</h3>
+<span class="proj-row__year">2023</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Tello drone teleop with keyboard and onboard object detection.</p>
+<div class="proj-row__tags"><span class="proj-chip">Tello</span><span class="proj-chip">Detection</span><span class="proj-chip">UAV</span></div>
+</div>
+</a>
+</li>
+
+<li class="proj-row proj-cat--drones" data-proj-category="drones" data-preview="../../_static/images/Drone-Control-with-Keyboard/featured.png" data-preview-type="img">
+<a class="proj-row__link" href="./Drone%20Control%20with%20Keyboard/index.html">
+<span class="proj-row__num">17</span>
+<span class="proj-row__cat">DRONES</span>
+<h3 class="proj-row__title">Drone Control · Keyboard</h3>
+<span class="proj-row__year">2023</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Keyboard-based teleop for UAV navigation and waypoint following.</p>
+<div class="proj-row__tags"><span class="proj-chip">UAV</span><span class="proj-chip">Teleop</span><span class="proj-chip">Python</span></div>
+</div>
+</a>
+</li>
+
+<li class="proj-row proj-cat--drones" data-proj-category="drones" data-preview="../../_static/images/Drone-Trajectory-Tracking/featured.png" data-preview-type="img">
+<a class="proj-row__link" href="./Drone%20Trajectory%20Tracking/index.html">
+<span class="proj-row__num">18</span>
+<span class="proj-row__cat">DRONES</span>
+<h3 class="proj-row__title">Drone Trajectory · LPV-MPC</h3>
+<span class="proj-row__year">2023</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">UAV trajectory tracking with linear parameter-varying MPC.</p>
+<div class="proj-row__tags"><span class="proj-chip">LPV-MPC</span><span class="proj-chip">UAV</span><span class="proj-chip">Python</span></div>
+</div>
+</a>
+</li>
+
+<li class="proj-row proj-cat--hardware" data-proj-category="hardware" data-preview="../../_static/images/32-bit-CPU-based-on-MIPS-architecture/featured.png" data-preview-type="img">
+<a class="proj-row__link" href="./32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html">
+<span class="proj-row__num">19</span>
+<span class="proj-row__cat">HARDWARE</span>
+<h3 class="proj-row__title">32-bit MIPS CPU</h3>
+<span class="proj-row__year">2022</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">32-bit pipelined MIPS CPU built from scratch in Verilog.</p>
+<div class="proj-row__tags"><span class="proj-chip">Verilog</span><span class="proj-chip">MIPS</span><span class="proj-chip">Pipeline</span></div>
+</div>
+</a>
+</li>
+
+<li class="proj-row proj-cat--hardware" data-proj-category="hardware" data-preview="../../_static/images/Smart-Home-Using-Iot/featured.png" data-preview-type="img">
+<a class="proj-row__link" href="./Smart%20Home%20Using%20Iot/index.html">
+<span class="proj-row__num">20</span>
+<span class="proj-row__cat">HARDWARE</span>
+<h3 class="proj-row__title">Smart Home · IoT</h3>
+<span class="proj-row__year">2021</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">ESP32-based home automation with cloud control.</p>
+<div class="proj-row__tags"><span class="proj-chip">ESP32</span><span class="proj-chip">IoT</span><span class="proj-chip">Cloud</span></div>
+</div>
+</a>
+</li>
+
+<li class="proj-row proj-cat--hardware" data-proj-category="hardware" data-preview="../../_static/images/Verilog/featured.png" data-preview-type="img">
+<a class="proj-row__link" href="./Verilog/index.html">
+<span class="proj-row__num">21</span>
+<span class="proj-row__cat">HARDWARE</span>
+<h3 class="proj-row__title">Verilog Digital Designs</h3>
+<span class="proj-row__year">2021</span>
+<span class="proj-row__arrow">↗</span>
+<div class="proj-row__expand">
+<p class="proj-row__desc">Collection of digital design projects in Verilog HDL.</p>
+<div class="proj-row__tags"><span class="proj-chip">Verilog</span><span class="proj-chip">HDL</span><span class="proj-chip">Digital</span></div>
+</div>
+</a>
+</li>
+
+</ol>
+</section>
 ```

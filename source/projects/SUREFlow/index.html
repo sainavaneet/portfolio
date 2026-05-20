@@ -1,0 +1,637 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+    <title>SUREFlow — Sai Navaneet – Portfolio</title>
+  
+
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d93d844d" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/SUREFlow/index';</script>
+    <script src="../../../_static/js/scroll-video.js?v=c40cad62"></script>
+    <script src="../../../_static/js/custom.js?v=1a0cc657"></script>
+    <script src="../../../_static/js/video-section.js"></script>
+    <link rel="canonical" href="https://sainavaneet.github.io/portfolio/source/projects/SUREFlow/index.html" />
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="RL Prescribed Performance · Fault-Tolerant Control" href="../RL-PPC-FTC/index.html" />
+    <link rel="prev" title="Tensiq" href="../Tensiq/index.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+
+
+
+
+
+
+<meta name="description" content="Robotics + ML researcher. Vision-language-action models, diffusion policy, quadruped RL, model predictive control. 17 projects, 8 papers, 2024–2026." />
+<meta name="author" content="Sai Navaneet" />
+<meta name="theme-color" content="#040806" />
+
+<!-- Fonts: preconnect + non-blocking stylesheet swap (no @import, no render block) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" />
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      media="print" onload="this.media='all'; this.onload=null;" />
+<noscript><link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sai Navaneet — Portfolio" />
+<meta property="og:title" content="SUREFlow · Sai Navaneet — Portfolio" />
+<meta property="og:description" content="Robotics + ML researcher. Vision-language-action models, diffusion policy, quadruped RL, model predictive control. 17 projects, 8 papers, 2024–2026." />
+<meta property="og:image" content="https://sainavaneet.github.io/portfolio/_static/profile3.png" />
+<meta property="og:url" content="https://sainavaneet.github.io/portfolio/" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SUREFlow · Sai Navaneet — Portfolio" />
+<meta name="twitter:description" content="Robotics + ML researcher. Vision-language-action models, diffusion policy, quadruped RL, model predictive control. 17 projects, 8 papers, 2024–2026." />
+<meta name="twitter:image" content="https://sainavaneet.github.io/portfolio/_static/profile3.png" />
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Navaneet</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sainavaneet" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/sainavaneet76/" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">LinkedIn</span></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Resume/index.html">Resume</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Projects</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Tensiq/index.html">Tensiq</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">SUREFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RL-PPC-FTC/index.html">RL Prescribed Performance · Fault-Tolerant Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OpenARM-VLA/index.html">OpenARM-VLA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MambaVLA/index.html">MambaVLA: A Scalable and Efficient Vision-Language-Action Model with State Space Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QROOT/index.html">QROOT: An Integrated Diffusion Transformer and Reinforcement Learning Approach for Quadrupedal Locomotion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DiffDAIL/index.html">DiffDAIL: Diffusion-Enhanced Vision-Guided Imitation Learning with Discrete Latent Representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DLDMP/index.html">Discrete Latent Diffusion Motion Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Tissue-processing/index.html">Transformer Based Vision Guided Tissue Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Actfranka/index.html">Action Chunck Transfomer on Franka Robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Autonomus%20Harvesting/index.html">🎉 Autonomus harvesting using Object Detecion</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../TelloDrone%20with%20KeyBoard/index.html">TelloDrone with Keyboard and Object Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LMPC-ILC/index.html">Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Imitation-Learning-Franka/index.html">Combining Imitation Learning with Diffusion Processes on Robot Manipulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basic-reinforcment-Learning/index.html">Basic Reinforcement Learning Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Deep%20Neural%20Network%20Nonlinear%20Model%20Predictive%20Control%20for%20CSTR/index.html">Deep Neural Network Nonlinear Model Predictive Control for CSTR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Drone%20Control%20with%20Keyboard/index.html">Drone Control with Keyboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Drone%20Trajectory%20Tracking/index.html">Drone Trajectory Tracking with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html">32 bit CPU based on MIPS architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Smart%20Home%20Using%20Iot/index.html">Smart-Home-Using-IOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Verilog/index.html">Verilog Projects</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../experience/index.html">Experience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications/index.html">Publications</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Blog/index.html">Blog</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/Bluetooth/index.html">Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/Vision-Language-Action-Transformer/index.html">Vision-Language-Action Transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/Actfranka/index.html">Vision Guided Imitation Learning using Action Chunk Transformer</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/isaacsim/index.html">Isaac Sim Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/go2_robot_isaacsim/index.html">🐾 Go2 Robot in Isaac Sim (Omniverse)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Contact/index.html">Contact</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/source/projects/SUREFlow/index.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SUREFlow</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tl-dr">TL;DR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-problem-it-solves">What Problem It Solves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How It Works</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-its-interesting">Why It’s Interesting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#my-contribution">My Contribution</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sureflow">
+<h1>SUREFlow<a class="headerlink" href="#sureflow" title="Link to this heading">#</a></h1>
+<section class="proj-detail-hero">
+<div class="proj-detail-lede">
+<p class="proj-attribution">
+<span class="proj-attribution__tag">SUBMITTED · IROS 2026</span>
+<span class="proj-attribution__to">co-author with <a href="https://github.com/tanvirnwu" target="_blank" rel="noopener">Md Tanvir Islam</a> et al. · KNU</span>
+</p>
+<h2 class="resume-name"><span class="resume-name__first">SURE</span><span class="resume-name__last">Flow</span></h2>
+<p class="exp-hero-sub" style="margin-bottom: 1.4rem;">
+State-space <strong>Uncertainty-aware REsidual Flow Matching</strong> for robust robot manipulation.
+A Mamba-backbone VLA policy that predicts both action velocities <em>and</em>
+input-dependent uncertainty — selectively refining unreliable action dimensions
+during inference without environment feedback.
+</p>
+<div class="proj-detail-meta">
+<span class="pub-status pub-status--submitted">IROS ’26 · SUBMITTED</span>
+<span class="pub-status pub-status--poster" style="background: rgba(124,58,237,0.10); color:#c084fc; border-color: rgba(124,58,237,0.35);">FLOW MATCHING</span>
+<span class="pub-status pub-status--published" style="background: rgba(34,197,94,0.10); color:#4ade80; border-color: rgba(34,197,94,0.35);">MAMBA · VLA</span>
+</div>
+<div class="proj-detail-actions">
+<a href="../../../_static/papers/SUREFlow_IROS2026.pdf" target="_blank" rel="noopener" class="live-badge resume-cta resume-cta--primary"><span>↗</span> READ PAPER</a>
+<a href="mailto:sainavaneet76@gmail.com" class="live-badge resume-cta"><span>✉</span> GET IN TOUCH</a>
+</div>
+<div class="proj-detail-tags">
+<span class="tech-marquee__chip">Flow Matching</span>
+<span class="tech-marquee__chip">Mamba SSM</span>
+<span class="tech-marquee__chip">VLA</span>
+<span class="tech-marquee__chip">Uncertainty Estimation</span>
+<span class="tech-marquee__chip">LIBERO</span>
+<span class="tech-marquee__chip">LIBERO-PRO</span>
+<span class="tech-marquee__chip">PyTorch</span>
+<span class="tech-marquee__chip">Franka Panda</span>
+</div>
+</div>
+<div class="proj-detail-sidekick">
+<img src="../../../_static/images/SUREFlow/architecture.jpg" alt="SUREFlow architecture diagram" loading="lazy" />
+</div>
+</section><section id="tl-dr">
+<h2>TL;DR<a class="headerlink" href="#tl-dr" title="Link to this heading">#</a></h2>
+<p>SUREFlow is a generative robot-manipulation policy that closes the gap between <strong>diffusion/flow</strong> action models and <strong>reliable execution</strong> during long rollouts.</p>
+<ul class="simple">
+<li><p><strong>92.6 %</strong> average success rate on <strong>LIBERO</strong> — outperforms the Mamba-based MaIL baseline by <strong>+34.3 %</strong>.</p></li>
+<li><p><strong>~50 %</strong> success rate on <strong>LIBERO-PRO</strong> with only <strong>179 M parameters</strong> — comparable to 3–7 B VLAs.</p></li>
+<li><p>Built on a <strong>Mamba</strong> backbone (state-space sequence modeling, linear-time inference).</p></li>
+<li><p>Adds <strong>input-dependent uncertainty</strong> + <strong>residual refinement</strong> without environment feedback.</p></li>
+</ul>
+</section>
+<section id="what-problem-it-solves">
+<h2>What Problem It Solves<a class="headerlink" href="#what-problem-it-solves" title="Link to this heading">#</a></h2>
+<p>Generative VLA policies (diffusion / flow matching) advanced robot manipulation, but they often <strong>wobble under noise</strong>, partial observability, and stochastic initial conditions. Tiny velocity errors <strong>accumulate over long rollouts</strong>, eroding success rates.</p>
+<p>Existing diffusion- and flow-based policies typically assume <strong>homoscedastic residuals</strong> — they ignore that some action dimensions are inherently harder to predict than others. The result: brittle one-shot predictions, error accumulation, and unreliable extended-horizon control.</p>
+</section>
+<section id="how-it-works">
+<h2>How It Works<a class="headerlink" href="#how-it-works" title="Link to this heading">#</a></h2>
+<figure>
+<img src="../../../_static/images/SUREFlow/overview.jpg" alt="SUREFlow overview · closed-loop residual refinement" loading="lazy"/>
+<figcaption>Closed-loop refinement of uncertain action dimensions via internal residual updates during inference, without external feedback. Right: LIBERO results vs SOTA baselines.</figcaption>
+</figure><p>SUREFlow combines three ideas into one lightweight policy:</p>
+<ol class="arabic simple">
+<li><p><strong>Conditional flow matching</strong> — learns a velocity field that transports Gaussian noise toward expert action distributions, conditioned on multi-view RGB observations, robot proprioception, and language task embeddings.</p></li>
+<li><p><strong>Uncertainty-aware Residual Flow (URFlow)</strong> — an auxiliary head predicts input-dependent variance over the velocity field. During inference, this signal <strong>selectively re-refines</strong> only the unreliable action dimensions through internal residual updates — no environment feedback or planner required.</p></li>
+<li><p><strong>Memory-Guided Action Decoder (MGAD)</strong> — re-attends learnable action queries to multimodal memory representations, improving temporal conditioning and structured action generation.</p></li>
+</ol>
+<p>All three modules live on top of a single <strong>Mamba</strong> state-space backbone — linear-time, scalable, and far lighter than transformer-based 3–7 B VLAs.</p>
+</section>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h2>
+<div class="sf-results-grid">
+<div class="sf-stat">
+<span class="sf-stat__num">92.6%</span>
+<span class="sf-stat__lbl">LIBERO · avg success rate</span>
+</div>
+<div class="sf-stat">
+<span class="sf-stat__num">+34.3%</span>
+<span class="sf-stat__lbl">vs Mamba MaIL baseline</span>
+</div>
+<div class="sf-stat">
+<span class="sf-stat__num">179M</span>
+<span class="sf-stat__lbl">parameters · lightweight</span>
+</div>
+<div class="sf-stat">
+<span class="sf-stat__num">~50%</span>
+<span class="sf-stat__lbl">LIBERO-PRO · matches 3-7B VLAs</span>
+</div>
+</div></section>
+<section id="why-its-interesting">
+<h2>Why It’s Interesting<a class="headerlink" href="#why-its-interesting" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>No environment feedback needed at inference.</strong> Refinement happens entirely inside the policy using its own uncertainty signal — practical for real robots where feedback loops are expensive.</p></li>
+<li><p><strong>State-space backbone instead of giant transformers.</strong> SUREFlow gets foundation-model-level performance at a tiny fraction of the parameter count.</p></li>
+<li><p><strong>Probabilistic regularization preserves the flow-matching objective.</strong> Adds robustness without breaking the underlying generative formulation.</p></li>
+</ul>
+</section>
+<section id="my-contribution">
+<h2>My Contribution<a class="headerlink" href="#my-contribution" title="Link to this heading">#</a></h2>
+<p>Co-author with <strong>Md Tanvir Islam</strong>, Sangmoon Lee, and Sangtae Ahn at <strong>Kyungpook National University</strong>. I contributed to the flow-matching policy architecture, the Mamba-backbone integration, evaluation pipeline on LIBERO / LIBERO-PRO, and the ablations that quantify the impact of URFlow and MGAD.</p>
+<aside class="oss-callout" style="border-left-color:#fbbf24; background:rgba(245,158,11,0.05); border-color:rgba(245,158,11,0.28);">
+<div class="oss-callout__head"><span class="hero-graph-tag" style="color:#fbbf24;">// STATUS</span></div>
+<p>
+Currently <strong>under review at IROS 2026</strong>. The
+<a href="../../../_static/papers/SUREFlow_IROS2026.pdf" target="_blank" rel="noopener">full PDF</a>
+is available above — reach out if you have questions or want to discuss applications.
+</p>
+</aside></section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Tensiq/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tensiq</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../RL-PPC-FTC/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">RL Prescribed Performance · Fault-Tolerant Control</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tl-dr">TL;DR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-problem-it-solves">What Problem It Solves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works">How It Works</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-its-interesting">Why It’s Interesting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#my-contribution">My Contribution</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Navaneet
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Navaneet.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
