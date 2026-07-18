@@ -69,46 +69,6 @@ myst:
 <a href="_static/Resume.pdf" class="btn-ghost" target="_blank" rel="noopener">Download Resume →</a>
 </div>
 </div>
-<div class="hero-avatar">
-<div class="avatar-svg-frame">
-<img src="_static/profile3.png" alt="Sai Navaneet" class="profile-avatar avatar-img" />
-<svg class="avatar-hud" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
-<defs>
-<path id="hud-orbit" d="M 170 22 A 148 148 0 1 1 169.99 22"/>
-<path id="hud-top-arc" d="M 50 170 A 120 120 0 0 1 290 170"/>
-<path id="hud-bot-arc" d="M 290 170 A 120 120 0 0 1 50 170"/>
-</defs>
-<g class="avatar-hud__rings">
-<circle cx="170" cy="170" r="158" fill="none" stroke="rgba(34,197,94,0.18)" stroke-width="1"/>
-<circle class="avatar-hud__dash" cx="170" cy="170" r="142" fill="none" stroke="rgba(34,197,94,0.32)" stroke-width="1" stroke-dasharray="2 4"/>
-<circle cx="170" cy="170" r="128" fill="none" stroke="rgba(34,197,94,0.16)" stroke-width="1"/>
-</g>
-<g class="avatar-hud__brackets" stroke="rgba(245,158,11,0.7)" stroke-width="1.4" fill="none" stroke-linecap="square">
-<polyline points="170,4 170,16 182,16"/>
-<polyline points="336,170 324,170 324,182"/>
-<polyline points="170,336 170,324 158,324"/>
-<polyline points="4,170 16,170 16,158"/>
-</g>
-<g class="avatar-hud__dots" fill="#4ade80">
-<circle class="avatar-hud__dot" cx="284.6" cy="83.4" r="2.6" style="--d:0s"/>
-<circle class="avatar-hud__dot" cx="284.6" cy="256.6" r="2.6" style="--d:0.55s"/>
-<circle class="avatar-hud__dot" cx="55.4" cy="256.6" r="2.6" style="--d:1.1s"/>
-<circle class="avatar-hud__dot" cx="55.4" cy="83.4" r="2.6" style="--d:1.65s"/>
-</g>
-<g class="avatar-hud__orbiter">
-<circle r="3" fill="#fbbf24">
-<animateMotion dur="14s" repeatCount="indefinite" rotate="auto">
-<mpath xlink:href="#hud-orbit"/>
-</animateMotion>
-</circle>
-</g>
-<g class="avatar-hud__labels" fill="rgba(74,222,128,0.65)" font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="2">
-<text><textPath xlink:href="#hud-top-arc" startOffset="50%" text-anchor="middle">// AUTONOMOUS_MODE</textPath></text>
-<text><textPath xlink:href="#hud-bot-arc" startOffset="50%" text-anchor="middle">FRAME_ID · 0x42 · ACTIVE</textPath></text>
-</g>
-</svg>
-</div>
-</div>
 </section>
 <section class="stats-strip" data-reveal>
 <div class="stat-card" data-reveal>
@@ -206,9 +166,9 @@ myst:
 <div class="changelog-meta"><time class="changelog-date">MAR 2026</time><span class="changelog-tag">UNDER REVIEW</span></div>
 <div class="changelog-body"><h3 class="changelog-h">Submitted to IEEE Transactions on Cybernetics</h3><p class="changelog-desc">RL-based prescribed-performance neuro-optimal control for robot manipulators under composite actuator faults.</p></div>
 </li>
-<li class="changelog-entry conference" data-link="source/projects/SUREFlow/index.html">
-<div class="changelog-meta"><time class="changelog-date">FEB 2026</time><span class="changelog-tag">SUBMITTED</span></div>
-<div class="changelog-body"><h3 class="changelog-h">Submitted SUREFlow to IROS 2026</h3><p class="changelog-desc">State-space uncertainty-aware residual flow matching · 92.6% LIBERO success rate with 179M parameters.</p></div>
+<li class="changelog-entry conference" data-link="https://arxiv.org/abs/2607.10504">
+<div class="changelog-meta"><time class="changelog-date">JUL 2026</time><span class="changelog-tag">PUBLISHED</span></div>
+<div class="changelog-body"><h3 class="changelog-h">SUREFlow published on arXiv · IROS 2026</h3><p class="changelog-desc">State-space uncertainty-aware residual flow matching · 92.6% LIBERO success rate with 179M parameters.</p></div>
 </li>
 <li class="changelog-entry research" data-link="source/projects/Tensiq/index.html">
 <div class="changelog-meta"><time class="changelog-date">2026</time><span class="changelog-tag">INDUSTRY</span></div>

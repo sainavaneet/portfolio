@@ -1,6 +1,7 @@
 # Resume
 
 <section class="resume-hero">
+<div class="resume-hero__text">
 <span class="hero-graph-tag">// RESUME · v3</span>
 <h2 class="resume-name"><span class="resume-name__first">Sai</span> <span class="resume-name__last">Navaneet</span></h2>
 <p class="resume-role">Senior Robotic Engineer · M.Eng. Electronics, KNU · Daegu, KR</p>
@@ -9,6 +10,10 @@
 <a href="mailto:sainavaneet76@gmail.com" class="live-badge resume-cta"><span>✉</span> EMAIL</a>
 <a href="https://github.com/sainavaneet" target="_blank" rel="noopener" class="live-badge resume-cta"><span>◆</span> GITHUB</a>
 <a href="https://www.linkedin.com/in/sainavaneet76/" target="_blank" rel="noopener" class="live-badge resume-cta"><span>◆</span> LINKEDIN</a>
+</div>
+</div>
+<div class="resume-hero__photo">
+<img src="../../_static/resume-avatar.png" alt="Sai Navaneet" />
 </div>
 </section>
 

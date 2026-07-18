@@ -69,6 +69,8 @@ html_js_files = [
     'js/scroll-video.js',
     'js/custom.js',
     'js/video-section.js',
+    # 3D background — ES module (imports three.js). Must load as type="module".
+    ('js/background-3d.js', {'type': 'module'}),
 ]
 
 

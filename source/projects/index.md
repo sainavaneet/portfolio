@@ -56,7 +56,7 @@
 <span class="proj-row__cat">RESEARCH</span>
 <h3 class="proj-row__title">SUREFlow <em class="proj-row__sub">· IROS '26</em></h3>
 <span class="proj-row__year">2026</span>
-<span class="proj-row__status pub-status pub-status--submitted">SUBMITTED</span>
+<span class="proj-row__status pub-status pub-status--published">PUBLISHED</span>
 <span class="proj-row__arrow">↗</span>
 <div class="proj-row__expand">
 <p class="proj-row__desc">State-space uncertainty-aware residual flow matching for robust robot manipulation. Mamba-backbone VLA — 92.6% LIBERO success rate with just 179M parameters, beats MaIL by +34.3%.</p>
