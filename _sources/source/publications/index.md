@@ -87,16 +87,16 @@
 </div>
 </li>
 
-<li class="pub-row pub-row--submitted">
+<li class="pub-row pub-row--published">
 <span class="pub-row__num">02</span>
 <div class="pub-row__body">
-<h3 class="pub-row__title"><a href="../../_static/papers/SUREFlow_IROS2026.pdf" target="_blank" rel="noopener">SUREFlow: State-space Uncertainty-aware REsidual Flow Matching for Robust Robot Manipulation</a></h3>
+<h3 class="pub-row__title"><a href="https://arxiv.org/abs/2607.10504" target="_blank" rel="noopener">SUREFlow: State-space Uncertainty-aware REsidual Flow Matching for Robust Robot Manipulation</a></h3>
 <div class="pub-row__authors">Md Tanvir Islam, <strong>Sai Navaneet</strong>, Sangmoon Lee, Sangtae Ahn</div>
 <div class="pub-row__venue">IROS 2026 · IEEE/RSJ International Conference on Intelligent Robots &amp; Systems</div>
 </div>
 <div class="pub-row__meta">
-<span class="pub-status pub-status--submitted">SUBMITTED</span>
-<span class="pub-row__date">FEB ’26</span>
+<span class="pub-status pub-status--published">PUBLISHED</span>
+<span class="pub-row__date">JUL ’26</span>
 </div>
 </li>
 

@@ -4,7 +4,7 @@
 <section class="proj-detail-hero">
 <div class="proj-detail-lede">
 <p class="proj-attribution">
-<span class="proj-attribution__tag">SUBMITTED · IROS 2026</span>
+<span class="proj-attribution__tag">PUBLISHED · IROS 2026</span>
 <span class="proj-attribution__to">co-author with <a href="https://github.com/tanvirnwu" target="_blank" rel="noopener">Md Tanvir Islam</a> et al. · KNU</span>
 </p>
 <h2 class="resume-name"><span class="resume-name__first">SURE</span><span class="resume-name__last">Flow</span></h2>
@@ -15,12 +15,12 @@ input-dependent uncertainty — selectively refining unreliable action dimension
 during inference without environment feedback.
 </p>
 <div class="proj-detail-meta">
-<span class="pub-status pub-status--submitted">IROS ’26 · SUBMITTED</span>
+<span class="pub-status pub-status--published">IROS ’26 · PUBLISHED</span>
 <span class="pub-status pub-status--poster" style="background: rgba(124,58,237,0.10); color:#c084fc; border-color: rgba(124,58,237,0.35);">FLOW MATCHING</span>
 <span class="pub-status pub-status--published" style="background: rgba(34,197,94,0.10); color:#4ade80; border-color: rgba(34,197,94,0.35);">MAMBA · VLA</span>
 </div>
 <div class="proj-detail-actions">
-<a href="../../../_static/papers/SUREFlow_IROS2026.pdf" target="_blank" rel="noopener" class="live-badge resume-cta resume-cta--primary"><span>↗</span> READ PAPER</a>
+<a href="https://arxiv.org/abs/2607.10504" target="_blank" rel="noopener" class="live-badge resume-cta resume-cta--primary"><span>↗</span> READ ON arXiv</a>
 <a href="mailto:sainavaneet76@gmail.com" class="live-badge resume-cta"><span>✉</span> GET IN TOUCH</a>
 </div>
 <div class="proj-detail-tags">
@@ -111,9 +111,9 @@ Co-author with **Md Tanvir Islam**, Sangmoon Lee, and Sangtae Ahn at **Kyungpook
 <aside class="oss-callout" style="border-left-color:#fbbf24; background:rgba(245,158,11,0.05); border-color:rgba(245,158,11,0.28);">
 <div class="oss-callout__head"><span class="hero-graph-tag" style="color:#fbbf24;">// STATUS</span></div>
 <p>
-Currently <strong>under review at IROS 2026</strong>. The
-<a href="../../../_static/papers/SUREFlow_IROS2026.pdf" target="_blank" rel="noopener">full PDF</a>
-is available above — reach out if you have questions or want to discuss applications.
+<strong>Published on arXiv</strong> (IROS 2026). Read the
+<a href="https://arxiv.org/abs/2607.10504" target="_blank" rel="noopener">full paper on arXiv</a>
+— reach out if you have questions or want to discuss applications.
 </p>
 </aside>
 ```

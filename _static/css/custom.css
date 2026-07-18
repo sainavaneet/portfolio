@@ -2337,7 +2337,7 @@ button[aria-label*="theme" i],
     gap: 2.5rem;
     margin: 4rem 0 3rem 0;
 }
-.hero-text { flex: 1; min-width: 0; }
+.hero-text { flex: 1; min-width: 0; width: 100%; }
 
 .hero-name {
     font-family: "Roboto", sans-serif;
@@ -3985,6 +3985,35 @@ html.graphify .news-section-title::after {
 
 html.graphify .resume-hero {
     margin: 2.5rem 0 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.4rem;
+    flex-wrap: wrap;
+}
+html.graphify .resume-hero__text {
+    flex: 1 1 340px;
+    min-width: 0;
+}
+html.graphify .resume-hero__photo {
+    flex: 0 0 auto;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;            /* circle */
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
+}
+html.graphify .resume-hero__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 18%;   /* frame the face */
+    display: block;
+}
+@media (max-width: 768px) {
+    html.graphify .resume-hero { justify-content: center; }
+    html.graphify .resume-hero__photo { width: 190px; height: 190px; }
 }
 html.graphify .resume-name {
     font-family: 'JetBrains Mono', ui-monospace, monospace !important;
@@ -6377,3 +6406,34 @@ html.graphify .sf-stat__lbl {
 
 
 
+
+/* ============================================================
+   3D BACKGROUND — robot.glb rendered behind all page content
+   (see _static/js/background-3d.js). Sits above the body's
+   solid --gp-bg fill but below in-flow content, so it shows
+   through page margins and the transparent hero area.
+   ============================================================ */
+#bg3d {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;              /* behind content, above the html backdrop */
+    pointer-events: none;    /* never blocks clicks/scroll */
+    opacity: 0;
+    transition: opacity 1.1s ease;
+}
+#bg3d.bg3d--ready {
+    opacity: 0.85;
+}
+
+/* CRITICAL: the body's solid --gp-bg fill is painted OVER a z-index:-1 child,
+   which would fully hide the canvas. Move the solid fill to <html> only and
+   make <body> transparent, so the 3D canvas shows between them, behind content. */
+html.graphify { background: var(--gp-bg) !important; }
+html.graphify body { background: transparent !important; }
+
+/* Respect users who ask for reduced motion — keep it, but calmer. */
+@media (prefers-reduced-motion: reduce) {
+    #bg3d.bg3d--ready { opacity: 0.55; }
+}
