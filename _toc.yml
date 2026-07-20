@@ -10,6 +10,8 @@ parts:
   
       - file: source/projects/index
         sections:
+            - file: source/projects/Digital Twin/index
+            - file: source/projects/AR2010-Weld/index
             - file: source/projects/Tensiq/index
             - file: source/projects/SUREFlow/index
             - file: source/projects/RL-PPC-FTC/index
