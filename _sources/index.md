@@ -5,6 +5,8 @@ myst:
     description: Sai Navaneet — Robotics + ML researcher. Portfolio of projects, papers, and experience.
 ---
 
+# Home
+
 <style>
 .profile-avatar {
   border-radius: 50% !important;
