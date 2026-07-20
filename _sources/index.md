@@ -162,6 +162,14 @@ myst:
 <div class="changelog-year-group">
 <div class="changelog-year">2026</div>
 <ol class="changelog-list">
+<li class="changelog-entry industry" data-link="source/projects/AR2010-Weld/index.html">
+<div class="changelog-meta"><time class="changelog-date">JUL 2026</time><span class="changelog-tag">INDUSTRY</span></div>
+<div class="changelog-body"><h3 class="changelog-h">Weld automation using Yaskawa robots · dual-robot arc welding</h3><p class="changelog-desc">Two Yaskawa AR2010 robots welding car-body sub-assemblies on a fixture jig — seam-following trajectories with torch orientation generated from CAD geometry, validated in MuJoCo + Isaac Sim toward real YRC1000 deployment.</p></div>
+</li>
+<li class="changelog-entry industry" data-link="source/projects/Digital Twin/index.html">
+<div class="changelog-meta"><time class="changelog-date">JUL 2026</time><span class="changelog-tag">INDUSTRY</span></div>
+<div class="changelog-body"><h3 class="changelog-h">Digital Twin · Motoman MH180 handling robot in Isaac Sim</h3><p class="changelog-desc">Sub-micron Lula-IK path tracking, resolved-rate teleoperation, rigid pick-and-carry, and live WebRTC streaming of a Yaskawa Motoman MH180 handling robot in NVIDIA Isaac Sim.</p></div>
+</li>
 <li class="changelog-entry journal" data-link="source/projects/RL-PPC-FTC/index.html">
 <div class="changelog-meta"><time class="changelog-date">MAR 2026</time><span class="changelog-tag">UNDER REVIEW</span></div>
 <div class="changelog-body"><h3 class="changelog-h">Submitted to IEEE Transactions on Cybernetics</h3><p class="changelog-desc">RL-based prescribed-performance neuro-optimal control for robot manipulators under composite actuator faults.</p></div>

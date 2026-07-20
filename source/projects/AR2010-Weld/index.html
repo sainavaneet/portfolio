@@ -1,0 +1,873 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+    <title>Weld Automation using Yaskawa Robots — Sai Navaneet – Portfolio</title>
+  
+
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=89db0c6f" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/AR2010-Weld/index';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../../_static/js/scroll-video.js?v=c40cad62"></script>
+    <script src="../../../_static/js/custom.js?v=1a0cc657"></script>
+    <script src="../../../_static/js/video-section.js"></script>
+    <script type="module" src="../../../_static/js/background-3d.js?v=e2695d15"></script>
+    <link rel="canonical" href="https://sainavaneet.github.io/portfolio/source/projects/AR2010-Weld/index.html" />
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Tensiq" href="../Tensiq/index.html" />
+    <link rel="prev" title="Digital Twin — Motoman MH180 Handling Robot" href="../Digital%20Twin/index.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+
+
+
+
+
+
+<meta name="description" content="Robotics + ML researcher. Vision-language-action models, diffusion policy, quadruped RL, model predictive control. 17 projects, 8 papers, 2024–2026." />
+<meta name="author" content="Sai Navaneet" />
+<meta name="theme-color" content="#040806" />
+
+<!-- Fonts: preconnect + non-blocking stylesheet swap (no @import, no render block) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" />
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      media="print" onload="this.media='all'; this.onload=null;" />
+<noscript><link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sai Navaneet — Portfolio" />
+<meta property="og:title" content="Weld Automation using Yaskawa Robots · Sai Navaneet — Portfolio" />
+<meta property="og:description" content="Robotics + ML researcher. Vision-language-action models, diffusion policy, quadruped RL, model predictive control. 17 projects, 8 papers, 2024–2026." />
+<meta property="og:image" content="https://sainavaneet.github.io/portfolio/_static/profile3.png" />
+<meta property="og:url" content="https://sainavaneet.github.io/portfolio/" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Weld Automation using Yaskawa Robots · Sai Navaneet — Portfolio" />
+<meta name="twitter:description" content="Robotics + ML researcher. Vision-language-action models, diffusion policy, quadruped RL, model predictive control. 17 projects, 8 papers, 2024–2026." />
+<meta name="twitter:image" content="https://sainavaneet.github.io/portfolio/_static/profile3.png" />
+
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Navaneet</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sainavaneet" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/sainavaneet76/" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i><span class="visually-hidden">LinkedIn</span></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Resume/index.html">Resume</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Projects</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Digital%20Twin/index.html">Digital Twin — Motoman MH180 Handling Robot</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Weld Automation using Yaskawa Robots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Tensiq/index.html">Tensiq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SUREFlow/index.html">SUREFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RL-PPC-FTC/index.html">RL Prescribed Performance · Fault-Tolerant Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OpenARM-VLA/index.html">OpenARM-VLA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MambaVLA/index.html">MambaVLA: A Scalable and Efficient Vision-Language-Action Model with State Space Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QROOT/index.html">QROOT: An Integrated Diffusion Transformer and Reinforcement Learning Approach for Quadrupedal Locomotion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DiffDAIL/index.html">DiffDAIL: Diffusion-Enhanced Vision-Guided Imitation Learning with Discrete Latent Representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DLDMP/index.html">Discrete Latent Diffusion Motion Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Tissue-processing/index.html">Transformer Based Vision Guided Tissue Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Actfranka/index.html">Action Chunck Transfomer on Franka Robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Autonomus%20Harvesting/index.html">🎉 Autonomus harvesting using Object Detecion</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../TelloDrone%20with%20KeyBoard/index.html">TelloDrone with Keyboard and Object Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LMPC-ILC/index.html">Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Imitation-Learning-Franka/index.html">Combining Imitation Learning with Diffusion Processes on Robot Manipulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basic-reinforcment-Learning/index.html">Basic Reinforcement Learning Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Deep%20Neural%20Network%20Nonlinear%20Model%20Predictive%20Control%20for%20CSTR/index.html">Deep Neural Network Nonlinear Model Predictive Control for CSTR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Drone%20Control%20with%20Keyboard/index.html">Drone Control with Keyboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Drone%20Trajectory%20Tracking/index.html">Drone Trajectory Tracking with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html">32 bit CPU based on MIPS architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Smart%20Home%20Using%20Iot/index.html">Smart-Home-Using-IOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Verilog/index.html">Verilog Projects</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../experience/index.html">Experience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications/index.html">Publications</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Blog/index.html">Blog</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/Bluetooth/index.html">Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/Vision-Language-Action-Transformer/index.html">Vision-Language-Action Transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/Actfranka/index.html">Vision Guided Imitation Learning using Action Chunk Transformer</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/isaacsim/index.html">Isaac Sim Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/go2_robot_isaacsim/index.html">🐾 Go2 Robot in Isaac Sim (Omniverse)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Contact/index.html">Contact</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/source/projects/AR2010-Weld/index.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Weld Automation using Yaskawa Robots</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-main-objective">The main objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seam-welding-left-right-robots">Seam welding — left &amp; right robots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seam-1">Seam 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seam-5">Seam 5</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-motion-is-generated">How the motion is generated</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robot-model-sim-matched-to-the-real-cell-one-to-one">Robot model — sim matched to the real cell one-to-one</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-experiment-driving-the-physical-robot">Real-world experiment — driving the physical robot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-a-yaskawa-job-works-and-how-we-send-commands">How a Yaskawa JOB works, and how we send commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#communication-flow-cad-mujoco-real-robot">Communication flow — CAD → MuJoCo → real robot</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roadmap">Roadmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tech-stack">Tech stack</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="weld-automation-using-yaskawa-robots">
+<h1>Weld Automation using Yaskawa Robots<a class="headerlink" href="#weld-automation-using-yaskawa-robots" title="Link to this heading">#</a></h1>
+<section class="proj-detail-hero">
+<div class="proj-detail-lede">
+<p class="proj-attribution">
+<span class="proj-attribution__tag">INDUSTRY · AIROBOTICS</span>
+<span class="proj-attribution__to">Yaskawa AR2010 arc welding · Hwashin body-in-white line</span>
+</p>
+<p class="exp-hero-sub" style="margin-bottom: 1.4rem;">
+Automatic <strong>arc-welding motion generation</strong> for car-body sub-assemblies. Two
+<strong>Yaskawa Motoman AR2010</strong> welding robots lay weld beads along the seams of a
+stamped part clamped in a fixture jig — the torch trajectory, orientation, and approach
+are <strong>generated from the part geometry</strong>, not hand-taught, targeting
+<strong>≤ 0.1 mm</strong> seam accuracy and deployment on a real Yaskawa
+<strong>YRC1000</strong> controller.
+</p>
+<div class="proj-detail-meta">
+<span class="pub-status pub-status--published" style="background: rgba(34,197,94,0.12); color:#4ade80; border-color: rgba(34,197,94,0.4);">MOTOMAN AR2010</span>
+<span class="pub-status pub-status--published" style="background: rgba(245,158,11,0.10); color:#fbbf24; border-color: rgba(245,158,11,0.35);">≤ 0.1 mm</span>
+<span class="pub-status pub-status--published" style="background: rgba(124,58,237,0.10); color:#c084fc; border-color: rgba(124,58,237,0.35);">SIM → REAL</span>
+<span class="pub-status pub-status--published" style="background: rgba(6,182,212,0.10); color:#67e8f9; border-color: rgba(6,182,212,0.35);">YRC1000</span>
+</div>
+<div class="proj-detail-tags">
+<span class="tech-marquee__chip">Arc Welding</span>
+<span class="tech-marquee__chip">Weld Seam Extraction</span>
+<span class="tech-marquee__chip">Trajectory Generation</span>
+<span class="tech-marquee__chip">Torch Orientation</span>
+<span class="tech-marquee__chip">IK (ikpy)</span>
+<span class="tech-marquee__chip">MuJoCo</span>
+<span class="tech-marquee__chip">Isaac Sim</span>
+<span class="tech-marquee__chip">Yaskawa YRC1000</span>
+<span class="tech-marquee__chip">Sim-to-Real</span>
+</div>
+</div>
+<div class="proj-detail-sidekick">
+<img src="../../../_static/images/AR2010-Weld/featured.jpg" alt="Two Yaskawa AR2010 robots welding a car-body sub-assembly held in a fixture jig" />
+</div>
+</section><figure style="margin:1.6rem 0;">
+  <video controls autoplay loop muted playsinline preload="metadata" width="100%" style="border-radius:8px;background:#000;">
+    <source src="../../../_static/videos/AR2010-Weld/pipeline.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>Full cell — two AR2010 welding robots (left + right) welding a sub-assembly held in the fixture jig, running generated trajectories.</figcaption>
+</figure><section id="the-main-objective">
+<h2>The main objective<a class="headerlink" href="#the-main-objective" title="Link to this heading">#</a></h2>
+<p>On a car body-in-white line, a stamped metal sub-assembly is clamped into a <strong>fixture
+jig</strong> and two robots weld along the <strong>seams</strong> — the thin lines where the pressed parts
+meet. Today those weld paths are programmed by hand: an operator jogs each robot with a
+teach pendant, point by point, for every part variant. That is slow, hard to reproduce,
+and doesn’t scale to many body types.</p>
+<p><strong>The objective of this project is to make that welding automatic.</strong> Given the part’s
+geometry, the system should:</p>
+<ol class="arabic simple">
+<li><p><strong>Find the welds</strong> — extract the weld seam lines directly from the part’s CAD / 3D
+scan (no manual point-teaching).</p></li>
+<li><p><strong>Generate the motion</strong> — compute, for each robot, a collision-free trajectory whose
+torch tip traces the seam with the correct <strong>torch orientation</strong> and safe
+<strong>approach / retract</strong> paths, to within <strong>0.1 mm</strong> of the seam.</p></li>
+<li><p><strong>Execute it</strong> — validate the trajectory in simulation, then stream it to the real
+<strong>Yaskawa YRC1000</strong> controller driving the physical AR2010 robots.</p></li>
+</ol>
+<p>Two robots share the part, one working each side, so their motions are planned together
+and must never collide. The videos below are the <strong>simulation validation</strong> stage: the two
+AR2010 robots executing generated weld trajectories along the seams of a real Hwashin
+sub-assembly held in its jig.</p>
+</section>
+<section id="seam-welding-left-right-robots">
+<h2>Seam welding — left &amp; right robots<a class="headerlink" href="#seam-welding-left-right-robots" title="Link to this heading">#</a></h2>
+<p>Each robot follows its side’s seams (authored as “spotlines”). Below are the on-torch
+camera views for two representative seams, left and right robot.</p>
+<section id="seam-1">
+<h3>Seam 1<a class="headerlink" href="#seam-1" title="Link to this heading">#</a></h3>
+<div style="display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin:1.4rem 0;">
+  <figure style="margin:0;">
+    <video controls autoplay loop muted playsinline preload="metadata" width="100%" style="border-radius:8px;background:#000;">
+      <source src="../../../_static/videos/AR2010-Weld/l_1_cam.mp4" type="video/mp4">
+    </video>
+    <figcaption>Left robot — seam 1, torch tracking the seam.</figcaption>
+  </figure>
+  <figure style="margin:0;">
+    <video controls autoplay loop muted playsinline preload="metadata" width="100%" style="border-radius:8px;background:#000;">
+      <source src="../../../_static/videos/AR2010-Weld/r_1_cam.mp4" type="video/mp4">
+    </video>
+    <figcaption>Right robot — seam 1, torch tracking the seam.</figcaption>
+  </figure>
+</div></section>
+<section id="seam-5">
+<h3>Seam 5<a class="headerlink" href="#seam-5" title="Link to this heading">#</a></h3>
+<div style="display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin:1.4rem 0;">
+  <figure style="margin:0;">
+    <video controls autoplay loop muted playsinline preload="metadata" width="100%" style="border-radius:8px;background:#000;">
+      <source src="../../../_static/videos/AR2010-Weld/l_5_cam.mp4" type="video/mp4">
+    </video>
+    <figcaption>Left robot — seam 5, torch tracking the seam.</figcaption>
+  </figure>
+  <figure style="margin:0;">
+    <video controls autoplay loop muted playsinline preload="metadata" width="100%" style="border-radius:8px;background:#000;">
+      <source src="../../../_static/videos/AR2010-Weld/r_5_cam.mp4" type="video/mp4">
+    </video>
+    <figcaption>Right robot — seam 5, torch tracking the seam.</figcaption>
+  </figure>
+</div></section>
+</section>
+<section id="how-the-motion-is-generated">
+<h2>How the motion is generated<a class="headerlink" href="#how-the-motion-is-generated" title="Link to this heading">#</a></h2>
+<p>The planning problem is stated precisely: over a weld executed on the interval
+<code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">∈</span> <span class="pre">[0,</span> <span class="pre">T]</span></code>, define the <strong>point-to-seam error</strong> <code class="docutils literal notranslate"><span class="pre">e(t)</span></code> as the distance from the torch
+tip to the closest point on the seam curve <code class="docutils literal notranslate"><span class="pre">S(u)</span></code>. The planner chooses the joint
+trajectory <code class="docutils literal notranslate"><span class="pre">q(t)</span></code> that <strong>minimises the peak error</strong> subject to the physical constraints
+(joint limits, reachability, collision avoidance, steady weld speed). Acceptance:
+<code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">e(t)</span> <span class="pre">≤</span> <span class="pre">0.1</span> <span class="pre">mm</span></code> on every seam and every robot.</p>
+<p>The generation pipeline I built:</p>
+<ul class="simple">
+<li><p><strong>Waypoint generation</strong> — convert the extracted seam curve into an ordered sequence of
+robot waypoints (Cartesian, then joint).</p></li>
+<li><p><strong>Torch orientation</strong> — compute the torch angle / work-and-travel orientation at each
+waypoint from the local seam geometry.</p></li>
+<li><p><strong>Approach / retract</strong> — plan safe lead-in and lead-out paths to and from each weld
+start/end, avoiding the part and jig clamps.</p></li>
+<li><p><strong>IK</strong> — a clean solver wrapper (<code class="docutils literal notranslate"><span class="pre">ikpy</span></code> on the AR2010 URDF, chain ending at the
+welding-wire <strong>TCP</strong>) turns each tool pose into a 6-joint solution, seeded by the
+previous waypoint for smooth, branch-stable motion.</p></li>
+</ul>
+</section>
+<section id="robot-model-sim-matched-to-the-real-cell-one-to-one">
+<h2>Robot model — sim matched to the real cell one-to-one<a class="headerlink" href="#robot-model-sim-matched-to-the-real-cell-one-to-one" title="Link to this heading">#</a></h2>
+<p>Before trusting a generated trajectory, the simulated AR2010 has to behave exactly like
+the real one:</p>
+<ul class="simple">
+<li><p><strong>Weld torch integrated</strong> — the arc-welding torch geometry was added as the AR2010
+end-effector (visual + collision meshes, URDF / MJCF), and a <strong>TCP</strong> site injected at
+the wire tip so trajectories target the torch tip, not the flange.</p></li>
+<li><p><strong>Sim ↔ real calibrated</strong> — home pose (<code class="docutils literal notranslate"><span class="pre">qpos</span> <span class="pre">=</span> <span class="pre">0</span></code>) reproduces the YRC1000 <code class="docutils literal notranslate"><span class="pre">RPOSC</span></code>
+reading, and per-axis pendant jogs produce the same posture in sim once pulses are
+converted with the calibrated pulses-per-radian table. Verified joint-by-joint against
+the real controller.</p></li>
+<li><p><strong>Dual runtime</strong> — the robot runs in both <strong>MuJoCo</strong> (fast trajectory testing) and
+<strong>NVIDIA Isaac Sim</strong> (photoreal validation, the renders above).</p></li>
+<li><p><strong>Real hardware</strong> — host control of the physical AR2010 over the <strong>YRC1000</strong> (read
+<code class="docutils literal notranslate"><span class="pre">RSTATS</span></code> / <code class="docutils literal notranslate"><span class="pre">RPOSJ</span></code> / <code class="docutils literal notranslate"><span class="pre">RPOSC</span></code>, stream trajectories), with verified reusable weld poses
+saved for replay.</p></li>
+</ul>
+</section>
+<section id="real-world-experiment-driving-the-physical-robot">
+<h2>Real-world experiment — driving the physical robot<a class="headerlink" href="#real-world-experiment-driving-the-physical-robot" title="Link to this heading">#</a></h2>
+<p>The generated trajectories don’t just run in simulation — they drive the <strong>real Yaskawa
+AR2010</strong> on a <strong>YRC1000</strong> controller. These two videos walk through the real-world
+experiment: how a Yaskawa <strong>JOB</strong> works, how commands are sent from the PC to the robot,
+and how the same trajectory is kept in lock-step between <strong>MuJoCo</strong> and the physical cell.</p>
+<div style="display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin:1.4rem 0;">
+  <div>
+    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+      <iframe style="position:absolute; top:0; left:0; width:100%; height:100%;" src="https://www.youtube.com/embed/WMfwH_9PyxI?autoplay=1&mute=1&controls=0&loop=1&playlist=WMfwH_9PyxI&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <p style="text-align:center; margin-top:0.8rem; font-style:italic;">Real-world experiment (1) — the Yaskawa JOB and how commands reach the robot.</p>
+  </div>
+  <div>
+    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+      <iframe style="position:absolute; top:0; left:0; width:100%; height:100%;" src="https://www.youtube.com/embed/JueVSYPXunQ?autoplay=1&mute=1&controls=0&loop=1&playlist=JueVSYPXunQ&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <p style="text-align:center; margin-top:0.8rem; font-style:italic;">Real-world experiment (2) — the robot mirroring MuJoCo, command + encoder-feedback loop.</p>
+  </div>
+</div><section id="how-a-yaskawa-job-works-and-how-we-send-commands">
+<h3>How a Yaskawa JOB works, and how we send commands<a class="headerlink" href="#how-a-yaskawa-job-works-and-how-we-send-commands" title="Link to this heading">#</a></h3>
+<p>A Yaskawa robot normally runs a <strong>JOB</strong> — an INFORM program stored on the YRC1000 and
+started from the teach pendant. Each JOB line is a motion instruction (<code class="docutils literal notranslate"><span class="pre">MOVJ</span></code> for
+joint moves, <code class="docutils literal notranslate"><span class="pre">MOVL</span></code> for linear moves) with a taught position, speed, and positioning
+level. Traditionally every one of those positions is jogged and taught by hand.</p>
+<p>Instead of hand-teaching a JOB per part, we drive the robot from the PC over
+<strong>Ethernet host control</strong>. With the pendant switched to <strong>REMOTE</strong> mode, the controller
+services host-control requests on <strong>TCP port 80</strong>:</p>
+<ul class="simple">
+<li><p><strong>Read (safe, no motion):</strong> <code class="docutils literal notranslate"><span class="pre">RSTATS</span></code> (status), <code class="docutils literal notranslate"><span class="pre">RPOSJ</span></code> (joint pulses), <code class="docutils literal notranslate"><span class="pre">RPOSC</span></code>
+(Cartesian pose) — used to capture the home/weld pose and to log the executed path.</p></li>
+<li><p><strong>Motion:</strong> the generated trajectory is streamed as fixed-format host-control command
+packets — <code class="docutils literal notranslate"><span class="pre">PMOVJ</span></code> (joint-pulse targets) or <code class="docutils literal notranslate"><span class="pre">MOVL</span></code> (Cartesian linear) — one waypoint
+at a time.</p></li>
+</ul>
+<p>Each axis has a calibrated <strong>pulses-per-radian</strong> table, so a joint angle in simulation
+converts exactly to the encoder pulse count the controller expects (verified round-trip
+error &lt; 0.1° per axis). In parallel, the controller streams <strong>encoder feedback</strong> back on
+a separate <strong>UDP channel (the “BLUE” feed, port 19450)</strong> — command vs. feedback pulses
+per axis — which is what lets the digital twin mirror the real robot’s live state.</p>
+<div class="oss-callout">
+<div class="oss-callout__head"><span class="hero-graph-tag">// SAFETY</span></div>
+<p>
+Motion commands (<code>MOVJ</code>, <code>MOVL</code>, <code>PMOVJ</code>) are only ever
+sent with the pendant in REMOTE, servos deliberately enabled, and after a slow single-repeat
+dry run — never auto-executed. Read commands (<code>RSTATS</code>, <code>RPOSJ</code>,
+<code>RPOSC</code>) are motion-free.
+</p>
+</div></section>
+<section id="communication-flow-cad-mujoco-real-robot">
+<h3>Communication flow — CAD → MuJoCo → real robot<a class="headerlink" href="#communication-flow-cad-mujoco-real-robot" title="Link to this heading">#</a></h3>
+<style>
+.wf{--acc:#22c55e;--acc2:#4ade80;--acc3:#86efac;background:#071510;border:1px solid rgba(34,197,94,.3);border-radius:14px;padding:24px 20px;margin:1.6rem auto;max-width:720px;display:flex;flex-direction:column;align-items:center;gap:0;font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;color:#e2e8f0;overflow:hidden}
+.wf__node{position:relative;width:82%;max-width:520px;text-align:center;background:linear-gradient(180deg,rgba(22,45,33,.75),rgba(7,21,16,.75));border:1px solid rgba(34,197,94,.3);border-radius:10px;padding:12px 16px;animation:wf-glow 3.2s ease-in-out infinite}
+.wf__node b{display:block;font-size:.98rem;font-weight:600;margin:.15rem 0;color:#f0fdf4}
+.wf__k{display:block;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);font-weight:700}
+.wf__d{display:block;font-size:.78rem;color:#a7c4b5;line-height:1.35}
+.wf__node--src{border-color:rgba(74,222,128,.5)}.wf__node--src .wf__k{color:var(--acc2)}
+.wf__node--pc{border-color:rgba(34,197,94,.55)}
+.wf__node--robot{border-color:rgba(134,239,172,.55)}.wf__node--robot .wf__k{color:var(--acc3)}
+.wf__node--out{border-color:rgba(34,197,94,.55)}
+.wf__link{position:relative;width:2px;height:34px;background:linear-gradient(180deg,rgba(34,197,94,.15),rgba(34,197,94,.65));overflow:visible}
+.wf__link::after{content:"";position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid rgba(34,197,94,.75)}
+.wf__link i{position:absolute;left:-3px;width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px 2px rgba(34,197,94,.85);animation:wf-fall 1.9s linear infinite}
+.wf__loop{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;width:100%}
+.wf__loop .wf__node{width:auto}
+.wf__bus{display:flex;flex-direction:column;gap:16px;min-width:160px}
+.wf__wire{position:relative;height:24px;display:flex;align-items:center;justify-content:center}
+.wf__wire::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:linear-gradient(90deg,transparent,rgba(34,197,94,.6),transparent)}
+.wf__wire--fb::before{background:linear-gradient(90deg,transparent,rgba(134,239,172,.55),transparent)}
+.wf__wlabel{position:relative;z-index:1;background:#071510;padding:0 6px;font-size:.62rem;letter-spacing:.03em;color:var(--acc)}
+.wf__wire--fb .wf__wlabel{color:var(--acc3)}
+.wf__pkt{position:absolute;top:50%;margin-top:-4px;width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px 2px rgba(34,197,94,.85)}
+.wf__pkt--r{animation:wf-r 1.6s linear infinite}
+.wf__wire--fb .wf__pkt{background:var(--acc3);box-shadow:0 0 10px 2px rgba(134,239,172,.85);animation:wf-l 1.6s linear infinite}
+@keyframes wf-fall{0%{top:-4px;opacity:0}12%{opacity:1}88%{opacity:1}100%{top:32px;opacity:0}}
+@keyframes wf-r{0%{left:4%;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:96%;opacity:0}}
+@keyframes wf-l{0%{left:96%;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:4%;opacity:0}}
+@keyframes wf-glow{0%,100%{box-shadow:0 0 0 rgba(34,197,94,0)}50%{box-shadow:0 0 16px rgba(34,197,94,.18)}}
+.wf__node:nth-child(3){animation-delay:.4s}.wf__node:nth-child(5){animation-delay:.8s}
+@media (max-width:640px){.wf__loop{grid-template-columns:1fr;gap:8px}.wf__wire::before{display:none}.wf__bus{flex-direction:row;justify-content:center;gap:10px}}
+@media (prefers-reduced-motion:reduce){.wf *{animation:none!important}}
+</style>
+<div class="wf">
+  <div class="wf__node wf__node--src"><span class="wf__k">01 · Input</span><b>Weld path — CAD / 3D scan</b><span class="wf__d">seam curve S(u)</span></div>
+  <div class="wf__link"><i></i></div>
+  <div class="wf__node"><span class="wf__k">02 · Plan</span><b>Trajectory generator (Python)</b><span class="wf__d">waypoints · torch orientation · IK (ikpy) → trajectory JSON</span></div>
+  <div class="wf__link"><i></i></div>
+  <div class="wf__node"><span class="wf__k">03 · Validate</span><b>MuJoCo — sim validation</b><span class="wf__d">dry-run · collision &amp; reach · sim ⇄ real matched 1:1</span></div>
+  <div class="wf__link"><i></i></div>
+  <div class="wf__loop">
+    <div class="wf__node wf__node--pc"><span class="wf__k">04 · Host control</span><b>Python host control (PC)</b><span class="wf__d">streams validated trajectory</span></div>
+    <div class="wf__bus">
+      <div class="wf__wire wf__wire--cmd"><span class="wf__wlabel">command · PMOVJ / MOVL · TCP :80 ▸</span><i class="wf__pkt wf__pkt--r"></i></div>
+      <div class="wf__wire wf__wire--fb"><span class="wf__wlabel">◂ BLUE encoder · UDP :19450</span><i class="wf__pkt"></i></div>
+    </div>
+    <div class="wf__node wf__node--robot"><span class="wf__k">YRC1000 · pendant=REMOTE</span><b>AR2010 — weld</b><span class="wf__d">executes each waypoint</span></div>
+  </div>
+  <div class="wf__link"><i></i></div>
+  <div class="wf__node wf__node--out"><span class="wf__k">05 · Mirror</span><b>Digital twin mirrors the real robot</b><span class="wf__d">20 Hz pose log · RPOSC + RPOSJ</span></div>
+</div></section>
+</section>
+<section id="roadmap">
+<h2>Roadmap<a class="headerlink" href="#roadmap" title="Link to this heading">#</a></h2>
+<p>Open-loop cycle first — extract seams → generate trajectory → validate in sim → execute
+on the real YRC1000 at the Hwashin testbed — with live 3D-camera seam detection and
+closed-loop adjustment as a later phase.</p>
+</section>
+<section id="tech-stack">
+<h2>Tech stack<a class="headerlink" href="#tech-stack" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Robots:</strong> dual Yaskawa Motoman AR2010 arc-welding arms on a Yaskawa YRC1000 controller</p></li>
+<li><p><strong>Motion:</strong> weld-seam extraction, waypoint + torch-orientation generation, approach/retract planning, <code class="docutils literal notranslate"><span class="pre">ikpy</span></code> inverse kinematics (welding-wire TCP)</p></li>
+<li><p><strong>Simulation:</strong> MuJoCo (fast) + NVIDIA Isaac Sim (photoreal), USD assets</p></li>
+<li><p><strong>Sim-to-real:</strong> pulses-per-radian calibration, host control over the YRC1000, CSV pose logging</p></li>
+<li><p><strong>Language:</strong> Python</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Digital%20Twin/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Digital Twin — Motoman MH180 Handling Robot</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Tensiq/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tensiq</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-main-objective">The main objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seam-welding-left-right-robots">Seam welding — left &amp; right robots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seam-1">Seam 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seam-5">Seam 5</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-motion-is-generated">How the motion is generated</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robot-model-sim-matched-to-the-real-cell-one-to-one">Robot model — sim matched to the real cell one-to-one</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-experiment-driving-the-physical-robot">Real-world experiment — driving the physical robot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-a-yaskawa-job-works-and-how-we-send-commands">How a Yaskawa JOB works, and how we send commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#communication-flow-cad-mujoco-real-robot">Communication flow — CAD → MuJoCo → real robot</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roadmap">Roadmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tech-stack">Tech stack</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Navaneet
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Navaneet.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

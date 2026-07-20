@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+    <title>Digital Twin — Motoman MH180 Handling Robot — Sai Navaneet – Portfolio</title>
+  
+
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=89db0c6f" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'source/projects/Digital Twin/index';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../../_static/js/scroll-video.js?v=c40cad62"></script>
+    <script src="../../../_static/js/custom.js?v=1a0cc657"></script>
+    <script src="../../../_static/js/video-section.js"></script>
+    <script type="module" src="../../../_static/js/background-3d.js?v=e2695d15"></script>
+    <link rel="canonical" href="https://sainavaneet.github.io/portfolio/source/projects/Digital%20Twin/index.html" />
+    <link rel="icon" href="../../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Weld Automation using Yaskawa Robots" href="../AR2010-Weld/index.html" />
+    <link rel="prev" title="Projects" href="../index.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+
+
+
+
+
+
+<meta name="description" content="Robotics + ML researcher. Vision-language-action models, diffusion policy, quadruped RL, model predictive control. 17 projects, 8 papers, 2024–2026." />
+<meta name="author" content="Sai Navaneet" />
+<meta name="theme-color" content="#040806" />
+
+<!-- Fonts: preconnect + non-blocking stylesheet swap (no @import, no render block) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" />
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      media="print" onload="this.media='all'; this.onload=null;" />
+<noscript><link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sai Navaneet — Portfolio" />
+<meta property="og:title" content="Digital Twin — Motoman MH180 Handling Robot · Sai Navaneet — Portfolio" />
+<meta property="og:description" content="Robotics + ML researcher. Vision-language-action models, diffusion policy, quadruped RL, model predictive control. 17 projects, 8 papers, 2024–2026." />
+<meta property="og:image" content="https://sainavaneet.github.io/portfolio/_static/profile3.png" />
+<meta property="og:url" content="https://sainavaneet.github.io/portfolio/" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Digital Twin — Motoman MH180 Handling Robot · Sai Navaneet — Portfolio" />
+<meta name="twitter:description" content="Robotics + ML researcher. Vision-language-action models, diffusion policy, quadruped RL, model predictive control. 17 projects, 8 papers, 2024–2026." />
+<meta name="twitter:image" content="https://sainavaneet.github.io/portfolio/_static/profile3.png" />
+
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Navaneet</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sainavaneet" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.linkedin.com/in/sainavaneet76/" title="LinkedIn" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i><span class="visually-hidden">LinkedIn</span></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Resume/index.html">Resume</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Projects</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Digital Twin — Motoman MH180 Handling Robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AR2010-Weld/index.html">Weld Automation using Yaskawa Robots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Tensiq/index.html">Tensiq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SUREFlow/index.html">SUREFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RL-PPC-FTC/index.html">RL Prescribed Performance · Fault-Tolerant Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../OpenARM-VLA/index.html">OpenARM-VLA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../MambaVLA/index.html">MambaVLA: A Scalable and Efficient Vision-Language-Action Model with State Space Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QROOT/index.html">QROOT: An Integrated Diffusion Transformer and Reinforcement Learning Approach for Quadrupedal Locomotion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DiffDAIL/index.html">DiffDAIL: Diffusion-Enhanced Vision-Guided Imitation Learning with Discrete Latent Representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DLDMP/index.html">Discrete Latent Diffusion Motion Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Tissue-processing/index.html">Transformer Based Vision Guided Tissue Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Actfranka/index.html">Action Chunck Transfomer on Franka Robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Autonomus%20Harvesting/index.html">🎉 Autonomus harvesting using Object Detecion</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../TelloDrone%20with%20KeyBoard/index.html">TelloDrone with Keyboard and Object Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LMPC-ILC/index.html">Hybrid Model Predictive and Iterative Learning Control for Enhanced Leader-Follower Robotic Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Imitation-Learning-Franka/index.html">Combining Imitation Learning with Diffusion Processes on Robot Manipulator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basic-reinforcment-Learning/index.html">Basic Reinforcement Learning Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Deep%20Neural%20Network%20Nonlinear%20Model%20Predictive%20Control%20for%20CSTR/index.html">Deep Neural Network Nonlinear Model Predictive Control for CSTR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Drone%20Control%20with%20Keyboard/index.html">Drone Control with Keyboard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Drone%20Trajectory%20Tracking/index.html">Drone Trajectory Tracking with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../32%20bit%20CPU%20based%20on%20MIPS%20architecture/index.html">32 bit CPU based on MIPS architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Smart%20Home%20Using%20Iot/index.html">Smart-Home-Using-IOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Verilog/index.html">Verilog Projects</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../experience/index.html">Experience</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications/index.html">Publications</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Blog/index.html">Blog</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/Bluetooth/index.html">Blog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/Vision-Language-Action-Transformer/index.html">Vision-Language-Action Transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/Actfranka/index.html">Vision Guided Imitation Learning using Action Chunk Transformer</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/isaacsim/index.html">Isaac Sim Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Blog/go2_robot_isaacsim/index.html">🐾 Go2 Robot in Isaac Sim (Omniverse)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Contact/index.html">Contact</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/source/projects/Digital Twin/index.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Digital Twin — Motoman MH180 Handling Robot</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precise-trajectory-execution-lula-ik">Precise trajectory execution (Lula IK)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-time-teleoperation">Real-time teleoperation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reach-to-target-and-pick-and-carry">Reach-to-target and pick-and-carry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#live-streaming-webrtc-over-tailscale">Live streaming (WebRTC over Tailscale)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scenes">Scenes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tech-stack">Tech stack</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="digital-twin-motoman-mh180-handling-robot">
+<h1>Digital Twin — Motoman MH180 Handling Robot<a class="headerlink" href="#digital-twin-motoman-mh180-handling-robot" title="Link to this heading">#</a></h1>
+<section class="proj-detail-hero">
+<div class="proj-detail-lede">
+<p class="proj-attribution">
+<span class="proj-attribution__tag">INDUSTRY · AIROBOTICS</span>
+<span class="proj-attribution__to">Handling-robot digital twin · NVIDIA Isaac Sim</span>
+</p>
+<p class="exp-hero-sub" style="margin-bottom: 1.4rem;">
+A physics-accurate <strong>digital twin</strong> of a <strong>Yaskawa Motoman MH180</strong>
+handling robot, built in <strong>NVIDIA Isaac Sim</strong>. The arm is driven along precise
+Cartesian paths, teleoperated in real time, and made to pick and carry workpieces — all
+streamed live over WebRTC so the virtual robot can be operated from anywhere. It is the
+handling side of the airobotics Digital Twin program; the arc-welding side is a
+<a href="../AR2010-Weld/index.html">separate project</a>.
+</p>
+<div class="proj-detail-meta">
+<span class="pub-status pub-status--published" style="background: rgba(124,58,237,0.10); color:#c084fc; border-color: rgba(124,58,237,0.35);">ISAAC SIM 5.1</span>
+<span class="pub-status pub-status--published" style="background: rgba(34,197,94,0.12); color:#4ade80; border-color: rgba(34,197,94,0.4);">MOTOMAN MH180</span>
+<span class="pub-status pub-status--published" style="background: rgba(245,158,11,0.10); color:#fbbf24; border-color: rgba(245,158,11,0.35);">REAL-TIME TELEOP</span>
+<span class="pub-status pub-status--published" style="background: rgba(6,182,212,0.10); color:#67e8f9; border-color: rgba(6,182,212,0.35);">WEBRTC STREAMING</span>
+</div>
+<div class="proj-detail-tags">
+<span class="tech-marquee__chip">Isaac Sim</span>
+<span class="tech-marquee__chip">USD · PhysX</span>
+<span class="tech-marquee__chip">Lula IK</span>
+<span class="tech-marquee__chip">RMPflow</span>
+<span class="tech-marquee__chip">Resolved-Rate (DLS)</span>
+<span class="tech-marquee__chip">Teleoperation</span>
+<span class="tech-marquee__chip">Pick &amp; Carry</span>
+<span class="tech-marquee__chip">WebRTC</span>
+<span class="tech-marquee__chip">Python</span>
+</div>
+</div>
+<div class="proj-detail-sidekick">
+<img src="../../../_static/images/DigitalTwin/featured.jpg" alt="Digital Twin — Motoman MH180 handling robots in the Isaac Sim cell" />
+</div>
+</section><figure style="margin:1.6rem 0;">
+  <video controls autoplay loop muted playsinline preload="metadata" width="100%" style="border-radius:8px;background:#000;">
+    <source src="../../../_static/videos/DigitalTwin/dual_showcase.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <figcaption>Motoman MH180 handling robots executing generated trajectories in the Isaac Sim digital twin.</figcaption>
+</figure><section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This project is the <strong>handling-robot digital twin</strong> in the airobotics program: a
+<strong>Yaskawa Motoman MH180</strong> (6-DOF, <code class="docutils literal notranslate"><span class="pre">tool0</span></code> end-effector, with a physically welded gripper)
+recreated in <strong>NVIDIA Isaac Sim 5.1</strong>. The goal is to plan, rehearse, and verify the
+robot’s motion — precise path tracking, manual teleoperation, and pick-and-carry — in
+simulation before anything touches real hardware, and to expose the virtual robot through
+the same interfaces (a streamed viewport, on-stream interaction) an operator would use on
+the shop floor.</p>
+<ul class="simple">
+<li><p>Robot imported self-contained (USD + physics + base), painted Yaskawa blue. The gripper
+is welded to the flange under real physics, so the articulation is <strong>24 DOF</strong>; the six
+arm joints are addressed by index.</p></li>
+<li><p>Two motion strategies, matched to the job: <strong>Lula IK</strong> for precise path tracking,
+<strong>RMPflow</strong> for reactive, collision-aware transit and handling.</p></li>
+</ul>
+</section>
+<section id="precise-trajectory-execution-lula-ik">
+<h2>Precise trajectory execution (Lula IK)<a class="headerlink" href="#precise-trajectory-execution-lula-ik" title="Link to this heading">#</a></h2>
+<p>The accurate route densifies a Cartesian path (line, up/down, circle, or square), solves
+position IK per waypoint from the robot URDF, and replays the timed joint trajectory with
+smoothstep interpolation, looping continuously.</p>
+<blockquote>
+<div><p><strong>Verified path-tracking residual: mean ~0.0002 mm, max ~0.0006 mm</strong> — sub-micron
+tracking of the commanded path.</p>
+</div></blockquote>
+<p>A key fix that made all IK correct: the USD <code class="docutils literal notranslate"><span class="pre">tool0</span></code> frame sits 0.5 m out from the final
+link but the URDF had a zero offset — the <code class="docutils literal notranslate"><span class="pre">group_1_joint_6</span> <span class="pre">→</span> <span class="pre">tool0</span></code> origin was corrected
+to <code class="docutils literal notranslate"><span class="pre">xyz=&quot;0.5</span> <span class="pre">0</span> <span class="pre">0&quot;</span></code>.</p>
+</section>
+<section id="real-time-teleoperation">
+<h2>Real-time teleoperation<a class="headerlink" href="#real-time-teleoperation" title="Link to this heading">#</a></h2>
+<figure style="margin:1.4rem 0;">
+  <video controls autoplay loop muted playsinline preload="metadata" width="100%" style="border-radius:8px;background:#000;">
+    <source src="../../../_static/videos/DigitalTwin/pick_teleop.mp4" type="video/mp4">
+  </video>
+  <figcaption>Teleoperating the gripper to a workpiece and picking it up, live over the WebRTC stream.</figcaption>
+</figure><p>The gripper can be driven around the cell to reach a workpiece. Control is <strong>resolved-rate
+(Jacobian damped-least-squares)</strong>: the joints move proportionally to a small Cartesian
+step each frame, so motion is smooth and can’t branch-flip (no ~180° wrist snaps),
+tracking both translation and orientation. Because the operator gripper is <code class="docutils literal notranslate"><span class="pre">tool_ee_2</span></code>
+(added under the gripper) while Lula only knows <code class="docutils literal notranslate"><span class="pre">tool0</span></code>, the teleop composes the fixed
+<code class="docutils literal notranslate"><span class="pre">tool0</span> <span class="pre">→</span> <span class="pre">tool_ee_2</span></code> offset to control the real tool frame.</p>
+<ul class="simple">
+<li><p><strong>Drag-to-move follow target:</strong> a red cube the gripper tracks in full pose, dragged live
+over the WebRTC stream so the arm can be steered straight from a browser.</p></li>
+</ul>
+<p>Full 3-axis orientation (roll/pitch/yaw) control via the same resolved-rate scheme:</p>
+<figure style="margin:1.4rem 0;max-width:760px;">
+  <video controls autoplay loop muted playsinline preload="metadata" width="100%" style="border-radius:8px;background:#000;">
+    <source src="../../../_static/videos/DigitalTwin/rpy_teleop.mp4" type="video/mp4">
+  </video>
+  <figcaption>Roll / pitch / yaw orientation control of the end-effector.</figcaption>
+</figure></section>
+<section id="reach-to-target-and-pick-and-carry">
+<h2>Reach-to-target and pick-and-carry<a class="headerlink" href="#reach-to-target-and-pick-and-carry" title="Link to this heading">#</a></h2>
+<p>I added an <strong>RMPflow reach</strong> that drives Gripper 2 to a product center through two
+waypoints (0.5 m above, then the center), finished with a short Lula-IK “settle” because
+pure RMPflow stalls a few hundred mm short at the low pose. Verified final tool_ee_2 error
+<strong>0.0001–0.0002 m</strong>.</p>
+<p>Building on that, a <strong>pick-and-carry</strong> routine auto-drives to a product, closes the
+gripper, and hands control to the user already carrying it. On grab it captures the fixed
+<code class="docutils literal notranslate"><span class="pre">tool_ee_2</span> <span class="pre">→</span> <span class="pre">product</span></code> transform and re-applies it every frame, so the product tracks the
+gripper in full 6-DOF. Verified rigidity in self-test: <strong>0.00000 m / 0.00000° drift</strong> — a
+perfectly rigid carry.</p>
+<blockquote>
+<div><p><strong>Troubleshooting captured:</strong> a carried product first refused to move with the gripper
+on-stream even though a headless check reported near-zero follow error. Root cause: the
+products are <em>kinematic</em> rigid bodies, so the pose had to be driven explicitly each
+frame (and their colliders disabled so the gripper seats cleanly) rather than relying on
+a physics joint.</p>
+</div></blockquote>
+</section>
+<section id="live-streaming-webrtc-over-tailscale">
+<h2>Live streaming (WebRTC over Tailscale)<a class="headerlink" href="#live-streaming-webrtc-over-tailscale" title="Link to this heading">#</a></h2>
+<p>Every demo takes <code class="docutils literal notranslate"><span class="pre">--stream</span></code> to broadcast the viewport over WebRTC
+(<code class="docutils literal notranslate"><span class="pre">omni.services.livestream.nvcf</span></code>, signalling port 49100), printing the host’s Tailscale
+IP. A built-in browser viewer (vendoring NVIDIA’s <code class="docutils literal notranslate"><span class="pre">omniverse-webrtc-streaming-library</span></code>) or
+the Isaac Sim WebRTC client connects from anywhere; resolution and FPS are tunable to
+trade quality for bandwidth/latency. The robot keeps running while streaming. <em>(Using
+<code class="docutils literal notranslate"><span class="pre">omni.services.livestream.nvcf</span></code> rather than <code class="docutils literal notranslate"><span class="pre">omni.kit.livestream.webrtc</span></code> was itself a fix
+— the latter produced an <code class="docutils literal notranslate"><span class="pre">NVST_CCE_DISCONNECTED</span></code> black screen.)</em></p>
+</section>
+<section id="scenes">
+<h2>Scenes<a class="headerlink" href="#scenes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Minimal scene:</strong> the standard clean environment (dark ground + reference grid +
+dome/key lighting) with the blue MH180 + gripper and a single <code class="docutils literal notranslate"><span class="pre">LX3_RR_CMBR_W250</span></code> jig in
+front of the robot.</p></li>
+<li><p><strong>Full cell:</strong> the reconstructed cell with the MH180 handling robot(s) and jig/workpiece
+assemblies in their correct positions.</p></li>
+</ul>
+</section>
+<section id="tech-stack">
+<h2>Tech stack<a class="headerlink" href="#tech-stack" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Simulation:</strong> NVIDIA Isaac Sim 5.1, USD, PhysX</p></li>
+<li><p><strong>Kinematics / motion:</strong> Lula IK, RMPflow, resolved-rate (Jacobian DLS) control</p></li>
+<li><p><strong>Robot:</strong> Yaskawa Motoman MH180 (handling, 6-DOF) + welded gripper</p></li>
+<li><p><strong>Streaming:</strong> WebRTC (<code class="docutils literal notranslate"><span class="pre">omni.services.livestream.nvcf</span></code>) over Tailscale, browser viewer</p></li>
+<li><p><strong>Language:</strong> Python</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Projects</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../AR2010-Weld/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Weld Automation using Yaskawa Robots</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precise-trajectory-execution-lula-ik">Precise trajectory execution (Lula IK)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-time-teleoperation">Real-time teleoperation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reach-to-target-and-pick-and-carry">Reach-to-target and pick-and-carry</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#live-streaming-webrtc-over-tailscale">Live streaming (WebRTC over Tailscale)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scenes">Scenes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tech-stack">Tech stack</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Navaneet
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Navaneet.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
