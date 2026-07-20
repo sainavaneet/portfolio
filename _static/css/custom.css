@@ -345,6 +345,14 @@ button[aria-label*="theme" i],
     margin-bottom: 0;
 }
 
+/* Hide the theme's default top header bar (with its "Search Ctrl+K" pill).
+   The custom .top-navbar replaces it. The search dialog (#pst-search-dialog)
+   lives OUTSIDE this element, and the search button stays in the DOM, so the
+   navbar search icon can still open the search dialog via .click(). */
+#pst-header {
+    display: none !important;
+}
+
 /* Mobile responsive */
 @media (max-width: 968px) {
     .top-navbar {
