@@ -345,6 +345,20 @@ button[aria-label*="theme" i],
     margin-bottom: 0;
 }
 
+/* Home page has a "# Home" heading (so the prev/next footer shows "Home"
+   instead of "no title"), but it is hidden visually to keep the hero design. */
+section#home > h1:first-child,
+#home > h1.headerlink,
+.bd-article section[id="home"] > h1:first-of-type {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* Hide the theme's default top header bar (with its "Search Ctrl+K" pill).
    The custom .top-navbar replaces it. The search dialog (#pst-search-dialog)
    lives OUTSIDE this element, and the search button stays in the DOM, so the
